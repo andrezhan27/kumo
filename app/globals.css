@@ -126,8 +126,9 @@ img {
   will-change: transform;
 }
 
-.menu-marquee:hover .menu-marquee-track {
-  animation-play-state: paused;
+.menu-marquee img {
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
 @keyframes menu-marquee {
