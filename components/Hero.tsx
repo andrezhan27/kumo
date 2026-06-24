@@ -66,13 +66,13 @@ export function Hero() {
             transition={{ delay: 0.27, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <MagneticButton
-              className="w-44 shadow-[0_0_32px_rgb(254_214_91/0.18)]"
+              className="w-48 whitespace-nowrap shadow-[0_0_32px_rgb(254_214_91/0.18)]"
               href={reservationPhoneHref}
             >
               {t.hero.primary}
             </MagneticButton>
             <a
-              className="label-caps inline-flex w-44 items-center justify-center gap-2 rounded-full border border-background/35 px-7 py-4 text-background transition-colors hover:border-gold hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:w-auto"
+              className="label-caps inline-flex w-48 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-background/35 px-7 py-4 text-background transition-colors hover:border-gold hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
               href="/menu"
             >
               {t.hero.secondary}

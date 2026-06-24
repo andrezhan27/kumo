@@ -84,7 +84,7 @@ export function BookTable() {
                 <div className="min-w-0 flex-1">
                   <span className="label-caps block text-gold-deep">{t.booking.hoursLabel}</span>
                   <p className="mt-2 text-base font-semibold leading-6 text-ink">
-                    {restaurantInfo.hours.days}
+                    {t.booking.daysLabel}
                   </p>
                   <div className="mt-3 grid gap-3 text-sm leading-6 text-ink-muted sm:grid-cols-2">
                     <p>
