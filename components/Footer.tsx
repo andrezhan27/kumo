@@ -32,7 +32,7 @@ export function Footer() {
             <a
               aria-label="Instagram"
               className="grid h-11 w-11 place-items-center rounded-lg border border-background/15 text-background/55 transition-colors hover:border-background/35 hover:text-background"
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/sushiking_portugal/"
               rel="noreferrer"
               target="_blank"
             >
@@ -41,7 +41,7 @@ export function Footer() {
             <a
               aria-label="TikTok"
               className="grid h-11 w-11 place-items-center rounded-lg border border-background/15 text-background/55 transition-colors hover:border-background/35 hover:text-background"
-              href="https://www.tiktok.com/"
+              href="https://www.tiktok.com/@sushi.king.portugal"
               rel="noreferrer"
               target="_blank"
             >

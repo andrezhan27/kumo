@@ -18,11 +18,12 @@ export function Navbar() {
   const isHomePage = pathname === "/";
   const homeHref = isHomePage ? "#home" : "/";
   const contactHref = isHomePage ? "#contact" : "/#contact";
+  const bookingSectionHref = isHomePage ? "#booking" : "/#booking";
 
   const links = [
     { label: t.nav.home, href: homeHref },
     { label: t.nav.menu, href: "/menu" },
-    { label: t.nav.contact, href: contactHref },
+    { label: t.nav.contact, href: contactHref, mobileHref: bookingSectionHref },
   ];
 
   return (
@@ -88,6 +89,7 @@ export function Navbar() {
               <div className="section-shell pb-8 pt-2">
                 <nav>
                   {links.map((link, i) => {
+                    const href = link.mobileHref ?? link.href;
                     const sharedClass =
                       "group flex items-center justify-between border-b border-line/30 py-5 last:border-b-0 focus-visible:outline-none";
                     const inner = (
@@ -102,7 +104,7 @@ export function Navbar() {
                     );
                     return (
                       <motion.div
-                        key={link.href}
+                        key={href}
                         custom={i}
                         variants={{
                           open: (idx: number) => ({
@@ -113,12 +115,12 @@ export function Navbar() {
                           closed: { opacity: 0, y: -8 },
                         }}
                       >
-                        {link.href.startsWith("#") ? (
-                          <a className={sharedClass} href={link.href} onClick={() => setOpen(false)}>
+                        {href.startsWith("#") ? (
+                          <a className={sharedClass} href={href} onClick={() => setOpen(false)}>
                             {inner}
                           </a>
                         ) : (
-                          <Link className={sharedClass} href={link.href} onClick={() => setOpen(false)}>
+                          <Link className={sharedClass} href={href} onClick={() => setOpen(false)}>
                             {inner}
                           </Link>
                         )}
