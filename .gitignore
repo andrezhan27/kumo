@@ -1,0 +1,25 @@
+# Next.js
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+tsconfig.tsbuildinfo
+
+# Environment variables
+.env*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel
