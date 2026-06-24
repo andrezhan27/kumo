@@ -207,7 +207,7 @@ export const translations = {
       eyebrow: "O espaço",
       title: "O Nosso Espaço",
       description:
-        "Luz baixa, materiais táteis e um ritmo intimista. Descubra o ambiente do Sushi King em Faro — perfeito para jantares tranquilos, celebrações e noites especiais.",
+        "Luzes vibrantes, materiais táteis e um ritmo intimista. Descubra o ambiente do Sushi King em Faro — perfeito para jantares tranquilos, celebrações e noites especiais.",
       counter: "Balcão",
       diningRoom: "Sala",
       bar: "Bar",
@@ -296,7 +296,7 @@ export const translations = {
       eyebrow: "Our space",
       title: "Our Space",
       description:
-        "Low light, tactile materials and an intimate pace. Discover Sushi King's ambience in Faro — perfect for quiet dinners, celebrations and special evenings.",
+        "Vibrant lighting, tactile materials and an intimate pace. Discover Sushi King's ambience in Faro — perfect for quiet dinners, celebrations and special evenings.",
       counter: "Counter",
       diningRoom: "Dining Room",
       bar: "Bar",
