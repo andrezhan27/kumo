@@ -22,8 +22,8 @@ const imageFrames = [
   "aspect-square md:aspect-[4/3]",
   "aspect-square md:aspect-[4/3]",
   "aspect-[4/5] md:aspect-[4/3]",
-  "aspect-[5/6] md:aspect-[4/3]",
-  "aspect-[5/6] md:aspect-[4/3]",
+  "aspect-[5/6] md:aspect-[2/3]",
+  "aspect-[5/6] md:aspect-[2/3]",
   "aspect-[16/10] md:aspect-[4/3]",
 ] as const;
 

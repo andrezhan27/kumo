@@ -26,8 +26,9 @@ export function MenuCarousel() {
   return (
     <section className="bg-surface py-section" id="menu-section">
       <div className="section-shell overflow-hidden">
-        <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+        <div className="grid gap-10">
           <motion.div
+            className="mx-auto grid max-w-3xl justify-items-center gap-6 text-center"
             initial={{ opacity: 0, y: 24 }}
             transition={{ duration: 0.65 }}
             viewport={{ once: true, margin: "-120px" }}
@@ -36,22 +37,24 @@ export function MenuCarousel() {
             <h2 className="display-serif max-w-2xl text-5xl leading-none text-ink md:text-7xl">
               {t.menuSection.title}
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-ink-muted">
-              {t.menuSection.description}
-            </p>
-            <div className="mt-8 flex items-center">
-              <Link
-                className="label-caps inline-flex items-center gap-2 text-ink transition-colors hover:text-gold-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
-                href="/menu"
-              >
-                {t.menuSection.viewFull}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+            <div>
+              <p className="max-w-xl text-lg leading-8 text-ink-muted">
+                {t.menuSection.description}
+              </p>
+              <div className="mt-8 flex items-center justify-center">
+                <Link
+                  className="label-caps inline-flex items-center gap-2 text-ink transition-colors hover:text-gold-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+                  href="/menu"
+                >
+                  {t.menuSection.viewFull}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </motion.div>
 
           <motion.div
-            className="menu-marquee relative -mx-edge overflow-hidden py-1 lg:-mr-edge lg:ml-0"
+            className="menu-marquee relative -mx-edge overflow-hidden py-1"
             initial={{ opacity: 0, y: 24 }}
             transition={{ delay: 0.08, duration: 0.65 }}
             viewport={{ once: true, margin: "-120px" }}

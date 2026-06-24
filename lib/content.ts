@@ -170,7 +170,7 @@ export const translations = {
       title: "O Nosso Menu",
       description:
         "Peças precisas, arroz temperado no ponto e produtos escolhidos para uma degustação sofisticada.",
-      viewFull: "Ver menu completo",
+      viewFull: "Explorar o menu",
     },
     pricing: {
       title: "Preçário",
@@ -258,7 +258,7 @@ export const translations = {
       title: "Our Menu",
       description:
         "Precise cuts, perfectly seasoned rice and ingredients selected for a refined tasting experience.",
-      viewFull: "View full menu",
+      viewFull: "Explore the menu",
     },
     pricing: {
       title: "Pricing",
