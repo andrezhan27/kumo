@@ -148,6 +148,45 @@ export const pricingGroups = [
   },
 ] as const;
 
+export const takeawayItems = [
+  {
+    id: "caixa-12",
+    image: "/takeaway/caixa de 12pz - N39 - 15eur.webp",
+    price: "15€",
+    pieces: "12",
+  },
+  {
+    id: "caixa-18",
+    image: "/takeaway/caixa de 18pz - N37 - 15eur.webp",
+    price: "15€",
+    pieces: "18",
+  },
+  {
+    id: "caixa-23",
+    image: "/takeaway/caixa de 23pz - N36 - 18eur.webp",
+    price: "18€",
+    pieces: "23",
+  },
+  {
+    id: "caixa-38",
+    image: "/takeaway/caixa de 38pz - N38 - 30eur.webp",
+    price: "30€",
+    pieces: "38",
+  },
+  {
+    id: "caixa-56",
+    image: "/takeaway/caixa de 56pz - N39 - 50eur.webp",
+    price: "50€",
+    pieces: "56",
+  },
+  {
+    id: "sashimi-misto-12",
+    image: "/takeaway/sashimi misto 12pz - N32 - 15eur.webp",
+    price: "15€",
+    pieces: "12",
+  },
+] as const;
+
 export const translations = {
   pt: {
     nav: {
@@ -155,6 +194,7 @@ export const translations = {
       menu: "Menu",
       contact: "Contactos",
       book: "Reservar Mesa",
+      takeaway: "Take Away",
     },
     hero: {
       eyebrow: "Sushi premium em Faro",
@@ -226,6 +266,23 @@ export const translations = {
       lunchLabel: "Almoço",
       dinnerLabel: "Jantar",
     },
+    takeaway: {
+      eyebrow: "Take away",
+      title: "Menu Take Away",
+      description:
+        "Caixas preparadas no momento para levar, com combinados frescos e sashimi selecionado.",
+      phoneCta: "Encomendar por telefone",
+      priceLabel: "Preço",
+      readyLabel: "Preparado para levar",
+      items: [
+        { id: "caixa-12", name: "Caixa de 12 peças" },
+        { id: "caixa-18", name: "Caixa de 18 peças" },
+        { id: "caixa-23", name: "Caixa de 23 peças" },
+        { id: "caixa-38", name: "Caixa de 38 peças" },
+        { id: "caixa-56", name: "Caixa de 56 peças" },
+        { id: "sashimi-misto-12", name: "Sashimi misto 12 peças" },
+      ],
+    },
     footer: {
       note: "Sushi Buffet em Faro, Algarve — Fresco, Rápido, Sem Limites.",
       rights: "Todos os direitos reservados.",
@@ -244,6 +301,7 @@ export const translations = {
       menu: "Menu",
       contact: "Contact Us",
       book: "Book a Table",
+      takeaway: "Takeaway",
     },
     hero: {
       eyebrow: "Premium sushi in Faro",
@@ -314,6 +372,23 @@ export const translations = {
       daysLabel: "Every day",
       lunchLabel: "Lunch",
       dinnerLabel: "Dinner",
+    },
+    takeaway: {
+      eyebrow: "Take away",
+      title: "Takeaway Menu",
+      description:
+        "Freshly prepared boxes to take away, with selected sushi combinations and sashimi.",
+      phoneCta: "Order by phone",
+      priceLabel: "Price",
+      readyLabel: "Prepared to take away",
+      items: [
+        { id: "caixa-12", name: "12 pc box" },
+        { id: "caixa-18", name: "18 pc box" },
+        { id: "caixa-23", name: "23 pc box" },
+        { id: "caixa-38", name: "38 pc box" },
+        { id: "caixa-56", name: "56 pc box" },
+        { id: "sashimi-misto-12", name: "Mixed sashimi 12 pc" },
+      ],
     },
     footer: {
       note: "All-You-Can-Eat Sushi in Faro, Algarve — Fresh, Fast, Unlimited.",

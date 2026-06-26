@@ -5,6 +5,7 @@ import { MenuCarousel } from "@/components/MenuCarousel";
 import { Navbar } from "@/components/Navbar";
 import { PricingSection } from "@/components/PricingSection";
 import { SpaceCarousel } from "@/components/SpaceCarousel";
+import { TakeawaySection } from "@/components/TakeawaySection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <PricingSection />
         <SpaceCarousel />
         <BookTable />
+        <TakeawaySection />
       </main>
       <Footer />
     </>

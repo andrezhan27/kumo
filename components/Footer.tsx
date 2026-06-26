@@ -21,7 +21,7 @@ export function Footer() {
     <footer className="bg-[#0a0908] py-14" id="contact">
       <div className="section-shell">
         <Link className="display-serif inline-flex items-center gap-3 text-3xl tracking-[0.08em] text-background" href="/">
-          <Image alt="" aria-hidden src="/favicon.svg" width={40} height={40} className="h-10 w-10" />
+          <Image alt="" aria-hidden src="/sushi-king-logo.png" width={40} height={40} className="h-10 w-10" />
           {brandName}
         </Link>
         <p className="mt-4 max-w-sm text-sm leading-6 text-background/50">{t.footer.note}</p>

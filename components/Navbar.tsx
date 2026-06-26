@@ -3,13 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MagneticButton } from "@/components/MagneticButton";
 import { useLanguage } from "@/components/LanguageProvider";
-import { brandName, reservationPhoneHref } from "@/lib/content";
+import { brandName } from "@/lib/content";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -19,6 +19,7 @@ export function Navbar() {
   const homeHref = isHomePage ? "#home" : "/";
   const contactHref = isHomePage ? "#contact" : "/#contact";
   const bookingSectionHref = isHomePage ? "#booking" : "/#booking";
+  const takeawayHref = isHomePage ? "#takeaway" : "/#takeaway";
 
   const links = [
     { label: t.nav.home, href: homeHref },
@@ -34,7 +35,7 @@ export function Navbar() {
           className="display-serif flex shrink-0 items-center gap-2 text-2xl tracking-[0.08em] text-ink md:text-3xl"
           href={homeHref}
         >
-          <Image alt="" aria-hidden src="/favicon.svg" width={32} height={32} className="h-8 w-8" />
+          <Image alt="" aria-hidden src="/sushi-king-logo.png" width={32} height={32} className="h-8 w-8" />
           {brandName}
         </Link>
 
@@ -52,8 +53,8 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <LanguageToggle />
-          <MagneticButton className="w-44" href={reservationPhoneHref}>
-            {t.nav.book}
+          <MagneticButton className="w-44" href={takeawayHref}>
+            {t.nav.takeaway}
           </MagneticButton>
         </div>
 
@@ -140,11 +141,11 @@ export function Navbar() {
                     closed: { opacity: 0, y: -8 },
                   }}
                   className="label-caps mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-ink py-4 text-background transition-opacity hover:opacity-80"
-                  href={reservationPhoneHref}
+                  href={takeawayHref}
                   onClick={() => setOpen(false)}
                 >
-                  <Phone className="h-4 w-4" />
-                  {t.nav.book}
+                  <ShoppingBag className="h-4 w-4" />
+                  {t.nav.takeaway}
                 </motion.a>
               </div>
             </div>
