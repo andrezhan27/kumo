@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Manrope } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import type { ReactNode } from "react";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { brandName } from "@/lib/content";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html className={`${bodoni.variable} ${manrope.variable}`} lang="pt">
       <body>
         <LanguageProvider>{children}</LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
