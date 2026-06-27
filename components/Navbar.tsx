@@ -17,14 +17,13 @@ export function Navbar() {
   const { t } = useLanguage();
   const isHomePage = pathname === "/";
   const homeHref = isHomePage ? "#home" : "/";
-  const contactHref = isHomePage ? "#contact" : "/#contact";
-  const bookingSectionHref = isHomePage ? "#booking" : "/#booking";
+  const contactHref = isHomePage ? "#booking" : "/#booking";
   const takeawayHref = isHomePage ? "#takeaway" : "/#takeaway";
 
   const links = [
     { label: t.nav.home, href: homeHref },
     { label: t.nav.menu, href: "/menu" },
-    { label: t.nav.contact, href: contactHref, mobileHref: bookingSectionHref },
+    { label: t.nav.contact, href: contactHref },
   ];
 
   return (
@@ -90,7 +89,7 @@ export function Navbar() {
               <div className="section-shell pb-8 pt-2">
                 <nav>
                   {links.map((link, i) => {
-                    const href = link.mobileHref ?? link.href;
+                    const href = link.href;
                     const sharedClass =
                       "group flex items-center justify-between border-b border-line/30 py-5 last:border-b-0 focus-visible:outline-none";
                     const inner = (
