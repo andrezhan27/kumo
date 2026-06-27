@@ -20,7 +20,43 @@ const categories = [
   "Bebidas",
 ];
 
-const menuImages = [
+type MenuImage = {
+  fileName: string;
+  title: string;
+  category: string;
+  alt?: string;
+  isNew?: boolean;
+};
+
+const menuImages: MenuImage[] = [
+  {
+    fileName: "novidades/carne-salteada-legumes.webp",
+    title: "Carne salteada com legumes",
+    category: "Pratos quentes",
+    alt: "Carne salteada com legumes servida num tacho metálico sobre a mesa",
+    isNew: true,
+  },
+  {
+    fileName: "novidades/caldo-marisco.webp",
+    title: "Caldo de marisco especial",
+    category: "Pratos quentes",
+    alt: "Caldo de marisco especial servido num tacho metálico",
+    isNew: true,
+  },
+  {
+    fileName: "novidades/gambas-massa-salteada.webp",
+    title: "Gambas com massa salteada",
+    category: "Massas arroz",
+    alt: "Gambas com massa salteada e legumes servidas num tacho metálico",
+    isNew: true,
+  },
+  {
+    fileName: "novidades/tempura-camarao.webp",
+    title: "Tempura crocante de camarão",
+    category: "Frito",
+    alt: "Tempura crocante de camarão num prato retangular com molho",
+    isNew: true,
+  },
   { fileName: "S51.png", title: "S51. Sashimi misto special", category: "Sashimi" },
   { fileName: "548.png", title: "S48. Sashimi de salmão", category: "Sashimi" },
   { fileName: "549.png", title: "S49. Sashimi de atum", category: "Sashimi" },
@@ -167,15 +203,20 @@ export default function MenuPage() {
                 transition={{ delay: index * 0.035, duration: 0.45 }}
               >
                 <Image
-                  alt={`Imagem do menu ${item.title}`}
+                  alt={item.alt ?? `Imagem do menu ${item.title}`}
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.035]"
                   fill
                   priority={index < 3}
                   sizes="(min-width: 1280px) 31vw, (min-width: 640px) 48vw, 100vw"
                   src={getMenuImageSrc(item.fileName)}
                 />
+                {item.isNew ? (
+                  <div className="absolute left-4 top-4 z-10 rounded-full bg-gold px-3.5 py-2 text-[0.68rem] font-extrabold uppercase leading-none tracking-[0.1em] text-ink shadow-sm">
+                    Novo
+                  </div>
+                ) : null}
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/82 via-black/35 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
+                <div className="absolute inset-x-0 bottom-0 flex items-end p-5">
                   <div>
                     <p className="mb-1 text-[0.68rem] font-extrabold uppercase leading-none tracking-[0.08em] text-[#d8b86a]">
                       {item.category}
@@ -184,9 +225,6 @@ export default function MenuPage() {
                       {getDisplayTitle(item.title)}
                     </h3>
                   </div>
-                  <span className="shrink-0 text-sm font-extrabold text-[#c9a24b]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
                 </div>
               </motion.article>
             ))}
