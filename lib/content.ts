@@ -150,6 +150,12 @@ export const pricingGroups = [
 
 export const takeawayItems = [
   {
+    id: "sashimi-misto-12",
+    image: "/takeaway/sashimi misto 12pz - N32 - 15eur.webp",
+    price: "15€",
+    pieces: "12",
+  },
+  {
     id: "caixa-12",
     image: "/takeaway/caixa de 12pz - N39 - 15eur.webp",
     price: "15€",
@@ -178,12 +184,6 @@ export const takeawayItems = [
     image: "/takeaway/caixa de 56pz - N39 - 50eur.webp",
     price: "50€",
     pieces: "56",
-  },
-  {
-    id: "sashimi-misto-12",
-    image: "/takeaway/sashimi misto 12pz - N32 - 15eur.webp",
-    price: "15€",
-    pieces: "12",
   },
 ] as const;
 
@@ -275,12 +275,12 @@ export const translations = {
       priceLabel: "Preço",
       readyLabel: "Preparado para levar",
       items: [
+        { id: "sashimi-misto-12", name: "Sashimi misto 12 peças" },
         { id: "caixa-12", name: "Caixa de 12 peças" },
         { id: "caixa-18", name: "Caixa de 18 peças" },
         { id: "caixa-23", name: "Caixa de 23 peças" },
         { id: "caixa-38", name: "Caixa de 38 peças" },
         { id: "caixa-56", name: "Caixa de 56 peças" },
-        { id: "sashimi-misto-12", name: "Sashimi misto 12 peças" },
       ],
     },
     footer: {
@@ -382,12 +382,12 @@ export const translations = {
       priceLabel: "Price",
       readyLabel: "Prepared to take away",
       items: [
+        { id: "sashimi-misto-12", name: "Mixed sashimi 12 pc" },
         { id: "caixa-12", name: "12 pc box" },
         { id: "caixa-18", name: "18 pc box" },
         { id: "caixa-23", name: "23 pc box" },
         { id: "caixa-38", name: "38 pc box" },
         { id: "caixa-56", name: "56 pc box" },
-        { id: "sashimi-misto-12", name: "Mixed sashimi 12 pc" },
       ],
     },
     footer: {
