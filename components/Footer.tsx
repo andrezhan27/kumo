@@ -49,6 +49,15 @@ export function Footer() {
             </a>
           </div>
         </div>
+
+        <a
+          className="mt-10 inline-flex text-sm font-semibold leading-6 text-background/45 transition-colors hover:text-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+          href="https://intelis.pt/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          {t.footer.rights}
+        </a>
       </div>
     </footer>
   );

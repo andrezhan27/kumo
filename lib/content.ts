@@ -285,7 +285,7 @@ export const translations = {
     },
     footer: {
       note: "Sushi Buffet em Faro, Algarve — Fresco, Rápido, Sem Limites.",
-      rights: "Todos os direitos reservados.",
+      rights: "Designed by Intelis. Todos os direitos reservados.",
     },
     menu: {
       back: "Voltar",
@@ -392,7 +392,7 @@ export const translations = {
     },
     footer: {
       note: "All-You-Can-Eat Sushi in Faro, Algarve — Fresh, Fast, Unlimited.",
-      rights: "All rights reserved.",
+      rights: "Designed by Intelis. All rights reserved.",
     },
     menu: {
       back: "Back",
