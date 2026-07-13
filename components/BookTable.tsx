@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
 import { restaurantInfo } from "@/lib/content";
@@ -22,12 +22,6 @@ export function BookTable() {
       icon: <Phone className={infoIconClass} />,
       label: t.booking.phoneLabel,
       value: restaurantInfo.phone,
-    },
-    {
-      href: `mailto:${restaurantInfo.email}`,
-      icon: <Mail className={infoIconClass} />,
-      label: t.booking.emailLabel,
-      value: restaurantInfo.email,
     },
   ];
 
