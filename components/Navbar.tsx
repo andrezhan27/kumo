@@ -24,6 +24,7 @@ export function Navbar() {
     { label: t.nav.home, href: homeHref },
     { label: t.nav.menu, href: "/menu" },
     { label: t.nav.contact, href: contactHref },
+    { label: t.nav.book, href: "/reservar" },
   ];
 
   return (
@@ -38,26 +39,26 @@ export function Navbar() {
           {brandName}
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 lg:flex">
           {links.map((link) => (
-            <a
+            <Link
               className="label-caps text-ink-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
               href={link.href}
               key={link.href}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <LanguageToggle />
           <MagneticButton className="w-44" href={takeawayHref}>
             {t.nav.takeaway}
           </MagneticButton>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <LanguageToggle />
           <button
             aria-expanded={open}
@@ -75,7 +76,7 @@ export function Navbar() {
         {open ? (
           <motion.div
             animate="open"
-            className="md:hidden"
+            className="lg:hidden"
             exit="closed"
             initial="closed"
             variants={{

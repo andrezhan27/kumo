@@ -114,14 +114,13 @@ export const restaurantInfo = {
   phone: "+351 935 178 351",
   phoneHref: "tel:+351935178351",
   mapHref: "https://maps.app.goo.gl/yM64HDoChaWjS5Ci9",
+  reservationWidgetUrl: "https://reserve.intelis.pt/sushiking",
   hours: {
     days: "Todos os dias",
     lunch: "12:00 - 15:00",
     dinner: "19:00 - 23:00",
   },
 } as const;
-
-export const reservationPhoneHref = restaurantInfo.phoneHref;
 
 export const pricingGroups = [
   {

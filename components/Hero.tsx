@@ -6,7 +6,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { MagneticButton } from "@/components/MagneticButton";
 import { useLanguage } from "@/components/LanguageProvider";
-import { reservationPhoneHref } from "@/lib/content";
 
 export function Hero() {
   const ref = useRef<HTMLElement | null>(null);
@@ -67,7 +66,7 @@ export function Hero() {
           >
             <MagneticButton
               className="w-48 whitespace-nowrap shadow-[0_0_32px_rgb(254_214_91/0.18)]"
-              href={reservationPhoneHref}
+              href="/reservar"
             >
               {t.hero.primary}
             </MagneticButton>
