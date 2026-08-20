@@ -50,3 +50,16 @@ This project is configured for zero-config deployment on [Vercel](https://vercel
 ## Environment Variables
 
 Copy `.env.example` to `.env.local` and fill in any required values.
+
+The database-driven footer legal links require these variables locally and in
+each applicable Vercel environment:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_your-key
+```
+
+Use only a Supabase publishable key. Never configure a secret or service-role
+key for this feature. Adding or changing either Vercel environment variable
+requires a redeployment. Changes to the restaurant's legal URLs in Supabase
+appear on the website after the five-minute revalidation interval.
