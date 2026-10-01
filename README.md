@@ -79,6 +79,9 @@ desktop layout: white panel, poster on the left, complete copy and black CTA on
 the right. Multiple active promotions use the package's card layout. On mobile,
 the package fits the image and copy into a 65% viewport-height popup; long copy
 is truncated to keep the CTA visible.
+Promotion titles always wrap in full on desktop and mobile. When a title exceeds
+the available card height, its text column scrolls so the entire title and CTA
+remain accessible.
 
 The popup opens automatically once per browser-tab session. Visitors can close
 it with the close button, backdrop, or Escape, then reopen it with the floating

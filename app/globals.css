@@ -91,6 +91,30 @@ img {
   border-radius: 0.3rem;
 }
 
+/* Never truncate promotion titles, including mobile and multi-offer cards. */
+.restaurant-promotions [role="dialog"] article h3 {
+  display: block;
+  overflow: visible;
+  max-height: none;
+  -webkit-line-clamp: unset;
+  overflow-wrap: anywhere;
+}
+
+/* Long titles can scroll without hiding their beginning or the CTA. */
+.restaurant-promotions [role="dialog"] article > div:last-child {
+  overflow-y: auto;
+}
+
+.restaurant-promotions [role="dialog"] [data-count="single"] article > div:last-child {
+  justify-content: safe center;
+}
+
+@media (max-width: 48rem) {
+  .restaurant-promotions [role="dialog"] [data-count="multiple"] article > div:last-child {
+    justify-content: safe center;
+  }
+}
+
 /* Match the reference's single-offer desktop poster and full-length copy. */
 @media (min-width: 48.001rem) {
   .restaurant-promotions [role="dialog"] [data-count="single"] article[data-active] {
