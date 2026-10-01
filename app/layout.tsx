@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { PromotionBanner } from "@andrezhan27/intelis-restaurant-ui";
 import type { ReactNode } from "react";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { brandName } from "@/lib/content";
@@ -37,6 +38,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html className={`${bodoni.variable} ${manrope.variable}`} lang="pt">
       <body>
+        <div className="restaurant-promotions">
+          <PromotionBanner restaurantId="sushiking" ariaLabel="Promoções" />
+        </div>
         <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>

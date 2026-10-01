@@ -63,3 +63,24 @@ Use only a Supabase publishable key. Never configure a secret or service-role
 key for this feature. Adding or changing either Vercel environment variable
 requires a redeployment. Changes to the restaurant's legal URLs in Supabase
 appear on the website after the five-minute revalidation interval.
+
+## Promotion popup
+
+`@andrezhan27/intelis-restaurant-ui` loads active promotions for restaurant ID
+`sushiking` using the same Supabase environment variables. Its public
+`get_restaurant_promotion_state` RPC and broadcast migrations must be installed
+in that project. With no active promotions or missing configuration, no popup
+or promotions button is shown.
+
+Configure a promotion in the Intelis dashboard with a title, description, image
+URL, image alt text, CTA text, and CTA destination `/reservar`. Use a portrait
+image around a 4:5 ratio and one active promotion to match the reference's
+desktop layout: white panel, poster on the left, complete copy and black CTA on
+the right. Multiple active promotions use the package's card layout. On mobile,
+the package fits the image and copy into a 65% viewport-height popup; long copy
+is truncated to keep the CTA visible.
+
+The popup opens automatically once per browser-tab session. Visitors can close
+it with the close button, backdrop, or Escape, then reopen it with the floating
+`Ver Promoções` button below the navbar. Promotion edits update through the
+package's live subscription and scheduled refreshes.

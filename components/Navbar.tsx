@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, ShoppingBag, X } from "lucide-react";
+import { CalendarDays, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -24,7 +24,7 @@ export function Navbar() {
     { label: t.nav.home, href: homeHref },
     { label: t.nav.menu, href: "/menu" },
     { label: t.nav.contact, href: contactHref },
-    { label: t.nav.book, href: "/reservar" },
+    { label: t.nav.takeaway, href: takeawayHref },
   ];
 
   return (
@@ -53,8 +53,8 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageToggle />
-          <MagneticButton className="w-44" href={takeawayHref}>
-            {t.nav.takeaway}
+          <MagneticButton className="w-44" href="/reservar">
+            {t.nav.book}
           </MagneticButton>
         </div>
 
@@ -141,11 +141,11 @@ export function Navbar() {
                     closed: { opacity: 0, y: -8 },
                   }}
                   className="label-caps mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-ink py-4 text-background transition-opacity hover:opacity-80"
-                  href={takeawayHref}
+                  href="/reservar"
                   onClick={() => setOpen(false)}
                 >
-                  <ShoppingBag className="h-4 w-4" />
-                  {t.nav.takeaway}
+                  <CalendarDays className="h-4 w-4" />
+                  {t.nav.book}
                 </motion.a>
               </div>
             </div>
