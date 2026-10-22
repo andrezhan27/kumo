@@ -4,22 +4,45 @@ out/
 
 # Dependencies
 node_modules/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
 # Build artifacts
 dist/
-tsconfig.tsbuildinfo
+build/
+coverage/
+*.tsbuildinfo
+.cache/
+.eslintcache
+.turbo/
 
 # Environment variables
 .env*
 !.env.example
+*.pem
+*.key
 
 # Logs
 *.log
 npm-debug.log*
+*.pid
 
 # OS
 .DS_Store
 Thumbs.db
+Desktop.ini
+._*
+
+# Local editor state
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
 
 # Vercel
-.vercel
+.vercel/

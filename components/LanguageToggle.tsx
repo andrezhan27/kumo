@@ -1,35 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
 import type { Language } from "@/lib/content";
 
-const options: Language[] = ["pt", "en"];
+const options: Language[] = ["fr", "en"];
 
-export function LanguageToggle() {
+export function LanguageToggle({ inverted = false }: { inverted?: boolean }) {
   const { language, setLanguage } = useLanguage();
-
   return (
-    <div
-      aria-label="Language selector"
-      className="relative grid h-10 w-[116px] grid-cols-2 rounded-full border border-line/70 bg-surface p-1 shadow-sm"
-      role="group"
-    >
-      <motion.div
-        animate={{ x: language === "pt" ? 0 : 54 }}
-        className="absolute left-1 top-1 h-8 w-[54px] rounded-full bg-ink"
-        transition={{ type: "spring", stiffness: 420, damping: 34 }}
-      />
-      {options.map((option) => (
-        <button
-          aria-pressed={language === option}
-          className={`label-caps relative z-10 rounded-full text-center transition-colors ${
-            language === option ? "text-background" : "text-ink-muted hover:text-ink"
-          }`}
-          key={option}
-          onClick={() => setLanguage(option)}
-          type="button"
-        >
+    <div aria-label="Langue / Language" className={`grid h-10 w-24 shrink-0 grid-cols-2 rounded-lg border p-1 transition-colors sm:w-[108px] ${inverted ? "border-background/35 bg-background/10" : "border-line/70 bg-surface"}`} role="group">
+      {options.map(option => (
+        <button aria-label={option === "fr" ? "Français" : "English"} aria-pressed={language === option} className={`label-caps rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${language === option ? inverted ? "bg-background text-ink" : "bg-ink text-background" : inverted ? "text-background/80 hover:text-background" : "text-ink-muted hover:text-ink"}`} key={option} lang={option} onClick={() => setLanguage(option)} type="button">
           {option.toUpperCase()}
         </button>
       ))}

@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
-import { pricingGroups } from "@/lib/content";
+import { restaurantInfo } from "@/lib/content";
 
 export function PricingSection() {
   const { t } = useLanguage();
@@ -10,68 +9,39 @@ export function PricingSection() {
   return (
     <section className="bg-background py-section text-ink" id="pricing">
       <div className="section-shell">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          transition={{ duration: 0.65 }}
-          viewport={{ once: true, margin: "-120px" }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <h2 className="display-serif text-5xl leading-none md:text-7xl">
-            {t.pricing.title}
-          </h2>
-        </motion.div>
-
-        <motion.div
-          className="mt-10 grid gap-5 md:mt-12"
-          initial={{ opacity: 0, y: 24 }}
-          transition={{ delay: 0.08, duration: 0.65 }}
-          viewport={{ once: true, margin: "-120px" }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          {t.pricing.groups.map((group, groupIndex) => {
-            const sharedGroup = pricingGroups[groupIndex];
-
-            return (
-            <section
-              className="rounded-md border border-line/60 bg-surface p-5 shadow-soft md:p-6"
-              key={group.title}
-            >
-              <h3 className="text-lg font-semibold text-ink md:text-xl">
-                {group.title}
-              </h3>
-              <div
-                className={`mt-5 grid gap-3 ${
-                  group.items.length === 3 ? "lg:grid-cols-3" : "md:grid-cols-2"
-                }`}
-              >
-                {group.items.map((item, itemIndex) => (
-                  <article
-                    className="flex min-h-20 items-center justify-between gap-4 rounded-md border border-line/45 bg-background px-4 py-4 md:min-h-24 md:px-5"
-                    key={`${group.title}-${item.label}`}
-                  >
-                    <span className="max-w-[12rem] text-sm font-semibold leading-5 text-ink-muted md:text-base">
-                      {item.label}
-                    </span>
-                    <span className="shrink-0 text-3xl font-bold tracking-normal text-gold-deep md:text-4xl">
-                      {sharedGroup.items[itemIndex].price}
-                    </span>
-                  </article>
+        <h2 className="display-heading text-5xl leading-none md:text-7xl">{t.pricing.title}</h2>
+        <table className="pricing-table mt-10 w-full table-fixed border-collapse text-left md:mt-14">
+          <caption className="sr-only">{t.pricing.title}. {t.pricing.placeholder}. {t.pricing.note}</caption>
+          <colgroup><col className="w-[44%] sm:w-1/2" /><col /><col /></colgroup>
+          <thead>
+            <tr className="border-y border-line/70">
+              <td><span className="sr-only">{t.pricing.placeholder}</span></td>
+              {[{ title: t.pricing.lunch.title, hours: restaurantInfo.hours.lunch }, { title: t.pricing.dinner.title, hours: restaurantInfo.hours.dinner }].map(option => (
+                <th className="border-l border-line/50 px-2 py-5 text-center font-medium sm:px-5 sm:py-7" key={option.title} scope="col">
+                  <span className="block text-xs tracking-[0.08em] uppercase sm:text-xl md:text-2xl">{option.title}</span>
+                  <span className="mt-2 block text-[10px] font-normal whitespace-nowrap text-ink-muted sm:text-xs">{option.hours}</span>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {t.pricing.categories.map(category => (
+              <tr className="border-b border-line/70" key={category.title}>
+                <th className="py-7 pr-3 font-medium sm:py-10 sm:pr-6" scope="row">
+                  <span className="block text-sm leading-6 sm:text-lg md:text-xl">{category.title}</span>
+                  <span className="mt-1.5 block text-[11px] leading-5 font-normal text-ink-muted sm:text-sm">{category.detail}</span>
+                </th>
+                {["lunch", "dinner"].map(meal => (
+                  <td className="border-l border-line/50 px-1 py-7 text-center sm:px-5 sm:py-10" key={meal}>
+                    <span aria-label={t.pricing.placeholder} className="block text-2xl leading-none font-medium tracking-tight whitespace-nowrap sm:text-4xl md:text-5xl">— €</span>
+                    <span className="mt-3 block text-[10px] leading-4 text-ink-muted sm:text-sm">{t.pricing.perPerson}</span>
+                  </td>
                 ))}
-              </div>
-            </section>
-            );
-          })}
-        </motion.div>
-
-        <motion.p
-          className="mt-8 text-sm leading-6 text-ink-muted md:text-base"
-          initial={{ opacity: 0, y: 18 }}
-          transition={{ delay: 0.12, duration: 0.6 }}
-          viewport={{ once: true, margin: "-120px" }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          {t.pricing.note}
-        </motion.p>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="mt-6 max-w-2xl text-xs leading-6 text-ink-muted sm:text-sm">{t.pricing.note}</p>
       </div>
     </section>
   );

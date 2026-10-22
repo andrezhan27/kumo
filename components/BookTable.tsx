@@ -1,97 +1,49 @@
 "use client";
 
-import { Clock, MapPin, Phone } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowUpRight, CalendarDays, Clock, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
-import { restaurantInfo } from "@/lib/content";
+import { restaurantInfo, reservationHref } from "@/lib/content";
+import { MagneticButton } from "@/components/MagneticButton";
 
-const infoIconClass = "h-5 w-5 text-gold-deep";
+const mapEmbed = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40013.43543086484!2d4.377008137598235!3d50.70184374285622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3d1002ab15385%3A0xdb6f77222b6bb2fe!2sKUMO!5e0!3m2!1sen!2spt!4v1792687814448!5m2!1sen!2spt";
 
 export function BookTable() {
-  const { t } = useLanguage();
-
+  const { t, language } = useLanguage();
   const contactCards = [
-    {
-      href: restaurantInfo.mapHref,
-      icon: <MapPin className={infoIconClass} />,
-      label: t.booking.addressLabel,
-      value: restaurantInfo.address,
-    },
-    {
-      href: restaurantInfo.phoneHref,
-      icon: <Phone className={infoIconClass} />,
-      label: t.booking.phoneLabel,
-      value: restaurantInfo.phone,
-    },
+    { href: restaurantInfo.mapHref, icon: MapPin, label: t.booking.addressLabel, value: language === "fr" ? restaurantInfo.address : restaurantInfo.address.replace("Belgique", "Belgium") },
+    { href: restaurantInfo.phoneHref, icon: Phone, label: t.booking.phoneLabel, value: restaurantInfo.phone },
   ];
-
   return (
     <section className="bg-surface py-section" id="booking">
       <div className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            transition={{ duration: 0.65 }}
-            viewport={{ once: true, margin: "-120px" }}
-            whileInView={{ opacity: 1, y: 0 }}
-          >
-            <h2 className="display-serif max-w-2xl text-5xl leading-none text-ink md:text-7xl">
-              {t.booking.title}
-            </h2>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-ink-muted">
-              {t.booking.description}
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="rounded-md border border-line/55 bg-background p-4 shadow-soft sm:p-6"
-            initial={{ opacity: 0, y: 24 }}
-            transition={{ delay: 0.1, duration: 0.65 }}
-            viewport={{ once: true, margin: "-120px" }}
-            whileInView={{ opacity: 1, y: 0 }}
-          >
-            <div className="grid gap-4">
-              {contactCards.map((card) => (
-                <a
-                  className="group flex gap-4 rounded-md border border-line/55 bg-surface px-4 py-5 transition-colors hover:border-gold-deep/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:items-center sm:px-5"
-                  href={card.href}
-                  key={card.label}
-                  rel={card.href.startsWith("http") ? "noreferrer" : undefined}
-                  target={card.href.startsWith("http") ? "_blank" : undefined}
-                >
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-background text-gold-deep ring-1 ring-line/45">
-                    {card.icon}
-                  </span>
-                  <span className="min-w-0">
-                    <span className="label-caps block text-gold-deep">{card.label}</span>
-                    <span className="mt-2 block break-words text-base font-semibold leading-6 text-ink transition-colors group-hover:text-gold-deep">
-                      {card.value}
-                    </span>
-                  </span>
-                </a>
-              ))}
-
-              <div className="flex gap-4 rounded-md border border-line/55 bg-surface px-4 py-5 sm:px-5">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-background text-gold-deep ring-1 ring-line/45">
-                  <Clock className={infoIconClass} />
-                </span>
-                <div className="min-w-0 flex-1">
-                  <span className="label-caps block text-gold-deep">{t.booking.hoursLabel}</span>
-                  <p className="mt-2 text-base font-semibold leading-6 text-ink">
-                    {t.booking.daysLabel}
-                  </p>
-                  <div className="mt-3 grid gap-3 text-sm leading-6 text-ink-muted sm:grid-cols-2">
-                    <p>
-                      {t.booking.lunchLabel} {restaurantInfo.hours.lunch}
-                    </p>
-                    <p>
-                      {t.booking.dinnerLabel} {restaurantInfo.hours.dinner}
-                    </p>
-                  </div>
-                </div>
+        <h2 className="display-heading text-5xl leading-none text-ink md:text-7xl">{t.booking.title}</h2>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-muted">{t.booking.description}</p>
+        <div className="mt-10 grid gap-5 lg:mt-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-6">
+          <div className="flex flex-col gap-4">
+            {contactCards.map(card => <a className="group flex gap-4 rounded-lg border border-line/55 bg-background px-4 py-5 transition-colors hover:border-gold-deep/45 sm:items-center sm:px-6" href={card.href} key={card.label} rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined} target={card.href.startsWith("http") ? "_blank" : undefined}>
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-surface ring-1 ring-line/45"><card.icon className="h-5 w-5 text-gold-deep" strokeWidth={1.5} /></span>
+              <span className="min-w-0"><span className="label-caps block text-gold-deep">{card.label}</span><span className="mt-2 block break-words text-sm font-semibold leading-6 text-ink group-hover:text-gold-deep sm:text-base">{card.value}</span></span>
+            </a>)}
+            <div className="flex gap-4 rounded-lg border border-line/55 bg-background px-4 py-5 sm:px-6">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-surface ring-1 ring-line/45"><Clock className="h-5 w-5 text-gold-deep" strokeWidth={1.5} /></span>
+              <div className="min-w-0 flex-1">
+                <h3 className="label-caps text-gold-deep">{t.booking.hoursLabel}</h3>
+                <p className="mt-2 text-sm font-semibold leading-6 text-ink sm:text-base">{t.booking.daysLabel}</p>
+                <dl className="mt-3 grid grid-cols-2 gap-3 text-sm leading-6 text-ink-muted">
+                  <div><dt>{t.booking.lunchLabel}</dt><dd>{restaurantInfo.hours.lunch}</dd></div>
+                  <div><dt>{t.booking.dinnerLabel}</dt><dd>{restaurantInfo.hours.dinner}</dd></div>
+                </dl>
+                <p className="mt-3 text-xs font-semibold text-ink-muted">{t.booking.closedLabel}</p>
               </div>
             </div>
-          </motion.div>
+            <div className="mt-auto grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <MagneticButton className="gap-2 px-4" href={reservationHref}><CalendarDays className="h-4 w-4 shrink-0" />{t.booking.call}</MagneticButton>
+              <a className="label-caps inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-line/70 bg-background px-4 py-4 text-ink transition-colors hover:border-gold-deep" href={restaurantInfo.mapHref} rel="noopener noreferrer" target="_blank">{t.booking.directions}<ArrowUpRight className="h-4 w-4 shrink-0" /></a>
+            </div>
+          </div>
+          <div className="min-h-80 overflow-hidden rounded-lg border border-line/55 bg-surface-strong lg:min-h-[450px]">
+            <iframe name="kumo-location" allowFullScreen className="h-full min-h-80 w-full lg:min-h-[450px]" height="450" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" src={mapEmbed} style={{ border: 0 }} title={t.booking.mapTitle} width="600" />
+          </div>
         </div>
       </div>
     </section>

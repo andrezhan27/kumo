@@ -1,157 +1,82 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { CalendarDays, Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import Link from "next/link";
+import { ArrowUpRight, CalendarDays, Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MagneticButton } from "@/components/MagneticButton";
 import { useLanguage } from "@/components/LanguageProvider";
-import { brandName } from "@/lib/content";
+import { brandName, reservationHref } from "@/lib/content";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const { t } = useLanguage();
-  const isHomePage = pathname === "/";
-  const homeHref = isHomePage ? "#home" : "/";
-  const contactHref = isHomePage ? "#booking" : "/#booking";
-  const takeawayHref = isHomePage ? "#takeaway" : "/#takeaway";
-
   const links = [
-    { label: t.nav.home, href: homeHref },
-    { label: t.nav.menu, href: "/menu" },
-    { label: t.nav.contact, href: contactHref },
-    { label: t.nav.takeaway, href: takeawayHref },
+    { label: t.nav.menu, href: "/#menu-section" },
+    { label: t.nav.pricing, href: "/#pricing" },
+    { label: t.nav.space, href: "/#space" },
+    { label: t.nav.contact, href: "/#booking" },
   ];
 
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setOpen(false); buttonRef.current?.focus(); }
+    };
+    const closeOutside = (event: Event) => {
+      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) setOpen(false);
+    };
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = () => { if (desktop.matches) setOpen(false); };
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOutside);
+    document.addEventListener("focusin", closeOutside);
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOutside);
+      document.removeEventListener("focusin", closeOutside);
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
+  }, [open]);
+
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-background/10 bg-background/82 backdrop-blur-xl">
-      <nav className="section-shell flex h-20 items-center justify-between gap-4">
-        <Link
-          aria-label={`${brandName} home`}
-          className="display-serif flex shrink-0 items-center gap-2 text-2xl tracking-[0.08em] text-ink md:text-3xl"
-          href={homeHref}
-        >
-          <Image alt="" aria-hidden src="/sushi-king-logo.png" width={32} height={32} className="h-8 w-8" />
-          {brandName}
-        </Link>
-
-        <div className="hidden items-center gap-8 lg:flex">
-          {links.map((link) => (
-            <Link
-              className="label-caps text-ink-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
-              href={link.href}
-              key={link.href}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <LanguageToggle />
-          <MagneticButton className="w-44" href="/reservar">
-            {t.nav.book}
-          </MagneticButton>
-        </div>
-
-        <div className="flex items-center gap-2 lg:hidden">
-          <LanguageToggle />
-          <button
-            aria-expanded={open}
-            aria-label="Toggle navigation"
-            className="grid h-10 w-10 place-items-center rounded-full border border-line/70 bg-surface text-ink transition-colors hover:border-ink"
-            onClick={() => setOpen((value) => !value)}
-            type="button"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </nav>
-
-      <AnimatePresence>
-        {open ? (
-          <motion.div
-            animate="open"
-            className="lg:hidden"
-            exit="closed"
-            initial="closed"
-            variants={{
-              open: { opacity: 1, height: "auto" },
-              closed: { opacity: 0, height: 0 },
-            }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            style={{ overflow: "hidden" }}
-          >
-            <div className="border-t border-ink/8 bg-background/97 backdrop-blur-xl">
-              <div className="section-shell pb-8 pt-2">
-                <nav>
-                  {links.map((link, i) => {
-                    const href = link.href;
-                    const sharedClass =
-                      "group flex items-center justify-between border-b border-line/30 py-5 last:border-b-0 focus-visible:outline-none";
-                    const inner = (
-                      <>
-                        <span className="display-serif text-2xl tracking-wide text-ink transition-colors duration-200 group-hover:text-gold-deep">
-                          {link.label}
-                        </span>
-                        <span className="translate-x-0 text-gold-deep opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100">
-                          →
-                        </span>
-                      </>
-                    );
-                    return (
-                      <motion.div
-                        key={href}
-                        custom={i}
-                        variants={{
-                          open: (idx: number) => ({
-                            opacity: 1,
-                            y: 0,
-                            transition: { delay: idx * 0.06 + 0.05, duration: 0.3, ease: [0.16, 1, 0.3, 1] },
-                          }),
-                          closed: { opacity: 0, y: -8 },
-                        }}
-                      >
-                        {href.startsWith("#") ? (
-                          <a className={sharedClass} href={href} onClick={() => setOpen(false)}>
-                            {inner}
-                          </a>
-                        ) : (
-                          <Link className={sharedClass} href={href} onClick={() => setOpen(false)}>
-                            {inner}
-                          </Link>
-                        )}
-                      </motion.div>
-                    );
-                  })}
-                </nav>
-
-                <motion.a
-                  custom={links.length}
-                  variants={{
-                    open: (idx: number) => ({
-                      opacity: 1,
-                      y: 0,
-                      transition: { delay: idx * 0.06 + 0.05, duration: 0.3, ease: [0.16, 1, 0.3, 1] },
-                    }),
-                    closed: { opacity: 0, y: -8 },
-                  }}
-                  className="label-caps mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-ink py-4 text-background transition-opacity hover:opacity-80"
-                  href="/reservar"
-                  onClick={() => setOpen(false)}
-                >
-                  <CalendarDays className="h-4 w-4" />
-                  {t.nav.book}
-                </motion.a>
+    <>
+      <a className="skip-link" href="#main-content">{t.skip}</a>
+      <div aria-hidden="true" className={`fixed inset-x-0 top-16 bottom-0 z-40 touch-none bg-night/25 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${open ? "opacity-100" : "pointer-events-none opacity-0"}`} />
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-line/35 bg-background text-ink" ref={headerRef}>
+        <nav aria-label={t.nav.label} className="section-shell relative flex h-16 items-center justify-between gap-3">
+          <Link aria-label={`${brandName} — ${t.nav.home}`} className="flex shrink-0 items-center gap-2.5 text-lg font-semibold tracking-[0.13em]" href="/" onClick={() => setOpen(false)}>
+            <Image alt="" aria-hidden src="/kumo-logo-blue.webp" width={32} height={32} className="h-8 w-8 rounded-full" />
+            {brandName}
+          </Link>
+          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex">
+            {links.map(link => <a className="label-caps text-ink-muted transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-deep" href={link.href} key={link.href}>{link.label}</a>)}
+          </div>
+          <div className="ml-auto flex items-center gap-3">
+            <LanguageToggle />
+            <div className="hidden lg:block"><MagneticButton className="min-w-36" href={reservationHref} size="compact">{t.nav.book}</MagneticButton></div>
+            <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? t.nav.close : t.nav.toggle} className="relative grid h-10 w-10 place-items-center rounded-lg border border-line/70 bg-surface text-ink lg:hidden" onClick={() => setOpen(value => !value)} ref={buttonRef} type="button">
+              <Menu aria-hidden className={`absolute h-5 w-5 transition-[transform,opacity] duration-300 ${open ? "rotate-90 opacity-0" : "rotate-0 opacity-100"}`} />
+              <X aria-hidden className={`absolute h-5 w-5 transition-[transform,opacity] duration-300 ${open ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"}`} />
+            </button>
+          </div>
+        </nav>
+        <div aria-hidden={!open} className="mobile-navigation lg:hidden" data-open={open} id="mobile-navigation" inert={!open}>
+          <div className="min-h-0 overflow-hidden">
+            <nav aria-label={t.nav.label} className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-line/35 bg-background">
+              <div className="section-shell pt-5 pb-6">
+                <p className="label-caps mb-2 text-gold-deep">{t.nav.explore}</p>
+                {links.map((link, index) => <a className={`flex items-center justify-between border-b border-line/40 py-4 text-[1.35rem] font-medium tracking-tight text-ink transition-[transform,opacity,color] duration-300 hover:text-gold-deep ${open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"}`} href={link.href} key={link.href} onClick={() => setOpen(false)} style={{ transitionDelay: open ? `${index * 35}ms` : "0ms" }}><span>{link.label}</span><ArrowUpRight aria-hidden className="h-4 w-4 text-ink-muted" strokeWidth={1.5} /></a>)}
+                <a className="label-caps mt-6 flex min-h-12 items-center justify-center gap-2 rounded-lg bg-ink px-4 py-4 text-background" href={reservationHref} onClick={() => setOpen(false)}><CalendarDays className="h-4 w-4" />{t.nav.book}</a>
               </div>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-    </header>
+            </nav>
+          </div>
+        </div>
+      </header>
+    </>
   );
 }

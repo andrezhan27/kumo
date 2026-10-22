@@ -1,415 +1,130 @@
-export const brandName = "Sushi King";
-
-export const menuItems = [
-  {
-    id: "akami-nigiri",
-    name: "Akami Nigiri",
-    price: "8",
-    tag: "Spotlight",
-    description: "Bluefin tuna, warm rice, nikiri glaze, and a quiet line of wasabi.",
-    alt: "Grilled prawns with lemon on a deep green plate",
-    image: "/menu-section/grilled-prawns.jpg",
-  },
-  {
-    id: "hamachi",
-    name: "Hamachi Citrus",
-    price: "12",
-    tag: "Bright",
-    description: "Yellowtail, yuzu kosho, toasted sesame, and preserved lemon.",
-    alt: "Premium sashimi selection arranged over ice with oyster and herbs",
-    image: "/menu-section/sashimi-selection.jpg",
-  },
-  {
-    id: "king-roll",
-    name: "King Roll",
-    price: "18",
-    tag: "Signature",
-    description: "Toro, avocado, crisp nori, house tare, and gold sesame.",
-    alt: "Scallops served in shells on a gold ceramic plate",
-    image: "/menu-section/gold-scallops.png",
-  },
-  {
-    id: "sake-tataki",
-    name: "Sake Tataki",
-    price: "14",
-    tag: "Fire",
-    description: "Lightly torched salmon, ponzu, chive oil, and sea salt.",
-    alt: "Langoustine crudo with salmon and sauce in a white bowl",
-    image: "/menu-section/langoustine-crudo.png",
-  },
-  {
-    id: "omakase",
-    name: "Omakase",
-    price: "85",
-    tag: "Chef",
-    description: "A seasonal progression shaped around the morning's best catch.",
-    alt: "Prawn in ponzu sauce with herbs in a white bowl",
-    image: "/menu-section/prawn-ponzu.png",
-  },
-  {
-    id: "matcha",
-    name: "Matcha Silk",
-    price: "9",
-    tag: "Finish",
-    description: "Matcha cream, black sesame crumble, and salted white chocolate.",
-    alt: "Oyster with roe, egg yolk, and lime in a white bowl",
-    image: "/menu-section/oyster-lime.png",
-  },
-];
-
-export const spaceSlides = [
-  {
-    id: "space-01",
-    label: "Main Dining Room",
-    image: "/space/space-01.webp",
-    alt: `${brandName} main dining room with premium lighting and gold architectural details`,
-  },
-  {
-    id: "space-02",
-    label: "Private Dining",
-    image: "/space/space-02.webp",
-    alt: `${brandName} private dining room with refined seating and dramatic lighting`,
-  },
-  {
-    id: "space-03",
-    label: "Restaurant Interior",
-    image: "/space/space-03.webp",
-    alt: `${brandName} restaurant interior with illuminated dining areas`,
-  },
-  {
-    id: "space-04",
-    label: "Welcome Area",
-    image: "/space/space-04.webp",
-    alt: `${brandName} welcome area with sculptural decor and warm lighting`,
-  },
-  {
-    id: "space-05",
-    label: "Dining Detail",
-    image: "/space/space-05.webp",
-    alt: `${brandName} dining area detail with polished finishes`,
-  },
-  {
-    id: "space-06",
-    label: "Lounge Detail",
-    image: "/space/space-06.webp",
-    alt: `${brandName} lounge detail with atmospheric restaurant lighting`,
-  },
-  {
-    id: "space-07",
-    label: "Interior Detail",
-    image: "/space/space-07.webp",
-    alt: `${brandName} interior detail with premium materials`,
-  },
-  {
-    id: "space-08",
-    label: "Guest Area",
-    image: "/space/space-08.webp",
-    alt: `${brandName} guest area with elegant restaurant design`,
-  },
-];
+export const brandName = "KUMO";
+export const reservationSlug = "kumo";
+export const reservationHref = "/reservation";
 
 export const restaurantInfo = {
-  address: "Almancil, Av. Duarte Pacheco, 8135-104",
-  email: "reservas@sushiking.pt",
-  phone: "+351 935 178 351",
-  phoneHref: "tel:+351935178351",
-  mapHref: "https://maps.app.goo.gl/yM64HDoChaWjS5Ci9",
-  reservationWidgetUrl: "https://reserve.intelis.pt/sushiking",
-  hours: {
-    days: "Todos os dias",
-    lunch: "12:00 - 15:00",
-    dinner: "19:00 - 23:00",
-  },
+  reservationWidgetUrl: `https://reserve.intelis.pt/${reservationSlug}`,
+  address: "Drève Richelle 8, 1410 Waterloo, Belgique",
+  phone: "+32 2 767 63 98",
+  phoneHref: "tel:+3227676398",
+  mapHref: "https://maps.app.goo.gl/2EeE3jBLwH5xgsZS9",
+  hours: { lunch: "12:00 – 14:30", dinner: "18:30 – 22:30" },
 } as const;
 
-export const pricingGroups = [
-  {
-    id: "weekday",
-    items: [
-      { id: "lunch", price: "€18,95" },
-      { id: "dinner", price: "€26,95" },
-    ],
-  },
-  {
-    id: "weekend-holiday",
-    items: [
-      { id: "lunch", price: "€26,95" },
-      { id: "dinner", price: "€26,95" },
-    ],
-  },
-  {
-    id: "children",
-    items: [
-      { id: "weekday-lunch", price: "€11,95" },
-      { id: "weekday-dinner", price: "€14,95" },
-      { id: "weekend-holiday", price: "€14,95" },
-    ],
-  },
+export const menuItems = [
+  { id: "sushi", image: "/food/sushi.webp" },
+  { id: "salmon", image: "/food/salmon.webp" },
+  { id: "selection", image: "/food/selection.webp" },
+  { id: "carpaccio", image: "/food/carpaccio.webp" },
+  { id: "grilled", image: "/food/grilled.webp" },
+  { id: "dim-sum", image: "/food/dim-sum.webp" },
 ] as const;
 
-export const takeawayItems = [
-  {
-    id: "sashimi-misto-12",
-    image: "/takeaway/sashimi misto 12pz - N32 - 15eur.webp",
-    price: "15€",
-    pieces: "12",
-  },
-  {
-    id: "caixa-12",
-    image: "/takeaway/caixa de 12pz - N39 - 15eur.webp",
-    price: "15€",
-    pieces: "12",
-  },
-  {
-    id: "caixa-18",
-    image: "/takeaway/caixa de 18pz - N37 - 15eur.webp",
-    price: "15€",
-    pieces: "18",
-  },
-  {
-    id: "caixa-23",
-    image: "/takeaway/caixa de 23pz - N36 - 18eur.webp",
-    price: "18€",
-    pieces: "23",
-  },
-  {
-    id: "caixa-38",
-    image: "/takeaway/caixa de 38pz - N38 - 30eur.webp",
-    price: "30€",
-    pieces: "38",
-  },
-  {
-    id: "caixa-56",
-    image: "/takeaway/caixa de 56pz - N39 - 50eur.webp",
-    price: "50€",
-    pieces: "56",
-  },
+export const spaceSlides = [
+  { id: "dining", image: "/space/dining.webp" },
+  { id: "alcoves", image: "/space/alcoves.webp" },
+  { id: "tables", image: "/space/tables.webp" },
+  { id: "lounge", image: "/space/lounge.webp" },
+  { id: "bar", image: "/space/bar.webp" },
+  { id: "entrance", image: "/space/entrance.webp" },
 ] as const;
 
 export const translations = {
-  pt: {
-    nav: {
-      home: "Início",
-      menu: "Menu",
-      contact: "Contactos",
-      book: "Reservar Mesa",
-      takeaway: "Take Away",
-    },
+  fr: {
+    nav: { home: "Accueil", menu: "Menu", pricing: "Tarifs", space: "Espace", contact: "Contact", book: "Réserver", toggle: "Ouvrir le menu", close: "Fermer le menu", label: "Navigation principale", explore: "Découvrir KUMO" },
+    skip: "Aller au contenu",
     hero: {
-      eyebrow: "Sushi premium em Faro",
+      eyebrow: "Cuisine asiatique · Waterloo",
       title: brandName,
-      description:
-        "Sushi Buffet em Faro, Algarve — Fresco, Rápido, Sem Limites.",
-      primary: "Reservar Mesa",
-      secondary: "Ver Menu",
-      scroll: "Descer",
+      description: "Un nuage de saveurs, au cœur de Waterloo. Sushis, teppanyaki et découvertes à partager.",
+      primary: "Réserver",
+      imageAlt: "La façade du restaurant KUMO à Waterloo, son enseigne et son emblème bleu",
     },
     menuSection: {
-      eyebrow: "A nossa seleção",
-      title: "O Nosso Menu",
-      description:
-        "Peças precisas, arroz temperado no ponto e produtos escolhidos para uma degustação sofisticada.",
-      viewFull: "Explorar o menu",
+      title: "Notre carte",
+      description: "Du sushi délicat aux saveurs du gril, laissez vos envies composer le repas. Une cuisine asiatique généreuse, à savourer ensemble.",
+      galleryLabel: "Quelques créations de KUMO",
+      imageAlts: ["Sélection de sushis au restaurant KUMO", "Sushis au saumon préparés chez KUMO", "Assiette de sushis et spécialités KUMO", "Carpaccio assaisonné aux herbes chez KUMO", "Une spécialité chaude de KUMO", "Dim sum servis dans leurs paniers vapeur chez KUMO"],
+      note: "La sélection et les tarifs sont à découvrir au restaurant. Pour toute allergie ou restriction alimentaire, parlez-en à notre équipe avant de commander.",
     },
     pricing: {
-      title: "Preçário",
-      note: "Bebidas e sobremesas não incluídas.",
-      groups: [
-        {
-          id: "weekday",
-          title: "Segunda a sexta",
-          items: [
-            { id: "lunch", label: "Almoço" },
-            { id: "dinner", label: "Jantar" },
-          ],
-        },
-        {
-          id: "weekend-holiday",
-          title: "Fim de semana e feriado",
-          items: [
-            { id: "lunch", label: "Almoço" },
-            { id: "dinner", label: "Jantar" },
-          ],
-        },
-        {
-          id: "children",
-          title: "Crianças (90–140 cm)",
-          items: [
-            { id: "weekday-lunch", label: "Almoço · Segunda a sexta" },
-            { id: "weekday-dinner", label: "Jantar · Segunda a sexta" },
-            { id: "weekend-holiday", label: "Fim de semana e feriado" },
-          ],
-        },
+      title: "Tarifs",
+      description: "Un déjeuner tout en douceur ou une soirée à prolonger. Choisissez votre moment, savourez à votre rythme.",
+      categories: [
+        { title: "Lundi – vendredi", detail: "Adultes · Fermé le mardi" },
+        { title: "Week-ends et jours fériés", detail: "Adultes" },
+        { title: "Enfants", detail: "Tranches d’âge à confirmer" },
       ],
+      perPerson: "par personne",
+      placeholder: "Tarifs à venir",
+      lunch: { title: "Déjeuner", description: "Une pause gourmande au cœur de la journée.", detail: "Sushis, saveurs du gril et découvertes à partager." },
+      dinner: { title: "Dîner", description: "Prenez le temps de vous retrouver.", detail: "Un moment à savourer, de la première bouchée à la dernière." },
+      note: "Prix indicatifs non renseignés. Les tarifs et les conditions des formules seront confirmés prochainement.",
     },
     space: {
-      eyebrow: "O espaço",
-      title: "O Nosso Espaço",
-      description:
-        "Luzes vibrantes, materiais táteis e um ritmo intimista. Descubra o ambiente do Sushi King em Faro — perfeito para jantares tranquilos, celebrações e noites especiais.",
-      counter: "Balcão",
-      diningRoom: "Sala",
-      bar: "Bar",
-      privateTable: "Mesa privada",
+      title: "Notre espace",
+      previous: "Photo précédente", next: "Photo suivante",
+      labels: ["La salle", "Les alcôves", "À table", "Le salon", "Le bar", "Bienvenue chez KUMO"],
+      description: "Des alcôves accueillantes, des matières lumineuses et une ambiance chaleureuse. Retrouvez KUMO au centre Rich’l, pour un déjeuner, un dîner à deux ou une grande tablée.",
+      imageAlts: ["La salle de KUMO et ses détails dorés", "Les alcôves et banquettes de KUMO", "Les tables et fauteuils aux tons verts de KUMO", "Un espace intime du restaurant KUMO", "Le bar et son éclairage chaleureux chez KUMO", "L’entrée du restaurant KUMO à Waterloo"],
     },
     booking: {
-      eyebrow: "Book a Table",
-      title: "Reservar Mesa",
-      description:
-        "Para reservas, grupos ou pedidos especiais, fale connosco diretamente por telefone.",
-      addressLabel: "Morada",
-      phoneLabel: "Telefone",
-      emailLabel: "Email",
-      hoursLabel: "Horário",
-      daysLabel: "Todos os dias",
-      lunchLabel: "Almoço",
-      dinnerLabel: "Jantar",
+      title: "Contacts",
+      description: "Un repas en famille, une soirée entre amis ou une occasion à célébrer ? Réservez en ligne ou appelez-nous pour préparer votre visite.",
+      mapTitle: "Localisation du restaurant KUMO à Waterloo", call: "Réserver", directions: "Itinéraire", addressLabel: "Nous trouver", phoneLabel: "Réservations", hoursLabel: "Horaires", daysLabel: "Du mercredi au lundi", closedLabel: "Fermé le mardi", lunchLabel: "Déjeuner", dinnerLabel: "Dîner",
     },
-    takeaway: {
-      eyebrow: "Take away",
-      title: "Menu Take Away",
-      description:
-        "Caixas preparadas no momento para levar, com combinados frescos e sashimi selecionado.",
-      phoneCta: "Encomendar por telefone",
-      priceLabel: "Preço",
-      readyLabel: "Preparado para levar",
-      items: [
-        { id: "sashimi-misto-12", name: "Sashimi misto 12 peças" },
-        { id: "caixa-12", name: "Caixa de 12 peças" },
-        { id: "caixa-18", name: "Caixa de 18 peças" },
-        { id: "caixa-23", name: "Caixa de 23 peças" },
-        { id: "caixa-38", name: "Caixa de 38 peças" },
-        { id: "caixa-56", name: "Caixa de 56 peças" },
-      ],
-    },
-    footer: {
-      note: "Sushi Buffet em Faro, Algarve — Fresco, Rápido, Sem Limites.",
-      rights: "Designed by Intelis. Todos os direitos reservados.",
-      navigationLabel: "Navegação do rodapé",
-      legal: "Legal",
-      privacy: "Política de Privacidade",
-      termsAndConditions: "Termos e Condições",
-      complaintsBook: "Livro de Reclamações",
-    },
-    menu: {
-      back: "Voltar",
-      eyebrow: `Menu ${brandName}`,
-      title: "Cortes precisos, arroz quente, final limpo.",
-      description:
-        "Uma amostra editorial do menu. Os pratos e preços são placeholders até o menu final ser carregado.",
-    },
+    reservation: { title: "Réserver", iframeTitle: "Réservation en ligne chez KUMO" },
+    footer: { note: "Cuisine asiatique et moments à partager à Waterloo.", navigationLabel: "Navigation de pied de page", rights: "Tous droits réservés.", location: "Waterloo, Belgique" },
+    notFound: { title: "Cette page s’est envolée.", description: "Retrouvez la carte, le restaurant et toutes les informations sur notre page d’accueil.", back: "Revenir à l’accueil" },
+    error: { title: "Un petit contretemps.", description: "Réessayez ou appelez-nous pour réserver votre table.", retry: "Réessayer" },
   },
   en: {
-    nav: {
-      home: "Home",
-      menu: "Menu",
-      contact: "Contact Us",
-      book: "Book a Table",
-      takeaway: "Takeaway",
-    },
+    nav: { home: "Home", menu: "Menu", pricing: "Pricing", space: "Space", contact: "Contact", book: "Book a table", toggle: "Open navigation", close: "Close navigation", label: "Main navigation", explore: "Explore KUMO" },
+    skip: "Skip to content",
     hero: {
-      eyebrow: "Premium sushi in Faro",
+      eyebrow: "Asian cuisine · Waterloo",
       title: brandName,
-      description:
-        "All-You-Can-Eat Sushi in Faro, Algarve — Fresh, Fast, Unlimited.",
-      primary: "Book a Table",
-      secondary: "View Menu",
-      scroll: "Scroll",
+      description: "A cloud of flavours in the heart of Waterloo. Sushi, teppanyaki and discoveries to share.",
+      primary: "Book a table",
+      imageAlt: "The KUMO restaurant facade in Waterloo, with its sign and blue emblem",
     },
     menuSection: {
-      eyebrow: "Our selection",
-      title: "Our Menu",
-      description:
-        "Precise cuts, perfectly seasoned rice and ingredients selected for a refined tasting experience.",
-      viewFull: "Explore the menu",
+      title: "Our menu",
+      description: "From delicate sushi to flavours from the grill, let your appetite lead the way. Generous Asian cooking, best enjoyed together.",
+      galleryLabel: "A selection from KUMO’s kitchen",
+      imageAlts: ["A sushi selection at KUMO restaurant", "Salmon sushi prepared at KUMO", "A plate of sushi and KUMO specialities", "Carpaccio with herbs at KUMO", "A warm speciality from KUMO’s kitchen", "Dim sum in steamer baskets at KUMO"],
+      note: "Discover the current selection and prices at the restaurant. Please tell our team about any allergies or dietary requirements before ordering.",
     },
     pricing: {
       title: "Pricing",
-      note: "Drinks and desserts are not included.",
-      groups: [
-        {
-          id: "weekday",
-          title: "Monday to Friday",
-          items: [
-            { id: "lunch", label: "Lunch" },
-            { id: "dinner", label: "Dinner" },
-          ],
-        },
-        {
-          id: "weekend-holiday",
-          title: "Weekend and holiday",
-          items: [
-            { id: "lunch", label: "Lunch" },
-            { id: "dinner", label: "Dinner" },
-          ],
-        },
-        {
-          id: "children",
-          title: "Children (90–140 cm)",
-          items: [
-            { id: "weekday-lunch", label: "Lunch · Monday to Friday" },
-            { id: "weekday-dinner", label: "Dinner · Monday to Friday" },
-            { id: "weekend-holiday", label: "Weekend and holiday" },
-          ],
-        },
+      description: "A leisurely lunch or an evening to linger over. Choose your moment, savour it at your own pace.",
+      categories: [
+        { title: "Monday – Friday", detail: "Adults · Closed on Tuesdays" },
+        { title: "Weekends & public holidays", detail: "Adults" },
+        { title: "Children", detail: "Age ranges to be confirmed" },
       ],
+      perPerson: "per person",
+      placeholder: "Prices coming soon",
+      lunch: { title: "Lunch", description: "A little escape in the middle of your day.", detail: "Sushi, flavours from the grill and discoveries to share." },
+      dinner: { title: "Dinner", description: "Take your time. Make an evening of it.", detail: "A moment to enjoy, from the first bite to the last." },
+      note: "Prices shown are placeholders. Dining prices and conditions will be confirmed soon.",
     },
     space: {
-      eyebrow: "Our space",
       title: "Our Space",
-      description:
-        "Vibrant lighting, tactile materials and an intimate pace. Discover Sushi King's ambience in Faro — perfect for quiet dinners, celebrations and special evenings.",
-      counter: "Counter",
-      diningRoom: "Dining Room",
-      bar: "Bar",
-      privateTable: "Private Table",
+      previous: "Previous photo", next: "Next photo",
+      labels: ["The dining room", "The alcoves", "At the table", "The lounge", "The bar", "Welcome to KUMO"],
+      description: "Cosy alcoves, glowing details and a warm welcome. Find KUMO at Rich’l for lunch, dinner for two or a gathering around the table.",
+      imageAlts: ["KUMO’s dining room with golden details", "Cosy alcoves and booth seating at KUMO", "Tables and green seating at KUMO", "An intimate dining space at KUMO", "KUMO’s bar with warm lighting", "The entrance to KUMO restaurant in Waterloo"],
     },
     booking: {
-      eyebrow: "Book a Table",
-      title: "Book a Table",
-      description:
-        "For reservations, groups, or special requests, contact us directly by phone.",
-      addressLabel: "Address",
-      phoneLabel: "Phone",
-      emailLabel: "Email",
-      hoursLabel: "Opening Hours",
-      daysLabel: "Every day",
-      lunchLabel: "Lunch",
-      dinnerLabel: "Dinner",
+      title: "Contacts",
+      description: "A family meal, an evening with friends or something to celebrate? Book online or call us to plan your visit.",
+      mapTitle: "KUMO restaurant location in Waterloo", call: "Book a table", directions: "Get directions", addressLabel: "Find us", phoneLabel: "Reservations", hoursLabel: "Opening hours", daysLabel: "Wednesday to Monday", closedLabel: "Closed on Tuesdays", lunchLabel: "Lunch", dinnerLabel: "Dinner",
     },
-    takeaway: {
-      eyebrow: "Take away",
-      title: "Takeaway Menu",
-      description:
-        "Freshly prepared boxes to take away, with selected sushi combinations and sashimi.",
-      phoneCta: "Order by phone",
-      priceLabel: "Price",
-      readyLabel: "Prepared to take away",
-      items: [
-        { id: "sashimi-misto-12", name: "Mixed sashimi 12 pc" },
-        { id: "caixa-12", name: "12 pc box" },
-        { id: "caixa-18", name: "18 pc box" },
-        { id: "caixa-23", name: "23 pc box" },
-        { id: "caixa-38", name: "38 pc box" },
-        { id: "caixa-56", name: "56 pc box" },
-      ],
-    },
-    footer: {
-      note: "All-You-Can-Eat Sushi in Faro, Algarve — Fresh, Fast, Unlimited.",
-      rights: "Designed by Intelis. All rights reserved.",
-      navigationLabel: "Footer navigation",
-      legal: "Legal",
-      privacy: "Privacy Policy",
-      termsAndConditions: "Terms and Conditions",
-      complaintsBook: "Complaints Book",
-    },
-    menu: {
-      back: "Back",
-      eyebrow: `${brandName} menu`,
-      title: "Precise cuts, perfectly seasoned rice, and a refined tasting experience.",
-      description:
-        "An editorial sample of the menu. Dishes and prices are placeholders until the final menu is loaded.",
-    },
+    reservation: { title: "Book a table", iframeTitle: "KUMO online reservation form" },
+    footer: { note: "Asian cuisine and moments to share in Waterloo.", navigationLabel: "Footer navigation", rights: "All rights reserved.", location: "Waterloo, Belgium" },
+    notFound: { title: "This page has drifted away.", description: "Find the menu, restaurant and visitor information on our home page.", back: "Back to home" },
+    error: { title: "A small interruption.", description: "Please try again or call us to reserve your table.", retry: "Try again" },
   },
 } as const;
 
