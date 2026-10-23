@@ -42,7 +42,7 @@ export const translations = {
     },
     menuSection: {
       title: "Notre carte",
-      description: "Du sushi délicat aux saveurs du gril, laissez vos envies composer le repas. Une cuisine asiatique généreuse, à savourer ensemble.",
+      description: "Sushis, teppanyaki, dim sum et saveurs du gril : découvrez la cuisine asiatique de KUMO à Waterloo. Une carte généreuse, à savourer ensemble au centre Rich’l.",
       galleryLabel: "Quelques créations de KUMO",
       imageAlts: ["Sélection de sushis au restaurant KUMO", "Sushis au saumon préparés chez KUMO", "Assiette de sushis et spécialités KUMO", "Carpaccio assaisonné aux herbes chez KUMO", "Une spécialité chaude de KUMO", "Dim sum servis dans leurs paniers vapeur chez KUMO"],
       note: "La sélection et les tarifs sont à découvrir au restaurant. Pour toute allergie ou restriction alimentaire, parlez-en à notre équipe avant de commander.",
@@ -65,7 +65,7 @@ export const translations = {
       title: "Notre espace",
       previous: "Photo précédente", next: "Photo suivante",
       labels: ["La salle", "Les alcôves", "À table", "Le salon", "Le bar", "Bienvenue chez KUMO"],
-      description: "Des alcôves accueillantes, des matières lumineuses et une ambiance chaleureuse. Retrouvez KUMO au centre Rich’l, pour un déjeuner, un dîner à deux ou une grande tablée.",
+      description: "Au centre Rich’l à Waterloo, en Brabant wallon, KUMO vous accueille dans ses alcôves chaleureuses. Un restaurant asiatique pour un déjeuner en famille, un dîner à deux ou une grande tablée entre amis.",
       imageAlts: ["La salle de KUMO et ses détails dorés", "Les alcôves et banquettes de KUMO", "Les tables et fauteuils aux tons verts de KUMO", "Un espace intime du restaurant KUMO", "Le bar et son éclairage chaleureux chez KUMO", "L’entrée du restaurant KUMO à Waterloo"],
     },
     booking: {
@@ -74,7 +74,11 @@ export const translations = {
       mapTitle: "Localisation du restaurant KUMO à Waterloo", call: "Réserver", directions: "Itinéraire", addressLabel: "Nous trouver", phoneLabel: "Réservations", hoursLabel: "Horaires", daysLabel: "Du mercredi au lundi", closedLabel: "Fermé le mardi", lunchLabel: "Déjeuner", dinnerLabel: "Dîner",
     },
     reservation: { title: "Réserver", iframeTitle: "Réservation en ligne chez KUMO" },
-    footer: { note: "Cuisine asiatique et moments à partager à Waterloo.", navigationLabel: "Navigation de pied de page", rights: "Tous droits réservés.", location: "Waterloo, Belgique" },
+    footer: {
+      title: "Restaurant asiatique à Waterloo",
+      note: "Sushis, teppanyaki et dim sum au centre Rich’l, en Brabant wallon. Retrouvez-nous au sud de Bruxelles pour un déjeuner ou un dîner à partager.",
+      addressLabel: "Adresse", phoneLabel: "Téléphone", navigationLabel: "Navigation de pied de page", rights: "Tous droits réservés.", location: "Waterloo, Belgique",
+    },
     notFound: { title: "Cette page s’est envolée.", description: "Retrouvez la carte, le restaurant et toutes les informations sur notre page d’accueil.", back: "Revenir à l’accueil" },
     error: { title: "Un petit contretemps.", description: "Réessayez ou appelez-nous pour réserver votre table.", retry: "Réessayer" },
   },
@@ -90,7 +94,7 @@ export const translations = {
     },
     menuSection: {
       title: "Our menu",
-      description: "From delicate sushi to flavours from the grill, let your appetite lead the way. Generous Asian cooking, best enjoyed together.",
+      description: "Sushi, teppanyaki, dim sum and flavours from the grill: discover Asian dining at KUMO in Waterloo, Belgium. A generous menu to enjoy together at Rich’l.",
       galleryLabel: "A selection from KUMO’s kitchen",
       imageAlts: ["A sushi selection at KUMO restaurant", "Salmon sushi prepared at KUMO", "A plate of sushi and KUMO specialities", "Carpaccio with herbs at KUMO", "A warm speciality from KUMO’s kitchen", "Dim sum in steamer baskets at KUMO"],
       note: "Discover the current selection and prices at the restaurant. Please tell our team about any allergies or dietary requirements before ordering.",
@@ -113,7 +117,7 @@ export const translations = {
       title: "Our Space",
       previous: "Previous photo", next: "Next photo",
       labels: ["The dining room", "The alcoves", "At the table", "The lounge", "The bar", "Welcome to KUMO"],
-      description: "Cosy alcoves, glowing details and a warm welcome. Find KUMO at Rich’l for lunch, dinner for two or a gathering around the table.",
+      description: "Find KUMO at Rich’l in Waterloo, Walloon Brabant, just south of Brussels. Cosy alcoves and a warm welcome set the scene for a family lunch, a romantic dinner or an evening with friends.",
       imageAlts: ["KUMO’s dining room with golden details", "Cosy alcoves and booth seating at KUMO", "Tables and green seating at KUMO", "An intimate dining space at KUMO", "KUMO’s bar with warm lighting", "The entrance to KUMO restaurant in Waterloo"],
     },
     booking: {
@@ -122,7 +126,11 @@ export const translations = {
       mapTitle: "KUMO restaurant location in Waterloo", call: "Book a table", directions: "Get directions", addressLabel: "Find us", phoneLabel: "Reservations", hoursLabel: "Opening hours", daysLabel: "Wednesday to Monday", closedLabel: "Closed on Tuesdays", lunchLabel: "Lunch", dinnerLabel: "Dinner",
     },
     reservation: { title: "Book a table", iframeTitle: "KUMO online reservation form" },
-    footer: { note: "Asian cuisine and moments to share in Waterloo.", navigationLabel: "Footer navigation", rights: "All rights reserved.", location: "Waterloo, Belgium" },
+    footer: {
+      title: "Asian restaurant in Waterloo, Belgium",
+      note: "Sushi, teppanyaki and dim sum at Rich’l in Walloon Brabant. Join us south of Brussels for lunch or dinner, whether you live nearby or are visiting Waterloo.",
+      addressLabel: "Address", phoneLabel: "Telephone", navigationLabel: "Footer navigation", rights: "All rights reserved.", location: "Waterloo, Belgium",
+    },
     notFound: { title: "This page has drifted away.", description: "Find the menu, restaurant and visitor information on our home page.", back: "Back to home" },
     error: { title: "A small interruption.", description: "Please try again or call us to reserve your table.", retry: "Try again" },
   },

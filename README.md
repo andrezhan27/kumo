@@ -2,7 +2,7 @@
 
 Restaurant website for KUMO at Drève Richelle 8, 1410 Waterloo, Belgium. Built with Next.js 16, React 19, TypeScript and Tailwind CSS 4.
 
-The original cream, black and gold visual style, geometric Manrope typography, full-screen hero and photo galleries are retained. French is the default language; English is available from the navigation. The choice is retained for the browser tab session.
+The original cream, black and gold visual style, geometric Manrope typography, full-screen hero and photo galleries are retained. French is served at `/`; English is available at `/en`. The language switch links to the equivalent home or reservation page. Navigation and booking links retain the selected language through their URLs, including after refreshing or sharing a page.
 
 ## Development
 
@@ -26,7 +26,7 @@ npm start
 npm run check:site
 ```
 
-The home and reservation pages are statically rendered. `/menu` permanently redirects to `/#menu-section`; `/reservar` permanently redirects to `/reservation`. The `/reservation` page follows the full-height reservation layout and embeds `https://reserve.intelis.pt/kumo`; all reservation CTAs open this page. Unknown URLs return a branded 404 page.
+The French and English home and reservation pages are statically rendered. `/menu` permanently redirects to `/#menu-section`; `/reservar` permanently redirects to `/reservation`. Equivalent legacy redirects exist under `/en`. The `/reservation` and `/en/reservation` pages follow the full-height reservation layout and embed `https://reserve.intelis.pt/kumo`; all reservation CTAs open the matching language page. Unknown URLs return a branded, non-indexable 404 page. Separate route groups provide the correct HTML language at render time; Next.js `globalNotFound` preserves the branded 404 across both root layouts.
 
 `npm run check` runs ESLint with zero warnings allowed, generates Next.js route types, and checks TypeScript. It works on a fresh clone before a build. `check:site` checks the production HTML, internal links, redirects, security headers, reservation embed, 404 response, icons, and assets. Use `CHECK_SITE_URL=https://your-deployment.vercel.app npm run check:site` to check an accessible deployment.
 
@@ -56,14 +56,23 @@ The full dependency audit currently reports a development-only `braces` advisory
 1. Push the repository to GitHub, then import it into a new Vercel project.
 2. Use the repository root (`.`) as **Root Directory** and **Next.js** as the framework preset. `vercel.json` sets **Install Command** to `npm ci` and **Build Command** to `npm run build`. Leave **Output Directory** at the framework default; do not use `out/` or enable static export because redirects and image optimization use Next.js.
 3. Node.js **22.x** is selected by `package.json`. No API credentials or database are required.
-4. For a custom domain, add it in Vercel's Domains settings and set `SITE_URL` in the **Production** environment to its public origin, including `https://` and no path. Redeploy after changing this variable: social metadata is generated at build time. Without it, the site uses `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_URL`; local builds use `http://localhost:3000`.
+4. For a custom domain, add it in Vercel's Domains settings and set `SITE_URL` in the **Production** environment to its public origin, including `https://` and no path. Redeploy after changing this variable: canonical URLs, language alternates, social metadata, the sitemap and structured data are generated at build time. Without it, the site uses `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_URL`; local builds use `http://localhost:3000`.
 5. Deploy, then check `/`, `/reservation`, `/menu`, `/reservar`, and an unknown URL. Confirm the booking provider loads in a browser and test French/English switching. The automated site check validates the embed URL and markup; the third-party booking service still needs this browser check.
 
 Vercel handles HTTPS and deployments from the connected Git branch. See the official [project configuration](https://vercel.com/docs/project-configuration) and [Node.js version](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions) references.
 
 ## Restaurant content
 
-Edit `lib/content.ts` for contact details, hours, translations and gallery entries. Opening hours are also declared in the restaurant structured data in `app/layout.tsx`; update both when hours change.
+Edit `lib/content.ts` for contact details, hours, translations and gallery entries. Opening hours are also declared in the restaurant structured data in `lib/seo.ts`; update both when hours change.
+
+## Search visibility
+
+- Each language has its own crawlable home and reservation URL, localized titles and descriptions, a self-referencing canonical, and reciprocal `fr-BE`, `en` and `x-default` alternates. English content is present in the initial HTML rather than dependent on a client-side language switch.
+- `/robots.txt` allows crawling and points to `/sitemap.xml`, which lists all four canonical pages with their language alternates.
+- Restaurant JSON-LD includes the public origin, photos, cuisine, address, coordinates, phone, opening hours, menu section and reservation action. Prices, ratings and reviews are not invented.
+- The menu, space and footer use natural French/English references to Asian cuisine, sushi, teppanyaki, dim sum, Waterloo in Belgium, Rich’l and Walloon Brabant/south of Brussels. The hero content and layout are unchanged.
+- After deploying on the final domain, verify it in Google Search Console and submit `/sitemap.xml`. Keep the Google Business Profile name, address, phone, website and hours consistent with the site. Validate the public homepage with Google’s Rich Results Test. These account-level steps must be performed in the relevant owner accounts; code changes cannot guarantee rankings.
+- Guidance: [Google multilingual sites](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites) and [local business structured data](https://developers.google.com/search/docs/appearance/structured-data/local-business).
 
 Verified on 22 October 2026:
 
@@ -90,3 +99,5 @@ Sources:
 See `ASSET_SOURCES.md` for the photo source mapping.
 
 The 64px navigation uses a solid ivory background throughout. Desktop tabs are centered independently of the logo and controls. The mobile dropdown animates open and closed, and closes on outside taps, Escape, navigation, or switching to desktop width. The language switch and desktop reservation CTA are both 40px high.
+
+At desktop widths (1024px and above), pricing uses a centered 896px maximum width, smaller type and tighter vertical spacing. Mobile and tablet pricing retain their previous dimensions.

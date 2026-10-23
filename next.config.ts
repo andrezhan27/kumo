@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Each language has a static root layout with the correct document language.
+  experimental: { globalNotFound: true },
   poweredByHeader: false,
   images: { minimumCacheTTL: 86400 },
   async headers() {
@@ -17,6 +19,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/menu", destination: "/#menu-section", permanent: true },
       { source: "/reservar", destination: "/reservation", permanent: true },
+      { source: "/en/menu", destination: "/en#menu-section", permanent: true },
+      { source: "/en/reservar", destination: "/en/reservation", permanent: true },
     ];
   },
 };

@@ -1,37 +1,20 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createContext, useContext, useMemo, type ReactNode } from "react";
 import { translations, type Language } from "@/lib/content";
+import { localizedHref } from "@/lib/i18n";
 
 type LanguageContextValue = {
   language: Language;
-  setLanguage: (language: Language) => void;
+  localizeHref: (href: string) => string;
   t: (typeof translations)[Language];
 };
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("fr");
-
-  useEffect(() => {
-    try {
-      const saved = sessionStorage.getItem("kumo-language");
-      // Restore the tab preference after hydration to match the initial French server render.
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      if (saved === "fr" || saved === "en") setLanguage(saved);
-    } catch { /* Language switching also works when storage is unavailable. */ }
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.lang = language;
-  }, [language]);
-
+export function LanguageProvider({ children, language }: { children: ReactNode; language: Language }) {
   const value = useMemo(() => ({
     language,
-    setLanguage: (next: Language) => {
-      setLanguage(next);
-      try { sessionStorage.setItem("kumo-language", next); } catch { /* Optional preference. */ }
-    },
+    localizeHref: (href: string) => localizedHref(href, language),
     t: translations[language],
   }), [language]);
 
