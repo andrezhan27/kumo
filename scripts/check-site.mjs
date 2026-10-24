@@ -74,6 +74,8 @@ for (const [route, pageHtml] of pages) {
   const frenchPath = isReservation ? "/reservation" : "/";
   const englishPath = isReservation ? "/en/reservation" : "/en";
   const expectedUrl = `${canonicalOrigin}${route}`;
+  assert.equal([...pageHtml.matchAll(/<html\b/g)].length, 1, `${route} must render one document`);
+  assert.equal([...pageHtml.matchAll(/<body\b/g)].length, 1, `${route} must render one body`);
   assert.match(pageHtml, new RegExp(`<html[^>]+lang="${isEnglish ? "en" : "fr"}"`));
   const pageCanonical = pageHtml.match(/<link rel="canonical" href="([^"]+)"/)[1];
   assert.equal(new URL(pageCanonical).href, new URL(expectedUrl).href, `${route} must have its own canonical URL`);

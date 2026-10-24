@@ -2,7 +2,7 @@
 
 Restaurant website for KUMO at Drève Richelle 8, 1410 Waterloo, Belgium. Built with Next.js 16, React 19, TypeScript and Tailwind CSS 4.
 
-The original cream, black and gold visual style, geometric Manrope typography, full-screen hero and photo galleries are retained. French is served at `/`; English is available at `/en`. The language switch links to the equivalent home or reservation page. Navigation and booking links retain the selected language through their URLs, including after refreshing or sharing a page.
+The original cream, black and gold visual style, geometric Manrope typography, full-screen hero and photo galleries are retained. French is served at `/`; English is available at `/en`. The language switch uses prefetched Next.js links and client navigation to the equivalent home or reservation page without a document reload. It retains the current query string, section hash and scroll position; choosing the current language does nothing. Navigation and booking links retain the selected language through their URLs, including after refreshing or sharing a page. Without JavaScript, the language links still navigate to the matching page.
 
 ## Development
 
@@ -26,7 +26,7 @@ npm start
 npm run check:site
 ```
 
-The French and English home and reservation pages are statically rendered. `/menu` permanently redirects to `/#menu-section`; `/reservar` permanently redirects to `/reservation`. Equivalent legacy redirects exist under `/en`. The `/reservation` and `/en/reservation` pages follow the full-height reservation layout and embed `https://reserve.intelis.pt/kumo`; all reservation CTAs open the matching language page. Unknown URLs return a branded, non-indexable 404 page. Separate route groups provide the correct HTML language at render time; Next.js `globalNotFound` preserves the branded 404 across both root layouts.
+The French and English home and reservation pages are statically rendered. `/menu` permanently redirects to `/#menu-section`; `/reservar` permanently redirects to `/reservation`. Equivalent legacy redirects exist under `/en`. The `/reservation` and `/en/reservation` pages follow the full-height reservation layout and embed `https://reserve.intelis.pt/kumo`; all reservation CTAs open the matching language page. Unknown URLs return a branded, non-indexable 404 page. Both languages share one root layout: the document and language context follow the pathname during static rendering and client navigation. Language-specific route groups supply the server-rendered metadata. Next.js `globalNotFound` preserves the standalone branded 404.
 
 `npm run check` runs ESLint with zero warnings allowed, generates Next.js route types, and checks TypeScript. It works on a fresh clone before a build. `check:site` checks the production HTML, internal links, redirects, security headers, reservation embed, 404 response, icons, and assets. Use `CHECK_SITE_URL=https://your-deployment.vercel.app npm run check:site` to check an accessible deployment.
 

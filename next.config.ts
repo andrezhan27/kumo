@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Each language has a static root layout with the correct document language.
+  // Preserve the standalone branded 404 for unmatched routes.
   experimental: { globalNotFound: true },
   poweredByHeader: false,
   images: { minimumCacheTTL: 86400 },
