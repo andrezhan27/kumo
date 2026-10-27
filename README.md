@@ -65,6 +65,10 @@ Vercel handles HTTPS and deployments from the connected Git branch. See the offi
 
 Edit `lib/content.ts` for contact details, hours, translations and gallery entries. Opening hours are also declared in the restaurant structured data in `lib/seo.ts`; update both when hours change.
 
+The bilingual “How it works” section sits between the food gallery and pricing. A compact comparison table shows lunch (15 dishes, 3 orders of up to 5, 15 minutes between orders) and dinner (20 dishes, 4 orders of up to 5, 20 minutes between orders), per person. Below 1024px, the five steps use native expandable details; desktop displays their descriptions in full. The core limits, premium-selection note and reminder that the maximum is not a target remain visible without expanding anything. These details and the broader evening/weekend premium selection were supplied by the owner on 27 October 2026. Edit `diningFormulas` and the `howItWorks` translations in `lib/content.ts` together when conditions change. The slogan “I don't do Buffets. I do KUMO.” appears in a compact banner, with its English language marked in both locales. The restaurant H1, search titles, descriptions, canonical URLs and structured data remain in place; all explanatory copy is present in the statically rendered HTML.
+
+The reviews section follows Contacts in both languages. `lib/reviews.ts` contains ten attributed excerpts from five-star Google reviews, checked against the owner’s [Google Maps listing](https://maps.app.goo.gl/RtnC6UqdoKyYLQ3Y8) on 27 October 2026. The original review language is recorded and translated excerpts are labeled. These are a manually selected snapshot, not a live feed or the restaurant’s overall rating; recheck the source when editing. All ten appear on desktop; below 768px, five appear initially with an accessible expand/collapse button for the remaining five. The Google link stays visible in both states. No third-party review widget or API key is needed.
+
 ## Search visibility
 
 - Each language has its own crawlable home and reservation URL, localized titles and descriptions, a self-referencing canonical, and reciprocal `fr-BE`, `en` and `x-default` alternates. English content is present in the initial HTML rather than dependent on a client-side language switch.
@@ -79,7 +83,7 @@ Verified on 22 October 2026:
 - Address: Drève Richelle 8, 1410 Waterloo, Belgium.
 - Reservations: +32 2 767 63 98. Booking actions open `/reservation`; the telephone contact remains available in Contacts.
 - Open Wednesday–Monday, 12:00–14:30 and 18:30–22:30; closed Tuesday.
-- Current dishes and prices are available directly from the restaurant. The pricing comparison table uses explicit placeholders for weekdays, weekends/public holidays, and children until prices and dining conditions are confirmed. No takeaway offers or social profiles from the previous restaurant are carried over.
+- The owner subsequently supplied formula prices: Monday–Thursday €31 lunch / €45 dinner (closed Tuesday), Friday €31 / €55, Saturday €36 / €55, and Sunday €55 / €55, per person. The owner’s “samedi 36” is interpreted as Saturday lunch because Saturday dinner was explicitly €55. Edit `diningPrices` in `lib/content.ts` for these amounts. Children’s and public holiday prices were not supplied; visitors are directed to contact the restaurant. Formula limits and order timing were supplied by the owner on 27 October 2026 and are explained in “How it works” above. No takeaway offers or social profiles from the previous restaurant are carried over.
 
 Sources:
 
