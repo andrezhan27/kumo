@@ -1,7 +1,7 @@
 export const brandName = "KUMO";
 export const reservationSlug = "kumo";
 export const reservationHref = "/reservation";
-export const diningSlogan = ["I don't do Buffets.", "I do KUMO."] as const;
+export const diningSlogan = ["I don't do Buffets.", "I do", "KUMO."] as const;
 
 export const diningFormulas = [
   { id: "lunch", dishes: 15, orders: 3, dishesPerOrder: 5, waitMinutes: 15 },
@@ -36,12 +36,13 @@ export const menuItems = [
 ] as const;
 
 export const spaceSlides = [
-  { id: "dining", image: "/space/dining.webp" },
-  { id: "alcoves", image: "/space/alcoves.webp" },
-  { id: "tables", image: "/space/tables.webp" },
-  { id: "lounge", image: "/space/lounge.webp" },
-  { id: "bar", image: "/space/bar.webp" },
-  { id: "entrance", image: "/space/entrance.webp" },
+  { id: "space-01", image: "/space/space-01.webp" },
+  { id: "space-02", image: "/space/space-02.webp" },
+  { id: "space-03", image: "/space/space-03.webp" },
+  { id: "space-04", image: "/space/space-04.webp" },
+  { id: "space-05", image: "/space/space-05.webp" },
+  { id: "space-06", image: "/space/space-06.webp" },
+  { id: "space-07", image: "/space/space-07.webp" },
 ] as const;
 
 export const translations = {
@@ -101,9 +102,9 @@ export const translations = {
     space: {
       title: "Notre espace",
       previous: "Photo précédente", next: "Photo suivante",
-      labels: ["La salle", "Les alcôves", "À table", "Le salon", "Le bar", "Bienvenue chez KUMO"],
+      labels: ["La salle", "Le salon", "Les robots", "Bienvenue chez KUMO", "Le bar", "Les alcôves", "À table"],
       description: "Au centre Rich’l à Waterloo, en Brabant wallon, KUMO vous accueille dans ses alcôves chaleureuses. Un restaurant asiatique pour un déjeuner en famille, un dîner à deux ou une grande tablée entre amis.",
-      imageAlts: ["La salle de KUMO et ses détails dorés", "Les alcôves et banquettes de KUMO", "Les tables et fauteuils aux tons verts de KUMO", "Un espace intime du restaurant KUMO", "Le bar et son éclairage chaleureux chez KUMO", "L’entrée du restaurant KUMO à Waterloo"],
+      imageAlts: ["La salle de KUMO, ses colonnes dorées et ses fauteuils bleu canard", "Le salon de KUMO avec ses vitrages bleus et ses cloisons dorées", "Les robots de service devant le comptoir à sushis de KUMO", "La façade et la terrasse du restaurant KUMO à Waterloo", "Le bar de KUMO et ses étagères de bouteilles illuminées", "L’allée centrale et les alcôves dorées du restaurant KUMO", "Une table entre deux banquettes orange et des colonnes dorées chez KUMO"],
     },
     booking: {
       title: "Contacts",
@@ -186,9 +187,9 @@ export const translations = {
     space: {
       title: "Our Space",
       previous: "Previous photo", next: "Next photo",
-      labels: ["The dining room", "The alcoves", "At the table", "The lounge", "The bar", "Welcome to KUMO"],
+      labels: ["The dining room", "The lounge", "The robots", "Welcome to KUMO", "The bar", "The alcoves", "At the table"],
       description: "Find KUMO at Rich’l in Waterloo, Walloon Brabant, just south of Brussels. Cosy alcoves and a warm welcome set the scene for a family lunch, a romantic dinner or an evening with friends.",
-      imageAlts: ["KUMO’s dining room with golden details", "Cosy alcoves and booth seating at KUMO", "Tables and green seating at KUMO", "An intimate dining space at KUMO", "KUMO’s bar with warm lighting", "The entrance to KUMO restaurant in Waterloo"],
+      imageAlts: ["KUMO’s dining room with golden columns and teal seating", "KUMO’s lounge with blue glass panels and golden partitions", "Serving robots in front of KUMO’s sushi counter", "The facade and terrace of KUMO restaurant in Waterloo", "KUMO’s cocktail bar with illuminated bottle shelves", "The central aisle and golden alcoves at KUMO", "A table between orange booths and golden columns at KUMO"],
     },
     booking: {
       title: "Contacts",

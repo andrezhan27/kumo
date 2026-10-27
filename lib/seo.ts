@@ -57,7 +57,7 @@ export const restaurantSchema = {
   "@context": "https://schema.org", "@type": "Restaurant", "@id": `${siteOrigin}/#restaurant`, name: "KUMO",
   url: `${siteOrigin}/`,
   description: "Restaurant asiatique au centre Rich’l à Waterloo : sushis, teppanyaki et dim sum, en Brabant wallon, Belgique.",
-  image: [`${siteOrigin}/social/kumo.jpg`, `${siteOrigin}/space/dining.webp`, `${siteOrigin}/food/sushi.webp`],
+  image: [`${siteOrigin}/social/kumo.jpg`, `${siteOrigin}/space/space-01.webp`, `${siteOrigin}/food/sushi.webp`],
   logo: `${siteOrigin}/kumo-logo-blue.webp`,
   servesCuisine: ["Asian", "Japanese", "Sushi", "Teppanyaki", "Dim sum"],
   telephone: restaurantInfo.phone, hasMap: restaurantInfo.mapHref,

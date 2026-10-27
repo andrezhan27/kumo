@@ -135,7 +135,8 @@ img {
 
 @keyframes menu-marquee {
   to {
-    transform: translate3d(-50%, 0, 0);
+    /* Advance one of the three identical sets for a seamless reset. */
+    transform: translate3d(calc(-100% / 3), 0, 0);
   }
 }
 
@@ -191,11 +192,61 @@ footer :focus-visible {
   .mobile-navigation { display: none; }
 }
 
-.space-gallery {
-  scrollbar-width: none;
+.space-mosaic {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3px;
 }
 
-.space-gallery::-webkit-scrollbar { display: none; }
+.space-mosaic-tile {
+  aspect-ratio: 1;
+}
+
+.space-mosaic-tile:nth-child(3) {
+  order: 1;
+}
+
+.space-mosaic-tile:nth-child(6) {
+  grid-column: span 2;
+  aspect-ratio: 3 / 2;
+}
+
+@media (min-width: 48rem) {
+  .space-mosaic {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .space-mosaic-tile:nth-child(-n + 3) {
+    order: 0;
+    grid-column: span 4;
+    aspect-ratio: 4 / 3;
+  }
+
+  .space-mosaic-tile:nth-child(n + 4) {
+    grid-column: span 6;
+    aspect-ratio: 3 / 2;
+  }
+}
+
+.how-it-works-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 280ms ease;
+}
+
+.how-it-works-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.how-it-works-chevron {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.how-it-works-chevron[data-open="true"] {
+  transform: rotate(180deg);
+}
 
 /* Continuous on desktop and touch; provide a static gallery for reduced motion. */
 @media (prefers-reduced-motion: reduce) {
