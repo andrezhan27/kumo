@@ -8,7 +8,7 @@ import { brandName, restaurantInfo } from "@/lib/content";
 
 export function Footer() {
   const { t, language, localizeHref } = useLanguage();
-  const address = language === "fr" ? restaurantInfo.address : restaurantInfo.address.replace("Belgique", "Belgium");
+  const address = language === "fr" ? restaurantInfo.address : restaurantInfo.address.replace("Belgique", language === "nl" ? "België" : "Belgium");
   return (
     <footer className="border-t border-background/10 bg-night py-12 text-background sm:py-16">
       <div className="section-shell grid gap-10 md:grid-cols-2">

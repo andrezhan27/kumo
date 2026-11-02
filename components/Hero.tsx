@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-night pt-16 text-background" id="home">
       <div className="absolute inset-x-0 top-16 bottom-0 md:top-0">
-        <picture>
+        <picture className="absolute inset-0">
           <source media="(max-width: 767px)" sizes={mobileImage.sizes} srcSet={mobileImage.srcSet} />
           <Image alt={t.hero.imageAlt} className="object-cover object-center md:object-[48%_50%]" fetchPriority="high" fill loading="eager" sizes="100vw" src="/hero/kumo-hero-desktop.webp" />
         </picture>

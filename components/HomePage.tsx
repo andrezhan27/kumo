@@ -8,12 +8,15 @@ import { SpaceCarousel } from "@/components/SpaceCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { HowItWorks } from "@/components/HowItWorks";
 
+import { RestaurantStory } from "@/components/RestaurantStory";
+
 export default function Home() {
   return (
     <>
       <Navbar />
       <main id="main-content">
         <Hero />
+        <RestaurantStory />
         <MenuCarousel />
         <HowItWorks />
         <PricingSection />

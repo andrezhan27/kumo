@@ -33,6 +33,10 @@ export const menuItems = [
   { id: "carpaccio", image: "/food/carpaccio.webp" },
   { id: "grilled", image: "/food/grilled.webp" },
   { id: "dim-sum", image: "/food/dim-sum.webp" },
+  { id: "crispy-speciality", image: "/food/crispy-speciality.webp" },
+  { id: "salmon-rolls", image: "/food/salmon-rolls.webp" },
+  { id: "rice-speciality", image: "/food/rice-speciality.webp" },
+  { id: "salmon-bowl", image: "/food/salmon-bowl.webp" },
 ] as const;
 
 export const spaceSlides = [
@@ -48,6 +52,7 @@ export const spaceSlides = [
 export const translations = {
   fr: {
     nav: { home: "Accueil", menu: "Menu", pricing: "Tarifs", space: "Espace", contact: "Contact", book: "Réserver", toggle: "Ouvrir le menu", close: "Fermer le menu", label: "Navigation principale", explore: "Découvrir KUMO" },
+    languageLabel: "Choisir la langue",
     skip: "Aller au contenu",
     hero: {
       eyebrow: "Cuisine asiatique · Waterloo",
@@ -56,11 +61,18 @@ export const translations = {
       primary: "Réserver",
       imageAlt: "La façade du restaurant KUMO à Waterloo, son enseigne et son emblème bleu",
     },
+    story: {
+      eyebrow: "Notre histoire",
+      title: "Une table, mille découvertes.",
+      description: "Au cœur de Waterloo, au centre Rich’l, KUMO réunit les saveurs de la cuisine asiatique autour d’une même table. Sushis, teppanyaki et dim sum composent une carte à explorer à votre rythme, avec des plats préparés à la commande.",
+      welcome: "Des alcôves chaleureuses, un déjeuner en famille, un dîner à deux ou entre amis : nous vous accueillons pour le plaisir de bien manger et de vous retrouver.",
+      imageAlt: "L’allée centrale et les alcôves dorées du restaurant KUMO à Waterloo",
+    },
     menuSection: {
       title: "Notre carte",
       description: "Sushis, teppanyaki, dim sum et saveurs du gril : découvrez la cuisine asiatique de KUMO à Waterloo. Une carte généreuse, à savourer ensemble au centre Rich’l.",
       galleryLabel: "Quelques créations de KUMO",
-      imageAlts: ["Sélection de sushis au restaurant KUMO", "Sushis au saumon préparés chez KUMO", "Assiette de sushis et spécialités KUMO", "Carpaccio assaisonné aux herbes chez KUMO", "Une spécialité chaude de KUMO", "Dim sum servis dans leurs paniers vapeur chez KUMO"],
+      imageAlts: ["Sélection de sushis au restaurant KUMO", "Sushis au saumon préparés chez KUMO", "Assiette de sushis et spécialités KUMO", "Carpaccio assaisonné aux herbes chez KUMO", "Une spécialité chaude de KUMO", "Dim sum servis dans leurs paniers vapeur chez KUMO", "Spécialité dorée et garniture dans une assiette blanche chez KUMO", "Rouleaux de saumon et leur garniture croustillante chez KUMO", "Spécialité de riz servie chez KUMO", "Saumon et garniture dans une assiette turquoise chez KUMO"],
       note: "La sélection et les tarifs sont à découvrir au restaurant. Pour toute allergie ou restriction alimentaire, parlez-en à notre équipe avant de commander.",
     },
     howItWorks: {
@@ -121,6 +133,9 @@ export const translations = {
       showMore: "Afficher les 5 autres avis",
       showLess: "Afficher moins d’avis",
       googleLink: "Voir plus d’avis sur Google",
+      selectionLabel: "Extraits d’avis 5 étoiles",
+      previous: "Avis précédent",
+      next: "Avis suivant",
     },
     reservation: { title: "Réserver", iframeTitle: "Réservation en ligne chez KUMO" },
     footer: {
@@ -133,6 +148,7 @@ export const translations = {
   },
   en: {
     nav: { home: "Home", menu: "Menu", pricing: "Pricing", space: "Space", contact: "Contact", book: "Book a table", toggle: "Open navigation", close: "Close navigation", label: "Main navigation", explore: "Explore KUMO" },
+    languageLabel: "Choose language",
     skip: "Skip to content",
     hero: {
       eyebrow: "Asian cuisine · Waterloo",
@@ -141,11 +157,18 @@ export const translations = {
       primary: "Book a table",
       imageAlt: "The KUMO restaurant facade in Waterloo, with its sign and blue emblem",
     },
+    story: {
+      eyebrow: "Our story",
+      title: "One table. A world of flavours.",
+      description: "In the heart of Waterloo, at Rich’l, KUMO brings the flavours of Asian cuisine to one table. From sushi and teppanyaki to dim sum, explore our menu at your own pace, with dishes prepared to order.",
+      welcome: "Cosy alcoves, a family lunch, dinner for two or an evening with friends: join us for good food and time together.",
+      imageAlt: "The central aisle and golden alcoves at KUMO restaurant in Waterloo",
+    },
     menuSection: {
       title: "Our menu",
       description: "Sushi, teppanyaki, dim sum and flavours from the grill: discover Asian dining at KUMO in Waterloo, Belgium. A generous menu to enjoy together at Rich’l.",
       galleryLabel: "A selection from KUMO’s kitchen",
-      imageAlts: ["A sushi selection at KUMO restaurant", "Salmon sushi prepared at KUMO", "A plate of sushi and KUMO specialities", "Carpaccio with herbs at KUMO", "A warm speciality from KUMO’s kitchen", "Dim sum in steamer baskets at KUMO"],
+      imageAlts: ["A sushi selection at KUMO restaurant", "Salmon sushi prepared at KUMO", "A plate of sushi and KUMO specialities", "Carpaccio with herbs at KUMO", "A warm speciality from KUMO’s kitchen", "Dim sum in steamer baskets at KUMO", "A golden speciality with garnish on a white plate at KUMO", "Salmon rolls with a crisp topping at KUMO", "A rice speciality served at KUMO", "Salmon with garnish on a turquoise plate at KUMO"],
       note: "Discover the current selection and prices at the restaurant. Please tell our team about any allergies or dietary requirements before ordering.",
     },
     howItWorks: {
@@ -206,6 +229,9 @@ export const translations = {
       showMore: "Show 5 more reviews",
       showLess: "Show fewer reviews",
       googleLink: "See more reviews on Google",
+      selectionLabel: "Selected five-star reviews",
+      previous: "Previous review",
+      next: "Next review",
     },
     reservation: { title: "Book a table", iframeTitle: "KUMO online reservation form" },
     footer: {
@@ -215,6 +241,102 @@ export const translations = {
     },
     notFound: { title: "This page has drifted away.", description: "Find the menu, restaurant and visitor information on our home page.", back: "Back to home" },
     error: { title: "A small interruption.", description: "Please try again or call us to reserve your table.", retry: "Try again" },
+  },
+  nl: {
+    nav: { home: "Home", menu: "Menu", pricing: "Prijzen", space: "Restaurant", contact: "Contact", book: "Reserveren", toggle: "Navigatie openen", close: "Navigatie sluiten", label: "Hoofdnavigatie", explore: "Ontdek KUMO" },
+    languageLabel: "Taal kiezen",
+    skip: "Naar de inhoud",
+    hero: {
+      eyebrow: "Aziatische keuken · Waterloo",
+      title: brandName,
+      description: "Een wolk van smaken in het hart van Waterloo. Sushi, teppanyaki en nieuwe smaken om samen te ontdekken.",
+      primary: "Reserveren",
+      imageAlt: "De gevel van restaurant KUMO in Waterloo, met het uithangbord en het blauwe embleem",
+    },
+    story: {
+      eyebrow: "Ons verhaal",
+      title: "Eén tafel. Een wereld aan smaken.",
+      description: "In het hart van Waterloo, in het Rich’l-centrum, brengt KUMO de smaken van de Aziatische keuken samen aan tafel. Van sushi en teppanyaki tot dim sum: ontdek onze kaart op uw eigen tempo, met gerechten die op bestelling worden bereid.",
+      welcome: "Gezellige nissen, een lunch met het gezin, een diner voor twee of een avond met vrienden: bij ons draait het om lekker eten en samen genieten.",
+      imageAlt: "De centrale gang en gouden nissen van restaurant KUMO in Waterloo",
+    },
+    menuSection: {
+      title: "Onze kaart",
+      description: "Sushi, teppanyaki, dim sum en smaken van de grill: ontdek de Aziatische keuken van KUMO in Waterloo. Een uitgebreide kaart om samen van te genieten in het Rich’l-centrum.",
+      galleryLabel: "Een selectie uit de keuken van KUMO",
+      imageAlts: ["Een selectie sushi bij restaurant KUMO", "Zalmsushi bereid bij KUMO", "Een bord sushi en specialiteiten van KUMO", "Carpaccio met kruiden bij KUMO", "Een warm gerecht uit de keuken van KUMO", "Dim sum in stoommandjes bij KUMO", "Een goudbruin gerecht met garnituur op een wit bord bij KUMO", "Zalmrolletjes met een krokante topping bij KUMO", "Een rijstgerecht geserveerd bij KUMO", "Zalm met garnituur op een turquoise bord bij KUMO"],
+      note: "Ontdek de actuele selectie en prijzen in het restaurant. Laat ons team vóór het bestellen weten of u allergieën of specifieke dieetwensen heeft.",
+    },
+    howItWorks: {
+      eyebrow: "À la carte, op een andere manier",
+      title: "Hoe werkt het?",
+      description: "Een individuele formule, afhankelijk van de dag en de maaltijd. Kies uw gerechten à la carte: elk gerecht wordt speciaal voor u bereid.",
+      comparisonLabel: "De formules in één oogopslag",
+      formulaLabel: "Formule",
+      meals: { lunch: "Lunch", dinner: "Diner" },
+      dishes: "Maximaal aantal gerechten",
+      perPerson: "per persoon",
+      orders: "Maximaal aantal bestellingen",
+      dishesPerOrder: "gerechten maximaal per persoon en per bestelling.",
+      wait: "Tussen twee bestellingen",
+      premium: "’s Avonds en in het weekend: een ruimer aanbod aan premiumgerechten.",
+      steps: [
+        { title: "Kies uw formule", description: "Elke gast betaalt voor een eigen formule. Deze hangt af van uw bezoek: lunch of diner, door de week of in het weekend. Elke formule heeft een maximaal aantal gerechten per persoon." },
+        { title: "Bestel à la carte", description: "Kies waar u zin in heeft uit de gerechten die bij uw formule horen. U kunt tot 3 bestellingen plaatsen tijdens de lunch of 4 tijdens het diner, met maximaal 5 gerechten per persoon per bestelling." },
+        { title: "Neem uw tijd", description: "Wacht tussen twee bestellingen 15 minuten tijdens de lunch of 20 minuten tijdens het diner. Geniet van uw gerechten en kijk hoeveel trek u nog heeft. Elk gerecht wordt speciaal voor uw bestelling bereid." },
+        { title: "Begin met een paar gerechten", description: "Onze tip: bestel eerst een paar gerechten. U hoeft niet meteen 5 gerechten te kiezen bij uw eerste bestelling. Stem de volgende bestellingen af op uw eetlust." },
+        { title: "Minder verspilling. Meer KUMO.", description: "Door in het begin met mate te bestellen, helpt u voedselverspilling te verminderen en houdt u ruimte om tijdens de maaltijd meer gerechten te ontdekken.", takeaway: "Het maximum is een grens, geen doel." },
+      ],
+    },
+    pricing: {
+      title: "Prijzen",
+      description: "Een ontspannen lunch of een avond om rustig van te genieten. Kies uw moment en geniet op uw eigen tempo.",
+      days: {
+        weekdays: { title: "Maandag – donderdag", detail: "Gesloten op dinsdag" },
+        friday: { title: "Vrijdag" },
+        saturday: { title: "Zaterdag" },
+        sunday: { title: "Zondag" },
+      },
+      dayLabel: "Dag",
+      perPerson: "per persoon",
+      lunch: { title: "Lunch", description: "Een smakelijke pauze midden op de dag.", detail: "Sushi, smaken van de grill en nieuwe gerechten om samen te ontdekken." },
+      dinner: { title: "Diner", description: "Neem de tijd om samen te zijn.", detail: "Genieten van de eerste tot de laatste hap." },
+      note: "Elke formule is individueel. Gesloten op dinsdag. Neem contact met ons op voor kinderprijzen en tarieven op feestdagen.",
+    },
+    space: {
+      title: "Ons restaurant",
+      previous: "Vorige foto", next: "Volgende foto",
+      labels: ["De eetzaal", "De lounge", "De robots", "Welkom bij KUMO", "De bar", "De nissen", "Aan tafel"],
+      description: "U vindt KUMO in het Rich’l-centrum in Waterloo, in Waals-Brabant, net ten zuiden van Brussel. Gezellige nissen en een warm onthaal vormen het decor voor een lunch met het gezin, een romantisch diner of een avond met vrienden.",
+      imageAlts: ["De eetzaal van KUMO met gouden zuilen en petrolblauwe stoelen", "De lounge van KUMO met blauwe glaspanelen en gouden scheidingswanden", "Bedieningsrobots voor de sushitoog van KUMO", "De gevel en het terras van restaurant KUMO in Waterloo", "De bar van KUMO met verlichte flessenrekken", "De centrale gang en gouden nissen bij KUMO", "Een tafel tussen oranje zitbanken en gouden zuilen bij KUMO"],
+    },
+    booking: {
+      title: "Contact",
+      description: "Een maaltijd met het gezin, een avond met vrienden of iets te vieren? Reserveer online of bel ons om uw bezoek te plannen.",
+      mapTitle: "Locatie van restaurant KUMO in Waterloo", call: "Reserveren", directions: "Routebeschrijving", addressLabel: "Hier vindt u ons", phoneLabel: "Reserveringen", hoursLabel: "Openingsuren", daysLabel: "Woensdag tot maandag", closedLabel: "Gesloten op dinsdag", lunchLabel: "Lunch", dinnerLabel: "Diner",
+    },
+    reviews: {
+      eyebrow: "Google-reviews",
+      title: "Onze gasten aan het woord",
+      description: "Tien fragmenten uit vijfsterrenreviews van onze gasten op Google. Hun indrukken van de keuken, het onthaal en de sfeer.",
+      fiveStars: "5 van de 5 sterren",
+      excerpt: "Fragment",
+      translatedExcerpt: "Vertaald fragment",
+      showMore: "Toon 5 extra reviews",
+      showLess: "Toon minder reviews",
+      googleLink: "Meer reviews op Google",
+      selectionLabel: "Geselecteerde vijfsterrenreviews",
+      previous: "Vorige review",
+      next: "Volgende review",
+    },
+    reservation: { title: "Reserveren", iframeTitle: "Online reserveren bij KUMO" },
+    footer: {
+      title: "Aziatisch restaurant in Waterloo, België",
+      note: "Sushi, teppanyaki en dim sum in het Rich’l-centrum in Waals-Brabant. Kom langs ten zuiden van Brussel voor een lunch of diner om samen van te genieten.",
+      addressLabel: "Adres", phoneLabel: "Telefoon", navigationLabel: "Navigatie in de voettekst", rights: "Alle rechten voorbehouden.", location: "Waterloo, België",
+    },
+    notFound: { title: "Deze pagina is verdwenen.", description: "U vindt de kaart, het restaurant en alle praktische informatie op onze homepagina.", back: "Terug naar de homepagina" },
+    error: { title: "Een kleine onderbreking.", description: "Probeer het opnieuw of bel ons om uw tafel te reserveren.", retry: "Opnieuw proberen" },
   },
 } as const;
 

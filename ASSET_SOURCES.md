@@ -30,3 +30,14 @@ Replaces the previous six gallery photos. Files are copied without re-encoding.
 | public/space/space-07.webp | Symmetrical Luxury Sushi Booth.webp |
 
 - Active responsive hero: owner-supplied `public/hero/kumo-hero-mobile.webp` and `public/hero/kumo-hero-desktop.webp` (27 October 2026).
+
+## Additional food photos — 2 November 2026
+
+Four restaurant photographs from KUMO’s existing Waterloo Plaza gallery, resized to at most 960px wide and saved as WebP. These complete the single-row, ten-photo menu gallery.
+
+| Local asset | Source |
+| --- | --- |
+| public/food/crispy-speciality.webp | [Original image](https://www.waterlooplaza.be/_custom_storage/img/th_photo_gallery/2457/th_covers_20261012_46175_l.webp?1791800590) |
+| public/food/salmon-rolls.webp | [Original image](https://www.waterlooplaza.be/_custom_storage/img/th_photo_gallery/2457/th_covers_20261012_65989_l.webp?1791800607) |
+| public/food/rice-speciality.webp | [Original image](https://www.waterlooplaza.be/_custom_storage/img/th_photo_gallery/2457/th_covers_20261012_66385_l.webp?1791800610) |
+| public/food/salmon-bowl.webp | [Original image](https://www.waterlooplaza.be/_custom_storage/img/th_photo_gallery/2457/th_covers_20261012_89224_l.webp?1791800603) |

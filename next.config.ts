@@ -21,6 +21,8 @@ const nextConfig: NextConfig = {
       { source: "/reservar", destination: "/reservation", permanent: true },
       { source: "/en/menu", destination: "/en#menu-section", permanent: true },
       { source: "/en/reservar", destination: "/en/reservation", permanent: true },
+      { source: "/nl/menu", destination: "/nl#menu-section", permanent: true },
+      { source: "/nl/reservar", destination: "/nl/reservation", permanent: true },
     ];
   },
 };

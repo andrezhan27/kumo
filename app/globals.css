@@ -8,7 +8,7 @@
   --color-ink-muted: #575352;
   --color-gold: #fed65b;
   --color-gold-deep: #735c00;
-  --color-night: #080706;
+  --color-night: #1c1b1b;
   --color-line: #c4c7c7;
 
   --font-display: var(--font-manrope);
@@ -34,9 +34,7 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  background:
-    radial-gradient(circle at top left, rgb(254 214 91 / 0.12), transparent 28rem),
-    var(--color-background);
+  background: var(--color-background);
   color: var(--color-ink);
   font-family: var(--font-manrope), system-ui, sans-serif;
   text-rendering: geometricPrecision;
@@ -67,6 +65,20 @@ img {
 .section-shell {
   width: min(100% - (var(--spacing-edge) * 2), 1440px);
   margin-inline: auto;
+}
+
+/* Invert shared color tokens within alternate sections, including cards and CTAs. */
+.section-dark {
+  --color-background: var(--color-night);
+  --color-surface: #242322;
+  --color-surface-strong: #302e2c;
+  --color-ink: #fcf9f8;
+  --color-ink-muted: #b8b4b2;
+  --color-gold-deep: #fed65b;
+  --color-line: #575352;
+
+  background: var(--color-background);
+  color: var(--color-ink);
 }
 
 .label-caps {
@@ -122,10 +134,26 @@ img {
   }
 }
 
-.menu-marquee-track {
-  animation: menu-marquee 54s linear infinite;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
+.language-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu-marquee {
+  cursor: grab;
+  scrollbar-width: none;
+  scroll-behavior: auto;
+  overscroll-behavior-x: contain;
+  overflow-anchor: none;
+}
+
+.menu-marquee::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-marquee[data-dragging="true"],
+.reviews-track[data-dragging="true"] {
+  cursor: grabbing;
+  user-select: none;
 }
 
 .menu-marquee img {
@@ -133,11 +161,25 @@ img {
   -webkit-user-drag: none;
 }
 
-@keyframes menu-marquee {
-  to {
-    /* Advance one of the three identical sets for a seamless reset. */
-    transform: translate3d(calc(-100% / 3), 0, 0);
-  }
+.reviews-track {
+  cursor: grab;
+  scroll-behavior: auto;
+  overflow-anchor: none;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.reviews-track::-webkit-scrollbar {
+  display: none;
+}
+
+#reviews :focus-visible {
+  outline-color: var(--color-gold-deep);
+}
+
+#guest-reviews:focus-visible,
+#guest-reviews :focus-visible {
+  outline-offset: -3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -248,9 +290,7 @@ footer :focus-visible {
   transform: rotate(180deg);
 }
 
-/* Continuous on desktop and touch; provide a static gallery for reduced motion. */
+/* Keep manual scrolling available without automatic motion. */
 @media (prefers-reduced-motion: reduce) {
-  .menu-marquee { overflow-x: auto; }
-  .menu-marquee-track { animation: none; transform: none; will-change: auto; }
-  .menu-marquee-track > [aria-hidden="true"] { display: none; }
+  [data-marquee-set][aria-hidden="true"] { display: none; }
 }

@@ -24,7 +24,16 @@ const copy = {
     reservationDescription: "Book lunch or dinner at KUMO Asian restaurant at Rich’l in Waterloo, Belgium. Find us at Drève Richelle 8 or call +32 2 767 63 98.",
     imageAlt: "KUMO Asian restaurant in Waterloo, Belgium",
   },
+  nl: {
+    title: "KUMO | Aziatisch restaurant, sushi & teppanyaki in Waterloo",
+    description: "Ontdek sushi, teppanyaki en dim sum bij KUMO, een Aziatisch restaurant in het Rich’l-centrum in Waterloo, Waals-Brabant. Ontdek ons restaurant en reserveer uw tafel.",
+    reservationTitle: "Een tafel reserveren in Waterloo | KUMO",
+    reservationDescription: "Reserveer uw lunch of diner bij KUMO in het Rich’l-centrum in Waterloo. Drève Richelle 8. Telefoon: +32 2 767 63 98.",
+    imageAlt: "Aziatisch restaurant KUMO in Waterloo, België",
+  },
 };
+
+const locales = { fr: "fr_BE", en: "en_GB", nl: "nl_BE" } as const;
 
 export function pageMetadata(language: Language, path = "/"): Metadata {
   const content = copy[language];
@@ -39,13 +48,13 @@ export function pageMetadata(language: Language, path = "/"): Metadata {
     applicationName: "KUMO",
     alternates: {
       canonical: url,
-      languages: { "fr-BE": localizedHref(path, "fr"), en: localizedHref(path, "en"), "x-default": localizedHref(path, "fr") },
+      languages: { "fr-BE": localizedHref(path, "fr"), en: localizedHref(path, "en"), "nl-BE": localizedHref(path, "nl"), "x-default": localizedHref(path, "fr") },
     },
     icons: { icon: "/favicon.png?v=2", apple: "/apple-touch-icon.png?v=2" },
     openGraph: {
       title, description, url, siteName: "KUMO",
-      locale: language === "fr" ? "fr_BE" : "en_GB",
-      alternateLocale: [language === "fr" ? "en_GB" : "fr_BE"],
+      locale: locales[language],
+      alternateLocale: Object.values(locales).filter(locale => locale !== locales[language]),
       type: "website",
       images: [{ url: "/social/kumo.jpg", width: 1200, height: 630, alt: content.imageAlt }],
     },
@@ -65,7 +74,7 @@ export const restaurantSchema = {
   acceptsReservations: true,
   potentialAction: {
     "@type": "ReserveAction",
-    target: { "@type": "EntryPoint", urlTemplate: `${siteOrigin}/reservation`, inLanguage: ["fr", "en"] },
+    target: { "@type": "EntryPoint", urlTemplate: `${siteOrigin}/reservation`, inLanguage: ["fr", "en", "nl"] },
     result: { "@type": "FoodEstablishmentReservation", name: "Réservation chez KUMO" },
   },
   address: { "@type": "PostalAddress", streetAddress: "Drève Richelle 8", addressLocality: "Waterloo", addressRegion: "Brabant wallon", postalCode: "1410", addressCountry: "BE" },

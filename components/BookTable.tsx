@@ -10,22 +10,22 @@ const mapEmbed = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40013.43
 export function BookTable() {
   const { t, language } = useLanguage();
   const contactCards = [
-    { href: restaurantInfo.mapHref, icon: MapPin, label: t.booking.addressLabel, value: language === "fr" ? restaurantInfo.address : restaurantInfo.address.replace("Belgique", "Belgium") },
+    { href: restaurantInfo.mapHref, icon: MapPin, label: t.booking.addressLabel, value: language === "fr" ? restaurantInfo.address : restaurantInfo.address.replace("Belgique", language === "nl" ? "België" : "Belgium") },
     { href: restaurantInfo.phoneHref, icon: Phone, label: t.booking.phoneLabel, value: restaurantInfo.phone },
   ];
   return (
-    <section className="bg-surface py-section" id="booking">
+    <section className="section-dark bg-background py-section" id="booking">
       <div className="section-shell">
         <h2 className="display-heading text-5xl leading-none text-ink md:text-7xl">{t.booking.title}</h2>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-muted">{t.booking.description}</p>
         <div className="mt-10 grid gap-5 lg:mt-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-6">
           <div className="flex flex-col gap-4">
-            {contactCards.map(card => <a className="group flex gap-4 rounded-lg border border-line/55 bg-background px-4 py-5 transition-colors hover:border-gold-deep/45 sm:items-center sm:px-6" href={card.href} key={card.label} rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined} target={card.href.startsWith("http") ? "_blank" : undefined}>
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-surface ring-1 ring-line/45"><card.icon className="h-5 w-5 text-gold-deep" strokeWidth={1.5} /></span>
+            {contactCards.map(card => <a className="group flex gap-4 rounded-lg border border-line/55 bg-surface px-4 py-5 transition-colors hover:border-gold-deep/45 sm:items-center sm:px-6" href={card.href} key={card.label} rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined} target={card.href.startsWith("http") ? "_blank" : undefined}>
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-surface-strong ring-1 ring-line/45"><card.icon className="h-5 w-5 text-gold-deep" strokeWidth={1.5} /></span>
               <span className="min-w-0"><span className="label-caps block text-gold-deep">{card.label}</span><span className="mt-2 block break-words text-sm font-semibold leading-6 text-ink group-hover:text-gold-deep sm:text-base">{card.value}</span></span>
             </a>)}
-            <div className="flex gap-4 rounded-lg border border-line/55 bg-background px-4 py-5 sm:px-6">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-surface ring-1 ring-line/45"><Clock className="h-5 w-5 text-gold-deep" strokeWidth={1.5} /></span>
+            <div className="flex gap-4 rounded-lg border border-line/55 bg-surface px-4 py-5 sm:px-6">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-surface-strong ring-1 ring-line/45"><Clock className="h-5 w-5 text-gold-deep" strokeWidth={1.5} /></span>
               <div className="min-w-0 flex-1">
                 <h3 className="label-caps text-gold-deep">{t.booking.hoursLabel}</h3>
                 <p className="mt-2 text-sm font-semibold leading-6 text-ink sm:text-base">{t.booking.daysLabel}</p>
@@ -38,7 +38,7 @@ export function BookTable() {
             </div>
             <div className="mt-auto grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <MagneticButton className="gap-2 px-4" href={reservationHref}><CalendarDays className="h-4 w-4 shrink-0" />{t.booking.call}</MagneticButton>
-              <a className="label-caps inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-line/70 bg-background px-4 py-4 text-ink transition-colors hover:border-gold-deep" href={restaurantInfo.mapHref} rel="noopener noreferrer" target="_blank">{t.booking.directions}<ArrowUpRight className="h-4 w-4 shrink-0" /></a>
+              <a className="label-caps inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-line/70 bg-surface px-4 py-4 text-ink transition-colors hover:border-gold-deep" href={restaurantInfo.mapHref} rel="noopener noreferrer" target="_blank">{t.booking.directions}<ArrowUpRight className="h-4 w-4 shrink-0" /></a>
             </div>
           </div>
           <div className="min-h-80 overflow-hidden rounded-lg border border-line/55 bg-surface-strong lg:min-h-[450px]">

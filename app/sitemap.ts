@@ -7,9 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const languages = {
       "fr-BE": `${siteOrigin}${localizedHref(path, "fr")}`,
       en: `${siteOrigin}${localizedHref(path, "en")}`,
+      "nl-BE": `${siteOrigin}${localizedHref(path, "nl")}`,
       "x-default": `${siteOrigin}${localizedHref(path, "fr")}`,
     };
-    return (["fr", "en"] as const).map(language => ({
+    return (["fr", "en", "nl"] as const).map(language => ({
       url: `${siteOrigin}${localizedHref(path, language)}`,
       alternates: { languages },
     }));

@@ -7,7 +7,7 @@ export function PricingSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="bg-background py-section text-ink lg:py-20" id="pricing">
+    <section className="section-dark bg-background py-section text-ink lg:py-20" id="pricing">
       <div className="section-shell lg:max-w-4xl">
         <h2 className="display-heading text-5xl leading-none md:text-7xl lg:text-5xl">{t.pricing.title}</h2>
         <table className="pricing-table mt-10 w-full table-fixed border-collapse text-left md:mt-14 lg:mt-8">

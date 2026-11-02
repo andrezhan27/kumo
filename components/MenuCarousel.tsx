@@ -1,36 +1,37 @@
 "use client";
 
 import Image from "next/image";
+import { useContinuousScroll } from "@/components/useContinuousScroll";
 import { menuItems } from "@/lib/content";
 import { useLanguage } from "@/components/LanguageProvider";
 
-// Keep both desktop rows at 228 spacing units so the repeated sets have equal gaps.
-const galleryRows = [
-  [{ index: 0, frame: "md:w-68 md:aspect-[4/5]" }, { index: 1, frame: "md:w-100 md:aspect-[16/11]" }, { index: 2, frame: "md:w-60 md:aspect-square" }],
-  [{ index: 3, frame: "md:w-64 md:aspect-[3/4]" }, { index: 4, frame: "md:w-104 md:aspect-[5/3]" }, { index: 5, frame: "md:w-60 md:aspect-[5/6]" }],
-];
-
 export function MenuCarousel() {
   const { t } = useLanguage();
+  const viewportRef = useContinuousScroll();
+
   return (
-    <section className="bg-surface py-section" id="menu-section">
+    <section className="section-dark bg-background py-section" id="menu-section">
       <div className="section-shell overflow-hidden">
         <div className="mx-auto grid max-w-3xl justify-items-center gap-6 text-center">
           <h2 className="display-heading text-5xl leading-none text-ink md:text-7xl">{t.menuSection.title}</h2>
           <p className="max-w-xl text-lg leading-8 text-ink-muted">{t.menuSection.description}</p>
         </div>
-        <div aria-label={t.menuSection.galleryLabel} className="menu-marquee relative mt-8 overflow-hidden py-1 md:mt-10" role="region" tabIndex={0}>
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-4 bg-gradient-to-r from-surface to-transparent md:w-20" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-4 bg-gradient-to-l from-surface to-transparent md:w-20" />
-          <div className="menu-marquee-track flex w-max">
-            {/* Three sets keep the 1440px maximum viewport filled even at the end of a loop. */}
-            {[0, 1, 2].map(setIndex => <div aria-hidden={setIndex !== 0} className="grid shrink-0 grid-rows-2 gap-3 pr-3" key={setIndex}>
-              {galleryRows.map((row, rowIndex) => <div className="flex gap-3" key={rowIndex}>
-                {row.map(({ index, frame }) => <div className={`group relative h-32 w-[52vw] shrink-0 overflow-hidden rounded-lg bg-surface-strong sm:h-40 sm:w-64 md:h-auto ${frame}`} key={menuItems[index].id}>
-                  <Image alt={setIndex !== 0 ? "" : t.menuSection.imageAlts[index]} className="object-cover transition-transform duration-700 group-hover:scale-[1.035]" fill sizes="(min-width: 768px) 416px, (min-width: 640px) 256px, 52vw" src={menuItems[index].image} />
-                </div>)}
-              </div>)}
-            </div>)}
+        <div className="relative mt-8 md:mt-10">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-4 bg-gradient-to-r from-background to-transparent md:w-20" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-4 bg-gradient-to-l from-background to-transparent md:w-20" />
+          <div aria-label={t.menuSection.galleryLabel} className="menu-marquee overflow-x-auto py-1" ref={viewportRef} role="region" tabIndex={0}>
+            <div className="menu-marquee-track flex w-max">
+              {/* Matching sets keep the single row seamless in either direction. */}
+              {[0, 1, 2].map(setIndex => (
+                <div aria-hidden={setIndex !== 0} data-marquee-set="" className="menu-marquee-set flex shrink-0 gap-3 pr-3 md:gap-4 md:pr-4" key={setIndex}>
+                  {menuItems.map((item, index) => (
+                    <div className="group relative aspect-[4/3] w-[68vw] max-w-72 shrink-0 overflow-hidden rounded-lg bg-surface-strong sm:w-72 sm:max-w-none md:w-80 lg:w-96" key={item.id}>
+                      <Image alt={setIndex !== 0 ? "" : t.menuSection.imageAlts[index]} className="object-cover transition-transform duration-700 group-hover:scale-[1.035]" fill sizes="(min-width: 1024px) 384px, (min-width: 768px) 320px, (min-width: 424px) 288px, 68vw" src={item.image} />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-6 text-ink-muted">{t.menuSection.note}</p>

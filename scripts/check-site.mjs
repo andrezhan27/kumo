@@ -26,7 +26,7 @@ const links = [...html.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(match => match[
 for (const href of links) {
   const url = new URL(href.replaceAll("&amp;", "&"), origin);
   if (url.origin === new URL(origin).origin) {
-    assert.ok(["/", "/reservation", "/en", "/en/reservation"].includes(url.pathname), `Unexpected extra page: ${url.pathname}`);
+    assert.ok(["/", "/reservation", "/en", "/en/reservation", "/nl", "/nl/reservation"].includes(url.pathname), `Unexpected extra page: ${url.pathname}`);
     if (url.hash) assert.ok(ids.includes(url.hash.slice(1)), `Broken anchor: ${href}`);
   }
 }
@@ -47,7 +47,7 @@ assert.equal(schema.potentialAction.target.urlTemplate, `${canonicalOrigin}/rese
 assert.ok(schema.image.length >= 1, "Restaurant structured data must include photos");
 assert.ok(schema.image.every(image => image.startsWith(`${canonicalOrigin}/`)));
 
-for (const [route, destination] of [["/menu", "/#menu-section"], ["/reservar", "/reservation"], ["/en/menu", "/en#menu-section"], ["/en/reservar", "/en/reservation"]]) {
+for (const [route, destination] of [["/menu", "/#menu-section"], ["/reservar", "/reservation"], ["/en/menu", "/en#menu-section"], ["/en/reservar", "/en/reservation"], ["/nl/menu", "/nl#menu-section"], ["/nl/reservar", "/nl/reservation"]]) {
   const redirect = await fetchWithTimeout(new URL(route, origin), { redirect: "manual" });
   assert.equal(redirect.status, 308, `${route} must be permanently redirected`);
   const location = new URL(redirect.headers.get("location"), origin);
@@ -62,26 +62,29 @@ assert.match(bookingHtml, /data-restaurant-slug="kumo"/);
 assert.doesNotMatch(bookingHtml, /KOKO|kokosushi|Sushi King|sushiking/);
 
 const pages = new Map([["/", html], ["/reservation", bookingHtml]]);
-for (const route of ["/en", "/en/reservation"]) {
+for (const route of ["/en", "/en/reservation", "/nl", "/nl/reservation"]) {
   const localizedResponse = await fetchWithTimeout(new URL(route, origin));
   assert.equal(localizedResponse.status, 200, `${route} must return 200`);
   pages.set(route, await localizedResponse.text());
 }
 
 for (const [route, pageHtml] of pages) {
-  const isEnglish = route.startsWith("/en");
+  const language = route.startsWith("/en") ? "en" : route.startsWith("/nl") ? "nl" : "fr";
+  const prefix = language === "fr" ? "" : `/${language}`;
   const isReservation = route.endsWith("/reservation");
   const frenchPath = isReservation ? "/reservation" : "/";
   const englishPath = isReservation ? "/en/reservation" : "/en";
+  const dutchPath = isReservation ? "/nl/reservation" : "/nl";
   const expectedUrl = `${canonicalOrigin}${route}`;
   assert.equal([...pageHtml.matchAll(/<html\b/g)].length, 1, `${route} must render one document`);
   assert.equal([...pageHtml.matchAll(/<body\b/g)].length, 1, `${route} must render one body`);
-  assert.match(pageHtml, new RegExp(`<html[^>]+lang="${isEnglish ? "en" : "fr"}"`));
+  assert.match(pageHtml, new RegExp(`<html[^>]+lang="${language}"`));
   const pageCanonical = pageHtml.match(/<link rel="canonical" href="([^"]+)"/)[1];
   assert.equal(new URL(pageCanonical).href, new URL(expectedUrl).href, `${route} must have its own canonical URL`);
   const alternates = new Map([...pageHtml.matchAll(/<link rel="alternate" hrefLang="([^"]+)" href="([^"]+)"/g)].map(match => [match[1], new URL(match[2]).href]));
   assert.equal(alternates.get("fr-BE"), new URL(frenchPath, canonicalOrigin).href);
   assert.equal(alternates.get("en"), new URL(englishPath, canonicalOrigin).href);
+  assert.equal(alternates.get("nl-BE"), new URL(dutchPath, canonicalOrigin).href);
   assert.equal(alternates.get("x-default"), new URL(frenchPath, canonicalOrigin).href);
   const socialUrl = pageHtml.match(/<meta property="og:url" content="([^"]+)"/)[1];
   assert.equal(new URL(socialUrl).href, new URL(expectedUrl).href);
@@ -89,15 +92,20 @@ for (const [route, pageHtml] of pages) {
   assert.match(pageHtml, /<meta name="twitter:card" content="summary_large_image"/);
   assert.doesNotMatch(pageHtml, /<meta name="robots" content="[^"]*noindex/);
   const expectedTitle = isReservation
-    ? (isEnglish ? /<h1[^>]*>Book a table<\/h1>/ : /<h1[^>]*>Réserver<\/h1>/)
+    ? new RegExp(`<h1[^>]*>${{ en: "Book a table", fr: "Réserver", nl: "Reserveren" }[language]}<\\/h1>`)
     : /<h1[^>]*>KUMO<\/h1>/;
   assert.match(pageHtml, expectedTitle, `${route} must render its localized heading on the server`);
   if (isReservation) {
     assert.match(pageHtml, /<iframe[^>]*src="https:\/\/reserve\.intelis\.pt\/kumo"/);
-    assert.ok(pageHtml.includes(`href="${isEnglish ? "/en#menu-section" : "/#menu-section"}"`));
-    assert.ok(pageHtml.includes(`href="${isEnglish ? frenchPath : englishPath}"`), "Language switch must link to the equivalent reservation page");
+    assert.ok(pageHtml.includes(`href="${prefix || "/"}#menu-section"`));
+    for (const path of [frenchPath, englishPath, dutchPath]) {
+      assert.ok(pageHtml.includes(`href="${path}"`), "Language dropdown must link to every equivalent reservation page");
+    }
   } else {
-    assert.match(pageHtml, isEnglish ? /Asian restaurant in Waterloo, Belgium/ : /Restaurant asiatique à Waterloo/);
+    assert.ok(pageHtml.includes({ en: "Asian restaurant in Waterloo, Belgium", fr: "Restaurant asiatique à Waterloo", nl: "Aziatisch restaurant in Waterloo, België" }[language]));
+    assert.match(pageHtml, /<details[^>]*class="language-dropdown/);
+    assert.ok(pageHtml.indexOf('id="home"') < pageHtml.indexOf('id="our-story"'));
+    assert.ok(pageHtml.indexOf('id="our-story"') < pageHtml.indexOf('id="menu-section"'));
     assert.match(pageHtml, /<address\b/);
     const pageIds = [...pageHtml.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
     assert.equal(new Set(pageIds).size, pageIds.length);
@@ -108,7 +116,7 @@ for (const [route, pageHtml] of pages) {
       assert.equal(link.pathname, route, "Section links must retain the page language");
       assert.ok(pageIds.includes(link.hash.slice(1)), `Broken localized anchor: ${href}`);
     }
-    assert.ok(pageLinks.filter(href => href === (isEnglish ? "/en/reservation" : "/reservation")).length >= 3);
+    assert.ok(pageLinks.filter(href => href === `${prefix}/reservation`).length >= 3);
   }
 }
 
@@ -125,11 +133,12 @@ const sitemap = await sitemapResponse.text();
 assert.match(sitemapResponse.headers.get("content-type"), /xml/);
 const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
 assert.deepEqual(new Set(sitemapLocations), new Set([...pages.keys()].map(route => `${canonicalOrigin}${route}`)));
-assert.equal([...sitemap.matchAll(/hreflang="fr-BE"/g)].length, 4);
-assert.equal([...sitemap.matchAll(/hreflang="en"/g)].length, 4);
-assert.equal([...sitemap.matchAll(/hreflang="x-default"/g)].length, 4);
+assert.equal([...sitemap.matchAll(/hreflang="fr-BE"/g)].length, 6);
+assert.equal([...sitemap.matchAll(/hreflang="en"/g)].length, 6);
+assert.equal([...sitemap.matchAll(/hreflang="x-default"/g)].length, 6);
+assert.equal([...sitemap.matchAll(/hreflang="nl-BE"/g)].length, 6);
 
-for (const route of ["/nonexistent-kumo-page", "/en/nonexistent-kumo-page"]) {
+for (const route of ["/nonexistent-kumo-page", "/en/nonexistent-kumo-page", "/nl/nonexistent-kumo-page"]) {
   const missing = await fetchWithTimeout(new URL(route, origin));
   assert.equal(missing.status, 404);
   const missingHtml = await missing.text();
@@ -148,5 +157,5 @@ for (const path of assetUrls) {
   assert.ok(data.byteLength, `Empty asset: ${path}`);
   totalBytes += data.byteLength;
 }
-console.log(`PASS: French/English home and reservation pages, localized links and headings, canonical URLs, language alternates, social metadata, sitemap, robots, KUMO embed, structured data, legacy redirects, branded 404 and ${assetUrls.length} assets.`);
+console.log(`PASS: French/English/Dutch home and reservation pages, language dropdown, restaurant story, localized links and headings, canonical URLs, language alternates, social metadata, sitemap, robots, KUMO embed, structured data, legacy redirects, branded 404 and ${assetUrls.length} assets.`);
 console.log(`All enumerated assets: ${(totalBytes / 1024).toFixed(0)} KiB (uncompressed; includes offscreen images).`);
