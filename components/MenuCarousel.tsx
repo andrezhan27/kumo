@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { MagneticButton } from "@/components/MagneticButton";
 import { useContinuousScroll } from "@/components/useContinuousScroll";
 import { menuItems } from "@/lib/content";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -34,7 +35,10 @@ export function MenuCarousel() {
             </div>
           </div>
         </div>
-        <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-6 text-ink-muted">{t.menuSection.note}</p>
+        <div className="mt-8 flex justify-center">
+          <MagneticButton href="/menu">{t.menuSection.cta}</MagneticButton>
+        </div>
+        <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-6 text-ink-muted">{t.menuSection.note}</p>
       </div>
     </section>
   );

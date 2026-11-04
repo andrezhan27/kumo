@@ -70,6 +70,7 @@ export const translations = {
     },
     menuSection: {
       title: "Notre carte",
+      cta: "Découvrir la carte",
       description: "Sushis, teppanyaki, dim sum et saveurs du gril : découvrez la cuisine asiatique de KUMO à Waterloo. Une carte généreuse, à savourer ensemble au centre Rich’l.",
       galleryLabel: "Quelques créations de KUMO",
       imageAlts: ["Sashimi spécial", "Uramaki à la langouste", "Nigiri spéciaux assortis · 4 pièces", "Nigiri wagyu A5 & truffe", "Tartare façon scampi", "Huîtres & Pandalus eous", "Pink thon Ebiten", "Foie gras poêlé", "Bignè ikura", "Carpaccio de thon & passion"],
@@ -166,6 +167,7 @@ export const translations = {
     },
     menuSection: {
       title: "Our menu",
+      cta: "Explore menu",
       description: "Sushi, teppanyaki, dim sum and flavours from the grill: discover Asian dining at KUMO in Waterloo, Belgium. A generous menu to enjoy together at Rich’l.",
       galleryLabel: "A selection from KUMO’s kitchen",
       imageAlts: ["Special sashimi", "Spiny lobster uramaki", "Mixed special nigiri · 4 pieces", "A5 wagyu & truffle nigiri", "Scampi-style tartare", "Oysters & Pandalus eous", "Pink tuna Ebiten", "Pan-seared foie gras", "Bignè ikura", "Tuna & passion fruit carpaccio"],
@@ -262,6 +264,7 @@ export const translations = {
     },
     menuSection: {
       title: "Onze kaart",
+      cta: "Ontdek de kaart",
       description: "Sushi, teppanyaki, dim sum en smaken van de grill: ontdek de Aziatische keuken van KUMO in Waterloo. Een uitgebreide kaart om samen van te genieten in het Rich’l-centrum.",
       galleryLabel: "Een selectie uit de keuken van KUMO",
       imageAlts: ["Speciale sashimi", "Uramaki met langoest", "Gemengde speciale nigiri · 4 stuks", "Nigiri met A5 wagyu & truffel", "Tartaar in scampistijl", "Oesters & Pandalus eous", "Pink tonijn Ebiten", "Gebakken foie gras", "Bignè ikura", "Carpaccio van tonijn & passievrucht"],
