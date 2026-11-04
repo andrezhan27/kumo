@@ -25,7 +25,7 @@ export function MenuCarousel() {
               {[0, 1, 2].map(setIndex => (
                 <div aria-hidden={setIndex !== 0} data-marquee-set="" className="menu-marquee-set flex shrink-0 gap-3 pr-3 md:gap-4 md:pr-4" key={setIndex}>
                   {menuItems.map((item, index) => (
-                    <div className="group relative aspect-[4/3] w-[68vw] max-w-72 shrink-0 overflow-hidden rounded-lg bg-surface-strong sm:w-72 sm:max-w-none md:w-80 lg:w-96" key={item.id}>
+                    <div className="group relative aspect-[4/3] w-[68vw] max-w-72 shrink-0 overflow-hidden rounded-lg bg-[#090909] sm:w-72 sm:max-w-none md:w-80 lg:w-96" key={item.id}>
                       <Image alt={setIndex !== 0 ? "" : t.menuSection.imageAlts[index]} className="object-cover transition-transform duration-700 group-hover:scale-[1.035]" fill sizes="(min-width: 1024px) 384px, (min-width: 768px) 320px, (min-width: 424px) 288px, 68vw" src={item.image} />
                     </div>
                   ))}

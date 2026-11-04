@@ -4,8 +4,8 @@ export const reservationHref = "/reservation";
 export const diningSlogan = ["I don't do Buffets.", "I do", "KUMO."] as const;
 
 export const diningFormulas = [
-  { id: "lunch", dishes: 15, orders: 3, dishesPerOrder: 5, waitMinutes: 15 },
-  { id: "dinner", dishes: 20, orders: 4, dishesPerOrder: 5, waitMinutes: 20 },
+  { id: "lunch", dishes: 15, orders: 3, dishesPerOrder: 4, waitMinutes: 15 },
+  { id: "dinner", dishes: 20, orders: 4, dishesPerOrder: 4, waitMinutes: 20 },
 ] as const;
 
 // Owner-supplied prices per person. Saturday's €36 rate is interpreted as lunch;
@@ -27,16 +27,16 @@ export const restaurantInfo = {
 } as const;
 
 export const menuItems = [
-  { id: "sushi", image: "/food/sushi.webp" },
-  { id: "salmon", image: "/food/salmon.webp" },
-  { id: "selection", image: "/food/selection.webp" },
-  { id: "carpaccio", image: "/food/carpaccio.webp" },
-  { id: "grilled", image: "/food/grilled.webp" },
-  { id: "dim-sum", image: "/food/dim-sum.webp" },
-  { id: "crispy-speciality", image: "/food/crispy-speciality.webp" },
-  { id: "salmon-rolls", image: "/food/salmon-rolls.webp" },
-  { id: "rice-speciality", image: "/food/rice-speciality.webp" },
-  { id: "salmon-bowl", image: "/food/salmon-bowl.webp" },
+  { id: "sashimi-04", image: "/menu/sashimi/04.webp" },
+  { id: "specialities-09", image: "/menu/specialities/09.webp" },
+  { id: "specialities-04", image: "/menu/specialities/04.webp" },
+  { id: "specialities-03", image: "/menu/specialities/03.webp" },
+  { id: "chirashi-tartare-07", image: "/menu/chirashi-tartare/07.webp" },
+  { id: "sashimi-01", image: "/menu/sashimi/01.webp" },
+  { id: "uramaki-03", image: "/menu/uramaki/03.webp" },
+  { id: "teppanyaki-14", image: "/menu/teppanyaki/14.webp" },
+  { id: "bigne-02", image: "/menu/bigne/02.webp" },
+  { id: "carpaccio-03", image: "/menu/carpaccio/03.webp" },
 ] as const;
 
 export const spaceSlides = [
@@ -72,7 +72,7 @@ export const translations = {
       title: "Notre carte",
       description: "Sushis, teppanyaki, dim sum et saveurs du gril : découvrez la cuisine asiatique de KUMO à Waterloo. Une carte généreuse, à savourer ensemble au centre Rich’l.",
       galleryLabel: "Quelques créations de KUMO",
-      imageAlts: ["Sélection de sushis au restaurant KUMO", "Sushis au saumon préparés chez KUMO", "Assiette de sushis et spécialités KUMO", "Carpaccio assaisonné aux herbes chez KUMO", "Une spécialité chaude de KUMO", "Dim sum servis dans leurs paniers vapeur chez KUMO", "Spécialité dorée et garniture dans une assiette blanche chez KUMO", "Rouleaux de saumon et leur garniture croustillante chez KUMO", "Spécialité de riz servie chez KUMO", "Saumon et garniture dans une assiette turquoise chez KUMO"],
+      imageAlts: ["Sashimi spécial", "Uramaki à la langouste", "Nigiri spéciaux assortis · 4 pièces", "Nigiri wagyu A5 & truffe", "Tartare façon scampi", "Huîtres & Pandalus eous", "Pink thon Ebiten", "Foie gras poêlé", "Bignè ikura", "Carpaccio de thon & passion"],
       note: "La sélection et les tarifs sont à découvrir au restaurant. Pour toute allergie ou restriction alimentaire, parlez-en à notre équipe avant de commander.",
     },
     howItWorks: {
@@ -90,9 +90,9 @@ export const translations = {
       premium: "Le soir et le week-end : une sélection plus large de choix premium.",
       steps: [
         { title: "Choisissez votre formule", description: "Chaque convive paie sa propre formule. Elle dépend du moment de votre visite : déjeuner ou dîner, en semaine ou le week-end. Chaque formule prévoit un nombre maximum de plats par personne." },
-        { title: "Commandez à la carte", description: "Choisissez ce qui vous fait envie parmi les plats inclus dans votre formule. Vous pouvez passer jusqu’à 3 commandes au déjeuner ou 4 au dîner, avec un maximum de 5 plats par personne à chaque commande." },
+        { title: "Commandez à la carte", description: "Choisissez ce qui vous fait envie parmi les plats inclus dans votre formule. Vous pouvez passer jusqu’à 3 commandes au déjeuner ou 4 au dîner, avec un maximum de 4 plats par personne à chaque commande." },
         { title: "Prenez votre temps", description: "Attendez 15 minutes au déjeuner ou 20 minutes au dîner entre deux commandes. Profitez-en pour savourer et faire le point sur votre appétit. Chaque plat est préparé spécialement pour votre commande." },
-        { title: "Commencez petit", description: "Notre conseil : commandez quelques plats pour commencer. Vous n’avez pas besoin de prendre les 5 plats dès la première commande. Ajustez les suivantes à votre faim." },
+        { title: "Commencez petit", description: "Notre conseil : commandez quelques plats pour commencer. Vous n’avez pas besoin de prendre les 4 plats dès la première commande. Ajustez les suivantes à votre faim." },
         { title: "Moins de gaspillage. Plus de KUMO.", description: "Commander raisonnablement au début réduit le gaspillage alimentaire et vous laisse la liberté de découvrir d’autres plats au fil du repas.", takeaway: "Votre maximum est une limite, pas un objectif." },
       ],
     },
@@ -168,7 +168,7 @@ export const translations = {
       title: "Our menu",
       description: "Sushi, teppanyaki, dim sum and flavours from the grill: discover Asian dining at KUMO in Waterloo, Belgium. A generous menu to enjoy together at Rich’l.",
       galleryLabel: "A selection from KUMO’s kitchen",
-      imageAlts: ["A sushi selection at KUMO restaurant", "Salmon sushi prepared at KUMO", "A plate of sushi and KUMO specialities", "Carpaccio with herbs at KUMO", "A warm speciality from KUMO’s kitchen", "Dim sum in steamer baskets at KUMO", "A golden speciality with garnish on a white plate at KUMO", "Salmon rolls with a crisp topping at KUMO", "A rice speciality served at KUMO", "Salmon with garnish on a turquoise plate at KUMO"],
+      imageAlts: ["Special sashimi", "Spiny lobster uramaki", "Mixed special nigiri · 4 pieces", "A5 wagyu & truffle nigiri", "Scampi-style tartare", "Oysters & Pandalus eous", "Pink tuna Ebiten", "Pan-seared foie gras", "Bignè ikura", "Tuna & passion fruit carpaccio"],
       note: "Discover the current selection and prices at the restaurant. Please tell our team about any allergies or dietary requirements before ordering.",
     },
     howItWorks: {
@@ -186,9 +186,9 @@ export const translations = {
       premium: "Evenings and weekends: a wider selection of premium choices.",
       steps: [
         { title: "Choose your formula", description: "Each guest pays for one individual formula. Your formula depends on when you visit: lunch or dinner, weekday or weekend. Each formula includes its own maximum number of dishes per person." },
-        { title: "Order à la carte", description: "Choose whatever you like from the dishes included in your formula. You can place up to 3 orders at lunch or 4 at dinner, with a maximum of 5 dishes per person in each order." },
+        { title: "Order à la carte", description: "Choose whatever you like from the dishes included in your formula. You can place up to 3 orders at lunch or 4 at dinner, with a maximum of 4 dishes per person in each order." },
         { title: "Take your time", description: "Wait 15 minutes at lunch or 20 minutes at dinner between orders. Enjoy your dishes and see how hungry you still are before ordering again. Every dish is prepared specifically for your order." },
-        { title: "Start small. End big.", description: "Our biggest tip: order a few dishes to begin with. You don’t need to choose all 5 dishes in your first order. Let your appetite guide your next orders." },
+        { title: "Start small. End big.", description: "Our biggest tip: order a few dishes to begin with. You don’t need to choose all 4 dishes in your first order. Let your appetite guide your next orders." },
         { title: "Less waste. More KUMO.", description: "Ordering reasonably at the beginning helps reduce unnecessary food waste, while leaving you free to discover more dishes throughout your meal.", takeaway: "Your maximum is a limit, not a target." },
       ],
     },
@@ -264,7 +264,7 @@ export const translations = {
       title: "Onze kaart",
       description: "Sushi, teppanyaki, dim sum en smaken van de grill: ontdek de Aziatische keuken van KUMO in Waterloo. Een uitgebreide kaart om samen van te genieten in het Rich’l-centrum.",
       galleryLabel: "Een selectie uit de keuken van KUMO",
-      imageAlts: ["Een selectie sushi bij restaurant KUMO", "Zalmsushi bereid bij KUMO", "Een bord sushi en specialiteiten van KUMO", "Carpaccio met kruiden bij KUMO", "Een warm gerecht uit de keuken van KUMO", "Dim sum in stoommandjes bij KUMO", "Een goudbruin gerecht met garnituur op een wit bord bij KUMO", "Zalmrolletjes met een krokante topping bij KUMO", "Een rijstgerecht geserveerd bij KUMO", "Zalm met garnituur op een turquoise bord bij KUMO"],
+      imageAlts: ["Speciale sashimi", "Uramaki met langoest", "Gemengde speciale nigiri · 4 stuks", "Nigiri met A5 wagyu & truffel", "Tartaar in scampistijl", "Oesters & Pandalus eous", "Pink tonijn Ebiten", "Gebakken foie gras", "Bignè ikura", "Carpaccio van tonijn & passievrucht"],
       note: "Ontdek de actuele selectie en prijzen in het restaurant. Laat ons team vóór het bestellen weten of u allergieën of specifieke dieetwensen heeft.",
     },
     howItWorks: {
@@ -282,9 +282,9 @@ export const translations = {
       premium: "’s Avonds en in het weekend: een ruimer aanbod aan premiumgerechten.",
       steps: [
         { title: "Kies uw formule", description: "Elke gast betaalt voor een eigen formule. Deze hangt af van uw bezoek: lunch of diner, door de week of in het weekend. Elke formule heeft een maximaal aantal gerechten per persoon." },
-        { title: "Bestel à la carte", description: "Kies waar u zin in heeft uit de gerechten die bij uw formule horen. U kunt tot 3 bestellingen plaatsen tijdens de lunch of 4 tijdens het diner, met maximaal 5 gerechten per persoon per bestelling." },
+        { title: "Bestel à la carte", description: "Kies waar u zin in heeft uit de gerechten die bij uw formule horen. U kunt tot 3 bestellingen plaatsen tijdens de lunch of 4 tijdens het diner, met maximaal 4 gerechten per persoon per bestelling." },
         { title: "Neem uw tijd", description: "Wacht tussen twee bestellingen 15 minuten tijdens de lunch of 20 minuten tijdens het diner. Geniet van uw gerechten en kijk hoeveel trek u nog heeft. Elk gerecht wordt speciaal voor uw bestelling bereid." },
-        { title: "Begin met een paar gerechten", description: "Onze tip: bestel eerst een paar gerechten. U hoeft niet meteen 5 gerechten te kiezen bij uw eerste bestelling. Stem de volgende bestellingen af op uw eetlust." },
+        { title: "Begin met een paar gerechten", description: "Onze tip: bestel eerst een paar gerechten. U hoeft niet meteen 4 gerechten te kiezen bij uw eerste bestelling. Stem de volgende bestellingen af op uw eetlust." },
         { title: "Minder verspilling. Meer KUMO.", description: "Door in het begin met mate te bestellen, helpt u voedselverspilling te verminderen en houdt u ruimte om tijdens de maaltijd meer gerechten te ontdekken.", takeaway: "Het maximum is een grens, geen doel." },
       ],
     },

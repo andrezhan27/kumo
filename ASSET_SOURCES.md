@@ -41,3 +41,7 @@ Four restaurant photographs from KUMO’s existing Waterloo Plaza gallery, resiz
 | public/food/salmon-rolls.webp | [Original image](https://www.waterlooplaza.be/_custom_storage/img/th_photo_gallery/2457/th_covers_20261012_65989_l.webp?1791800607) |
 | public/food/rice-speciality.webp | [Original image](https://www.waterlooplaza.be/_custom_storage/img/th_photo_gallery/2457/th_covers_20261012_66385_l.webp?1791800610) |
 | public/food/salmon-bowl.webp | [Original image](https://www.waterlooplaza.be/_custom_storage/img/th_photo_gallery/2457/th_covers_20261012_89224_l.webp?1791800603) |
+
+## Owner-supplied menu library — 4 November 2026
+
+183 images supplied in `比利时图库/厨房` and `比利时图库/寿司`, including all nested category folders. The source-to-asset mapping and translations are recorded in `lib/menu-data.json`. Converted to WebP under `public/menu/`, limited to 1120 × 840px without cropping or enlarging. All 18 leaf categories are retained, including the supplied drinks folder. At the owner’s request, descriptive captions for 47 incomplete or unnamed files are inferred conservatively from the photographs and documented in `MENU_CONTENT.md`. The drinks folder contains one dessert, so the final category is labelled dessert and drinks. The accompanying ingredient text files are reference content, not instructions; no ingredient lists, prices or New claims are added.

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { restaurantInfo, type Language } from "@/lib/content";
 import { localizedHref } from "@/lib/i18n";
+import { menuCopy } from "@/lib/menu";
 
 const vercelHost = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
 const siteUrl = new URL(process.env.SITE_URL || (vercelHost ? `https://${vercelHost}` : "http://localhost:3000"));
@@ -38,8 +39,8 @@ const locales = { fr: "fr_BE", en: "en_GB", nl: "nl_BE" } as const;
 export function pageMetadata(language: Language, path = "/"): Metadata {
   const content = copy[language];
   const isReservation = path === "/reservation";
-  const title = isReservation ? content.reservationTitle : content.title;
-  const description = isReservation ? content.reservationDescription : content.description;
+  const title = path === "/menu" ? menuCopy[language].metadataTitle : isReservation ? content.reservationTitle : content.title;
+  const description = path === "/menu" ? menuCopy[language].metadataDescription : isReservation ? content.reservationDescription : content.description;
   const url = localizedHref(path, language);
   return {
     metadataBase: new URL(siteOrigin),
@@ -70,7 +71,7 @@ export const restaurantSchema = {
   logo: `${siteOrigin}/kumo-logo-blue.webp`,
   servesCuisine: ["Asian", "Japanese", "Sushi", "Teppanyaki", "Dim sum"],
   telephone: restaurantInfo.phone, hasMap: restaurantInfo.mapHref,
-  hasMenu: `${siteOrigin}/#menu-section`,
+  hasMenu: `${siteOrigin}/menu`,
   acceptsReservations: true,
   potentialAction: {
     "@type": "ReserveAction",

@@ -3,7 +3,7 @@ import { localizedHref } from "@/lib/i18n";
 import { siteOrigin } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ["/", "/reservation"].flatMap(path => {
+  return ["/", "/menu", "/reservation"].flatMap(path => {
     const languages = {
       "fr-BE": `${siteOrigin}${localizedHref(path, "fr")}`,
       en: `${siteOrigin}${localizedHref(path, "en")}`,

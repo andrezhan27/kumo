@@ -15,7 +15,7 @@ export function Navbar() {
   const headerRef = useRef<HTMLElement>(null);
   const { t, localizeHref } = useLanguage();
   const links = [
-    { label: t.nav.menu, href: localizeHref("/#menu-section") },
+    { label: t.nav.menu, href: localizeHref("/menu") },
     { label: t.nav.pricing, href: localizeHref("/#pricing") },
     { label: t.nav.space, href: localizeHref("/#space") },
     { label: t.nav.contact, href: localizeHref("/#booking") },
@@ -49,7 +49,7 @@ export function Navbar() {
       <div aria-hidden="true" className={`fixed inset-x-0 top-16 bottom-0 z-40 touch-none bg-night/25 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${open ? "opacity-100" : "pointer-events-none opacity-0"}`} />
       <header className="fixed inset-x-0 top-0 z-50 border-b border-line/35 bg-background text-ink" ref={headerRef}>
         <nav aria-label={t.nav.label} className="section-shell relative flex h-16 items-center justify-between gap-3">
-          <Link aria-label={`${brandName} — ${t.nav.home}`} className="flex shrink-0 items-center gap-2.5 text-lg font-semibold tracking-[0.13em]" href={localizeHref("/")} onClick={() => setOpen(false)}>
+          <Link aria-label={`${brandName} — ${t.nav.home}`} className="flex shrink-0 items-center gap-2.5 text-lg font-semibold tracking-[0.13em]" href={localizeHref("/#home")} onClick={() => setOpen(false)}>
             <Image alt="" aria-hidden src="/kumo-logo-blue.webp" width={32} height={32} className="h-8 w-8 rounded-full" />
             {brandName}
           </Link>

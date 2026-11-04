@@ -12,7 +12,8 @@
     "lint": "eslint . --max-warnings=0",
     "typecheck": "next typegen && tsc --noEmit",
     "check": "npm run lint && npm run typecheck",
-    "check:site": "node scripts/check-site.mjs"
+    "check:site": "node scripts/check-site.mjs",
+    "test:menu": "node --experimental-strip-types --test scripts/menu-navigation.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

@@ -1,0 +1,2651 @@
+[
+  {
+    "id": "starters",
+    "title": {
+      "fr": "Entrées",
+      "en": "Starters",
+      "nl": "Voorgerechten"
+    },
+    "description": {
+      "fr": "Pour commencer votre repas.",
+      "en": "To begin your meal.",
+      "nl": "Om uw maaltijd te beginnen."
+    },
+    "dishes": [
+      {
+        "id": "starters-02",
+        "source": "厨房/厨房前菜/edamame.jpg",
+        "image": "/menu/starters/02.webp",
+        "name": {
+          "fr": "Edamame",
+          "en": "Edamame",
+          "nl": "Edamame"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "starters-03",
+        "source": "厨房/厨房前菜/SA 3. INSALATA SALMONE.jpg",
+        "image": "/menu/starters/03.webp",
+        "name": {
+          "fr": "Salade de saumon",
+          "en": "Salmon salad",
+          "nl": "Zalmsalade"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "starters-04",
+        "source": "厨房/厨房前菜/SA 4. WAKAME-SALAT.jpg",
+        "image": "/menu/starters/04.webp",
+        "name": {
+          "fr": "Salade de wakame",
+          "en": "Wakame salad",
+          "nl": "Wakamesalade"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "starters-05",
+        "source": "厨房/厨房前菜/SA 6. GOMA WAKAME.jpg",
+        "image": "/menu/starters/05.webp",
+        "name": {
+          "fr": "Goma wakame",
+          "en": "Goma wakame",
+          "nl": "Goma wakame"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "starters-06",
+        "source": "厨房/厨房前菜/SA 8. INSALATA.jpg",
+        "image": "/menu/starters/06.webp",
+        "name": {
+          "fr": "Salade",
+          "en": "Salad",
+          "nl": "Salade"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "starters-07",
+        "source": "厨房/厨房前菜/SA 9. INSALATA MANGO.jpg",
+        "image": "/menu/starters/07.webp",
+        "name": {
+          "fr": "Salade de mangue",
+          "en": "Mango salad",
+          "nl": "Mangosalade"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "starters-08",
+        "source": "厨房/厨房前菜/tranches de bœuf.jpg",
+        "image": "/menu/starters/08.webp",
+        "name": {
+          "fr": "Tranches de bœuf",
+          "en": "Beef slices",
+          "nl": "Plakjes rundvlees"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "starters-01",
+        "source": "厨房/厨房前菜/220.jpg",
+        "image": "/menu/starters/01.webp",
+        "name": {
+          "fr": "Chips de crevettes",
+          "en": "Prawn crackers",
+          "nl": "Kroepoek"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "starters-09",
+        "source": "厨房/厨房前菜/待取名22.jpg",
+        "image": "/menu/starters/09.webp",
+        "name": {
+          "fr": "Salade composée",
+          "en": "Mixed salad",
+          "nl": "Gemengde salade"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      }
+    ]
+  },
+  {
+    "id": "sushi-starters",
+    "title": {
+      "fr": "Entrées sushi",
+      "en": "Sushi starters",
+      "nl": "Sushi-voorgerechten"
+    },
+    "description": {
+      "fr": "Chips, tacos et bouchées.",
+      "en": "Chips, tacos and small bites.",
+      "nl": "Chips, taco’s en kleine hapjes."
+    },
+    "dishes": [
+      {
+        "id": "sushi-starters-01",
+        "source": "寿司/antipasto/CHIPS GUACAMOLE.jpg",
+        "image": "/menu/sushi-starters/01.webp",
+        "name": {
+          "fr": "Chips au guacamole",
+          "en": "Guacamole chips",
+          "nl": "Chips met guacamole"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-02",
+        "source": "寿司/antipasto/CHIPS SPISY SAKE.jpg",
+        "image": "/menu/sushi-starters/02.webp",
+        "name": {
+          "fr": "Chips au saumon épicé",
+          "en": "Spicy salmon chips",
+          "nl": "Chips met pittige zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-03",
+        "source": "寿司/antipasto/CRISPI KANI.jpg",
+        "image": "/menu/sushi-starters/03.webp",
+        "name": {
+          "fr": "Croustillant au crabe",
+          "en": "Crispy crab",
+          "nl": "Krokante krab"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-04",
+        "source": "寿司/antipasto/CRISPI SAKE HOT.jpg",
+        "image": "/menu/sushi-starters/04.webp",
+        "name": {
+          "fr": "Croustillant au saumon chaud",
+          "en": "Hot crispy salmon",
+          "nl": "Warme krokante zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-05",
+        "source": "寿司/antipasto/crispy slak kani.jpg",
+        "image": "/menu/sushi-starters/05.webp",
+        "name": {
+          "fr": "Crispy Slak au crabe",
+          "en": "Crispy Slak crab",
+          "nl": "Crispy Slak met krab"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-06",
+        "source": "寿司/antipasto/CROCCANTE SAKE.jpg",
+        "image": "/menu/sushi-starters/06.webp",
+        "name": {
+          "fr": "Croustillant au saumon",
+          "en": "Crispy salmon",
+          "nl": "Krokante zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-07",
+        "source": "寿司/antipasto/PANE TUNA EBI.jpg",
+        "image": "/menu/sushi-starters/07.webp",
+        "name": {
+          "fr": "Pain au thon & à la crevette",
+          "en": "Tuna & prawn bread",
+          "nl": "Brood met tonijn & garnaal"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-08",
+        "source": "寿司/antipasto/pani ichigo.jpg",
+        "image": "/menu/sushi-starters/08.webp",
+        "name": {
+          "fr": "Pain à la fraise",
+          "en": "Strawberry bread",
+          "nl": "Brood met aardbei"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-09",
+        "source": "寿司/antipasto/tacos mexico.jpg",
+        "image": "/menu/sushi-starters/09.webp",
+        "name": {
+          "fr": "Tacos Mexico",
+          "en": "Tacos Mexico",
+          "nl": "Taco’s Mexico"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-10",
+        "source": "寿司/antipasto/TACOS SAKE.jpg",
+        "image": "/menu/sushi-starters/10.webp",
+        "name": {
+          "fr": "Tacos au saumon",
+          "en": "Salmon tacos",
+          "nl": "Taco’s met zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-11",
+        "source": "寿司/antipasto/TACOS TUNA.jpg",
+        "image": "/menu/sushi-starters/11.webp",
+        "name": {
+          "fr": "Tacos au thon",
+          "en": "Tuna tacos",
+          "nl": "Taco’s met tonijn"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sushi-starters-12",
+        "source": "寿司/antipasto/tartelette sake spisy.jpg",
+        "image": "/menu/sushi-starters/12.webp",
+        "name": {
+          "fr": "Tartelette au saumon épicé",
+          "en": "Spicy salmon tartlet",
+          "nl": "Taartje met pittige zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "carpaccio",
+    "title": {
+      "fr": "Carpaccio",
+      "en": "Carpaccio",
+      "nl": "Carpaccio"
+    },
+    "description": {
+      "fr": "Les carpaccios de la carte.",
+      "en": "The carpaccio selection.",
+      "nl": "De carpaccioselectie."
+    },
+    "dishes": [
+      {
+        "id": "carpaccio-01",
+        "source": "寿司/carpaccio/carpaccio burrata slyle.jpg",
+        "image": "/menu/carpaccio/01.webp",
+        "name": {
+          "fr": "Carpaccio façon burrata",
+          "en": "Burrata-style carpaccio",
+          "nl": "Carpaccio in burratastijl"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "carpaccio-02",
+        "source": "寿司/carpaccio/carpaccio fish mix.jpg",
+        "image": "/menu/carpaccio/02.webp",
+        "name": {
+          "fr": "Carpaccio de poissons assortis",
+          "en": "Mixed fish carpaccio",
+          "nl": "Carpaccio van gemengde vis"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "carpaccio-03",
+        "source": "寿司/carpaccio/carpaccio passion tuna.jpg",
+        "image": "/menu/carpaccio/03.webp",
+        "name": {
+          "fr": "Carpaccio de thon & passion",
+          "en": "Tuna & passion fruit carpaccio",
+          "nl": "Carpaccio van tonijn & passievrucht"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "carpaccio-04",
+        "source": "寿司/carpaccio/carpaccio sake.jpg",
+        "image": "/menu/carpaccio/04.webp",
+        "name": {
+          "fr": "Carpaccio de saumon",
+          "en": "Salmon carpaccio",
+          "nl": "Zalmcarpaccio"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "carpaccio-05",
+        "source": "寿司/carpaccio/carpaccio sesame.jpg",
+        "image": "/menu/carpaccio/05.webp",
+        "name": {
+          "fr": "Carpaccio au sésame",
+          "en": "Sesame carpaccio",
+          "nl": "Carpaccio met sesam"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "carpaccio-06",
+        "source": "寿司/carpaccio/carpaccio tuna.jpg",
+        "image": "/menu/carpaccio/06.webp",
+        "name": {
+          "fr": "Carpaccio de thon",
+          "en": "Tuna carpaccio",
+          "nl": "Tonijncarpaccio"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "sashimi",
+    "title": {
+      "fr": "Sashimi & tataki",
+      "en": "Sashimi & tataki",
+      "nl": "Sashimi & tataki"
+    },
+    "description": {
+      "fr": "Sashimi et tataki, en images.",
+      "en": "Explore sashimi and tataki.",
+      "nl": "Ontdek sashimi en tataki."
+    },
+    "dishes": [
+      {
+        "id": "sashimi-01",
+        "source": "寿司/sashimi/ostriche pandalus eous.jpg",
+        "image": "/menu/sashimi/01.webp",
+        "name": {
+          "fr": "Huîtres & Pandalus eous",
+          "en": "Oysters & Pandalus eous",
+          "nl": "Oesters & Pandalus eous"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sashimi-02",
+        "source": "寿司/sashimi/sashimi sake.jpg",
+        "image": "/menu/sashimi/02.webp",
+        "name": {
+          "fr": "Sashimi de saumon",
+          "en": "Salmon sashimi",
+          "nl": "Zalmsashimi"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sashimi-03",
+        "source": "寿司/sashimi/sashimi scampi.jpg",
+        "image": "/menu/sashimi/03.webp",
+        "name": {
+          "fr": "Sashimi de scampi",
+          "en": "Scampi sashimi",
+          "nl": "Scampisashimi"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sashimi-04",
+        "source": "寿司/sashimi/sashimi specciale.jpg",
+        "image": "/menu/sashimi/04.webp",
+        "name": {
+          "fr": "Sashimi spécial",
+          "en": "Special sashimi",
+          "nl": "Speciale sashimi"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sashimi-05",
+        "source": "寿司/sashimi/sashimi suzuki.jpg",
+        "image": "/menu/sashimi/05.webp",
+        "name": {
+          "fr": "Sashimi de bar",
+          "en": "Sea bass sashimi",
+          "nl": "Zeebaarssashimi"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sashimi-06",
+        "source": "寿司/sashimi/sashimi tuna.jpg",
+        "image": "/menu/sashimi/06.webp",
+        "name": {
+          "fr": "Sashimi de thon",
+          "en": "Tuna sashimi",
+          "nl": "Tonijnsashimi"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sashimi-07",
+        "source": "寿司/sashimi/tataki sake ponzu.jpg",
+        "image": "/menu/sashimi/07.webp",
+        "name": {
+          "fr": "Tataki de saumon au ponzu",
+          "en": "Salmon tataki with ponzu",
+          "nl": "Zalmtataki met ponzu"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "sashimi-08",
+        "source": "寿司/sashimi/tataki tuna ponzu.jpg",
+        "image": "/menu/sashimi/08.webp",
+        "name": {
+          "fr": "Tataki de thon au ponzu",
+          "en": "Tuna tataki with ponzu",
+          "nl": "Tonijntataki met ponzu"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "nigiri",
+    "title": {
+      "fr": "Nigiri",
+      "en": "Nigiri",
+      "nl": "Nigiri"
+    },
+    "description": {
+      "fr": "Les nigiri de la carte.",
+      "en": "The nigiri selection.",
+      "nl": "De nigiriselectie."
+    },
+    "dishes": [
+      {
+        "id": "nigiri-01",
+        "source": "寿司/nigiri/nigiri ebi.jpg",
+        "image": "/menu/nigiri/01.webp",
+        "name": {
+          "fr": "Nigiri crevette",
+          "en": "Nigiri prawn",
+          "nl": "Nigiri garnaal"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "nigiri-02",
+        "source": "寿司/nigiri/nigiri goose gras.jpg",
+        "image": "/menu/nigiri/02.webp",
+        "name": {
+          "fr": "Nigiri foie gras",
+          "en": "Foie gras nigiri",
+          "nl": "Nigiri foie gras"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "nigiri-03",
+        "source": "寿司/nigiri/nigiri ika.jpg",
+        "image": "/menu/nigiri/03.webp",
+        "name": {
+          "fr": "Nigiri calamar",
+          "en": "Nigiri squid",
+          "nl": "Nigiri inktvis"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "nigiri-04",
+        "source": "寿司/nigiri/nigiri mix frambe 4pz.jpg",
+        "image": "/menu/nigiri/04.webp",
+        "name": {
+          "fr": "Nigiri assortis flambés · 4 pièces",
+          "en": "Mixed seared nigiri · 4 pieces",
+          "nl": "Gemengde geschroeide nigiri · 4 stuks"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "nigiri-05",
+        "source": "寿司/nigiri/nigiri mizu.jpg",
+        "image": "/menu/nigiri/05.webp",
+        "name": {
+          "fr": "Nigiri mizu",
+          "en": "Nigiri mizu",
+          "nl": "Nigiri mizu"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "nigiri-06",
+        "source": "寿司/nigiri/nigiri sake.jpg",
+        "image": "/menu/nigiri/06.webp",
+        "name": {
+          "fr": "Nigiri saumon",
+          "en": "Nigiri salmon",
+          "nl": "Nigiri zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "nigiri-07",
+        "source": "寿司/nigiri/nigiri suzuki.jpg",
+        "image": "/menu/nigiri/07.webp",
+        "name": {
+          "fr": "Nigiri bar",
+          "en": "Nigiri sea bass",
+          "nl": "Nigiri zeebaars"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "nigiri-08",
+        "source": "寿司/nigiri/nigiri tamago.jpg",
+        "image": "/menu/nigiri/08.webp",
+        "name": {
+          "fr": "Nigiri œuf",
+          "en": "Nigiri egg",
+          "nl": "Nigiri ei"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "nigiri-09",
+        "source": "寿司/nigiri/nigiri tuna.jpg",
+        "image": "/menu/nigiri/09.webp",
+        "name": {
+          "fr": "Nigiri thon",
+          "en": "Nigiri tuna",
+          "nl": "Nigiri tonijn"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "nigiri-10",
+        "source": "寿司/nigiri/nigiri unagi.jpg",
+        "image": "/menu/nigiri/10.webp",
+        "name": {
+          "fr": "Nigiri anguille",
+          "en": "Nigiri eel",
+          "nl": "Nigiri paling"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "hosomaki",
+    "title": {
+      "fr": "Hosomaki",
+      "en": "Hosomaki",
+      "nl": "Hosomaki"
+    },
+    "description": {
+      "fr": "Hosomaki et rouleaux frits.",
+      "en": "Hosomaki and fried rolls.",
+      "nl": "Hosomaki en gefrituurde rollen."
+    },
+    "dishes": [
+      {
+        "id": "hosomaki-01",
+        "source": "寿司/hosimaki/hoso fritt guaga.jpg",
+        "image": "/menu/hosomaki/01.webp",
+        "name": {
+          "fr": "Hosomaki frit au guacamole",
+          "en": "Fried guacamole hosomaki",
+          "nl": "Gefrituurde hosomaki met guacamole"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "hosomaki-02",
+        "source": "寿司/hosimaki/hoso fritt ichigo.jpg",
+        "image": "/menu/hosomaki/02.webp",
+        "name": {
+          "fr": "Hosomaki frit à la fraise",
+          "en": "Fried strawberry hosomaki",
+          "nl": "Gefrituurde hosomaki met aardbei"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "hosomaki-03",
+        "source": "寿司/hosimaki/hoso fritt mango.jpg",
+        "image": "/menu/hosomaki/03.webp",
+        "name": {
+          "fr": "Hosomaki frit à la mangue",
+          "en": "Fried mango hosomaki",
+          "nl": "Gefrituurde hosomaki met mango"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "hosomaki-04",
+        "source": "寿司/hosimaki/hoso fritt sake spisy.jpg",
+        "image": "/menu/hosomaki/04.webp",
+        "name": {
+          "fr": "Hosomaki frit au saumon épicé",
+          "en": "Fried spicy salmon hosomaki",
+          "nl": "Gefrituurde hosomaki met pittige zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "hosomaki-05",
+        "source": "寿司/hosimaki/hosomaki  tuna.jpg",
+        "image": "/menu/hosomaki/05.webp",
+        "name": {
+          "fr": "Hosomaki thon",
+          "en": "Hosomaki tuna",
+          "nl": "Hosomaki tonijn"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "hosomaki-06",
+        "source": "寿司/hosimaki/hosomaki avocado.jpg",
+        "image": "/menu/hosomaki/06.webp",
+        "name": {
+          "fr": "Hosomaki avocat",
+          "en": "Hosomaki avocado",
+          "nl": "Hosomaki avocado"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "hosomaki-07",
+        "source": "寿司/hosimaki/hosomaki daikon.jpg",
+        "image": "/menu/hosomaki/07.webp",
+        "name": {
+          "fr": "Hosomaki daikon",
+          "en": "Hosomaki daikon",
+          "nl": "Hosomaki daikon"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "hosomaki-08",
+        "source": "寿司/hosimaki/hosomaki ebi.jpg",
+        "image": "/menu/hosomaki/08.webp",
+        "name": {
+          "fr": "Hosomaki crevette",
+          "en": "Hosomaki prawn",
+          "nl": "Hosomaki garnaal"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "hosomaki-09",
+        "source": "寿司/hosimaki/hosomaki kani.jpg",
+        "image": "/menu/hosomaki/09.webp",
+        "name": {
+          "fr": "Hosomaki crabe",
+          "en": "Hosomaki crab",
+          "nl": "Hosomaki krab"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "hosomaki-10",
+        "source": "寿司/hosimaki/hosomaki kappa.jpg",
+        "image": "/menu/hosomaki/10.webp",
+        "name": {
+          "fr": "Hosomaki concombre",
+          "en": "Hosomaki cucumber",
+          "nl": "Hosomaki komkommer"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "hosomaki-11",
+        "source": "寿司/hosimaki/hosomaki sake.jpg",
+        "image": "/menu/hosomaki/11.webp",
+        "name": {
+          "fr": "Hosomaki saumon",
+          "en": "Hosomaki salmon",
+          "nl": "Hosomaki zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "uramaki",
+    "title": {
+      "fr": "Uramaki",
+      "en": "Uramaki",
+      "nl": "Uramaki"
+    },
+    "description": {
+      "fr": "Les uramaki de la carte.",
+      "en": "The uramaki selection.",
+      "nl": "De uramakiselectie."
+    },
+    "dishes": [
+      {
+        "id": "uramaki-01",
+        "source": "寿司/uramaki/pink burrata.png",
+        "image": "/menu/uramaki/01.webp",
+        "name": {
+          "fr": "Pink Burrata",
+          "en": "Pink Burrata",
+          "nl": "Pink Burrata"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-02",
+        "source": "寿司/uramaki/PINK TIGER.jpg",
+        "image": "/menu/uramaki/02.webp",
+        "name": {
+          "fr": "Pink Tiger",
+          "en": "Pink Tiger",
+          "nl": "Pink Tiger"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-03",
+        "source": "寿司/uramaki/PINK TUNA EBITEN.jpg",
+        "image": "/menu/uramaki/03.webp",
+        "name": {
+          "fr": "Pink thon Ebiten",
+          "en": "Pink tuna Ebiten",
+          "nl": "Pink tonijn Ebiten"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-04",
+        "source": "寿司/uramaki/ura banana chocolat.jpg",
+        "image": "/menu/uramaki/04.webp",
+        "name": {
+          "fr": "Ura banane & chocolat",
+          "en": "Banana & chocolate ura",
+          "nl": "Ura met banaan & chocolade"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-05",
+        "source": "寿司/uramaki/ura black cheese.jpg",
+        "image": "/menu/uramaki/05.webp",
+        "name": {
+          "fr": "Ura Black au fromage",
+          "en": "Black cheese ura",
+          "nl": "Ura Black met kaas"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-06",
+        "source": "寿司/uramaki/ura black ebiten.jpg",
+        "image": "/menu/uramaki/06.webp",
+        "name": {
+          "fr": "Ura Black Ebiten",
+          "en": "Black Ebiten ura",
+          "nl": "Ura Black Ebiten"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-07",
+        "source": "寿司/uramaki/ura black katsuobush.jpg",
+        "image": "/menu/uramaki/07.webp",
+        "name": {
+          "fr": "Ura Black Katsuobush",
+          "en": "Black Katsuobush ura",
+          "nl": "Ura Black Katsuobush"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-08",
+        "source": "寿司/uramaki/URA EBI RAINBOW.jpg",
+        "image": "/menu/uramaki/08.webp",
+        "name": {
+          "fr": "Ura Rainbow à la crevette",
+          "en": "Rainbow prawn ura",
+          "nl": "Ura Rainbow met garnaal"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-09",
+        "source": "寿司/uramaki/uramaki chokoreto.jpg",
+        "image": "/menu/uramaki/09.webp",
+        "name": {
+          "fr": "Uramaki chocolat",
+          "en": "Uramaki chocolate",
+          "nl": "Uramaki chocolade"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-10",
+        "source": "寿司/uramaki/uramaki ebi burrata.jpg",
+        "image": "/menu/uramaki/10.webp",
+        "name": {
+          "fr": "Uramaki crevette & burrata",
+          "en": "Prawn & burrata uramaki",
+          "nl": "Uramaki met garnaal & burrata"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-11",
+        "source": "寿司/uramaki/uramaki ebi kani.jpg",
+        "image": "/menu/uramaki/11.webp",
+        "name": {
+          "fr": "Uramaki crevette & crabe",
+          "en": "Prawn & crab uramaki",
+          "nl": "Uramaki met garnaal & krab"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-12",
+        "source": "寿司/uramaki/uramaki ebi spisy sake.jpg",
+        "image": "/menu/uramaki/12.webp",
+        "name": {
+          "fr": "Uramaki crevette & saumon épicé",
+          "en": "Prawn & spicy salmon uramaki",
+          "nl": "Uramaki met garnaal & pittige zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-13",
+        "source": "寿司/uramaki/uramaki ichigo.jpg",
+        "image": "/menu/uramaki/13.webp",
+        "name": {
+          "fr": "Uramaki fraise",
+          "en": "Uramaki strawberry",
+          "nl": "Uramaki aardbei"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-14",
+        "source": "寿司/uramaki/uramaki kani spisy.jpg",
+        "image": "/menu/uramaki/14.webp",
+        "name": {
+          "fr": "Uramaki au crabe épicé",
+          "en": "Spicy crab uramaki",
+          "nl": "Uramaki met pittige krab"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-15",
+        "source": "寿司/uramaki/uramaki sake mango.jpg",
+        "image": "/menu/uramaki/15.webp",
+        "name": {
+          "fr": "Uramaki saumon & mangue",
+          "en": "Salmon & mango uramaki",
+          "nl": "Uramaki met zalm & mango"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-16",
+        "source": "寿司/uramaki/uramaki sake.jpg",
+        "image": "/menu/uramaki/16.webp",
+        "name": {
+          "fr": "Uramaki saumon",
+          "en": "Uramaki salmon",
+          "nl": "Uramaki zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-17",
+        "source": "寿司/uramaki/uramaki sakero.jpg",
+        "image": "/menu/uramaki/17.webp",
+        "name": {
+          "fr": "Uramaki sakero",
+          "en": "Uramaki sakero",
+          "nl": "Uramaki sakero"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-18",
+        "source": "寿司/uramaki/uramaki spisy tuna.jpg",
+        "image": "/menu/uramaki/18.webp",
+        "name": {
+          "fr": "Uramaki au thon épicé",
+          "en": "Spicy tuna uramaki",
+          "nl": "Uramaki met pittige tonijn"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-19",
+        "source": "寿司/uramaki/uramaki tuna.jpg",
+        "image": "/menu/uramaki/19.webp",
+        "name": {
+          "fr": "Uramaki thon",
+          "en": "Uramaki tuna",
+          "nl": "Uramaki tonijn"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "uramaki-20",
+        "source": "寿司/uramaki/uramaki yasai.jpg",
+        "image": "/menu/uramaki/20.webp",
+        "name": {
+          "fr": "Uramaki légumes",
+          "en": "Uramaki vegetables",
+          "nl": "Uramaki groenten"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "temaki",
+    "title": {
+      "fr": "Temaki",
+      "en": "Temaki",
+      "nl": "Temaki"
+    },
+    "description": {
+      "fr": "Les temaki de la carte.",
+      "en": "The temaki selection.",
+      "nl": "De temakiselectie."
+    },
+    "dishes": [
+      {
+        "id": "temaki-01",
+        "source": "寿司/temaki/temaki ebiten.jpg",
+        "image": "/menu/temaki/01.webp",
+        "name": {
+          "fr": "Temaki ebiten",
+          "en": "Temaki ebiten",
+          "nl": "Temaki ebiten"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "temaki-02",
+        "source": "寿司/temaki/temaki kani rum.jpg",
+        "image": "/menu/temaki/02.webp",
+        "name": {
+          "fr": "Temaki crabe rum",
+          "en": "Temaki crab rum",
+          "nl": "Temaki krab rum"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "temaki-03",
+        "source": "寿司/temaki/TEMAKI SAKE.png",
+        "image": "/menu/temaki/03.webp",
+        "name": {
+          "fr": "Temaki saumon",
+          "en": "Temaki salmon",
+          "nl": "Temaki zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "temaki-04",
+        "source": "寿司/temaki/temaki spisy sake.jpg",
+        "image": "/menu/temaki/04.webp",
+        "name": {
+          "fr": "Temaki au saumon épicé",
+          "en": "Temaki spicy salmon",
+          "nl": "Temaki met pittige zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "temaki-05",
+        "source": "寿司/temaki/temaki spisy tuna.jpg",
+        "image": "/menu/temaki/05.webp",
+        "name": {
+          "fr": "Temaki au thon épicé",
+          "en": "Temaki spicy tuna",
+          "nl": "Temaki met pittige tonijn"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "temaki-06",
+        "source": "寿司/temaki/TEMAKI TUNA.png",
+        "image": "/menu/temaki/06.webp",
+        "name": {
+          "fr": "Temaki thon",
+          "en": "Temaki tuna",
+          "nl": "Temaki tonijn"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "bigne",
+    "title": {
+      "fr": "Bignè",
+      "en": "Bignè",
+      "nl": "Bignè"
+    },
+    "description": {
+      "fr": "Les bouchées bignè de la carte.",
+      "en": "The bignè selection.",
+      "nl": "De bignèselectie."
+    },
+    "dishes": [
+      {
+        "id": "bigne-01",
+        "source": "寿司/bigne/bigne ichigo.jpg",
+        "image": "/menu/bigne/01.webp",
+        "name": {
+          "fr": "Bignè fraise",
+          "en": "Bignè strawberry",
+          "nl": "Bignè aardbei"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "bigne-02",
+        "source": "寿司/bigne/bigne ikura.jpg",
+        "image": "/menu/bigne/02.webp",
+        "name": {
+          "fr": "Bignè ikura",
+          "en": "Bignè ikura",
+          "nl": "Bignè ikura"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "bigne-03",
+        "source": "寿司/bigne/bigne mango.jpg",
+        "image": "/menu/bigne/03.webp",
+        "name": {
+          "fr": "Bignè mangue",
+          "en": "Bignè mango",
+          "nl": "Bignè mango"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "bigne-04",
+        "source": "寿司/bigne/bigne mizu.jpg",
+        "image": "/menu/bigne/04.webp",
+        "name": {
+          "fr": "Bignè mizu",
+          "en": "Bignè mizu",
+          "nl": "Bignè mizu"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "bigne-05",
+        "source": "寿司/bigne/bigne sake.jpg",
+        "image": "/menu/bigne/05.webp",
+        "name": {
+          "fr": "Bignè saumon",
+          "en": "Bignè salmon",
+          "nl": "Bignè zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "bigne-06",
+        "source": "寿司/bigne/bigne spisy sake.jpg",
+        "image": "/menu/bigne/06.webp",
+        "name": {
+          "fr": "Bignè au saumon épicé",
+          "en": "Spicy salmon bignè",
+          "nl": "Bignè met pittige zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "bigne-07",
+        "source": "寿司/bigne/bigne tobiko.jpg",
+        "image": "/menu/bigne/07.webp",
+        "name": {
+          "fr": "Bignè tobiko",
+          "en": "Bignè tobiko",
+          "nl": "Bignè tobiko"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "bigne-08",
+        "source": "寿司/bigne/bigne zucc kani.jpg",
+        "image": "/menu/bigne/08.webp",
+        "name": {
+          "fr": "Bignè courgette & crabe",
+          "en": "Courgette & crab bignè",
+          "nl": "Bignè met courgette & krab"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "bigne-09",
+        "source": "寿司/bigne/bigne zucc sake.jpg",
+        "image": "/menu/bigne/09.webp",
+        "name": {
+          "fr": "Bignè courgette & saumon",
+          "en": "Courgette & salmon bignè",
+          "nl": "Bignè met courgette & zalm"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "chirashi-tartare",
+    "title": {
+      "fr": "Chirashi & tartares",
+      "en": "Chirashi & tartare",
+      "nl": "Chirashi & tartaar"
+    },
+    "description": {
+      "fr": "Chirashi et tartares, en images.",
+      "en": "Explore chirashi and tartare.",
+      "nl": "Ontdek chirashi en tartaar."
+    },
+    "dishes": [
+      {
+        "id": "chirashi-tartare-01",
+        "source": "寿司/chirashi tartare/chirashi black tuna.jpg",
+        "image": "/menu/chirashi-tartare/01.webp",
+        "name": {
+          "fr": "Chirashi Black au thon",
+          "en": "Black tuna chirashi",
+          "nl": "Chirashi Black met tonijn"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "chirashi-tartare-02",
+        "source": "寿司/chirashi tartare/chirashi mix truffle.jpg",
+        "image": "/menu/chirashi-tartare/02.webp",
+        "name": {
+          "fr": "Chirashi assorti à la truffe",
+          "en": "Mixed truffle chirashi",
+          "nl": "Gemengde chirashi met truffel"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "chirashi-tartare-03",
+        "source": "寿司/chirashi tartare/chirashi pink tuna.jpg",
+        "image": "/menu/chirashi-tartare/03.webp",
+        "name": {
+          "fr": "Chirashi Pink au thon",
+          "en": "Pink tuna chirashi",
+          "nl": "Chirashi Pink met tonijn"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "chirashi-tartare-04",
+        "source": "寿司/chirashi tartare/chirashi sake truffle.jpg",
+        "image": "/menu/chirashi-tartare/04.webp",
+        "name": {
+          "fr": "Chirashi saumon & truffe",
+          "en": "Salmon & truffle chirashi",
+          "nl": "Chirashi met zalm & truffel"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "chirashi-tartare-05",
+        "source": "寿司/chirashi tartare/tartare A5 wagyu.jpg",
+        "image": "/menu/chirashi-tartare/05.webp",
+        "name": {
+          "fr": "Tartare de wagyu A5",
+          "en": "A5 wagyu tartare",
+          "nl": "A5-wagyutartaar"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "chirashi-tartare-06",
+        "source": "寿司/chirashi tartare/tartare sake passion.jpg",
+        "image": "/menu/chirashi-tartare/06.webp",
+        "name": {
+          "fr": "Tartare saumon & passion",
+          "en": "Salmon & passion fruit tartare",
+          "nl": "Tartaar van zalm & passievrucht"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "chirashi-tartare-07",
+        "source": "寿司/chirashi tartare/tartare scampi slyle.jpg",
+        "image": "/menu/chirashi-tartare/07.webp",
+        "name": {
+          "fr": "Tartare façon scampi",
+          "en": "Scampi-style tartare",
+          "nl": "Tartaar in scampistijl"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "chirashi-tartare-08",
+        "source": "寿司/chirashi tartare/tartare tuna passion.jpg",
+        "image": "/menu/chirashi-tartare/08.webp",
+        "name": {
+          "fr": "Tartare thon & passion",
+          "en": "Tuna & passion fruit tartare",
+          "nl": "Tartaar van tonijn & passievrucht"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "chirashi-tartare-09",
+        "source": "寿司/chirashi tartare/tartare tuna rum.jpg",
+        "image": "/menu/chirashi-tartare/09.webp",
+        "name": {
+          "fr": "Tartare de thon Rum",
+          "en": "Tuna Rum tartare",
+          "nl": "Tonijntartaar Rum"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "specialities",
+    "title": {
+      "fr": "Spécialités sushi",
+      "en": "Sushi specialities",
+      "nl": "Sushispecialiteiten"
+    },
+    "description": {
+      "fr": "Les spécialités de la carte sushi.",
+      "en": "Specialities from the sushi menu.",
+      "nl": "Specialiteiten van de sushikaart."
+    },
+    "dishes": [
+      {
+        "id": "specialities-01",
+        "source": "寿司/specciale/capesante truffle.jpg",
+        "image": "/menu/specialities/01.webp",
+        "name": {
+          "fr": "Saint-Jacques à la truffe",
+          "en": "Truffle scallops",
+          "nl": "Sint-jakobsschelpen met truffel"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "specialities-02",
+        "source": "寿司/specciale/carpaccio A5 wagyu.jpg",
+        "image": "/menu/specialities/02.webp",
+        "name": {
+          "fr": "Carpaccio de wagyu A5",
+          "en": "A5 wagyu carpaccio",
+          "nl": "A5-wagyucarpaccio"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "specialities-03",
+        "source": "寿司/specciale/nigiri A5wagyu truffle.jpg",
+        "image": "/menu/specialities/03.webp",
+        "name": {
+          "fr": "Nigiri wagyu A5 & truffe",
+          "en": "A5 wagyu & truffle nigiri",
+          "nl": "Nigiri met A5 wagyu & truffel"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "specialities-04",
+        "source": "寿司/specciale/nigiri mix special 4pz.jpg",
+        "image": "/menu/specialities/04.webp",
+        "name": {
+          "fr": "Nigiri spéciaux assortis · 4 pièces",
+          "en": "Mixed special nigiri · 4 pieces",
+          "nl": "Gemengde speciale nigiri · 4 stuks"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "specialities-05",
+        "source": "寿司/specciale/rum asparago slyle.jpg",
+        "image": "/menu/specialities/05.webp",
+        "name": {
+          "fr": "Rum façon asperge",
+          "en": "Asparagus-style Rum",
+          "nl": "Rum in aspergestijl"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "specialities-06",
+        "source": "寿司/specciale/rum mango slyle.jpg",
+        "image": "/menu/specialities/06.webp",
+        "name": {
+          "fr": "Rum façon mangue",
+          "en": "Mango-style Rum",
+          "nl": "Rum in mangostijl"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "specialities-07",
+        "source": "寿司/specciale/rum tempura.jpg",
+        "image": "/menu/specialities/07.webp",
+        "name": {
+          "fr": "Rum tempura",
+          "en": "Rum tempura",
+          "nl": "Rum tempura"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "specialities-08",
+        "source": "寿司/specciale/tofu passion.jpg",
+        "image": "/menu/specialities/08.webp",
+        "name": {
+          "fr": "Tofu passion",
+          "en": "Passion fruit tofu",
+          "nl": "Tofu met passievrucht"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "specialities-09",
+        "source": "寿司/specciale/uramaki langouste.jpg",
+        "image": "/menu/specialities/09.webp",
+        "name": {
+          "fr": "Uramaki à la langouste",
+          "en": "Spiny lobster uramaki",
+          "nl": "Uramaki met langoest"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "steamed",
+    "title": {
+      "fr": "À la vapeur",
+      "en": "Steamed dishes",
+      "nl": "Gestoomde gerechten"
+    },
+    "description": {
+      "fr": "Bao, raviolis et préparations vapeur.",
+      "en": "Bao, dumplings and steamed dishes.",
+      "nl": "Bao, dumplings en gestoomde gerechten."
+    },
+    "dishes": [
+      {
+        "id": "steamed-01",
+        "source": "厨房/蒸锅/RA 1 . BAO MIT HÄHNCHEN.jpg",
+        "image": "/menu/steamed/01.webp",
+        "name": {
+          "fr": "Bao au poulet",
+          "en": "Chicken bao",
+          "nl": "Bao met kip"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "steamed-02",
+        "source": "厨房/蒸锅/RA 3. GARNELEN-RAVIOLI.jpg",
+        "image": "/menu/steamed/02.webp",
+        "name": {
+          "fr": "Raviolis aux crevettes",
+          "en": "Prawn dumplings",
+          "nl": "Garnalendumplings"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "steamed-03",
+        "source": "厨房/蒸锅/RA 4. SHAOMAI-RAVIOLI.jpg",
+        "image": "/menu/steamed/03.webp",
+        "name": {
+          "fr": "Raviolis shao mai",
+          "en": "Shao mai dumplings",
+          "nl": "Shao mai-dumplings"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "steamed-04",
+        "source": "厨房/蒸锅/RA 5. GARNELEN-RAVIOLI.jpg",
+        "image": "/menu/steamed/04.webp",
+        "name": {
+          "fr": "Raviolis aux crevettes",
+          "en": "Prawn dumplings",
+          "nl": "Garnalendumplings"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "steamed-05",
+        "source": "厨房/蒸锅/RA 6 . GEDÄMPFTES BROT.jpg",
+        "image": "/menu/steamed/05.webp",
+        "name": {
+          "fr": "Pain vapeur",
+          "en": "Steamed bread",
+          "nl": "Gestoomd brood"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "steamed-06",
+        "source": "厨房/蒸锅/RA 7. RAVIOLI MISTI  3 STK..jpg",
+        "image": "/menu/steamed/06.webp",
+        "name": {
+          "fr": "Raviolis assortis · 3 pièces",
+          "en": "Mixed dumplings · 3 pieces",
+          "nl": "Gemengde dumplings · 3 stuks"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "steamed-07",
+        "source": "厨房/蒸锅/RA 8. RAVIOLI VEGETABLE  3 STK..png",
+        "image": "/menu/steamed/07.webp",
+        "name": {
+          "fr": "Raviolis aux légumes · 3 pièces",
+          "en": "Vegetable dumplings · 3 pieces",
+          "nl": "Groentedumplings · 3 stuks"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "steamed-08",
+        "source": "厨房/蒸锅/RA 9 . CAPESANTE AGLIO  2 STK..png",
+        "image": "/menu/steamed/08.webp",
+        "name": {
+          "fr": "Saint-Jacques à l’ail · 2 pièces",
+          "en": "Garlic scallops · 2 pieces",
+          "nl": "Sint-jakobsschelpen met knoflook · 2 stuks"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "steamed-09",
+        "source": "厨房/蒸锅/鸡蛋羹.jpg",
+        "image": "/menu/steamed/09.webp",
+        "name": {
+          "fr": "Œufs à la vapeur",
+          "en": "Steamed egg",
+          "nl": "Gestoomd ei"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      }
+    ]
+  },
+  {
+    "id": "fried",
+    "title": {
+      "fr": "Fritures & tempura",
+      "en": "Fried dishes & tempura",
+      "nl": "Gefrituurde gerechten & tempura"
+    },
+    "description": {
+      "fr": "Tempura et préparations frites.",
+      "en": "Tempura and fried dishes.",
+      "nl": "Tempura en gefrituurde gerechten."
+    },
+    "dishes": [
+      {
+        "id": "fried-01",
+        "source": "厨房/油锅/FR 1. EBI TEMPURA.png",
+        "image": "/menu/fried/01.webp",
+        "name": {
+          "fr": "Tempura de crevettes",
+          "en": "Prawn tempura",
+          "nl": "Garnalentempura"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "fried-02",
+        "source": "厨房/油锅/FR 2. TEMPURA MISTO.png",
+        "image": "/menu/fried/02.webp",
+        "name": {
+          "fr": "Tempura assortis",
+          "en": "Mixed tempura",
+          "nl": "Gemengde tempura"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "fried-04",
+        "source": "厨房/油锅/FR 9. NUGGETS DI POLLO FRITTO.jpg",
+        "image": "/menu/fried/04.webp",
+        "name": {
+          "fr": "Nuggets de poulet frits",
+          "en": "Fried chicken nuggets",
+          "nl": "Gefrituurde kipnuggets"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "fried-06",
+        "source": "厨房/油锅/VO 8. FRITTIERTES BROT.jpg",
+        "image": "/menu/fried/06.webp",
+        "name": {
+          "fr": "Pain frit",
+          "en": "Fried bread",
+          "nl": "Gefrituurd brood"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "fried-07",
+        "source": "厨房/油锅/VO 11. VEGETARISCHE.jpg",
+        "image": "/menu/fried/07.webp",
+        "name": {
+          "fr": "Préparation végétarienne",
+          "en": "Vegetarian dish",
+          "nl": "Vegetarisch gerecht"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "fried-08",
+        "source": "厨房/油锅/VO 13. TAKOYAKI.jpg",
+        "image": "/menu/fried/08.webp",
+        "name": {
+          "fr": "Takoyaki",
+          "en": "Takoyaki",
+          "nl": "Takoyaki"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "fried-14",
+        "source": "厨房/油锅/炸鱿鱼圈.jpg",
+        "image": "/menu/fried/14.webp",
+        "name": {
+          "fr": "Anneaux de calamar frits",
+          "en": "Fried squid rings",
+          "nl": "Gefrituurde inktvisringen"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "fried-15",
+        "source": "厨房/油锅/炸鱿鱼须.jpg",
+        "image": "/menu/fried/15.webp",
+        "name": {
+          "fr": "Tentacules de calamar frits",
+          "en": "Fried squid tentacles",
+          "nl": "Gefrituurde inktvistentakels"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "fried-03",
+        "source": "厨房/油锅/FR 7. FRITTIERTE.png",
+        "image": "/menu/fried/03.webp",
+        "name": {
+          "fr": "Frites de patate douce",
+          "en": "Sweet potato fries",
+          "nl": "Zoete-aardappelfriet"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "fried-05",
+        "source": "厨房/油锅/FR 11. FRITTIERTE.png",
+        "image": "/menu/fried/05.webp",
+        "name": {
+          "fr": "Bouchées panées",
+          "en": "Breaded bites",
+          "nl": "Gepaneerde hapjes"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "fried-09",
+        "source": "厨房/油锅/待取名19.jpg",
+        "image": "/menu/fried/09.webp",
+        "name": {
+          "fr": "Rouleaux croustillants",
+          "en": "Crispy rolls",
+          "nl": "Krokante rolletjes"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "fried-10",
+        "source": "厨房/油锅/待取名23.jpg",
+        "image": "/menu/fried/10.webp",
+        "name": {
+          "fr": "Cônes croustillants",
+          "en": "Crispy cones",
+          "nl": "Krokante hoorntjes"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "fried-11",
+        "source": "厨房/油锅/待取名24.jpg",
+        "image": "/menu/fried/11.webp",
+        "name": {
+          "fr": "Croquettes dorées",
+          "en": "Golden croquettes",
+          "nl": "Goudkleurige kroketjes"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "fried-12",
+        "source": "厨房/油锅/待取名25.jpg",
+        "image": "/menu/fried/12.webp",
+        "name": {
+          "fr": "Bouchées frites",
+          "en": "Fried bites",
+          "nl": "Gefrituurde hapjes"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "fried-13",
+        "source": "厨房/油锅/待取名26.jpg",
+        "image": "/menu/fried/13.webp",
+        "name": {
+          "fr": "Galette panée",
+          "en": "Breaded patty",
+          "nl": "Gepaneerd koekje"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      }
+    ]
+  },
+  {
+    "id": "teppanyaki",
+    "title": {
+      "fr": "Teppanyaki",
+      "en": "Teppanyaki",
+      "nl": "Teppanyaki"
+    },
+    "description": {
+      "fr": "Les préparations à la plaque.",
+      "en": "Dishes from the griddle.",
+      "nl": "Gerechten van de bakplaat."
+    },
+    "dishes": [
+      {
+        "id": "teppanyaki-01",
+        "source": "厨房/铁板/cheese becon.jpg",
+        "image": "/menu/teppanyaki/01.webp",
+        "name": {
+          "fr": "Fromage & bacon",
+          "en": "Cheese & bacon",
+          "nl": "Kaas & bacon"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "teppanyaki-02",
+        "source": "厨房/铁板/GE 2. GRÜNER SPARGEL 3 STK..jpg",
+        "image": "/menu/teppanyaki/02.webp",
+        "name": {
+          "fr": "Asperges vertes · 3 pièces",
+          "en": "Green asparagus · 3 pieces",
+          "nl": "Groene asperges · 3 stuks"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "teppanyaki-03",
+        "source": "厨房/铁板/GE 3. JAKOBSMUSCHELN 2 STK..jpg",
+        "image": "/menu/teppanyaki/03.webp",
+        "name": {
+          "fr": "Saint-Jacques · 2 pièces",
+          "en": "Scallops · 2 pieces",
+          "nl": "Sint-jakobsschelpen · 2 stuks"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "teppanyaki-04",
+        "source": "厨房/铁板/GE 4. GAMBON 2 STK..jpg",
+        "image": "/menu/teppanyaki/04.webp",
+        "name": {
+          "fr": "Gambas · 2 pièces",
+          "en": "King prawns · 2 pieces",
+          "nl": "Gamba’s · 2 stuks"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "teppanyaki-05",
+        "source": "厨房/铁板/GE 10. GARNELENSPIESSE 2 STK.jpg",
+        "image": "/menu/teppanyaki/05.webp",
+        "name": {
+          "fr": "Brochettes de crevettes · 2 pièces",
+          "en": "Prawn skewers · 2 pieces",
+          "nl": "Garnalenspiesjes · 2 stuks"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "teppanyaki-06",
+        "source": "厨房/铁板/GE 11.SPIEDINI CALAMARO.jpeg",
+        "image": "/menu/teppanyaki/06.webp",
+        "name": {
+          "fr": "Brochettes de calamar",
+          "en": "Squid skewers",
+          "nl": "Inktvisspiesjes"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "teppanyaki-07",
+        "source": "厨房/铁板/土司鹅肝.jpg",
+        "image": "/menu/teppanyaki/07.webp",
+        "name": {
+          "fr": "Toast au foie gras",
+          "en": "Foie gras toast",
+          "nl": "Toast met foie gras"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "teppanyaki-13",
+        "source": "厨房/铁板/煎饺子.jpg",
+        "image": "/menu/teppanyaki/13.webp",
+        "name": {
+          "fr": "Raviolis poêlés",
+          "en": "Pan-fried dumplings",
+          "nl": "Gebakken dumplings"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "teppanyaki-14",
+        "source": "厨房/铁板/香煎法式鹅肝.jpg",
+        "image": "/menu/teppanyaki/14.webp",
+        "name": {
+          "fr": "Foie gras poêlé",
+          "en": "Pan-seared foie gras",
+          "nl": "Gebakken foie gras"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "teppanyaki-08",
+        "source": "厨房/铁板/待取名1.jpg",
+        "image": "/menu/teppanyaki/08.webp",
+        "name": {
+          "fr": "Poisson grillé",
+          "en": "Grilled fish",
+          "nl": "Gegrilde vis"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "teppanyaki-09",
+        "source": "厨房/铁板/待取名3.jpg",
+        "image": "/menu/teppanyaki/09.webp",
+        "name": {
+          "fr": "Émincé de viande grillée",
+          "en": "Sliced grilled meat",
+          "nl": "Gesneden gegrild vlees"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "teppanyaki-10",
+        "source": "厨房/铁板/待取名5.jpg",
+        "image": "/menu/teppanyaki/10.webp",
+        "name": {
+          "fr": "Filets de poisson poêlés",
+          "en": "Pan-seared fish fillets",
+          "nl": "Gebakken visfilets"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "teppanyaki-11",
+        "source": "厨房/铁板/待取名7.jpg",
+        "image": "/menu/teppanyaki/11.webp",
+        "name": {
+          "fr": "Filet de poisson grillé",
+          "en": "Grilled fish fillet",
+          "nl": "Gegrilde visfilet"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "teppanyaki-12",
+        "source": "厨房/铁板/待取名27.jpg",
+        "image": "/menu/teppanyaki/12.webp",
+        "name": {
+          "fr": "Brochettes grillées",
+          "en": "Grilled skewers",
+          "nl": "Gegrilde spiesjes"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      }
+    ]
+  },
+  {
+    "id": "wok",
+    "title": {
+      "fr": "Plats au wok",
+      "en": "Wok dishes",
+      "nl": "Wokgerechten"
+    },
+    "description": {
+      "fr": "Les plats sautés de la cuisine.",
+      "en": "Stir-fried dishes from the kitchen.",
+      "nl": "Roerbakgerechten uit de keuken."
+    },
+    "dishes": [
+      {
+        "id": "wok-09",
+        "source": "厨房/大厨/炒菜类/GEB 4. MAPO TOFU.png",
+        "image": "/menu/wok/09.webp",
+        "name": {
+          "fr": "Tofu mapo",
+          "en": "Mapo tofu",
+          "nl": "Mapo tofu"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "wok-01",
+        "source": "厨房/大厨/炒菜类/1_3.jpg",
+        "image": "/menu/wok/01.webp",
+        "name": {
+          "fr": "Sauté aux aubergines",
+          "en": "Stir-fry with aubergine",
+          "nl": "Roerbakgerecht met aubergine"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-02",
+        "source": "厨房/大厨/炒菜类/2_3.jpg",
+        "image": "/menu/wok/02.webp",
+        "name": {
+          "fr": "Sauté aux légumes",
+          "en": "Stir-fry with vegetables",
+          "nl": "Roerbakgerecht met groenten"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-03",
+        "source": "厨房/大厨/炒菜类/2_4.jpg",
+        "image": "/menu/wok/03.webp",
+        "name": {
+          "fr": "Émincé au wok",
+          "en": "Wok-fried slices",
+          "nl": "Roerbakgerecht met reepjes"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-04",
+        "source": "厨房/大厨/炒菜类/100_clipped_rev_1.jpg",
+        "image": "/menu/wok/04.webp",
+        "name": {
+          "fr": "Palourdes sautées",
+          "en": "Stir-fried clams",
+          "nl": "Gewokte venusschelpen"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-05",
+        "source": "厨房/大厨/炒菜类/111.jpg",
+        "image": "/menu/wok/05.webp",
+        "name": {
+          "fr": "Crevettes en sauce rouge",
+          "en": "Prawns in red sauce",
+          "nl": "Garnalen in rode saus"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-06",
+        "source": "厨房/大厨/炒菜类/217.jpg",
+        "image": "/menu/wok/06.webp",
+        "name": {
+          "fr": "Légumes verts sautés",
+          "en": "Stir-fried greens",
+          "nl": "Gewokte groene groenten"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-07",
+        "source": "厨房/大厨/炒菜类/DSC07461_clipped_rev_1.jpg",
+        "image": "/menu/wok/07.webp",
+        "name": {
+          "fr": "Sauté en sauce verte",
+          "en": "Stir-fry in green sauce",
+          "nl": "Roerbakgerecht in groene saus"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-08",
+        "source": "厨房/大厨/炒菜类/DSC07463_clipped_rev_1.jpg",
+        "image": "/menu/wok/08.webp",
+        "name": {
+          "fr": "Crevettes sautées en sauce",
+          "en": "Stir-fried prawns in sauce",
+          "nl": "Gewokte garnalen in saus"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-10",
+        "source": "厨房/大厨/炒菜类/待取名0.jpg",
+        "image": "/menu/wok/10.webp",
+        "name": {
+          "fr": "Bouchées en sauce rouge",
+          "en": "Bites in red sauce",
+          "nl": "Hapjes in rode saus"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-11",
+        "source": "厨房/大厨/炒菜类/待取名4.jpg",
+        "image": "/menu/wok/11.webp",
+        "name": {
+          "fr": "Bouchées en sauce dorée",
+          "en": "Bites in golden sauce",
+          "nl": "Hapjes in goudkleurige saus"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-12",
+        "source": "厨房/大厨/炒菜类/待取名20.jpg",
+        "image": "/menu/wok/12.webp",
+        "name": {
+          "fr": "Sauté en sauce",
+          "en": "Stir-fry in sauce",
+          "nl": "Roerbakgerecht in saus"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "wok-13",
+        "source": "厨房/大厨/炒菜类/待取名21.jpg",
+        "image": "/menu/wok/13.webp",
+        "name": {
+          "fr": "Sauté aux légumes en sauce",
+          "en": "Stir-fry with vegetables in sauce",
+          "nl": "Roerbakgerecht met groenten in saus"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      }
+    ]
+  },
+  {
+    "id": "noodles",
+    "title": {
+      "fr": "Nouilles",
+      "en": "Noodles",
+      "nl": "Noedels"
+    },
+    "description": {
+      "fr": "Les nouilles de la carte.",
+      "en": "The noodle selection.",
+      "nl": "De noedelselectie."
+    },
+    "dishes": [
+      {
+        "id": "noodles-01",
+        "source": "厨房/大厨/面类/6.jpg",
+        "image": "/menu/noodles/01.webp",
+        "name": {
+          "fr": "Udon sautés",
+          "en": "Stir-fried udon",
+          "nl": "Gebakken udon"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "noodles-02",
+        "source": "厨房/大厨/面类/7.jpg",
+        "image": "/menu/noodles/02.webp",
+        "name": {
+          "fr": "Udon au wok",
+          "en": "Wok-fried udon",
+          "nl": "Udon uit de wok"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "noodles-03",
+        "source": "厨房/大厨/面类/87_clipped_rev_1.jpg",
+        "image": "/menu/noodles/03.webp",
+        "name": {
+          "fr": "Nouilles sautées aux crevettes",
+          "en": "Stir-fried prawn noodles",
+          "nl": "Gebakken noedels met garnalen"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "noodles-04",
+        "source": "厨房/大厨/面类/88_clipped_rev_1.jpg",
+        "image": "/menu/noodles/04.webp",
+        "name": {
+          "fr": "Nouilles sautées",
+          "en": "Stir-fried noodles",
+          "nl": "Gebakken noedels"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "noodles-05",
+        "source": "厨房/大厨/面类/89_clipped_rev_1.jpg",
+        "image": "/menu/noodles/05.webp",
+        "name": {
+          "fr": "Nouilles au wok",
+          "en": "Wok-fried noodles",
+          "nl": "Noedels uit de wok"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "noodles-06",
+        "source": "厨房/大厨/面类/187.jpg",
+        "image": "/menu/noodles/06.webp",
+        "name": {
+          "fr": "Soupe de nouilles",
+          "en": "Noodle soup",
+          "nl": "Noedelsoep"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "noodles-07",
+        "source": "厨房/大厨/面类/待取名9.jpg",
+        "image": "/menu/noodles/07.webp",
+        "name": {
+          "fr": "Spaghetti aux crevettes",
+          "en": "Prawn spaghetti",
+          "nl": "Spaghetti met garnalen"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "noodles-08",
+        "source": "厨房/大厨/面类/待取名11.jpg",
+        "image": "/menu/noodles/08.webp",
+        "name": {
+          "fr": "Spaghetti en sauce rouge",
+          "en": "Spaghetti in red sauce",
+          "nl": "Spaghetti in rode saus"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "noodles-09",
+        "source": "厨房/大厨/面类/待取名12.jpg",
+        "image": "/menu/noodles/09.webp",
+        "name": {
+          "fr": "Spaghetti crémeux",
+          "en": "Creamy spaghetti",
+          "nl": "Romige spaghetti"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      }
+    ]
+  },
+  {
+    "id": "rice",
+    "title": {
+      "fr": "Riz & accompagnements",
+      "en": "Rice & sides",
+      "nl": "Rijst & bijgerechten"
+    },
+    "description": {
+      "fr": "Riz et accompagnements du repas.",
+      "en": "Rice and sides for your meal.",
+      "nl": "Rijst en bijgerechten voor uw maaltijd."
+    },
+    "dishes": [
+      {
+        "id": "rice-03",
+        "source": "厨房/大厨/饭类/180_RISO BIANCO.jpg",
+        "image": "/menu/rice/03.webp",
+        "name": {
+          "fr": "Riz blanc",
+          "en": "White rice",
+          "nl": "Witte rijst"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "rice-04",
+        "source": "厨房/大厨/饭类/181_RISO CON TERIYAKI E POLLO.jpg",
+        "image": "/menu/rice/04.webp",
+        "name": {
+          "fr": "Riz au poulet teriyaki",
+          "en": "Chicken teriyaki rice",
+          "nl": "Rijst met teriyaki-kip"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "filename"
+      },
+      {
+        "id": "rice-01",
+        "source": "厨房/大厨/饭类/81.jpg",
+        "image": "/menu/rice/01.webp",
+        "name": {
+          "fr": "Riz sauté",
+          "en": "Fried rice",
+          "nl": "Gebakken rijst"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "rice-02",
+        "source": "厨房/大厨/饭类/82_clipped_rev_2.jpg",
+        "image": "/menu/rice/02.webp",
+        "name": {
+          "fr": "Riz sauté aux crevettes",
+          "en": "Prawn fried rice",
+          "nl": "Gebakken rijst met garnalen"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "rice-05",
+        "source": "厨房/大厨/饭类/待取名6.jpg",
+        "image": "/menu/rice/05.webp",
+        "name": {
+          "fr": "Dôme de riz sauté",
+          "en": "Fried rice dome",
+          "nl": "Koepeltje gebakken rijst"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      }
+    ]
+  },
+  {
+    "id": "drinks",
+    "title": {
+      "fr": "Dessert & boissons",
+      "en": "Dessert & drinks",
+      "nl": "Dessert & dranken"
+    },
+    "description": {
+      "fr": "Dessert et boissons, en images.",
+      "en": "Explore dessert and drinks.",
+      "nl": "Ontdek dessert en dranken."
+    },
+    "dishes": [
+      {
+        "id": "drinks-01",
+        "source": "寿司/酒水 饮品/04f633154d3eab89539e41758caf760.jpg",
+        "image": "/menu/drinks/01.webp",
+        "name": {
+          "fr": "Dessert & glace",
+          "en": "Dessert & ice cream",
+          "nl": "Dessert & ijs"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "drinks-02",
+        "source": "寿司/酒水 饮品/待取名8.jpg",
+        "image": "/menu/drinks/02.webp",
+        "name": {
+          "fr": "Boisson dorée",
+          "en": "Golden drink",
+          "nl": "Goudkleurige drank"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "drinks-03",
+        "source": "寿司/酒水 饮品/待取名10.jpg",
+        "image": "/menu/drinks/03.webp",
+        "name": {
+          "fr": "Boisson Tiki",
+          "en": "Tiki drink",
+          "nl": "Tiki-drank"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "drinks-04",
+        "source": "寿司/酒水 饮品/待取名13.jpg",
+        "image": "/menu/drinks/04.webp",
+        "name": {
+          "fr": "Boisson pastel",
+          "en": "Pastel drink",
+          "nl": "Pastelkleurige drank"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "drinks-05",
+        "source": "寿司/酒水 饮品/待取名14.jpg",
+        "image": "/menu/drinks/05.webp",
+        "name": {
+          "fr": "Boisson menthe & citron vert",
+          "en": "Mint & lime drink",
+          "nl": "Drank met munt & limoen"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "drinks-06",
+        "source": "寿司/酒水 饮品/待取名15.jpg",
+        "image": "/menu/drinks/06.webp",
+        "name": {
+          "fr": "Boisson en verre ballon",
+          "en": "Balloon-glass drink",
+          "nl": "Drank in een ballonglas"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "drinks-07",
+        "source": "寿司/酒水 饮品/待取名16.jpg",
+        "image": "/menu/drinks/07.webp",
+        "name": {
+          "fr": "Boisson orangée",
+          "en": "Orange-coloured drink",
+          "nl": "Oranjekleurige drank"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "drinks-08",
+        "source": "寿司/酒水 饮品/待取名17.jpg",
+        "image": "/menu/drinks/08.webp",
+        "name": {
+          "fr": "Boisson à la mousse dorée",
+          "en": "Drink with golden foam",
+          "nl": "Drank met goudkleurig schuim"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      },
+      {
+        "id": "drinks-09",
+        "source": "寿司/酒水 饮品/待取名18.jpg",
+        "image": "/menu/drinks/09.webp",
+        "name": {
+          "fr": "Boisson passion",
+          "en": "Passion fruit drink",
+          "nl": "Passievruchtdrank"
+        },
+        "needsName": false,
+        "isNew": false,
+        "nameOrigin": "visual"
+      }
+    ]
+  }
+]

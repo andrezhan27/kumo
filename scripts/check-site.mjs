@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+const menuCategories = JSON.parse(await readFile(new URL("../lib/menu-data.json", import.meta.url), "utf8"));
 
 const origin = process.env.CHECK_SITE_URL || "http://127.0.0.1:3000";
 const fetchWithTimeout = (url, options = {}) => fetch(url, { ...options, signal: AbortSignal.timeout(15_000) });
@@ -26,7 +28,7 @@ const links = [...html.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(match => match[
 for (const href of links) {
   const url = new URL(href.replaceAll("&amp;", "&"), origin);
   if (url.origin === new URL(origin).origin) {
-    assert.ok(["/", "/reservation", "/en", "/en/reservation", "/nl", "/nl/reservation"].includes(url.pathname), `Unexpected extra page: ${url.pathname}`);
+    assert.ok(["/", "/menu", "/reservation", "/en", "/en/menu", "/en/reservation", "/nl", "/nl/menu", "/nl/reservation"].includes(url.pathname), `Unexpected extra page: ${url.pathname}`);
     if (url.hash) assert.ok(ids.includes(url.hash.slice(1)), `Broken anchor: ${href}`);
   }
 }
@@ -42,12 +44,12 @@ assert.ok(schema.openingHoursSpecification.every(hours => !hours.dayOfWeek.inclu
 const canonicalOrigin = new URL(html.match(/<link rel="canonical" href="([^"]+)"/)[1]).origin;
 assert.equal(schema["@id"], `${canonicalOrigin}/#restaurant`);
 assert.equal(schema.url, `${canonicalOrigin}/`);
-assert.equal(schema.hasMenu, `${canonicalOrigin}/#menu-section`);
+assert.equal(schema.hasMenu, `${canonicalOrigin}/menu`);
 assert.equal(schema.potentialAction.target.urlTemplate, `${canonicalOrigin}/reservation`);
 assert.ok(schema.image.length >= 1, "Restaurant structured data must include photos");
 assert.ok(schema.image.every(image => image.startsWith(`${canonicalOrigin}/`)));
 
-for (const [route, destination] of [["/menu", "/#menu-section"], ["/reservar", "/reservation"], ["/en/menu", "/en#menu-section"], ["/en/reservar", "/en/reservation"], ["/nl/menu", "/nl#menu-section"], ["/nl/reservar", "/nl/reservation"]]) {
+for (const [route, destination] of [["/reservar", "/reservation"], ["/en/reservar", "/en/reservation"], ["/nl/reservar", "/nl/reservation"]]) {
   const redirect = await fetchWithTimeout(new URL(route, origin), { redirect: "manual" });
   assert.equal(redirect.status, 308, `${route} must be permanently redirected`);
   const location = new URL(redirect.headers.get("location"), origin);
@@ -62,7 +64,7 @@ assert.match(bookingHtml, /data-restaurant-slug="kumo"/);
 assert.doesNotMatch(bookingHtml, /KOKO|kokosushi|Sushi King|sushiking/);
 
 const pages = new Map([["/", html], ["/reservation", bookingHtml]]);
-for (const route of ["/en", "/en/reservation", "/nl", "/nl/reservation"]) {
+for (const route of ["/menu", "/en", "/en/menu", "/en/reservation", "/nl", "/nl/menu", "/nl/reservation"]) {
   const localizedResponse = await fetchWithTimeout(new URL(route, origin));
   assert.equal(localizedResponse.status, 200, `${route} must return 200`);
   pages.set(route, await localizedResponse.text());
@@ -72,9 +74,10 @@ for (const [route, pageHtml] of pages) {
   const language = route.startsWith("/en") ? "en" : route.startsWith("/nl") ? "nl" : "fr";
   const prefix = language === "fr" ? "" : `/${language}`;
   const isReservation = route.endsWith("/reservation");
-  const frenchPath = isReservation ? "/reservation" : "/";
-  const englishPath = isReservation ? "/en/reservation" : "/en";
-  const dutchPath = isReservation ? "/nl/reservation" : "/nl";
+  const isMenu = route.endsWith("/menu");
+  const frenchPath = isReservation ? "/reservation" : isMenu ? "/menu" : "/";
+  const englishPath = isReservation ? "/en/reservation" : isMenu ? "/en/menu" : "/en";
+  const dutchPath = isReservation ? "/nl/reservation" : isMenu ? "/nl/menu" : "/nl";
   const expectedUrl = `${canonicalOrigin}${route}`;
   assert.equal([...pageHtml.matchAll(/<html\b/g)].length, 1, `${route} must render one document`);
   assert.equal([...pageHtml.matchAll(/<body\b/g)].length, 1, `${route} must render one body`);
@@ -93,14 +96,36 @@ for (const [route, pageHtml] of pages) {
   assert.doesNotMatch(pageHtml, /<meta name="robots" content="[^"]*noindex/);
   const expectedTitle = isReservation
     ? new RegExp(`<h1[^>]*>${{ en: "Book a table", fr: "Réserver", nl: "Reserveren" }[language]}<\\/h1>`)
-    : /<h1[^>]*>KUMO<\/h1>/;
+    : isMenu ? /<h1[^>]*>Menu<\/h1>/ : /<h1[^>]*>KUMO<\/h1>/;
   assert.match(pageHtml, expectedTitle, `${route} must render its localized heading on the server`);
   if (isReservation) {
     assert.match(pageHtml, /<iframe[^>]*src="https:\/\/reserve\.intelis\.pt\/kumo"/);
-    assert.ok(pageHtml.includes(`href="${prefix || "/"}#menu-section"`));
+    assert.ok(pageHtml.includes(`href="${prefix}/menu"`));
     for (const path of [frenchPath, englishPath, dutchPath]) {
       assert.ok(pageHtml.includes(`href="${path}"`), "Language dropdown must link to every equivalent reservation page");
     }
+  } else if (isMenu) {
+    assert.equal([...pageHtml.matchAll(/<figure class="menu-dish-card"/g)].length, 183);
+    assert.equal([...pageHtml.matchAll(/class="menu-category-section"/g)].length, 18);
+    assert.match(pageHtml, /<select[^>]*id="menu-category"/);
+    assert.ok(pageHtml.includes(`href="${prefix || "/"}"`), "Back link must retain the language");
+    assert.ok(pageHtml.includes(`href="${prefix}/reservation"`));
+    assert.ok(pageHtml.includes('href="tel:+3227676398"'));
+    assert.doesNotMatch(pageHtml, /menu-new-badge|View full menu|View prices|Complete menu/);
+    const dishCards = [...pageHtml.matchAll(/<figure class="menu-dish-card">([\s\S]*?)<\/figure>/g)].map(match => match[1]);
+    assert.equal(dishCards.filter(card => card.includes('loading="eager"')).length, 1);
+    assert.equal(dishCards.filter(card => card.includes('loading="lazy"')).length, 182);
+    const menuIds = [...pageHtml.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
+    assert.equal(new Set(menuIds).size, menuIds.length);
+    for (const category of menuCategories) {
+      assert.ok(menuIds.includes(category.id));
+      assert.ok(pageHtml.includes(`href="#${category.id}"`));
+      for (const dish of category.dishes) {
+        const escapedName = dish.name[language].replaceAll("&", "&amp;").replaceAll("'", "&#x27;").replaceAll('"', "&quot;");
+        assert.ok(pageHtml.includes(escapedName), `${route} missing caption: ${dish.id}`);
+      }
+    }
+    for (const path of [frenchPath, englishPath, dutchPath]) assert.ok(pageHtml.includes(`href="${path}"`));
   } else {
     assert.ok(pageHtml.includes({ en: "Asian restaurant in Waterloo, Belgium", fr: "Restaurant asiatique à Waterloo", nl: "Aziatisch restaurant in Waterloo, België" }[language]));
     assert.match(pageHtml, /<details[^>]*class="language-dropdown/);
@@ -133,10 +158,10 @@ const sitemap = await sitemapResponse.text();
 assert.match(sitemapResponse.headers.get("content-type"), /xml/);
 const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
 assert.deepEqual(new Set(sitemapLocations), new Set([...pages.keys()].map(route => `${canonicalOrigin}${route}`)));
-assert.equal([...sitemap.matchAll(/hreflang="fr-BE"/g)].length, 6);
-assert.equal([...sitemap.matchAll(/hreflang="en"/g)].length, 6);
-assert.equal([...sitemap.matchAll(/hreflang="x-default"/g)].length, 6);
-assert.equal([...sitemap.matchAll(/hreflang="nl-BE"/g)].length, 6);
+assert.equal([...sitemap.matchAll(/hreflang="fr-BE"/g)].length, 9);
+assert.equal([...sitemap.matchAll(/hreflang="en"/g)].length, 9);
+assert.equal([...sitemap.matchAll(/hreflang="x-default"/g)].length, 9);
+assert.equal([...sitemap.matchAll(/hreflang="nl-BE"/g)].length, 9);
 
 for (const route of ["/nonexistent-kumo-page", "/en/nonexistent-kumo-page", "/nl/nonexistent-kumo-page"]) {
   const missing = await fetchWithTimeout(new URL(route, origin));
@@ -157,5 +182,18 @@ for (const path of assetUrls) {
   assert.ok(data.byteLength, `Empty asset: ${path}`);
   totalBytes += data.byteLength;
 }
-console.log(`PASS: French/English/Dutch home and reservation pages, language dropdown, restaurant story, localized links and headings, canonical URLs, language alternates, social metadata, sitemap, robots, KUMO embed, structured data, legacy redirects, branded 404 and ${assetUrls.length} assets.`);
+console.log(`PASS: French/English/Dutch home, menu and reservation pages, language dropdown, restaurant story, localized links and headings, canonical URLs, language alternates, social metadata, sitemap, robots, KUMO embed, structured data, legacy redirects, branded 404 and ${assetUrls.length} assets.`);
 console.log(`All enumerated assets: ${(totalBytes / 1024).toFixed(0)} KiB (uncompressed; includes offscreen images).`);
+
+const dishes = menuCategories.flatMap(category => category.dishes);
+assert.equal(new Set(dishes.map(dish => dish.source)).size, 183, "Each supplied image must appear once");
+assert.equal(new Set(dishes.map(dish => dish.image)).size, 183);
+for (let offset = 0; offset < dishes.length; offset += 12) {
+  await Promise.all(dishes.slice(offset, offset + 12).map(async dish => {
+    const image = await fetchWithTimeout(new URL(dish.image, origin));
+    assert.equal(image.status, 200, `Missing menu image: ${dish.image}`);
+    assert.match(image.headers.get("content-type"), /image\/webp/);
+    assert.ok((await image.arrayBuffer()).byteLength > 0);
+  }));
+}
+console.log("PASS: all 183 supplied menu images, 18 categories, localized captions, fragments, lazy loading, booking and telephone links.");

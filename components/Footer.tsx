@@ -25,7 +25,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col gap-8 md:items-end">
           <nav aria-label={t.footer.navigationLabel} className="flex flex-wrap gap-x-6 gap-y-5">
-            {[{ href: "#menu-section", label: t.nav.menu }, { href: "#pricing", label: t.nav.pricing }, { href: "#space", label: t.nav.space }, { href: "#booking", label: t.nav.contact }].map(item => <a className="label-caps text-background/75 hover:text-gold" href={localizeHref(`/${item.href}`)} key={item.href}>{item.label}</a>)}
+            {[{ href: "/menu", label: t.nav.menu }, { href: "/#pricing", label: t.nav.pricing }, { href: "/#space", label: t.nav.space }, { href: "/#booking", label: t.nav.contact }].map(item => <a className="label-caps text-background/75 hover:text-gold" href={localizeHref(item.href)} key={item.href}>{item.label}</a>)}
           </nav>
           <a className="inline-flex items-center gap-2 text-sm text-background/70 hover:text-gold" href={restaurantInfo.mapHref} rel="noopener noreferrer" target="_blank"><MapPin className="h-4 w-4" />{t.footer.location}</a>
         </div>
