@@ -379,7 +379,7 @@ footer :focus-visible {
 .menu-dish-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; list-style: none; }
 .menu-dish-grid > li { min-width: 0; }
 .menu-dish-card { position: relative; isolation: isolate; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 0.65rem; background: #090909; }
-.menu-dish-photo { object-fit: contain; }
+.menu-dish-photo { object-fit: cover; object-position: center; }
 .menu-dish-card::after { position: absolute; inset: 35% 0 0; z-index: 1; background: linear-gradient(transparent, rgb(0 0 0 / 35%) 48%, rgb(0 0 0 / 88%)); pointer-events: none; content: ""; }
 .menu-dish-caption { position: absolute; inset-inline: 1.25rem; bottom: 1.25rem; z-index: 2; display: grid; gap: 0.4rem; }
 .menu-dish-category { color: #fed65b; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.12em; line-height: 1.4; text-transform: uppercase; }
