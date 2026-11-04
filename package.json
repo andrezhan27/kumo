@@ -13,6 +13,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "check": "npm run lint && npm run typecheck",
     "check:site": "node scripts/check-site.mjs",
+    "test:carousel": "node --test scripts/continuous-scroll.test.mjs",
     "test:menu": "node --experimental-strip-types --test scripts/menu-navigation.test.mjs"
   },
   "dependencies": {

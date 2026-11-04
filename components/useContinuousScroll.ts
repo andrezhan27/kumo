@@ -3,13 +3,14 @@
 import { useEffect, useRef } from "react";
 
 // Keep native scrolling, dragging and touch gestures in sync with the automatic loop.
-export function useContinuousScroll<T extends HTMLElement = HTMLDivElement>(speed = 24) {
+export function useContinuousScroll<T extends HTMLElement = HTMLDivElement>(speed = 30) {
   const viewportRef = useRef<T>(null);
 
   useEffect(() => {
     const viewport = viewportRef.current;
     const firstSet = viewport?.querySelector<HTMLElement>("[data-marquee-set]");
-    if (!viewport || !firstSet) return;
+    const track = firstSet?.parentElement;
+    if (!viewport || !firstSet || !track) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let setWidth = firstSet.offsetWidth;
@@ -23,13 +24,17 @@ export function useContinuousScroll<T extends HTMLElement = HTMLDivElement>(spee
     let lastInput = 0;
     let previousTime = 0;
     let frame = 0;
+    let visible = false;
+    let resumeTimer: ReturnType<typeof setTimeout> | undefined;
 
     const writePosition = () => {
       viewport.scrollLeft = position;
       expectedScroll = viewport.scrollLeft;
+      // Preserve fractional pixels even on browsers that round scrollLeft.
+      track.style.transform = `translateX(${expectedScroll - position}px)`;
     };
     const normalize = () => {
-      if (setWidth && !reducedMotion.matches) {
+      if (setWidth && !reducedMotion.matches && (position < setWidth || position >= setWidth * 2)) {
         position = ((position % setWidth) + setWidth) % setWidth + setWidth;
       }
     };
@@ -39,22 +44,58 @@ export function useContinuousScroll<T extends HTMLElement = HTMLDivElement>(spee
       normalize();
       writePosition();
     };
+    const stopAnimation = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      previousTime = 0;
+    };
+    const startAnimation = () => {
+      if (!frame && visible && !document.hidden && !reducedMotion.matches && !touching && pointerId === null && !scrolling) {
+        frame = requestAnimationFrame(animate);
+      }
+    };
+    const finishScroll = () => {
+      clearTimeout(resumeTimer);
+      if (touching || pointerId !== null) return;
+      scrolling = false;
+      position = viewport.scrollLeft;
+      normalize();
+      writePosition();
+      startAnimation();
+    };
     const markInput = () => {
       scrolling = true;
       lastInput = performance.now();
+      stopAnimation();
+      clearTimeout(resumeTimer);
+      // Older Safari versions lack scrollend. Wait for momentum to settle.
+      resumeTimer = setTimeout(finishScroll, 250);
+    };
+    const commitAnimation = () => {
+      stopAnimation();
+      writePosition();
+      position = viewport.scrollLeft;
+      track.style.transform = "";
     };
     const onScroll = () => {
-      if (Math.abs(viewport.scrollLeft - expectedScroll) > 1) {
+      if (Math.abs(viewport.scrollLeft - expectedScroll) > 0.01) {
+        track.style.transform = "";
         position = viewport.scrollLeft;
         markInput();
       }
     };
-    const onScrollEnd = () => { scrolling = false; };
+    const onScrollEnd = () => {
+      if (scrolling && performance.now() - lastInput >= 100) finishScroll();
+    };
     const onWheel = (event: WheelEvent) => {
-      if (event.deltaX || event.shiftKey) markInput();
+      if (event.deltaX || event.shiftKey) {
+        commitAnimation();
+        markInput();
+      }
     };
     const onPointerDown = (event: PointerEvent) => {
       if (!event.isPrimary || event.button !== 0) return;
+      commitAnimation();
       pointerId = event.pointerId;
       position = viewport.scrollLeft;
       scrolling = false;
@@ -76,17 +117,19 @@ export function useContinuousScroll<T extends HTMLElement = HTMLDivElement>(spee
       pointerId = null;
       dragX = null;
       delete viewport.dataset.dragging;
-      // Resume on release; native touch momentum, if any, is handled by onScroll.
-      scrolling = false;
       position = viewport.scrollLeft;
+      markInput();
     };
     // Native swiping cancels pointer events before the finger leaves the screen.
-    const onTouchStart = () => { touching = true; };
+    const onTouchStart = () => {
+      commitAnimation();
+      touching = true;
+    };
     const onTouchEnd = (event: TouchEvent) => {
       touching = event.touches.length > 0;
       if (!touching) {
-        scrolling = false;
         position = viewport.scrollLeft;
+        markInput();
       }
     };
     const onKeyDown = (event: KeyboardEvent) => {
@@ -96,32 +139,50 @@ export function useContinuousScroll<T extends HTMLElement = HTMLDivElement>(spee
       };
       if (!(event.key in distances)) return;
       event.preventDefault();
+      commitAnimation();
       position = viewport.scrollLeft + distances[event.key];
       writePosition();
       position = viewport.scrollLeft;
       markInput();
     };
     const animate = (time: number) => {
+      frame = 0;
       const elapsed = previousTime ? Math.min(time - previousTime, 64) : 0;
       previousTime = time;
-      // scrollend resumes immediately; the short fallback supports older browsers.
-      if (!reducedMotion.matches && !touching && pointerId === null && (!scrolling || time - lastInput >= 80)) {
-        scrolling = false;
-        position += speed * elapsed / 1_000;
-        normalize();
+      position += speed * elapsed / 1_000;
+      const beforeWrap = position;
+      normalize();
+      // Animate fractional movement with a transform. Commit native scroll only
+      // every 64px (or at the loop boundary), never during a swipe or momentum.
+      if (Math.abs(position - expectedScroll) >= 64 || position !== beforeWrap) {
         writePosition();
+      } else {
+        track.style.transform = `translateX(${expectedScroll - position}px)`;
       }
-      frame = requestAnimationFrame(animate);
+      startAnimation();
     };
     const onMotionChange = () => {
+      stopAnimation();
       position = reducedMotion.matches ? 0 : viewport.scrollLeft;
       normalize();
       writePosition();
+      startAnimation();
+    };
+    const onVisibilityChange = () => {
+      if (document.hidden) stopAnimation();
+      else startAnimation();
     };
 
     resize();
     const observer = new ResizeObserver(resize);
     observer.observe(firstSet);
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) startAnimation();
+      else stopAnimation();
+    });
+    intersectionObserver.observe(viewport);
+    document.addEventListener("visibilitychange", onVisibilityChange);
     viewport.addEventListener("scroll", onScroll, { passive: true });
     viewport.addEventListener("scrollend", onScrollEnd);
     viewport.addEventListener("wheel", onWheel, { passive: true });
@@ -135,11 +196,14 @@ export function useContinuousScroll<T extends HTMLElement = HTMLDivElement>(spee
     window.addEventListener("pointerup", onPointerEnd);
     window.addEventListener("pointercancel", onPointerEnd);
     reducedMotion.addEventListener("change", onMotionChange);
-    frame = requestAnimationFrame(animate);
 
     return () => {
-      cancelAnimationFrame(frame);
+      stopAnimation();
+      clearTimeout(resumeTimer);
+      track.style.transform = "";
       observer.disconnect();
+      intersectionObserver.disconnect();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       viewport.removeEventListener("scroll", onScroll);
       viewport.removeEventListener("scrollend", onScrollEnd);
       viewport.removeEventListener("wheel", onWheel);

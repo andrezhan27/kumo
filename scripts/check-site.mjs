@@ -33,7 +33,7 @@ for (const href of links) {
   }
 }
 assert.ok(links.includes("tel:+3227676398"), "KUMO’s phone must remain available");
-assert.ok(links.filter(href => href === "/reservation").length >= 3, "Reservation CTAs must open the reservation page");
+assert.ok(links.filter(href => href === "tel:+3227676398").length >= 5, "Reservation CTAs and the dining slogan must call KUMO");
 assert.ok(links.includes("https://maps.app.goo.gl/2EeE3jBLwH5xgsZS9"));
 
 const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)[1]);
@@ -109,8 +109,7 @@ for (const [route, pageHtml] of pages) {
     assert.equal([...pageHtml.matchAll(/class="menu-category-section"/g)].length, 18);
     assert.match(pageHtml, /<select[^>]*id="menu-category"/);
     assert.ok(pageHtml.includes(`href="${prefix || "/"}"`), "Back link must retain the language");
-    assert.ok(pageHtml.includes(`href="${prefix}/reservation"`));
-    assert.ok(pageHtml.includes('href="tel:+3227676398"'));
+    assert.ok([...pageHtml.matchAll(/<a\b[^>]*href="tel:\+3227676398"/g)].length >= 2, "Menu booking and contact links must call KUMO");
     assert.doesNotMatch(pageHtml, /menu-new-badge|View full menu|View prices|Complete menu/);
     const dishCards = [...pageHtml.matchAll(/<figure class="menu-dish-card">([\s\S]*?)<\/figure>/g)].map(match => match[1]);
     assert.equal(dishCards.filter(card => card.includes('loading="eager"')).length, 1);
@@ -141,7 +140,8 @@ for (const [route, pageHtml] of pages) {
       assert.equal(link.pathname, route, "Section links must retain the page language");
       assert.ok(pageIds.includes(link.hash.slice(1)), `Broken localized anchor: ${href}`);
     }
-    assert.ok(pageLinks.filter(href => href === `${prefix}/reservation`).length >= 3);
+    assert.ok(pageLinks.filter(href => href === "tel:+3227676398").length >= 5);
+    assert.ok(!pageLinks.includes(`${prefix}/reservation`), "Home booking CTAs must use the phone number");
   }
 }
 

@@ -1,6 +1,6 @@
 export const brandName = "KUMO";
 export const reservationSlug = "kumo";
-export const reservationHref = "/reservation";
+export const reservationHref = "tel:+3227676398";
 export const diningSlogan = ["I don't do Buffets.", "I do", "KUMO."] as const;
 
 export const diningFormulas = [
