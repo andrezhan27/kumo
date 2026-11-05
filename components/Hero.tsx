@@ -22,7 +22,7 @@ export function Hero() {
           <Image alt={t.hero.imageAlt} className="object-cover object-center md:object-[48%_50%]" fetchPriority="high" fill loading="eager" sizes="100vw" src="/hero/kumo-hero-desktop.webp" />
         </picture>
       </div>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(28,27,27,0.22),rgba(28,27,27,0.26)_28%,rgba(28,27,27,0.68)_58%,rgba(28,27,27,0.94))] md:bg-[linear-gradient(0deg,rgba(28,27,27,0.76),rgba(28,27,27,0.54)_50%,rgba(28,27,27,0.44))]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,rgba(28,27,27,0.76),rgba(28,27,27,0.54)_50%,rgba(28,27,27,0.44))]" />
       <div className="section-shell relative z-10 grid min-h-[calc(100svh-4rem)] items-center py-10 md:pt-12 md:pb-16">
         <div className="mx-auto w-full max-w-4xl text-center">
           <p className="label-caps mb-4 text-ink/90 md:mb-7">{t.hero.eyebrow}</p>
