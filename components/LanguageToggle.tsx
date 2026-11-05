@@ -44,13 +44,13 @@ export function LanguageToggle({ inverted = false }: { inverted?: boolean }) {
 
   return (
     <details className="language-dropdown group relative shrink-0" ref={dropdownRef}>
-      <summary aria-label={t.languageLabel} className={`label-caps flex h-10 cursor-pointer list-none items-center justify-center gap-2 rounded-lg border px-3 transition-colors ${inverted ? "border-background/35 bg-background/10 text-background" : "border-line/70 bg-surface text-ink"}`}>
+      <summary aria-label={t.languageLabel} className={`label-caps flex h-10 cursor-pointer list-none items-center justify-center gap-2 rounded-lg border px-3 transition-colors ${inverted ? "border-gold/35 bg-gold/10 text-gold" : "border-line/70 bg-surface text-ink"}`}>
         <span>{language.toUpperCase()}</span>
         <ChevronDown aria-hidden="true" className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
       </summary>
       <div className="absolute right-0 z-20 mt-2 min-w-40 rounded-lg border border-line/70 bg-background p-1.5 text-ink shadow-soft">
         {options.map(option => (
-          <Link aria-current={language === option.language ? "page" : undefined} className={`block rounded-md px-3 py-2.5 text-sm transition-colors hover:bg-surface-strong ${language === option.language ? "bg-ink font-semibold text-background hover:bg-ink" : "text-ink"}`} key={option.language} lang={option.language} hrefLang={option.language} href={localizedHref(pathname, option.language)} scroll={false} onNavigate={event => {
+          <Link aria-current={language === option.language ? "page" : undefined} className={`block rounded-md px-3 py-2.5 text-sm transition-colors hover:bg-surface-strong ${language === option.language ? "bg-gold font-semibold text-night hover:bg-gold" : "text-ink"}`} key={option.language} lang={option.language} hrefLang={option.language} href={localizedHref(pathname, option.language)} scroll={false} onNavigate={event => {
             event.preventDefault();
             dropdownRef.current?.removeAttribute("open");
             dropdownRef.current?.querySelector("summary")?.focus();

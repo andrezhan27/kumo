@@ -49,12 +49,12 @@ export function Navbar() {
       <div aria-hidden="true" className={`fixed inset-x-0 top-16 bottom-0 z-40 touch-none bg-night/25 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${open ? "opacity-100" : "pointer-events-none opacity-0"}`} />
       <header className="fixed inset-x-0 top-0 z-50 border-b border-line/35 bg-background text-ink" ref={headerRef}>
         <nav aria-label={t.nav.label} className="section-shell relative flex h-16 items-center justify-between gap-3">
-          <Link aria-label={`${brandName} — ${t.nav.home}`} className="flex shrink-0 items-center gap-2.5 text-lg font-semibold tracking-[0.13em]" href={localizeHref("/#home")} onClick={() => setOpen(false)}>
-            <Image alt="" aria-hidden src="/kumo-logo-blue.webp" width={32} height={32} className="h-8 w-8 rounded-full" />
+          <Link aria-label={`${brandName} — ${t.nav.home}`} className="flex shrink-0 items-center gap-2.5 text-lg font-semibold tracking-[0.13em] text-gold" href={localizeHref("/#home")} onClick={() => setOpen(false)}>
+            <Image alt="" aria-hidden src="/kumo-logo-gold.jpg" width={44} height={44} className="h-11 w-11 rounded-full object-cover brightness-125 mix-blend-lighten" />
             {brandName}
           </Link>
           <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex">
-            {links.map(link => <a className="label-caps text-ink-muted transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-deep" href={link.href} key={link.href}>{link.label}</a>)}
+            {links.map(link => <a className="label-caps text-ink-muted transition-colors hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-deep" href={link.href} key={link.href}>{link.label}</a>)}
           </div>
           <div className="ml-auto flex items-center gap-3">
             <LanguageToggle />
@@ -71,7 +71,7 @@ export function Navbar() {
               <div className="section-shell pt-5 pb-6">
                 <p className="label-caps mb-2 text-gold-deep">{t.nav.explore}</p>
                 {links.map((link, index) => <a className={`flex items-center justify-between border-b border-line/40 py-4 text-[1.35rem] font-medium tracking-tight text-ink transition-[transform,opacity,color] duration-300 hover:text-gold-deep ${open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"}`} href={link.href} key={link.href} onClick={() => setOpen(false)} style={{ transitionDelay: open ? `${index * 35}ms` : "0ms" }}><span>{link.label}</span><ArrowUpRight aria-hidden className="h-4 w-4 text-ink-muted" strokeWidth={1.5} /></a>)}
-                <a className="label-caps mt-6 flex min-h-12 items-center justify-center gap-2 rounded-lg bg-ink px-4 py-4 text-background" href={localizeHref(reservationHref)} onClick={() => setOpen(false)}><CalendarDays className="h-4 w-4" />{t.nav.book}</a>
+                <a className="label-caps mt-6 flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gold px-4 py-4 text-night" href={localizeHref(reservationHref)} onClick={() => setOpen(false)}><CalendarDays className="h-4 w-4" />{t.nav.book}</a>
               </div>
             </nav>
           </div>

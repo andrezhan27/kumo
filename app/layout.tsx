@@ -3,7 +3,7 @@ import type { Viewport } from "next";
 import { SiteDocument } from "@/components/SiteDocument";
 import { restaurantSchema } from "@/lib/seo";
 
-export const viewport: Viewport = { themeColor: "#080706" };
+export const viewport: Viewport = { themeColor: "#1c1b1b" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

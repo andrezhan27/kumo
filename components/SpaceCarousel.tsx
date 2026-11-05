@@ -10,7 +10,7 @@ export function SpaceCarousel() {
   return (
     <section className="bg-background py-section text-ink" id="space">
       <div className="section-shell">
-        <h2 className="display-heading max-w-3xl text-5xl leading-none md:text-7xl">{t.space.title}</h2>
+        <h2 className="display-heading max-w-3xl text-5xl leading-none text-gold md:text-7xl">{t.space.title}</h2>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-muted">{t.space.description}</p>
         <div aria-label={t.space.title} className="space-mosaic mt-8 md:mt-12" role="region">
           {spaceSlides.map((item, index) => (

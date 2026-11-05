@@ -3,7 +3,7 @@
 import { ChevronDown } from "lucide-react";
 import { useId, useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
-import { diningFormulas, diningSlogan, reservationHref } from "@/lib/content";
+import { childrenMenu, diningFormulas, diningSlogan, reservationHref } from "@/lib/content";
 
 export function HowItWorks() {
   const { t, localizeHref } = useLanguage();
@@ -19,39 +19,47 @@ export function HowItWorks() {
     <section aria-labelledby="how-it-works-heading" className="border-b border-line/50 bg-background py-10 sm:py-12 lg:py-14" id="how-it-works">
       <div className="section-shell max-w-6xl">
         <p className="label-caps text-gold-deep">{copy.eyebrow}</p>
-        <h2 className="display-heading mt-3 text-3xl leading-[1.1] sm:text-4xl lg:text-5xl" id="how-it-works-heading">{copy.title}</h2>
+        <h2 className="display-heading mt-3 text-3xl leading-[1.1] text-gold sm:text-4xl lg:text-5xl" id="how-it-works-heading">{copy.title}</h2>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-ink-muted sm:text-base sm:leading-7">{copy.description}</p>
 
         <div className="mt-5 grid items-start gap-5 sm:mt-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
           <div>
             <div className="rounded-lg border border-line/60 bg-surface px-4 py-3 sm:px-5 sm:py-4">
-              <table className="w-full table-fixed border-collapse text-sm leading-5">
+              <table aria-describedby="adult-formula-timing" className="w-full table-fixed border-collapse text-sm leading-5">
                 <caption className="pb-3 text-left text-xs leading-5 text-ink-muted">{copy.comparisonLabel} · {copy.perPerson}</caption>
                 <colgroup><col className="w-[44%]" /><col /><col /></colgroup>
                 <thead>
                   <tr className="border-b border-line/60">
-                    <td><span className="sr-only">{copy.formulaLabel}</span></td>
+                    <th scope="col"><span className="sr-only">{copy.formulaLabel}</span></th>
                     {diningFormulas.map(formula => <th className="pb-3 text-center text-xs font-semibold text-gold-deep" key={formula.id} scope="col">{copy.meals[formula.id]}</th>)}
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-line/50">
-                    <th className="py-3 pr-2 text-left text-xs font-normal text-ink-muted" scope="row">{copy.dishes}</th>
-                    {diningFormulas.map(formula => <td className="py-3 text-center text-2xl font-medium tracking-tight sm:text-3xl" key={formula.id}>{formula.dishes}</td>)}
-                  </tr>
-                  <tr className="border-b border-line/50">
                     <th className="py-3 pr-2 text-left text-xs font-normal text-ink-muted" scope="row">{copy.orders}</th>
                     {diningFormulas.map(formula => <td className="py-3 text-center font-semibold" key={formula.id}>{formula.orders}</td>)}
                   </tr>
+                  <tr className="border-b border-line/50">
+                    <th className="py-3 pr-2 text-left text-xs font-normal text-ink-muted" scope="row">{copy.dishesPerOrder}</th>
+                    {diningFormulas.map(formula => <td className="py-3 text-center text-2xl font-medium tracking-tight sm:text-3xl" key={formula.id}>{formula.dishesPerOrder}</td>)}
+                  </tr>
                   <tr>
                     <th className="py-3 pr-2 text-left text-xs font-normal text-ink-muted" scope="row">{copy.wait}</th>
-                    {diningFormulas.map(formula => <td className="py-3 text-center font-semibold" key={formula.id}>{formula.waitMinutes} min</td>)}
+                    {diningFormulas.map(formula => <td className="py-3 text-center font-semibold" key={formula.id}>{formula.waitMinutes} min{formula.id === "dinner" && <span aria-hidden="true">*</span>}</td>)}
                   </tr>
                 </tbody>
               </table>
-              <p className="border-t border-line/60 pt-3 text-xs leading-5 font-medium">{diningFormulas[0].dishesPerOrder} {copy.dishesPerOrder}</p>
+              <p className="border-t border-line/60 pt-3 text-xs leading-5 text-ink-muted" id="adult-formula-timing">* {copy.adultWaitNote}</p>
             </div>
-            <p className="mt-3 text-xs leading-5 text-ink-muted sm:text-sm sm:leading-6">{copy.premium}</p>
+            <div className="mt-4 rounded-lg border border-gold/30 bg-surface px-4 py-4 sm:px-5">
+              <h3 className="text-base font-semibold text-gold">{copy.childrenTitle} <span className="ml-1 text-sm font-normal text-ink-muted">{childrenMenu.minAge}–{childrenMenu.maxAge} {copy.ageUnit}</span></h3>
+              <ul className="mt-3 grid gap-2 text-sm leading-6">
+                <li><span className="font-semibold text-gold">{childrenMenu.orders}</span> {copy.childrenOrders}</li>
+                <li><span className="font-semibold text-gold">{childrenMenu.dishesPerOrder}</span> {copy.childrenDishes}</li>
+              </ul>
+              <p className="mt-3 text-xs leading-5 text-ink-muted">{copy.childrenWaitNote}</p>
+            </div>
+            <p className="mt-3 text-xs leading-5 font-medium text-gold sm:text-sm sm:leading-6">{copy.exclusions}</p>
           </div>
 
           <ol className="divide-y divide-line/60" role="list">
@@ -74,9 +82,9 @@ export function HowItWorks() {
           </ol>
         </div>
         <p className="mt-4 text-sm leading-6 font-semibold text-gold-deep">{copy.steps[4].takeaway}</p>
-        <a className="display-heading mt-5 block rounded-lg bg-ink px-5 py-3.5 text-center text-xl leading-snug transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:py-5 sm:text-2xl lg:mt-6 lg:py-6 lg:text-3xl" href={localizeHref(reservationHref)} lang="en">
-          <span className="block text-background sm:inline">{diningSlogan[0]}</span>{" "}
-          <span className="block text-background sm:inline">{diningSlogan[1]}{" "}<span className="text-gold">{diningSlogan[2]}</span></span>
+        <a className="display-heading mt-5 block rounded-lg border border-gold/30 bg-surface px-5 py-3.5 text-center text-xl leading-snug transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:py-5 sm:text-2xl lg:mt-6 lg:py-6 lg:text-3xl" href={localizeHref(reservationHref)} lang="en">
+          <span className="block text-ink sm:inline">{diningSlogan[0]}</span>{" "}
+          <span className="block text-ink sm:inline">{diningSlogan[1]}{" "}<span className="text-gold">{diningSlogan[2]}</span></span>
         </a>
       </div>
     </section>

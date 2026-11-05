@@ -51,7 +51,7 @@ export function pageMetadata(language: Language, path = "/"): Metadata {
       canonical: url,
       languages: { "fr-BE": localizedHref(path, "fr"), en: localizedHref(path, "en"), "nl-BE": localizedHref(path, "nl"), "x-default": localizedHref(path, "fr") },
     },
-    icons: { icon: "/favicon.png?v=2", apple: "/apple-touch-icon.png?v=2" },
+    icons: { icon: "/kumo-logo-gold.jpg", apple: "/kumo-logo-gold.jpg" },
     openGraph: {
       title, description, url, siteName: "KUMO",
       locale: locales[language],
@@ -68,7 +68,7 @@ export const restaurantSchema = {
   url: `${siteOrigin}/`,
   description: "Restaurant asiatique au centre Rich’l à Waterloo : sushis, teppanyaki et dim sum, en Brabant wallon, Belgique.",
   image: [`${siteOrigin}/social/kumo.jpg`, `${siteOrigin}/space/space-01.webp`, `${siteOrigin}/food/sushi.webp`],
-  logo: `${siteOrigin}/kumo-logo-blue.webp`,
+  logo: `${siteOrigin}/kumo-logo-gold.jpg`,
   servesCuisine: ["Asian", "Japanese", "Sushi", "Teppanyaki", "Dim sum"],
   telephone: restaurantInfo.phone, hasMap: restaurantInfo.mapHref,
   hasMenu: `${siteOrigin}/menu`,

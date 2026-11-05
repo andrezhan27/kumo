@@ -3,18 +3,23 @@ export const reservationSlug = "kumo";
 export const reservationHref = "tel:+3227676398";
 export const diningSlogan = ["I don't do Buffets.", "I do", "KUMO."] as const;
 
+// Formulas and prices from the owner's FORMULES KUMO table (5 November 2026).
+// The evening formula also applies all day on Sundays and public holidays.
 export const diningFormulas = [
-  { id: "lunch", dishes: 15, orders: 3, dishesPerOrder: 4, waitMinutes: 15 },
-  { id: "dinner", dishes: 20, orders: 4, dishesPerOrder: 4, waitMinutes: 20 },
+  { id: "lunch", orders: 3, dishesPerOrder: 4, waitMinutes: 15 },
+  { id: "dinner", orders: 3, dishesPerOrder: 5, waitMinutes: 20 },
 ] as const;
 
-// Owner-supplied prices per person. Saturday's €36 rate is interpreted as lunch;
-// Friday/Saturday dinner and both Sunday services are explicitly €55.
+export const childrenMenu = {
+  minAge: 3, maxAge: 10, orders: 2, dishesPerOrder: 4,
+  lunchWaitMinutes: 15, dinnerWaitMinutes: 20,
+} as const;
+
 export const diningPrices = [
-  { id: "weekdays", lunch: 31, dinner: 45 },
-  { id: "friday", lunch: 31, dinner: 55 },
-  { id: "saturday", lunch: 36, dinner: 55 },
-  { id: "sunday", lunch: 55, dinner: 55 },
+  { id: "weekdayLunch", adult: 31, child: 15.5, hours: "lunch" },
+  { id: "saturdayLunch", adult: 36, child: 18, hours: "lunch" },
+  { id: "weekdayDinner", adult: 45, child: 22.5, hours: "dinner" },
+  { id: "weekendHolidays", adult: 55, child: 27.5, hours: "both" },
 ] as const;
 
 export const restaurantInfo = {
@@ -80,37 +85,76 @@ export const translations = {
       eyebrow: "À la carte, autrement",
       title: "Comment ça marche ?",
       description: "Une formule individuelle selon le jour et le repas. Choisissez vos plats à la carte : chacun est préparé pour vous.",
-      comparisonLabel: "Les formules en un coup d’œil",
+      comparisonLabel: "Les formules adultes en un coup d’œil",
       formulaLabel: "Formule",
-      meals: { lunch: "Déjeuner", dinner: "Dîner" },
-      dishes: "Total de plats maximum",
+      meals: {
+        lunch: "Midi · lundi–samedi",
+        dinner: "Soir, dimanche & fériés"
+      },
       perPerson: "par personne",
       orders: "Commandes maximum",
-      dishesPerOrder: "plats maximum par personne et par commande.",
+      dishesPerOrder: "Plats par commande (max.)",
       wait: "Entre deux commandes",
-      premium: "Le soir et le week-end : une sélection plus large de choix premium.",
+      adultWaitNote: "Adultes : 15 min. le dimanche midi et les jours fériés à midi ; 20 min. le soir. La formule du soir s’applique toute la journée le dimanche et les jours fériés.",
+      exclusions: "Toutes les formules sont hors boissons et desserts.",
+      childrenTitle: "Menu enfants",
+      ageUnit: "ans",
+      childrenOrders: "commandes par enfant",
+      childrenDishes: "plats maximum par commande",
+      childrenWaitNote: "Entre deux commandes : 15 min. à midi du lundi au samedi ; 20 min. le soir, le dimanche et les jours fériés, y compris à midi.",
       steps: [
-        { title: "Choisissez votre formule", description: "Chaque convive paie sa propre formule. Elle dépend du moment de votre visite : déjeuner ou dîner, en semaine ou le week-end. Chaque formule prévoit un nombre maximum de plats par personne." },
-        { title: "Commandez à la carte", description: "Choisissez ce qui vous fait envie parmi les plats inclus dans votre formule. Vous pouvez passer jusqu’à 3 commandes au déjeuner ou 4 au dîner, avec un maximum de 4 plats par personne à chaque commande." },
-        { title: "Prenez votre temps", description: "Attendez 15 minutes au déjeuner ou 20 minutes au dîner entre deux commandes. Profitez-en pour savourer et faire le point sur votre appétit. Chaque plat est préparé spécialement pour votre commande." },
-        { title: "Commencez petit", description: "Notre conseil : commandez quelques plats pour commencer. Vous n’avez pas besoin de prendre les 4 plats dès la première commande. Ajustez les suivantes à votre faim." },
-        { title: "Moins de gaspillage. Plus de KUMO.", description: "Commander raisonnablement au début réduit le gaspillage alimentaire et vous laisse la liberté de découvrir d’autres plats au fil du repas.", takeaway: "Votre maximum est une limite, pas un objectif." },
-      ],
+        {
+          title: "Choisissez votre formule",
+          description: "Chaque convive choisit sa formule selon le jour et le repas. Le dimanche et les jours fériés, la formule du soir s’applique toute la journée. Un menu enfants est proposé de 3 à 10 ans."
+        },
+        {
+          title: "Commandez à la carte",
+          description: "Adultes : jusqu’à 3 commandes par personne, avec 4 plats maximum par commande à midi du lundi au samedi, ou 5 avec la formule du soir, le dimanche et les jours fériés. Enfants de 3 à 10 ans : 2 commandes de 4 plats maximum."
+        },
+        {
+          title: "Prenez votre temps",
+          description: "Pour les adultes, attendez 15 minutes à midi et 20 minutes le soir, y compris le dimanche et les jours fériés. Pour les enfants, attendez 15 minutes à midi du lundi au samedi et 20 minutes le soir, le dimanche et les jours fériés."
+        },
+        {
+          title: "Commencez petit",
+          description: "Notre conseil : commandez quelques plats pour commencer. Vous n’avez pas besoin d’atteindre le maximum à chaque commande. Ajustez les suivantes à votre faim."
+        },
+        {
+          title: "Moins de gaspillage. Plus de KUMO.",
+          description: "Commander raisonnablement au début réduit le gaspillage alimentaire et vous laisse la liberté de découvrir d’autres plats au fil du repas.",
+          takeaway: "Votre maximum est une limite, pas un objectif."
+        }
+      ]
     },
     pricing: {
       title: "Tarifs",
-      description: "Un déjeuner tout en douceur ou une soirée à prolonger. Choisissez votre moment, savourez à votre rythme.",
-      days: {
-        weekdays: { title: "Lundi – jeudi", detail: "Fermé le mardi" },
-        friday: { title: "Vendredi" },
-        saturday: { title: "Samedi" },
-        sunday: { title: "Dimanche" },
-      },
-      dayLabel: "Jour",
+      description: "Choisissez votre formule selon le jour et le repas.",
+      adult: "Adultes",
+      children: "Menu enfants",
+      ageUnit: "ans",
       perPerson: "par personne",
-      lunch: { title: "Déjeuner", description: "Une pause gourmande au cœur de la journée.", detail: "Sushis, saveurs du gril et découvertes à partager." },
-      dinner: { title: "Dîner", description: "Prenez le temps de vous retrouver.", detail: "Un moment à savourer, de la première bouchée à la dernière." },
-      note: "Chaque formule est individuelle. Fermé le mardi. Pour les tarifs enfants et jours fériés, contactez-nous.",
+      formulas: {
+        weekdayLunch: {
+          title: "Midi en semaine",
+          detail: "Lundi – vendredi"
+        },
+        saturdayLunch: {
+          title: "Midi le samedi",
+          detail: "Samedi"
+        },
+        weekdayDinner: {
+          title: "Soir en semaine",
+          detail: "Lundi – jeudi"
+        },
+        weekendHolidays: {
+          title: "Week-end & jours fériés",
+          detail: "Vendredi et samedi soir · Dimanche et jours fériés toute la journée"
+        }
+      },
+      lunch: "Midi",
+      dinner: "Soir",
+      exclusions: "Boissons et desserts non inclus.",
+      note: "Chaque formule est individuelle. Fermé le mardi. Le tarif des jours fériés s’applique toute la journée."
     },
     space: {
       title: "Notre espace",
@@ -177,37 +221,76 @@ export const translations = {
       eyebrow: "À la carte, designed differently",
       title: "How it works",
       description: "One individual formula, based on the day and meal. Choose your dishes à la carte: each is prepared specifically for you.",
-      comparisonLabel: "Your formulas at a glance",
+      comparisonLabel: "Adult formulas at a glance",
       formulaLabel: "Formula",
-      meals: { lunch: "Lunch", dinner: "Dinner" },
-      dishes: "Total dishes maximum",
+      meals: {
+        lunch: "Lunch · Monday–Saturday",
+        dinner: "Evenings, Sundays & holidays"
+      },
       perPerson: "per person",
       orders: "Orders maximum",
-      dishesPerOrder: "dishes maximum per person, per order.",
+      dishesPerOrder: "Dishes per order (max.)",
       wait: "Between orders",
-      premium: "Evenings and weekends: a wider selection of premium choices.",
+      adultWaitNote: "Adults: 15 min. at Sunday and public-holiday lunch; 20 min. in the evening. The evening formula applies all day on Sundays and public holidays.",
+      exclusions: "Drinks and desserts are not included in any formula.",
+      childrenTitle: "Children’s menu",
+      ageUnit: "years",
+      childrenOrders: "orders per child",
+      childrenDishes: "dishes maximum per order",
+      childrenWaitNote: "Between orders: 15 min. at Monday–Saturday lunch; 20 min. in the evening and all day on Sundays and public holidays, including lunch.",
       steps: [
-        { title: "Choose your formula", description: "Each guest pays for one individual formula. Your formula depends on when you visit: lunch or dinner, weekday or weekend. Each formula includes its own maximum number of dishes per person." },
-        { title: "Order à la carte", description: "Choose whatever you like from the dishes included in your formula. You can place up to 3 orders at lunch or 4 at dinner, with a maximum of 4 dishes per person in each order." },
-        { title: "Take your time", description: "Wait 15 minutes at lunch or 20 minutes at dinner between orders. Enjoy your dishes and see how hungry you still are before ordering again. Every dish is prepared specifically for your order." },
-        { title: "Start small. End big.", description: "Our biggest tip: order a few dishes to begin with. You don’t need to choose all 4 dishes in your first order. Let your appetite guide your next orders." },
-        { title: "Less waste. More KUMO.", description: "Ordering reasonably at the beginning helps reduce unnecessary food waste, while leaving you free to discover more dishes throughout your meal.", takeaway: "Your maximum is a limit, not a target." },
-      ],
+        {
+          title: "Choose your formula",
+          description: "Each guest chooses an individual formula based on the day and meal. The evening formula applies all day on Sundays and public holidays. A children’s menu is available for ages 3–10."
+        },
+        {
+          title: "Order à la carte",
+          description: "Adults: up to 3 orders per person, with a maximum of 4 dishes per order at Monday–Saturday lunch, or 5 with the evening formula and all day on Sundays and public holidays. Children aged 3–10: 2 orders of up to 4 dishes."
+        },
+        {
+          title: "Take your time",
+          description: "Adults wait 15 minutes between orders at lunch and 20 minutes in the evening, including Sundays and public holidays. Children wait 15 minutes at Monday–Saturday lunch and 20 minutes in the evening and all day on Sundays and public holidays."
+        },
+        {
+          title: "Start small",
+          description: "Our tip: order a few dishes to begin with. You don’t need to reach the maximum in every order. Let your appetite guide your next orders."
+        },
+        {
+          title: "Less waste. More KUMO.",
+          description: "Ordering reasonably at the beginning helps reduce unnecessary food waste, while leaving you free to discover more dishes throughout your meal.",
+          takeaway: "Your maximum is a limit, not a target."
+        }
+      ]
     },
     pricing: {
       title: "Pricing",
-      description: "A leisurely lunch or an evening to linger over. Choose your moment, savour it at your own pace.",
-      days: {
-        weekdays: { title: "Monday – Thursday", detail: "Closed on Tuesdays" },
-        friday: { title: "Friday" },
-        saturday: { title: "Saturday" },
-        sunday: { title: "Sunday" },
-      },
-      dayLabel: "Day",
+      description: "Choose your formula based on the day and meal.",
+      adult: "Adults",
+      children: "Children’s menu",
+      ageUnit: "years",
       perPerson: "per person",
-      lunch: { title: "Lunch", description: "A little escape in the middle of your day.", detail: "Sushi, flavours from the grill and discoveries to share." },
-      dinner: { title: "Dinner", description: "Take your time. Make an evening of it.", detail: "A moment to enjoy, from the first bite to the last." },
-      note: "Each formula is individual. Closed on Tuesdays. Please contact us for children’s and public holiday prices.",
+      formulas: {
+        weekdayLunch: {
+          title: "Weekday lunch",
+          detail: "Monday – Friday"
+        },
+        saturdayLunch: {
+          title: "Saturday lunch",
+          detail: "Saturday"
+        },
+        weekdayDinner: {
+          title: "Weekday dinner",
+          detail: "Monday – Thursday"
+        },
+        weekendHolidays: {
+          title: "Weekends & public holidays",
+          detail: "Friday and Saturday evenings · All day on Sundays and public holidays"
+        }
+      },
+      lunch: "Lunch",
+      dinner: "Dinner",
+      exclusions: "Drinks and desserts are not included.",
+      note: "Each formula is individual. Closed on Tuesdays. Public-holiday prices apply all day."
     },
     space: {
       title: "Our Space",
@@ -274,37 +357,76 @@ export const translations = {
       eyebrow: "À la carte, op een andere manier",
       title: "Hoe werkt het?",
       description: "Een individuele formule, afhankelijk van de dag en de maaltijd. Kies uw gerechten à la carte: elk gerecht wordt speciaal voor u bereid.",
-      comparisonLabel: "De formules in één oogopslag",
+      comparisonLabel: "De formules voor volwassenen in één oogopslag",
       formulaLabel: "Formule",
-      meals: { lunch: "Lunch", dinner: "Diner" },
-      dishes: "Maximaal aantal gerechten",
+      meals: {
+        lunch: "Lunch · maandag–zaterdag",
+        dinner: "Avond, zondag & feestdagen"
+      },
       perPerson: "per persoon",
       orders: "Maximaal aantal bestellingen",
-      dishesPerOrder: "gerechten maximaal per persoon en per bestelling.",
+      dishesPerOrder: "Gerechten per bestelling (max.)",
       wait: "Tussen twee bestellingen",
-      premium: "’s Avonds en in het weekend: een ruimer aanbod aan premiumgerechten.",
+      adultWaitNote: "Volwassenen: 15 min. tijdens de lunch op zondag en feestdagen; 20 min. ’s avonds. Op zondag en feestdagen geldt de avondformule de hele dag.",
+      exclusions: "Dranken en desserts zijn bij geen enkele formule inbegrepen.",
+      childrenTitle: "Kindermenu",
+      ageUnit: "jaar",
+      childrenOrders: "bestellingen per kind",
+      childrenDishes: "gerechten maximaal per bestelling",
+      childrenWaitNote: "Tussen bestellingen: 15 min. tijdens de lunch van maandag tot zaterdag; 20 min. ’s avonds en de hele dag op zondag en feestdagen, ook tijdens de lunch.",
       steps: [
-        { title: "Kies uw formule", description: "Elke gast betaalt voor een eigen formule. Deze hangt af van uw bezoek: lunch of diner, door de week of in het weekend. Elke formule heeft een maximaal aantal gerechten per persoon." },
-        { title: "Bestel à la carte", description: "Kies waar u zin in heeft uit de gerechten die bij uw formule horen. U kunt tot 3 bestellingen plaatsen tijdens de lunch of 4 tijdens het diner, met maximaal 4 gerechten per persoon per bestelling." },
-        { title: "Neem uw tijd", description: "Wacht tussen twee bestellingen 15 minuten tijdens de lunch of 20 minuten tijdens het diner. Geniet van uw gerechten en kijk hoeveel trek u nog heeft. Elk gerecht wordt speciaal voor uw bestelling bereid." },
-        { title: "Begin met een paar gerechten", description: "Onze tip: bestel eerst een paar gerechten. U hoeft niet meteen 4 gerechten te kiezen bij uw eerste bestelling. Stem de volgende bestellingen af op uw eetlust." },
-        { title: "Minder verspilling. Meer KUMO.", description: "Door in het begin met mate te bestellen, helpt u voedselverspilling te verminderen en houdt u ruimte om tijdens de maaltijd meer gerechten te ontdekken.", takeaway: "Het maximum is een grens, geen doel." },
-      ],
+        {
+          title: "Kies uw formule",
+          description: "Elke gast kiest een eigen formule volgens de dag en de maaltijd. Op zondag en feestdagen geldt de avondformule de hele dag. Er is een kindermenu voor kinderen van 3 tot 10 jaar."
+        },
+        {
+          title: "Bestel à la carte",
+          description: "Volwassenen: maximaal 3 bestellingen per persoon, met maximaal 4 gerechten per bestelling tijdens de lunch van maandag tot zaterdag, of 5 bij de avondformule en de hele dag op zondag en feestdagen. Kinderen van 3 tot 10 jaar: 2 bestellingen van maximaal 4 gerechten."
+        },
+        {
+          title: "Neem uw tijd",
+          description: "Volwassenen wachten 15 minuten tussen bestellingen tijdens de lunch en 20 minuten ’s avonds, ook op zondag en feestdagen. Kinderen wachten 15 minuten tijdens de lunch van maandag tot zaterdag en 20 minuten ’s avonds en de hele dag op zondag en feestdagen."
+        },
+        {
+          title: "Begin met een paar gerechten",
+          description: "Onze tip: bestel eerst een paar gerechten. U hoeft niet bij elke bestelling het maximum te kiezen. Stem de volgende bestellingen af op uw eetlust."
+        },
+        {
+          title: "Minder verspilling. Meer KUMO.",
+          description: "Door in het begin met mate te bestellen, helpt u voedselverspilling te verminderen en houdt u ruimte om tijdens de maaltijd meer gerechten te ontdekken.",
+          takeaway: "Het maximum is een grens, geen doel."
+        }
+      ]
     },
     pricing: {
       title: "Prijzen",
-      description: "Een ontspannen lunch of een avond om rustig van te genieten. Kies uw moment en geniet op uw eigen tempo.",
-      days: {
-        weekdays: { title: "Maandag – donderdag", detail: "Gesloten op dinsdag" },
-        friday: { title: "Vrijdag" },
-        saturday: { title: "Zaterdag" },
-        sunday: { title: "Zondag" },
-      },
-      dayLabel: "Dag",
+      description: "Kies uw formule volgens de dag en de maaltijd.",
+      adult: "Volwassenen",
+      children: "Kindermenu",
+      ageUnit: "jaar",
       perPerson: "per persoon",
-      lunch: { title: "Lunch", description: "Een smakelijke pauze midden op de dag.", detail: "Sushi, smaken van de grill en nieuwe gerechten om samen te ontdekken." },
-      dinner: { title: "Diner", description: "Neem de tijd om samen te zijn.", detail: "Genieten van de eerste tot de laatste hap." },
-      note: "Elke formule is individueel. Gesloten op dinsdag. Neem contact met ons op voor kinderprijzen en tarieven op feestdagen.",
+      formulas: {
+        weekdayLunch: {
+          title: "Lunch op weekdagen",
+          detail: "Maandag – vrijdag"
+        },
+        saturdayLunch: {
+          title: "Lunch op zaterdag",
+          detail: "Zaterdag"
+        },
+        weekdayDinner: {
+          title: "Diner op weekdagen",
+          detail: "Maandag – donderdag"
+        },
+        weekendHolidays: {
+          title: "Weekend & feestdagen",
+          detail: "Vrijdag- en zaterdagavond · De hele dag op zondag en feestdagen"
+        }
+      },
+      lunch: "Lunch",
+      dinner: "Diner",
+      exclusions: "Dranken en desserts zijn niet inbegrepen.",
+      note: "Elke formule is individueel. Gesloten op dinsdag. Feestdagtarieven gelden de hele dag."
     },
     space: {
       title: "Ons restaurant",

@@ -22,18 +22,18 @@ export function ReviewsSection() {
   const trackRef = useContinuousScroll(16);
 
   return (
-    <section aria-labelledby="reviews-heading" className="overflow-hidden bg-background py-6 text-ink md:py-10" id="reviews">
+    <section aria-labelledby="reviews-heading" className="section-warm overflow-hidden bg-background py-6 text-ink md:py-10" id="reviews">
       <h2 className="sr-only" id="reviews-heading">{t.reviews.title}</h2>
       <p className="sr-only" id="reviews-description">{t.reviews.description}</p>
 
       <div className="section-shell relative h-[280px] max-w-[1200px] overflow-hidden rounded-2xl sm:h-[340px] lg:h-[420px] xl:h-[480px]">
         <Image alt={t.space.imageAlts[4]} className="object-cover object-center" fill sizes="(min-width: 1305px) 1200px, 92vw" src="/space/space-05.webp" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/25" />
-        <a className="absolute top-4 left-4 flex items-center gap-3 rounded-xl bg-[#f6f0e4] px-3 py-3 text-ink shadow-soft sm:top-6 sm:left-6 sm:px-4" href={reviewsHref} rel="noopener noreferrer" target="_blank">
+        <a className="absolute top-4 left-4 flex items-center gap-3 rounded-xl border border-line/70 bg-surface px-3 py-3 text-ink shadow-soft sm:top-6 sm:left-6 sm:px-4" href={reviewsHref} rel="noopener noreferrer" target="_blank">
           <GoogleMark />
           <span>
             <span className="label-caps block text-[0.6rem] tracking-[0.1em] text-ink-muted sm:text-[0.65rem]">{t.reviews.eyebrow}</span>
-            <span aria-label={t.reviews.fiveStars} className="mt-1 flex gap-0.5 text-[#c58b20]" role="img">
+            <span aria-label={t.reviews.fiveStars} className="mt-1 flex gap-0.5 text-gold" role="img">
               {Array.from({ length: 5 }, (_, index) => <Star aria-hidden="true" className="h-4 w-4 fill-current" key={index} />)}
             </span>
             <span className="mt-1 block text-[0.6rem] text-ink-muted sm:text-[0.65rem]">{t.reviews.selectionLabel}</span>
@@ -55,14 +55,14 @@ export function ReviewsSection() {
             {[0, 1, 2].map(setIndex => (
               <ul aria-hidden={setIndex !== 0} className="flex shrink-0 gap-3 pr-3 md:gap-4 md:pr-4" data-marquee-set="" key={setIndex}>
                 {guestReviews.map(review => (
-                  <li className="flex min-h-62 w-[80vw] max-w-80 shrink-0 flex-col rounded-xl bg-[#f6f0e4] p-5 text-ink sm:w-80 sm:max-w-none md:w-[340px] md:p-6 lg:w-90" key={review.author}>
-                    <div aria-label={t.reviews.fiveStars} className="flex gap-0.5 text-[#c58b20]" role="img">
+                  <li className="flex min-h-62 w-[80vw] max-w-80 shrink-0 flex-col rounded-xl border border-line/70 bg-surface p-5 text-ink sm:w-80 sm:max-w-none md:w-[340px] md:p-6 lg:w-90" key={review.author}>
+                    <div aria-label={t.reviews.fiveStars} className="flex gap-0.5 text-gold" role="img">
                       {Array.from({ length: review.rating }, (_, star) => <Star aria-hidden="true" className="h-3.5 w-3.5 fill-current" key={star} />)}
                     </div>
                     <figure className="mt-4 flex flex-1 flex-col">
                       <blockquote className="font-serif text-[1.0625rem] leading-[1.45] whitespace-pre-line md:text-lg">“{review.excerpt[language]}”</blockquote>
                       <figcaption className="mt-auto flex items-center gap-2.5 pt-5">
-                        <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#dce7e1] font-serif text-base font-semibold text-[#234b40]">{Array.from(review.author)[0].toUpperCase()}</span>
+                        <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-surface-strong font-serif text-base font-semibold text-gold">{Array.from(review.author)[0].toUpperCase()}</span>
                         <span className="min-w-0">
                           <span className="block text-[0.8125rem] font-semibold">{review.author}</span>
                           <span className="mt-0.5 block text-[0.6875rem] leading-4 text-ink-muted">Google · {review.originalLanguage === language ? t.reviews.excerpt : t.reviews.translatedExcerpt}</span>

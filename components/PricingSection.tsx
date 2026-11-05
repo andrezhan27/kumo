@@ -1,48 +1,50 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
-import { diningPrices, restaurantInfo } from "@/lib/content";
+import { childrenMenu, diningPrices, restaurantInfo } from "@/lib/content";
+
+const priceLocales = { fr: "fr-BE", en: "en-GB", nl: "nl-BE" } as const;
 
 export function PricingSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const copy = t.pricing;
+  const formatPrice = (value: number) => new Intl.NumberFormat(priceLocales[language], {
+    style: "currency", currency: "EUR", minimumFractionDigits: Number.isInteger(value) ? 0 : 2,
+  }).format(value);
 
   return (
-    <section className="section-dark bg-background py-section text-ink lg:py-20" id="pricing">
+    <section aria-labelledby="pricing-heading" className="section-warm bg-background py-section text-ink lg:py-20" id="pricing">
       <div className="section-shell lg:max-w-4xl">
-        <h2 className="display-heading text-5xl leading-none md:text-7xl lg:text-5xl">{t.pricing.title}</h2>
-        <table className="pricing-table mt-10 w-full table-fixed border-collapse text-left md:mt-14 lg:mt-8">
-          <caption className="sr-only">{t.pricing.title} · {t.pricing.perPerson}. {t.pricing.note}</caption>
-          <colgroup><col className="w-[44%] sm:w-1/2" /><col /><col /></colgroup>
-          <thead>
-            <tr className="border-y border-line/70">
-              <th scope="col"><span className="sr-only">{t.pricing.dayLabel}</span></th>
-              {[{ title: t.pricing.lunch.title, hours: restaurantInfo.hours.lunch }, { title: t.pricing.dinner.title, hours: restaurantInfo.hours.dinner }].map(option => (
-                <th className="border-l border-line/50 px-2 py-5 text-center font-medium sm:px-5 sm:py-7 lg:py-4" key={option.title} scope="col">
-                  <span className="block text-xs tracking-[0.08em] uppercase sm:text-xl md:text-2xl lg:text-sm">{option.title}</span>
-                  <span className="mt-2 block text-[10px] font-normal whitespace-nowrap text-ink-muted sm:text-xs">{option.hours}</span>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {diningPrices.map(prices => {
-              const day = t.pricing.days[prices.id];
-              return <tr className="border-b border-line/70" key={prices.id}>
-                <th className="py-7 pr-3 font-medium sm:py-10 sm:pr-6 lg:py-6" scope="row">
-                  <span className="block text-sm leading-6 sm:text-lg md:text-xl lg:text-base">{day.title}</span>
-                  {"detail" in day && <span className="mt-1.5 block text-[11px] leading-5 font-normal text-ink-muted sm:text-sm lg:text-xs">{day.detail}</span>}
-                </th>
-                {(["lunch", "dinner"] as const).map(meal => (
-                  <td className="border-l border-line/50 px-1 py-7 text-center sm:px-5 sm:py-10 lg:py-6" key={meal}>
-                    <span className="block text-2xl leading-none font-medium tracking-tight whitespace-nowrap sm:text-4xl md:text-5xl lg:text-3xl">{prices[meal]} €</span>
-                    <span className="mt-3 block text-[10px] leading-4 text-ink-muted sm:text-sm lg:mt-2 lg:text-xs">{t.pricing.perPerson}</span>
-                  </td>
-                ))}
-              </tr>;
-            })}
-          </tbody>
-        </table>
-        <p className="mt-6 max-w-2xl text-xs leading-6 text-ink-muted sm:text-sm lg:mt-4 lg:text-xs">{t.pricing.note}</p>
+        <h2 className="display-heading text-5xl leading-none text-gold md:text-7xl lg:text-5xl" id="pricing-heading">{copy.title}</h2>
+        <p className="mt-5 text-base leading-7 text-ink-muted">{copy.description}</p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5">
+          {diningPrices.map(prices => {
+            const formula = copy.formulas[prices.id];
+            return (
+              <article aria-labelledby={`price-${prices.id}`} className="flex flex-col rounded-lg border border-line/70 bg-surface p-5 sm:p-6" key={prices.id}>
+                <h3 className="text-xl font-medium tracking-tight text-gold" id={`price-${prices.id}`}>{formula.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-ink-muted">{formula.detail}</p>
+                <dl className="mt-5 divide-y divide-line/50 border-y border-line/50">
+                  <div className="flex items-center justify-between gap-3 py-4">
+                    <dt className="text-sm">{copy.adult}</dt>
+                    <dd className="shrink-0 text-3xl font-medium tracking-tight">{formatPrice(prices.adult)}</dd>
+                  </div>
+                  <div className="flex items-center justify-between gap-3 py-4">
+                    <dt className="text-sm text-gold">{copy.children}<span className="mt-1 block text-xs text-ink-muted">{childrenMenu.minAge}–{childrenMenu.maxAge} {copy.ageUnit}</span></dt>
+                    <dd className="shrink-0 text-2xl font-medium tracking-tight text-gold">{formatPrice(prices.child)}</dd>
+                  </div>
+                </dl>
+                <p className="mt-3 text-xs text-ink-muted">{copy.perPerson}</p>
+              </article>
+            );
+          })}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs leading-6 text-ink-muted sm:text-sm">
+          <p>{copy.lunch} · {restaurantInfo.hours.lunch}</p>
+          <p>{copy.dinner} · {restaurantInfo.hours.dinner}</p>
+        </div>
+        <p className="mt-4 text-sm font-semibold text-gold">{copy.exclusions}</p>
+        <p className="mt-2 max-w-2xl text-xs leading-6 text-ink-muted sm:text-sm">{copy.note}</p>
       </div>
     </section>
   );

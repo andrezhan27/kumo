@@ -14,9 +14,9 @@ export function BookTable() {
     { href: restaurantInfo.phoneHref, icon: Phone, label: t.booking.phoneLabel, value: restaurantInfo.phone },
   ];
   return (
-    <section className="section-dark bg-background py-section" id="booking">
+    <section className="section-charcoal bg-background py-section" id="booking">
       <div className="section-shell">
-        <h2 className="display-heading text-5xl leading-none text-ink md:text-7xl">{t.booking.title}</h2>
+        <h2 className="display-heading text-5xl leading-none text-gold md:text-7xl">{t.booking.title}</h2>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-muted">{t.booking.description}</p>
         <div className="mt-10 grid gap-5 lg:mt-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-6">
           <div className="flex flex-col gap-4">
@@ -42,7 +42,7 @@ export function BookTable() {
             </div>
           </div>
           <div className="min-h-80 overflow-hidden rounded-lg border border-line/55 bg-surface-strong lg:min-h-[450px]">
-            <iframe name="kumo-location" allowFullScreen className="h-full min-h-80 w-full lg:min-h-[450px]" height="450" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" src={mapEmbed} style={{ border: 0 }} title={t.booking.mapTitle} width="600" />
+            <iframe name="kumo-location" allowFullScreen className="location-map h-full min-h-80 w-full lg:min-h-[450px]" height="450" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" src={mapEmbed} style={{ border: 0 }} title={t.booking.mapTitle} width="600" />
           </div>
         </div>
       </div>

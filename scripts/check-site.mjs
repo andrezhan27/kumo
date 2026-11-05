@@ -126,6 +126,26 @@ for (const [route, pageHtml] of pages) {
     }
     for (const path of [frenchPath, englishPath, dutchPath]) assert.ok(pageHtml.includes(`href="${path}"`));
   } else {
+    const howItWorksHtml = pageHtml.match(/<section[^>]*id="how-it-works"[^>]*>([\s\S]*?)<\/section>/)[1];
+    const plainText = markup => markup.replace(/<!--[\s\S]*?-->/g, "").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/gu, " ").trim();
+    const formulaTable = howItWorksHtml.match(/<table\b[^>]*>([\s\S]*?)<\/table>/)[1];
+    const formulaRows = [...formulaTable.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/g)].slice(1);
+    assert.deepEqual(formulaRows.map(row => [...row[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/g)].map(cell => plainText(cell[1]))), [
+      ["3", "3"], ["4", "5"], ["15 min", "20 min*"],
+    ], `${route} must show the owner-supplied adult order limits and timing`);
+    const childrenLabel = { fr: "Menu enfants", en: "Children’s menu", nl: "Kindermenu" }[language];
+    assert.ok(plainText(howItWorksHtml).includes(childrenLabel));
+    assert.ok(plainText(howItWorksHtml).includes("3–10"));
+    assert.ok(plainText(howItWorksHtml).includes({ fr: "2 commandes par enfant", en: "2 orders per child", nl: "2 bestellingen per kind" }[language]));
+    assert.ok(plainText(howItWorksHtml).includes({ fr: "4 plats maximum par commande", en: "4 dishes maximum per order", nl: "4 gerechten maximaal per bestelling" }[language]));
+    assert.ok(plainText(howItWorksHtml).includes({ fr: "y compris à midi", en: "including lunch", nl: "ook tijdens de lunch" }[language]), "Children’s Sunday/holiday timing must be explicit");
+    for (const [formula, adult, child] of [["weekdayLunch", 31, 15.5], ["saturdayLunch", 36, 18], ["weekdayDinner", 45, 22.5], ["weekendHolidays", 55, 27.5]]) {
+      const card = pageHtml.match(new RegExp(`<article[^>]*aria-labelledby="price-${formula}"[^>]*>([\\s\\S]*?)<\\/article>`))[1];
+      const amounts = [...card.matchAll(/<dd\b[^>]*>([\s\S]*?)<\/dd>/g)].map(cell => Number(plainText(cell[1]).replace(/[^\d,.]/g, "").replace(",", ".")));
+      assert.deepEqual(amounts, [adult, child], `${route}: incorrect adult/child prices for ${formula}`);
+      assert.ok(plainText(card).includes(childrenLabel));
+    }
+    assert.ok(plainText(pageHtml).includes({ fr: "Boissons et desserts non inclus.", en: "Drinks and desserts are not included.", nl: "Dranken en desserts zijn niet inbegrepen." }[language]));
     assert.ok(pageHtml.includes({ en: "Asian restaurant in Waterloo, Belgium", fr: "Restaurant asiatique à Waterloo", nl: "Aziatisch restaurant in Waterloo, België" }[language]));
     assert.match(pageHtml, /<details[^>]*class="language-dropdown/);
     assert.ok(pageHtml.indexOf('id="home"') < pageHtml.indexOf('id="our-story"'));

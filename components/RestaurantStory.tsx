@@ -11,7 +11,7 @@ export function RestaurantStory() {
       <div className="section-shell grid items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-24">
         <div>
           <p className="label-caps text-gold-deep">{t.story.eyebrow}</p>
-          <h2 className="display-heading mt-5 max-w-xl text-4xl leading-[1.1] text-ink sm:text-5xl lg:text-6xl" id="story-heading">{t.story.title}</h2>
+          <h2 className="display-heading mt-5 max-w-xl text-4xl leading-[1.1] text-gold sm:text-5xl lg:text-6xl" id="story-heading">{t.story.title}</h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-ink-muted">{t.story.description}</p>
           <p className="mt-4 max-w-xl text-base leading-8 text-ink-muted">{t.story.welcome}</p>
         </div>
