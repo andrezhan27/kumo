@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUp, ArrowUpRight, ChevronDown, Phone } from "lucide-react";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Footer } from "@/components/Footer";
+import { CloudOrnament } from "@/components/CloudOrnament";
 import { Navbar } from "@/components/Navbar";
 import { useLanguage } from "@/components/LanguageProvider";
 import { reservationHref, restaurantInfo } from "@/lib/content";
@@ -54,7 +55,8 @@ export function MenuPageContent() {
   return (
     <>
       <Navbar />
-      <main className="menu-page" id="main-content">
+      <main className="cloud-accent-section menu-page" id="main-content">
+        <CloudOrnament className="cloud-ornament--menu-page" />
         <div className="menu-shell">
           <div className="menu-title-row">
             <h1 className="menu-serif menu-title">{copy.title}</h1>

@@ -92,46 +92,70 @@ img {
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 22%), 0 8px 28px rgb(0 0 0 / 10%);
 }
 
-/* Three quiet cloud accents echo the owner's gold-foil menu artwork. */
+/* Oversized, quiet cloud watermarks sit behind section content. */
 .cloud-accent-section {
   position: relative;
   isolation: isolate;
   overflow: clip;
 }
 
-.cloud-accent-section > .section-shell {
+.cloud-accent-section > .section-shell,
+.cloud-accent-section > .menu-shell {
   position: relative;
   z-index: 1;
 }
 
 .cloud-ornament {
   position: absolute;
+  z-index: 0;
+  width: clamp(36rem, 78vw, 72rem);
+  opacity: 0.14;
   pointer-events: none;
   user-select: none;
-  filter: saturate(0.7);
+  filter: saturate(0.55);
 }
 
 .cloud-ornament--about {
-  top: 0.5rem;
-  right: -2rem;
-  width: clamp(12rem, 30vw, 26rem);
-  opacity: 0.5;
+  top: 1rem;
+  left: -18%;
   transform: rotate(-7deg);
 }
 
 .cloud-ornament--pricing {
-  top: -1rem;
-  right: max(1.5rem, calc((100% - 1024px) / 2));
-  width: 19rem;
-  opacity: 0.34;
+  top: -2rem;
+  right: -20%;
   transform: scaleX(-1);
 }
 
+.cloud-ornament--menu-preview {
+  top: 0;
+  left: -24%;
+  opacity: 0.11;
+}
+
+.cloud-ornament--space {
+  top: 1rem;
+  right: -24%;
+  opacity: 0.13;
+}
+
+.cloud-ornament--contact {
+  top: -1rem;
+  left: -22%;
+  opacity: 0.11;
+  transform: scaleX(-1);
+}
+
+.cloud-ornament--menu-page {
+  top: 4rem;
+  right: -20%;
+  opacity: 0.12;
+}
+
 .cloud-ornament--footer {
-  position: relative;
-  width: clamp(11rem, 20vw, 18rem);
-  margin-top: auto;
-  opacity: 0.48;
+  right: -12%;
+  bottom: -2rem;
+  opacity: 0.1;
 }
 
 .brand-eyebrow {
@@ -160,12 +184,32 @@ img {
 }
 
 @media (max-width: 767px) {
+  .cloud-ornament {
+    width: 150vw;
+    opacity: 0.11;
+  }
+
   .cloud-ornament--about,
-  .cloud-ornament--pricing {
-    top: -1.25rem;
-    right: -2rem;
-    width: 12rem;
-    opacity: 0.4;
+  .cloud-ornament--menu-preview,
+  .cloud-ornament--contact {
+    top: 1rem;
+    left: -65%;
+  }
+
+  .cloud-ornament--pricing,
+  .cloud-ornament--space {
+    top: 0;
+    right: -65%;
+  }
+
+  .cloud-ornament--menu-page {
+    top: 5rem;
+    right: -60%;
+  }
+
+  .cloud-ornament--footer {
+    right: -60%;
+    bottom: 0;
   }
 }
 

@@ -11,7 +11,8 @@ export function Footer() {
   const { t, language, localizeHref } = useLanguage();
   const address = language === "fr" ? restaurantInfo.address : restaurantInfo.address.replace("Belgique", language === "nl" ? "België" : "Belgium");
   return (
-    <footer className="border-t border-line/50 bg-night py-12 text-ink sm:py-16">
+    <footer className="cloud-accent-section border-t border-line/50 bg-night py-12 text-ink sm:py-16">
+      <CloudOrnament className="cloud-ornament--footer" />
       <div className="section-shell grid gap-10 md:grid-cols-2">
         <div>
           <Link className="display-heading inline-flex items-center gap-3 text-3xl tracking-[0.08em] text-gold" href={localizeHref("/")}>
@@ -31,7 +32,6 @@ export function Footer() {
             {[{ href: "/menu", label: t.nav.menu }, { href: "/#pricing", label: t.nav.pricing }, { href: "/#space", label: t.nav.space }, { href: "/#booking", label: t.nav.contact }].map(item => <a className="label-caps text-gold underline-offset-4 hover:underline" href={localizeHref(item.href)} key={item.href}>{item.label}</a>)}
           </nav>
           <a className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-gold" href={restaurantInfo.mapHref} rel="noopener noreferrer" target="_blank"><MapPin className="h-4 w-4" />{t.footer.location}</a>
-          <CloudOrnament className="cloud-ornament--footer" />
         </div>
         <p className="border-t border-line/50 pt-6 text-xs leading-6 text-ink-muted md:col-span-2">© {new Date().getFullYear()} {brandName}. {t.footer.rights}</p>
       </div>

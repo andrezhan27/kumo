@@ -54,8 +54,8 @@ Four restaurant photographs from KUMO’s existing Waterloo Plaza gallery, resiz
 
 - Asset: `public/ornaments/kumo-cloud.webp`, 1200 × 400px, transparent WebP, about 107 KiB.
 - Generated with the built-in imagegen tool using the owner’s attached `codex-clipboard-5272d232-1af4-4120-8508-fd49330cb44b.png` as the style reference. Optimized to WebP with alpha preserved. This is reference-inspired artwork, not a crop from the photographed menu.
-- Used sparingly across the site: six accents on the home page (About, menu preview, pricing, space, contacts and footer), four on the full menu (heading, two widely separated category dividers and footer), and one beside the reservation heading above the external booking form. Decorative images have empty alternative text, are hidden from assistive technology, ignore pointer events, and do not animate. The same local image is reused and lazily loaded.
-- `components/CloudOrnament.tsx` owns the image markup; `app/globals.css` controls placement, opacity and responsive sizes. The brochure-sampled pricing colors remain intact.
+- Used sparingly across the site: six oversized background watermarks on the home page (About, menu preview, pricing, space, contacts and footer) and two on the full menu (header background and footer). The external reservation embed retains its full-height layout. Decorative images have empty alternative text, are hidden from assistive technology, ignore pointer events, and do not animate. The same local image is reused and lazily loaded.
+- `components/CloudOrnament.tsx` owns the image markup; `app/globals.css` controls placement, 10–14% opacity and responsive sizes (78vw up to 1152px on desktop, 150vw on mobile). Clouds are absolutely positioned, clipped to their sections and layered below the content, so they occupy no layout space. The brochure-sampled pricing colors remain intact.
 
 Final generation prompt (built-in tool, transparent background enabled):
 

@@ -5,13 +5,15 @@ import { MagneticButton } from "@/components/MagneticButton";
 import { useContinuousScroll } from "@/components/useContinuousScroll";
 import { menuItems } from "@/lib/content";
 import { useLanguage } from "@/components/LanguageProvider";
+import { CloudOrnament } from "@/components/CloudOrnament";
 
 export function MenuCarousel() {
   const { t } = useLanguage();
   const viewportRef = useContinuousScroll();
 
   return (
-    <section className="section-charcoal bg-background py-section" id="menu-section">
+    <section className="cloud-accent-section section-charcoal bg-background py-section" id="menu-section">
+      <CloudOrnament className="cloud-ornament--menu-preview" />
       <div className="section-shell overflow-hidden">
         <div className="mx-auto grid max-w-3xl justify-items-center gap-6 text-center">
           <h2 className="display-heading text-5xl leading-none text-gold md:text-7xl">{t.menuSection.title}</h2>

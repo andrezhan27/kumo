@@ -2,6 +2,7 @@
 
 import { ArrowUpRight, CalendarDays, Clock, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
+import { CloudOrnament } from "@/components/CloudOrnament";
 import { restaurantInfo, reservationHref } from "@/lib/content";
 import { MagneticButton } from "@/components/MagneticButton";
 
@@ -16,7 +17,8 @@ export function BookTable() {
     { href: restaurantInfo.instagramHref, icon: Instagram, label: t.booking.socialLabel, value: restaurantInfo.instagram },
   ];
   return (
-    <section className="section-charcoal bg-background py-section" id="booking">
+    <section className="cloud-accent-section section-charcoal bg-background py-section" id="booking">
+      <CloudOrnament className="cloud-ornament--contact" />
       <div className="section-shell">
         <h2 className="display-heading text-5xl leading-none text-gold md:text-7xl">{t.booking.title}</h2>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-muted">{t.booking.description}</p>

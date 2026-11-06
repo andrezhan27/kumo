@@ -3,12 +3,14 @@
 import Image from "next/image";
 import { spaceSlides } from "@/lib/content";
 import { useLanguage } from "@/components/LanguageProvider";
+import { CloudOrnament } from "@/components/CloudOrnament";
 
 export function SpaceCarousel() {
   const { t } = useLanguage();
 
   return (
-    <section className="bg-background py-section text-ink" id="space">
+    <section className="cloud-accent-section bg-background py-section text-ink" id="space">
+      <CloudOrnament className="cloud-ornament--space" />
       <div className="section-shell">
         <h2 className="display-heading max-w-3xl text-5xl leading-none text-gold md:text-7xl">{t.space.title}</h2>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-muted">{t.space.description}</p>
