@@ -42,7 +42,7 @@ export function HowItWorks() {
           ))}
         </ol>
       </div>
-      <a className="display-heading mt-8 block rounded-lg border border-gold/30 bg-surface px-5 py-5 text-center text-2xl leading-snug transition-opacity hover:opacity-90 sm:py-6 sm:text-3xl" href={localizeHref(reservationHref)} lang="en">
+      <a className="dining-slogan display-heading mt-8 block rounded-lg border border-gold/30 bg-surface px-5 py-5 text-center text-2xl leading-snug transition-opacity hover:opacity-90 sm:py-6 sm:text-3xl" href={localizeHref(reservationHref)} lang="en">
         <span className="block text-ink sm:inline">{diningSlogan[0]}</span>{" "}
         <span className="block text-ink sm:inline">{diningSlogan[1]}{" "}<span className="text-gold">{diningSlogan[2]}</span></span>
       </a>

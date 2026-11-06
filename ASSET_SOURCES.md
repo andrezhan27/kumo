@@ -49,3 +49,14 @@ Four restaurant photographs from KUMO’s existing Waterloo Plaza gallery, resiz
 ## Gold logo — 5 November 2026
 
 `public/kumo-logo-gold.jpg` is the exact gold koi logo supplied by the owner as `kumo-logo.JPG`. The header and footer blend its dark background into the charcoal canvas with CSS `mix-blend-mode: lighten`; the original artwork remains intact. Browser icons and restaurant structured data reference the same supplied logo.
+
+## Gold cloud ornament — 6 November 2026
+
+- Asset: `public/ornaments/kumo-cloud.webp`, 1200 × 400px, transparent WebP, about 107 KiB.
+- Generated with the built-in imagegen tool using the owner’s attached `codex-clipboard-5272d232-1af4-4120-8508-fd49330cb44b.png` as the style reference. Optimized to WebP with alpha preserved. This is reference-inspired artwork, not a crop from the photographed menu.
+- Used sparingly across the site: six accents on the home page (About, menu preview, pricing, space, contacts and footer), four on the full menu (heading, two widely separated category dividers and footer), and one beside the reservation heading above the external booking form. Decorative images have empty alternative text, are hidden from assistive technology, ignore pointer events, and do not animate. The same local image is reused and lazily loaded.
+- `components/CloudOrnament.tsx` owns the image markup; `app/globals.css` controls placement, opacity and responsive sizes. The brochure-sampled pricing colors remain intact.
+
+Final generation prompt (built-in tool, transparent background enabled):
+
+> Use case: stylized-concept. Asset type: decorative transparent PNG ornament for the KUMO Japanese restaurant website. Reference image: the attached photograph provides the exact ornamental cloud style, not a background to preserve. Create ONE horizontally elongated, organic cloud cluster in the reference's traditional Japanese gold cloud style: intricate overlapping scalloped lobes, each with several fine nested semicircular gold contour lines, a few graceful curled wisps at the ends. Subtle antique-gold ink/foil shading in warm champagne, ochre and bronze (#DCA959 accents), hand-drawn engraved elegance rather than shiny 3D metal. The cluster must look like the gold clouds printed in the supplied menu, dense in the middle and airy curling tips, width about three times height, fully contained with generous transparent margin on every side. Truly transparent background, including negative spaces between contour strokes. No black paper/background, no rectangles, no other cloud clusters, no shadows outside the ornament, no hands, no text, no watermark. Intended to be rendered at 250–450px wide as a restrained brand accent on warm charcoal. Clean high-resolution edges, premium and authentic.
