@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, CalendarDays, Clock, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Clock, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { restaurantInfo, reservationHref } from "@/lib/content";
 import { MagneticButton } from "@/components/MagneticButton";
@@ -12,6 +12,8 @@ export function BookTable() {
   const contactCards = [
     { href: restaurantInfo.mapHref, icon: MapPin, label: t.booking.addressLabel, value: language === "fr" ? restaurantInfo.address : restaurantInfo.address.replace("Belgique", language === "nl" ? "België" : "Belgium") },
     { href: restaurantInfo.phoneHref, icon: Phone, label: t.booking.phoneLabel, value: restaurantInfo.phone },
+    { href: restaurantInfo.emailHref, icon: Mail, label: t.booking.emailLabel, value: restaurantInfo.email },
+    { href: restaurantInfo.instagramHref, icon: Instagram, label: t.booking.socialLabel, value: restaurantInfo.instagram },
   ];
   return (
     <section className="section-charcoal bg-background py-section" id="booking">
@@ -29,9 +31,10 @@ export function BookTable() {
               <div className="min-w-0 flex-1">
                 <h3 className="label-caps text-gold-deep">{t.booking.hoursLabel}</h3>
                 <p className="mt-2 text-sm font-semibold leading-6 text-ink sm:text-base">{t.booking.daysLabel}</p>
-                <dl className="mt-3 grid grid-cols-2 gap-3 text-sm leading-6 text-ink-muted">
+                <dl className="mt-3 grid grid-cols-1 gap-3 text-sm leading-6 text-ink-muted sm:grid-cols-2">
                   <div><dt>{t.booking.lunchLabel}</dt><dd>{restaurantInfo.hours.lunch}</dd></div>
                   <div><dt>{t.booking.dinnerLabel}</dt><dd>{restaurantInfo.hours.dinner}</dd></div>
+                  <div className="sm:col-span-2"><dt>{t.booking.sundayLunchLabel}</dt><dd>{restaurantInfo.hours.sundayLunch}</dd></div>
                 </dl>
                 <p className="mt-3 text-xs font-semibold text-ink-muted">{t.booking.closedLabel}</p>
               </div>

@@ -81,6 +81,15 @@ img {
   --color-surface-strong: #40382f;
 }
 
+/* The brochure's light pricing cards use dark type and subtle warm dividers. */
+.pricing-card {
+  --color-ink: #302b24;
+  --color-ink-muted: #51483d;
+  --color-gold: #302b24;
+  --color-line: #857762;
+  color: var(--color-ink);
+}
+
 /* Keep the embedded street map legible within the charcoal contact section. */
 .location-map {
   filter: grayscale(1) invert(0.9) contrast(0.9);

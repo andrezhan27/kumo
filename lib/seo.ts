@@ -70,7 +70,8 @@ export const restaurantSchema = {
   image: [`${siteOrigin}/social/kumo.jpg`, `${siteOrigin}/space/space-01.webp`, `${siteOrigin}/food/sushi.webp`],
   logo: `${siteOrigin}/kumo-logo-gold.jpg`,
   servesCuisine: ["Asian", "Japanese", "Sushi", "Teppanyaki", "Dim sum"],
-  telephone: restaurantInfo.phone, hasMap: restaurantInfo.mapHref,
+  telephone: restaurantInfo.phone, email: restaurantInfo.email, hasMap: restaurantInfo.mapHref,
+  sameAs: [restaurantInfo.instagramHref],
   hasMenu: `${siteOrigin}/menu`,
   acceptsReservations: true,
   potentialAction: {
@@ -81,7 +82,10 @@ export const restaurantSchema = {
   address: { "@type": "PostalAddress", streetAddress: "Drève Richelle 8", addressLocality: "Waterloo", addressRegion: "Brabant wallon", postalCode: "1410", addressCountry: "BE" },
   geo: { "@type": "GeoCoordinates", latitude: 50.7097007, longitude: 4.4029045 },
   openingHoursSpecification: [
-    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "12:00", closes: "14:30" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "12:00", closes: "14:30" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Sunday"], opens: "12:00", closes: "15:00" },
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "18:30", closes: "22:30" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["https://schema.org/PublicHolidays"], opens: "12:00", closes: "14:30" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["https://schema.org/PublicHolidays"], opens: "18:30", closes: "22:30" },
   ],
 };

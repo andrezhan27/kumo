@@ -41,6 +41,10 @@ assert.equal(schema.name, "KUMO");
 assert.equal(schema.address.addressLocality, "Waterloo");
 assert.equal(schema.telephone, "+32 2 767 63 98");
 assert.ok(schema.openingHoursSpecification.every(hours => !hours.dayOfWeek.includes("Tuesday")));
+assert.ok(schema.openingHoursSpecification.some(hours => hours.dayOfWeek.includes("Sunday") && hours.opens === "12:00" && hours.closes === "15:00"));
+assert.ok(schema.openingHoursSpecification.some(hours => hours.dayOfWeek.includes("https://schema.org/PublicHolidays")));
+assert.equal(schema.email, "contacts.kumo@gmail.com");
+assert.ok(schema.sameAs.includes("https://www.instagram.com/kumowaterloo/"));
 const canonicalOrigin = new URL(html.match(/<link rel="canonical" href="([^"]+)"/)[1]).origin;
 assert.equal(schema["@id"], `${canonicalOrigin}/#restaurant`);
 assert.equal(schema.url, `${canonicalOrigin}/`);
@@ -126,24 +130,37 @@ for (const [route, pageHtml] of pages) {
     }
     for (const path of [frenchPath, englishPath, dutchPath]) assert.ok(pageHtml.includes(`href="${path}"`));
   } else {
-    const howItWorksHtml = pageHtml.match(/<section[^>]*id="how-it-works"[^>]*>([\s\S]*?)<\/section>/)[1];
-    const plainText = markup => markup.replace(/<!--[\s\S]*?-->/g, "").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/gu, " ").trim();
-    const formulaTable = howItWorksHtml.match(/<table\b[^>]*>([\s\S]*?)<\/table>/)[1];
-    const formulaRows = [...formulaTable.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/g)].slice(1);
-    assert.deepEqual(formulaRows.map(row => [...row[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/g)].map(cell => plainText(cell[1]))), [
-      ["3", "3"], ["4", "5"], ["15 min", "20 min*"],
-    ], `${route} must show the owner-supplied adult order limits and timing`);
+    const combinedHtml = pageHtml.match(/<section[^>]*id="pricing"[^>]*>([\s\S]*?)<\/section>/)[1];
+    assert.ok(combinedHtml.includes('id="how-it-works"'), "Ordering guidance and pricing must share one section");
+    assert.doesNotMatch(pageHtml, /<section[^>]*id="how-it-works"/);
+    const plainText = markup => markup.replace(/<!--[\s\S]*?-->/g, "").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&#x27;/g, "'").replace(/\s+/gu, " ").trim();
+    assert.ok(plainText(combinedHtml).includes("I don't do buffet. I do KUMO."));
+    const aboutHtml = pageHtml.match(/<section[^>]*id="our-story"[^>]*>([\s\S]*?)<\/section>/)[1];
+    assert.ok(plainText(aboutHtml).includes({ fr: "À propos de KUMO", en: "About KUMO", nl: "Over KUMO" }[language]));
+    assert.ok(plainText(aboutHtml).includes({ fr: "directement depuis votre tablette", en: "directly from your tablet", nl: "rechtstreeks via uw tablet" }[language]));
+    assert.ok(pageHtml.includes('href="mailto:contacts.kumo@gmail.com"'));
+    assert.ok(pageHtml.includes('href="https://www.instagram.com/kumowaterloo/"'));
+    assert.ok(plainText(pageHtml).includes({ fr: "Fermé le mardi, sauf les jours fériés", en: "Closed on Tuesdays, except public holidays", nl: "Gesloten op dinsdag, behalve op feestdagen" }[language]));
     const childrenLabel = { fr: "Menu enfants", en: "Children’s menu", nl: "Kindermenu" }[language];
-    assert.ok(plainText(howItWorksHtml).includes(childrenLabel));
-    assert.ok(plainText(howItWorksHtml).includes("3–10"));
-    assert.ok(plainText(howItWorksHtml).includes({ fr: "2 commandes par enfant", en: "2 orders per child", nl: "2 bestellingen per kind" }[language]));
-    assert.ok(plainText(howItWorksHtml).includes({ fr: "4 plats maximum par commande", en: "4 dishes maximum per order", nl: "4 gerechten maximaal per bestelling" }[language]));
-    assert.ok(plainText(howItWorksHtml).includes({ fr: "y compris à midi", en: "including lunch", nl: "ook tijdens de lunch" }[language]), "Children’s Sunday/holiday timing must be explicit");
+    assert.ok(plainText(combinedHtml).includes(childrenLabel));
+    assert.ok(plainText(combinedHtml).includes("3–10"));
+    assert.ok(plainText(combinedHtml).includes({ fr: "2 commandes par enfant", en: "2 orders per child", nl: "2 bestellingen per kind" }[language]));
+    assert.ok(plainText(combinedHtml).includes({ fr: "4 plats maximum par commande", en: "4 dishes maximum per order", nl: "4 gerechten maximaal per bestelling" }[language]));
     for (const [formula, adult, child] of [["weekdayLunch", 31, 15.5], ["saturdayLunch", 36, 18], ["weekdayDinner", 45, 22.5], ["weekendHolidays", 55, 27.5]]) {
-      const card = pageHtml.match(new RegExp(`<article[^>]*aria-labelledby="price-${formula}"[^>]*>([\\s\\S]*?)<\\/article>`))[1];
-      const amounts = [...card.matchAll(/<dd\b[^>]*>([\s\S]*?)<\/dd>/g)].map(cell => Number(plainText(cell[1]).replace(/[^\d,.]/g, "").replace(",", ".")));
+      const card = combinedHtml.match(new RegExp(`<article[^>]*aria-labelledby="price-${formula}"[^>]*>([\\s\\S]*?)<\\/article>`))[1];
+      const priceMarkup = [...card.matchAll(/<dl\b[^>]*data-prices="true"[^>]*>([\s\S]*?)<\/dl>/g)].map(match => match[1]).join("");
+      const amounts = [...priceMarkup.matchAll(/<dd\b[^>]*>([\s\S]*?)<\/dd>/g)].map(cell => Number(plainText(cell[1]).replace(/[^\d,.]/g, "").replace(",", ".")));
       assert.deepEqual(amounts, [adult, child], `${route}: incorrect adult/child prices for ${formula}`);
       assert.ok(plainText(card).includes(childrenLabel));
+      const lunch = formula === "weekdayLunch" || formula === "saturdayLunch";
+      const adultRules = card.match(/<dl[^>]*data-adult-rules="true"[^>]*>([\s\S]*?)<\/dl>/)[1];
+      assert.deepEqual([...adultRules.matchAll(/<dd\b[^>]*>([\s\S]*?)<\/dd>/g)].map(cell => plainText(cell[1])),
+        ["3", lunch ? "4" : "5", lunch ? "15 min" : formula === "weekendHolidays" ? "20 min*" : "20 min"], `${route}: incorrect ordering rules for ${formula}`);
+      const childRules = plainText(card.slice(card.lastIndexOf('data-prices="true"')));
+      assert.ok(childRules.includes("2"));
+      assert.ok(childRules.includes({ fr: "4 plats maximum par commande", en: "4 dishes maximum per order", nl: "4 gerechten maximaal per bestelling" }[language]));
+      assert.ok(childRules.includes(`${lunch ? 15 : 20} min`));
+      if (formula === "weekendHolidays") assert.ok(plainText(card).includes({ fr: "15 min. le dimanche midi", en: "15 min. at Sunday", nl: "15 min. tijdens de lunch op zondag" }[language]));
     }
     assert.ok(plainText(pageHtml).includes({ fr: "Boissons et desserts non inclus.", en: "Drinks and desserts are not included.", nl: "Dranken en desserts zijn niet inbegrepen." }[language]));
     assert.ok(pageHtml.includes({ en: "Asian restaurant in Waterloo, Belgium", fr: "Restaurant asiatique à Waterloo", nl: "Aziatisch restaurant in Waterloo, België" }[language]));

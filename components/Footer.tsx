@@ -21,6 +21,8 @@ export function Footer() {
           <address className="mt-5 flex flex-col gap-2 text-sm leading-6 text-ink-muted not-italic">
             <a aria-label={`${t.footer.addressLabel} : ${address}`} className="hover:text-gold" href={restaurantInfo.mapHref} rel="noopener noreferrer" target="_blank">{address}</a>
             <a aria-label={`${t.footer.phoneLabel} : ${restaurantInfo.phone}`} className="w-fit hover:text-gold" href={restaurantInfo.phoneHref}>{restaurantInfo.phone}</a>
+            <a className="w-fit break-all hover:text-gold" href={restaurantInfo.emailHref}>{restaurantInfo.email}</a>
+            <a aria-label={`Instagram : ${restaurantInfo.instagram}`} className="w-fit hover:text-gold" href={restaurantInfo.instagramHref} rel="noopener noreferrer" target="_blank">{restaurantInfo.instagram}</a>
           </address>
         </div>
         <div className="flex flex-col gap-8 md:items-end">

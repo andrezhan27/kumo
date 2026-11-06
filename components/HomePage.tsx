@@ -6,7 +6,6 @@ import { MenuCarousel } from "@/components/MenuCarousel";
 import { Navbar } from "@/components/Navbar";
 import { SpaceCarousel } from "@/components/SpaceCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
-import { HowItWorks } from "@/components/HowItWorks";
 
 import { RestaurantStory } from "@/components/RestaurantStory";
 
@@ -18,7 +17,6 @@ export default function Home() {
         <Hero />
         <RestaurantStory />
         <MenuCarousel />
-        <HowItWorks />
         <PricingSection />
         <SpaceCarousel />
         <BookTable />

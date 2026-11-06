@@ -1,9 +1,9 @@
 export const brandName = "KUMO";
 export const reservationSlug = "kumo";
 export const reservationHref = "tel:+3227676398";
-export const diningSlogan = ["I don't do Buffets.", "I do", "KUMO."] as const;
+export const diningSlogan = ["I don't do buffet.", "I do", "KUMO."] as const;
 
-// Formulas and prices from the owner's FORMULES KUMO table (5 November 2026).
+// Formulas and prices from the owner-supplied brochures (6 November 2026).
 // The evening formula also applies all day on Sundays and public holidays.
 export const diningFormulas = [
   { id: "lunch", orders: 3, dishesPerOrder: 4, waitMinutes: 15 },
@@ -16,10 +16,10 @@ export const childrenMenu = {
 } as const;
 
 export const diningPrices = [
-  { id: "weekdayLunch", adult: 31, child: 15.5, hours: "lunch" },
-  { id: "saturdayLunch", adult: 36, child: 18, hours: "lunch" },
-  { id: "weekdayDinner", adult: 45, child: 22.5, hours: "dinner" },
-  { id: "weekendHolidays", adult: 55, child: 27.5, hours: "both" },
+  { id: "weekdayLunch", adult: 31, child: 15.5, formula: "lunch" },
+  { id: "saturdayLunch", adult: 36, child: 18, formula: "lunch" },
+  { id: "weekdayDinner", adult: 45, child: 22.5, formula: "dinner" },
+  { id: "weekendHolidays", adult: 55, child: 27.5, formula: "dinner" },
 ] as const;
 
 export const restaurantInfo = {
@@ -27,8 +27,12 @@ export const restaurantInfo = {
   address: "Drève Richelle 8, 1410 Waterloo, Belgique",
   phone: "+32 2 767 63 98",
   phoneHref: "tel:+3227676398",
+  email: "contacts.kumo@gmail.com",
+  emailHref: "mailto:contacts.kumo@gmail.com",
+  instagram: "@kumowaterloo",
+  instagramHref: "https://www.instagram.com/kumowaterloo/",
   mapHref: "https://maps.app.goo.gl/2EeE3jBLwH5xgsZS9",
-  hours: { lunch: "12:00 – 14:30", dinner: "18:30 – 22:30" },
+  hours: { lunch: "12:00 – 14:30", sundayLunch: "12:00 – 15:00", dinner: "18:30 – 22:30" },
 } as const;
 
 export const menuItems = [
@@ -67,10 +71,10 @@ export const translations = {
       imageAlt: "La façade du restaurant KUMO à Waterloo, son enseigne et son emblème bleu",
     },
     story: {
-      eyebrow: "Notre histoire",
-      title: "Une table, mille découvertes.",
-      description: "Au cœur de Waterloo, au centre Rich’l, KUMO réunit les saveurs de la cuisine asiatique autour d’une même table. Sushis, teppanyaki et dim sum composent une carte à explorer à votre rythme, avec des plats préparés à la commande.",
-      welcome: "Des alcôves chaleureuses, un déjeuner en famille, un dîner à deux ou entre amis : nous vous accueillons pour le plaisir de bien manger et de vous retrouver.",
+      eyebrow: "Le concept",
+      title: "À propos de KUMO",
+      description: "Chez KUMO, découvrez une cuisine japonaise raffinée, commandée directement depuis votre tablette. Laissez-vous tenter par une large sélection de plats, préparés à la commande par notre équipe.",
+      steps: ["Choisissez sur tablette", "Commandez vos plats", "Savourez", "Recommencez"],
       imageAlt: "L’allée centrale et les alcôves dorées du restaurant KUMO à Waterloo",
     },
     menuSection: {
@@ -108,7 +112,7 @@ export const translations = {
           description: "Chaque convive choisit sa formule selon le jour et le repas. Le dimanche et les jours fériés, la formule du soir s’applique toute la journée. Un menu enfants est proposé de 3 à 10 ans."
         },
         {
-          title: "Commandez à la carte",
+          title: "Commandez sur tablette",
           description: "Adultes : jusqu’à 3 commandes par personne, avec 4 plats maximum par commande à midi du lundi au samedi, ou 5 avec la formule du soir, le dimanche et les jours fériés. Enfants de 3 à 10 ans : 2 commandes de 4 plats maximum."
         },
         {
@@ -127,8 +131,11 @@ export const translations = {
       ]
     },
     pricing: {
-      title: "Tarifs",
-      description: "Choisissez votre formule selon le jour et le repas.",
+      title: "Formules & tarifs",
+      description: "Le prix et le fonctionnement de votre formule, selon le jour et le repas. Choisissez sur tablette, commandez et savourez.",
+      orders: "Commandes max.", dishes: "Plats max. par commande", wait: "Entre deux commandes",
+      weekendWait: "Adultes : 15 min. le dimanche midi et les jours fériés à midi ; 20 min. le soir.",
+      sundayLunch: "Dimanche midi",
       adult: "Adultes",
       children: "Menu enfants",
       ageUnit: "ans",
@@ -154,7 +161,7 @@ export const translations = {
       lunch: "Midi",
       dinner: "Soir",
       exclusions: "Boissons et desserts non inclus.",
-      note: "Chaque formule est individuelle. Fermé le mardi. Le tarif des jours fériés s’applique toute la journée."
+      note: "Chaque formule est individuelle. Fermé le mardi, sauf les jours fériés. Le tarif des jours fériés s’applique toute la journée."
     },
     space: {
       title: "Notre espace",
@@ -166,7 +173,7 @@ export const translations = {
     booking: {
       title: "Contacts",
       description: "Un repas en famille, une soirée entre amis ou une occasion à célébrer ? Réservez en ligne ou appelez-nous pour préparer votre visite.",
-      mapTitle: "Localisation du restaurant KUMO à Waterloo", call: "Réserver", directions: "Itinéraire", addressLabel: "Nous trouver", phoneLabel: "Réservations", hoursLabel: "Horaires", daysLabel: "Du mercredi au lundi", closedLabel: "Fermé le mardi", lunchLabel: "Déjeuner", dinnerLabel: "Dîner",
+      mapTitle: "Localisation du restaurant KUMO à Waterloo", call: "Réserver", directions: "Itinéraire", addressLabel: "Nous trouver", phoneLabel: "Réservations", hoursLabel: "Horaires", daysLabel: "Du lundi au dimanche", closedLabel: "Fermé le mardi, sauf les jours fériés", emailLabel: "E-mail", socialLabel: "Instagram", sundayLunchLabel: "Dimanche midi", lunchLabel: "Déjeuner", dinnerLabel: "Dîner",
     },
     reviews: {
       eyebrow: "Avis Google",
@@ -203,10 +210,10 @@ export const translations = {
       imageAlt: "The KUMO restaurant facade in Waterloo, with its sign and blue emblem",
     },
     story: {
-      eyebrow: "Our story",
-      title: "One table. A world of flavours.",
-      description: "In the heart of Waterloo, at Rich’l, KUMO brings the flavours of Asian cuisine to one table. From sushi and teppanyaki to dim sum, explore our menu at your own pace, with dishes prepared to order.",
-      welcome: "Cosy alcoves, a family lunch, dinner for two or an evening with friends: join us for good food and time together.",
+      eyebrow: "The concept",
+      title: "About KUMO",
+      description: "At KUMO, discover refined Japanese cuisine, ordered directly from your tablet. Explore a wide selection of dishes, prepared to order by our team.",
+      steps: ["Choose on the tablet", "Order your dishes", "Enjoy", "Repeat"],
       imageAlt: "The central aisle and golden alcoves at KUMO restaurant in Waterloo",
     },
     menuSection: {
@@ -244,7 +251,7 @@ export const translations = {
           description: "Each guest chooses an individual formula based on the day and meal. The evening formula applies all day on Sundays and public holidays. A children’s menu is available for ages 3–10."
         },
         {
-          title: "Order à la carte",
+          title: "Order on the tablet",
           description: "Adults: up to 3 orders per person, with a maximum of 4 dishes per order at Monday–Saturday lunch, or 5 with the evening formula and all day on Sundays and public holidays. Children aged 3–10: 2 orders of up to 4 dishes."
         },
         {
@@ -263,8 +270,11 @@ export const translations = {
       ]
     },
     pricing: {
-      title: "Pricing",
-      description: "Choose your formula based on the day and meal.",
+      title: "How it works & pricing",
+      description: "Your price and ordering rules, together for each day and meal. Choose on the tablet, order and enjoy.",
+      orders: "Orders max.", dishes: "Dishes max. per order", wait: "Between orders",
+      weekendWait: "Adults: 15 min. at Sunday and public-holiday lunch; 20 min. in the evening.",
+      sundayLunch: "Sunday lunch",
       adult: "Adults",
       children: "Children’s menu",
       ageUnit: "years",
@@ -290,7 +300,7 @@ export const translations = {
       lunch: "Lunch",
       dinner: "Dinner",
       exclusions: "Drinks and desserts are not included.",
-      note: "Each formula is individual. Closed on Tuesdays. Public-holiday prices apply all day."
+      note: "Each formula is individual. Closed on Tuesdays, except public holidays. Public-holiday prices apply all day."
     },
     space: {
       title: "Our Space",
@@ -302,7 +312,7 @@ export const translations = {
     booking: {
       title: "Contacts",
       description: "A family meal, an evening with friends or something to celebrate? Book online or call us to plan your visit.",
-      mapTitle: "KUMO restaurant location in Waterloo", call: "Book a table", directions: "Get directions", addressLabel: "Find us", phoneLabel: "Reservations", hoursLabel: "Opening hours", daysLabel: "Wednesday to Monday", closedLabel: "Closed on Tuesdays", lunchLabel: "Lunch", dinnerLabel: "Dinner",
+      mapTitle: "KUMO restaurant location in Waterloo", call: "Book a table", directions: "Get directions", addressLabel: "Find us", phoneLabel: "Reservations", hoursLabel: "Opening hours", daysLabel: "Monday to Sunday", closedLabel: "Closed on Tuesdays, except public holidays", emailLabel: "Email", socialLabel: "Instagram", sundayLunchLabel: "Sunday lunch", lunchLabel: "Lunch", dinnerLabel: "Dinner",
     },
     reviews: {
       eyebrow: "Google reviews",
@@ -339,10 +349,10 @@ export const translations = {
       imageAlt: "De gevel van restaurant KUMO in Waterloo, met het uithangbord en het blauwe embleem",
     },
     story: {
-      eyebrow: "Ons verhaal",
-      title: "Eén tafel. Een wereld aan smaken.",
-      description: "In het hart van Waterloo, in het Rich’l-centrum, brengt KUMO de smaken van de Aziatische keuken samen aan tafel. Van sushi en teppanyaki tot dim sum: ontdek onze kaart op uw eigen tempo, met gerechten die op bestelling worden bereid.",
-      welcome: "Gezellige nissen, een lunch met het gezin, een diner voor twee of een avond met vrienden: bij ons draait het om lekker eten en samen genieten.",
+      eyebrow: "Het concept",
+      title: "Over KUMO",
+      description: "Ontdek bij KUMO een verfijnde Japanse keuken en bestel rechtstreeks via uw tablet. Laat u verleiden door een ruime keuze aan gerechten, op bestelling bereid door ons team.",
+      steps: ["Kies op de tablet", "Bestel uw gerechten", "Geniet", "Begin opnieuw"],
       imageAlt: "De centrale gang en gouden nissen van restaurant KUMO in Waterloo",
     },
     menuSection: {
@@ -380,7 +390,7 @@ export const translations = {
           description: "Elke gast kiest een eigen formule volgens de dag en de maaltijd. Op zondag en feestdagen geldt de avondformule de hele dag. Er is een kindermenu voor kinderen van 3 tot 10 jaar."
         },
         {
-          title: "Bestel à la carte",
+          title: "Bestel op de tablet",
           description: "Volwassenen: maximaal 3 bestellingen per persoon, met maximaal 4 gerechten per bestelling tijdens de lunch van maandag tot zaterdag, of 5 bij de avondformule en de hele dag op zondag en feestdagen. Kinderen van 3 tot 10 jaar: 2 bestellingen van maximaal 4 gerechten."
         },
         {
@@ -399,8 +409,11 @@ export const translations = {
       ]
     },
     pricing: {
-      title: "Prijzen",
-      description: "Kies uw formule volgens de dag en de maaltijd.",
+      title: "Formules & prijzen",
+      description: "Uw prijs en bestelregels samen, voor elke dag en maaltijd. Kies op de tablet, bestel en geniet.",
+      orders: "Bestellingen max.", dishes: "Gerechten max. per bestelling", wait: "Tussen bestellingen",
+      weekendWait: "Volwassenen: 15 min. tijdens de lunch op zondag en feestdagen; 20 min. ’s avonds.",
+      sundayLunch: "Zondaglunch",
       adult: "Volwassenen",
       children: "Kindermenu",
       ageUnit: "jaar",
@@ -426,7 +439,7 @@ export const translations = {
       lunch: "Lunch",
       dinner: "Diner",
       exclusions: "Dranken en desserts zijn niet inbegrepen.",
-      note: "Elke formule is individueel. Gesloten op dinsdag. Feestdagtarieven gelden de hele dag."
+      note: "Elke formule is individueel. Gesloten op dinsdag, behalve op feestdagen. Feestdagtarieven gelden de hele dag."
     },
     space: {
       title: "Ons restaurant",
@@ -438,7 +451,7 @@ export const translations = {
     booking: {
       title: "Contact",
       description: "Een maaltijd met het gezin, een avond met vrienden of iets te vieren? Reserveer online of bel ons om uw bezoek te plannen.",
-      mapTitle: "Locatie van restaurant KUMO in Waterloo", call: "Reserveren", directions: "Routebeschrijving", addressLabel: "Hier vindt u ons", phoneLabel: "Reserveringen", hoursLabel: "Openingsuren", daysLabel: "Woensdag tot maandag", closedLabel: "Gesloten op dinsdag", lunchLabel: "Lunch", dinnerLabel: "Diner",
+      mapTitle: "Locatie van restaurant KUMO in Waterloo", call: "Reserveren", directions: "Routebeschrijving", addressLabel: "Hier vindt u ons", phoneLabel: "Reserveringen", hoursLabel: "Openingsuren", daysLabel: "Maandag tot zondag", closedLabel: "Gesloten op dinsdag, behalve op feestdagen", emailLabel: "E-mail", socialLabel: "Instagram", sundayLunchLabel: "Zondaglunch", lunchLabel: "Lunch", dinnerLabel: "Diner",
     },
     reviews: {
       eyebrow: "Google-reviews",
