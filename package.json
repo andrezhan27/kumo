@@ -17,6 +17,7 @@
     "test:menu": "node --experimental-strip-types --test scripts/menu-navigation.test.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "lucide-react": "^0.468.0",
     "next": "^16.4.2",
     "react": "^19.0.0",
