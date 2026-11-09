@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 const menuCategories = JSON.parse(await readFile(new URL("../lib/menu-data.json", import.meta.url), "utf8"));
+const dishes = menuCategories.flatMap(category => category.dishes);
 
 const origin = process.env.CHECK_SITE_URL || "http://127.0.0.1:3000";
 const fetchWithTimeout = (url, options = {}) => fetch(url, { ...options, signal: AbortSignal.timeout(15_000) });
@@ -109,15 +110,15 @@ for (const [route, pageHtml] of pages) {
       assert.ok(pageHtml.includes(`href="${path}"`), "Language dropdown must link to every equivalent reservation page");
     }
   } else if (isMenu) {
-    assert.equal([...pageHtml.matchAll(/<figure class="menu-dish-card"/g)].length, 183);
     assert.equal([...pageHtml.matchAll(/class="menu-category-section"/g)].length, 18);
     assert.match(pageHtml, /<select[^>]*id="menu-category"/);
     assert.ok(pageHtml.includes(`href="${prefix || "/"}"`), "Back link must retain the language");
     assert.ok([...pageHtml.matchAll(/<a\b[^>]*href="tel:\+3227676398"/g)].length >= 2, "Menu booking and contact links must call KUMO");
     assert.doesNotMatch(pageHtml, /menu-new-badge|View full menu|View prices|Complete menu/);
     const dishCards = [...pageHtml.matchAll(/<figure class="menu-dish-card">([\s\S]*?)<\/figure>/g)].map(match => match[1]);
+    assert.equal(dishCards.length, dishes.length);
     assert.equal(dishCards.filter(card => card.includes('loading="eager"')).length, 1);
-    assert.equal(dishCards.filter(card => card.includes('loading="lazy"')).length, 182);
+    assert.equal(dishCards.filter(card => card.includes('loading="lazy"')).length, dishes.length - 1);
     const menuIds = [...pageHtml.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
     assert.equal(new Set(menuIds).size, menuIds.length);
     for (const category of menuCategories) {
@@ -222,9 +223,8 @@ for (const path of assetUrls) {
 console.log(`PASS: French/English/Dutch home, menu and reservation pages, language dropdown, restaurant story, localized links and headings, canonical URLs, language alternates, social metadata, sitemap, robots, KUMO embed, structured data, legacy redirects, branded 404 and ${assetUrls.length} assets.`);
 console.log(`All enumerated assets: ${(totalBytes / 1024).toFixed(0)} KiB (uncompressed; includes offscreen images).`);
 
-const dishes = menuCategories.flatMap(category => category.dishes);
-assert.equal(new Set(dishes.map(dish => dish.source)).size, 183, "Each supplied image must appear once");
-assert.equal(new Set(dishes.map(dish => dish.image)).size, 183);
+assert.equal(new Set(dishes.map(dish => dish.source)).size, dishes.length, "Each menu image source must be unique");
+assert.equal(new Set(dishes.map(dish => dish.image)).size, dishes.length);
 for (let offset = 0; offset < dishes.length; offset += 12) {
   await Promise.all(dishes.slice(offset, offset + 12).map(async dish => {
     const image = await fetchWithTimeout(new URL(dish.image, origin));
@@ -233,4 +233,4 @@ for (let offset = 0; offset < dishes.length; offset += 12) {
     assert.ok((await image.arrayBuffer()).byteLength > 0);
   }));
 }
-console.log("PASS: all 183 supplied menu images, 18 categories, localized captions, fragments, lazy loading, booking and telephone links.");
+console.log(`PASS: all ${dishes.length} menu images, 18 categories, localized captions, fragments, lazy loading, booking and telephone links.`);

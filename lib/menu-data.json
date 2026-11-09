@@ -26,19 +26,6 @@
         "nameOrigin": "filename"
       },
       {
-        "id": "starters-03",
-        "source": "厨房/厨房前菜/SA 3. INSALATA SALMONE.jpg",
-        "image": "/menu/starters/03.webp",
-        "name": {
-          "fr": "Salade de saumon",
-          "en": "Salmon salad",
-          "nl": "Zalmsalade"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
         "id": "starters-04",
         "source": "厨房/厨房前菜/SA 4. WAKAME-SALAT.jpg",
         "image": "/menu/starters/04.webp",
@@ -78,19 +65,6 @@
         "nameOrigin": "filename"
       },
       {
-        "id": "starters-07",
-        "source": "厨房/厨房前菜/SA 9. INSALATA MANGO.jpg",
-        "image": "/menu/starters/07.webp",
-        "name": {
-          "fr": "Salade de mangue",
-          "en": "Mango salad",
-          "nl": "Mangosalade"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
         "id": "starters-08",
         "source": "厨房/厨房前菜/tranches de bœuf.jpg",
         "image": "/menu/starters/08.webp",
@@ -102,19 +76,6 @@
         "needsName": false,
         "isNew": false,
         "nameOrigin": "filename"
-      },
-      {
-        "id": "starters-01",
-        "source": "厨房/厨房前菜/220.jpg",
-        "image": "/menu/starters/01.webp",
-        "name": {
-          "fr": "Chips de crevettes",
-          "en": "Prawn crackers",
-          "nl": "Kroepoek"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "visual"
       },
       {
         "id": "starters-09",
@@ -243,32 +204,6 @@
           "fr": "Pain à la fraise",
           "en": "Strawberry bread",
           "nl": "Brood met aardbei"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
-        "id": "sushi-starters-09",
-        "source": "寿司/antipasto/tacos mexico.jpg",
-        "image": "/menu/sushi-starters/09.webp",
-        "name": {
-          "fr": "Tacos Mexico",
-          "en": "Tacos Mexico",
-          "nl": "Taco’s Mexico"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
-        "id": "sushi-starters-10",
-        "source": "寿司/antipasto/TACOS SAKE.jpg",
-        "image": "/menu/sushi-starters/10.webp",
-        "name": {
-          "fr": "Tacos au saumon",
-          "en": "Salmon tacos",
-          "nl": "Taco’s met zalm"
         },
         "needsName": false,
         "isNew": false,
@@ -1647,45 +1582,6 @@
         "nameOrigin": "filename"
       },
       {
-        "id": "steamed-05",
-        "source": "厨房/蒸锅/RA 6 . GEDÄMPFTES BROT.jpg",
-        "image": "/menu/steamed/05.webp",
-        "name": {
-          "fr": "Pain vapeur",
-          "en": "Steamed bread",
-          "nl": "Gestoomd brood"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
-        "id": "steamed-06",
-        "source": "厨房/蒸锅/RA 7. RAVIOLI MISTI  3 STK..jpg",
-        "image": "/menu/steamed/06.webp",
-        "name": {
-          "fr": "Raviolis assortis · 3 pièces",
-          "en": "Mixed dumplings · 3 pieces",
-          "nl": "Gemengde dumplings · 3 stuks"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
-        "id": "steamed-07",
-        "source": "厨房/蒸锅/RA 8. RAVIOLI VEGETABLE  3 STK..png",
-        "image": "/menu/steamed/07.webp",
-        "name": {
-          "fr": "Raviolis aux légumes · 3 pièces",
-          "en": "Vegetable dumplings · 3 pieces",
-          "nl": "Groentedumplings · 3 stuks"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
         "id": "steamed-08",
         "source": "厨房/蒸锅/RA 9 . CAPESANTE AGLIO  2 STK..png",
         "image": "/menu/steamed/08.webp",
@@ -1760,19 +1656,6 @@
           "fr": "Nuggets de poulet frits",
           "en": "Fried chicken nuggets",
           "nl": "Gefrituurde kipnuggets"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
-        "id": "fried-06",
-        "source": "厨房/油锅/VO 8. FRITTIERTES BROT.jpg",
-        "image": "/menu/fried/06.webp",
-        "name": {
-          "fr": "Pain frit",
-          "en": "Fried bread",
-          "nl": "Gefrituurd brood"
         },
         "needsName": false,
         "isNew": false,
@@ -1989,45 +1872,6 @@
         "nameOrigin": "filename"
       },
       {
-        "id": "teppanyaki-05",
-        "source": "厨房/铁板/GE 10. GARNELENSPIESSE 2 STK.jpg",
-        "image": "/menu/teppanyaki/05.webp",
-        "name": {
-          "fr": "Brochettes de crevettes · 2 pièces",
-          "en": "Prawn skewers · 2 pieces",
-          "nl": "Garnalenspiesjes · 2 stuks"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
-        "id": "teppanyaki-06",
-        "source": "厨房/铁板/GE 11.SPIEDINI CALAMARO.jpeg",
-        "image": "/menu/teppanyaki/06.webp",
-        "name": {
-          "fr": "Brochettes de calamar",
-          "en": "Squid skewers",
-          "nl": "Inktvisspiesjes"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
-        "id": "teppanyaki-07",
-        "source": "厨房/铁板/土司鹅肝.jpg",
-        "image": "/menu/teppanyaki/07.webp",
-        "name": {
-          "fr": "Toast au foie gras",
-          "en": "Foie gras toast",
-          "nl": "Toast met foie gras"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "filename"
-      },
-      {
         "id": "teppanyaki-13",
         "source": "厨房/铁板/煎饺子.jpg",
         "image": "/menu/teppanyaki/13.webp",
@@ -2186,19 +2030,6 @@
         "nameOrigin": "visual"
       },
       {
-        "id": "wok-04",
-        "source": "厨房/大厨/炒菜类/100_clipped_rev_1.jpg",
-        "image": "/menu/wok/04.webp",
-        "name": {
-          "fr": "Palourdes sautées",
-          "en": "Stir-fried clams",
-          "nl": "Gewokte venusschelpen"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "visual"
-      },
-      {
         "id": "wok-05",
         "source": "厨房/大厨/炒菜类/111.jpg",
         "image": "/menu/wok/05.webp",
@@ -2206,19 +2037,6 @@
           "fr": "Crevettes en sauce rouge",
           "en": "Prawns in red sauce",
           "nl": "Garnalen in rode saus"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "visual"
-      },
-      {
-        "id": "wok-06",
-        "source": "厨房/大厨/炒菜类/217.jpg",
-        "image": "/menu/wok/06.webp",
-        "name": {
-          "fr": "Légumes verts sautés",
-          "en": "Stir-fried greens",
-          "nl": "Gewokte groene groenten"
         },
         "needsName": false,
         "isNew": false,
@@ -2377,19 +2195,6 @@
           "fr": "Nouilles au wok",
           "en": "Wok-fried noodles",
           "nl": "Noedels uit de wok"
-        },
-        "needsName": false,
-        "isNew": false,
-        "nameOrigin": "visual"
-      },
-      {
-        "id": "noodles-06",
-        "source": "厨房/大厨/面类/187.jpg",
-        "image": "/menu/noodles/06.webp",
-        "name": {
-          "fr": "Soupe de nouilles",
-          "en": "Noodle soup",
-          "nl": "Noedelsoep"
         },
         "needsName": false,
         "isNew": false,
