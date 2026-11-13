@@ -12,7 +12,7 @@ export function Hero() {
       <CloudOrnament className="cloud-ornament--hero-top" />
       <CloudOrnament className="cloud-ornament--hero-bottom" />
       <div className="section-shell relative z-10 grid min-h-[calc(100svh-4rem)] items-center py-10 md:pt-12 md:pb-16">
-        <div className="mx-auto w-full max-w-4xl text-center">
+        <div className="hero-content mx-auto w-full max-w-4xl text-center">
           <p className="label-caps mb-4 text-ink/90 md:mb-7">{t.hero.eyebrow}</p>
           <h1 className="hero-title text-[clamp(2.75rem,10vw,8rem)] leading-none text-white">{t.hero.title}</h1>
           <p className="mx-auto mt-4 max-w-sm text-sm leading-7 text-ink/90 sm:max-w-md sm:text-base md:mt-7 md:text-ink/85">{t.hero.description}</p>
