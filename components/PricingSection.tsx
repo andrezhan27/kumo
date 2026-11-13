@@ -34,7 +34,6 @@ export function PricingSection() {
             const formula = copy.formulas[prices.id];
             const rules = diningFormulas[prices.formula === "lunch" ? 0 : 1];
             const isWeekend = prices.id === "weekendHolidays";
-            const childWait = prices.formula === "lunch" ? childrenMenu.lunchWaitMinutes : childrenMenu.dinnerWaitMinutes;
             return (
               <article aria-labelledby={`price-${prices.id}`} className="pricing-card flex min-w-0 flex-col rounded-lg border border-line/30 p-5 sm:p-6" key={prices.id} style={{ backgroundColor: pricingCardColors[prices.id] }}>
                 <h3 className="text-xl font-medium tracking-tight text-gold" id={`price-${prices.id}`}>{formula.title}</h3>
@@ -59,12 +58,11 @@ export function PricingSection() {
                 <div className="mt-5 border-t border-line/50 pt-4">
                   <dl data-prices>
                     <div className="flex items-baseline justify-between gap-3">
-                      <dt className="text-sm text-gold">{copy.children}<span className="mt-1 block text-xs text-ink-muted">{childrenMenu.minAge}–{childrenMenu.maxAge} {copy.ageUnit} · {copy.perPerson}</span></dt>
+                      <dt className="text-sm text-gold">{copy.children}</dt>
                       <dd className="shrink-0 text-2xl font-medium tracking-tight text-gold">{formatPrice(prices.child)}</dd>
                     </div>
                   </dl>
-                  <p className="mt-3 text-xs leading-6 text-ink-muted">{childrenMenu.orders} {t.howItWorks.childrenOrders} · {childrenMenu.dishesPerOrder} {t.howItWorks.childrenDishes}</p>
-                  <p className="text-xs leading-6 text-ink-muted">{childWait} min · {copy.wait}</p>
+                  <p className="mt-2 text-xs leading-6 text-ink-muted">{childrenMenu.minAge}–{childrenMenu.maxAge} {copy.ageUnit} · {childrenMenu.orders} {copy.childrenOrders} · {childrenMenu.dishesPerOrder} {copy.childrenDishes}</p>
                 </div>
               </article>
             );

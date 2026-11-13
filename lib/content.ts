@@ -12,7 +12,6 @@ export const diningFormulas = [
 
 export const childrenMenu = {
   minAge: 3, maxAge: 10, orders: 2, dishesPerOrder: 4,
-  lunchWaitMinutes: 15, dinnerWaitMinutes: 20,
 } as const;
 
 export const diningPrices = [
@@ -68,14 +67,13 @@ export const translations = {
       title: brandName,
       description: "Un nuage de saveurs, au cœur de Waterloo. Sushis, teppanyaki et découvertes à partager.",
       primary: "Réserver",
-      imageAlt: "La façade du restaurant KUMO à Waterloo, son enseigne et son emblème bleu",
     },
     story: {
       eyebrow: "Le concept",
       title: "À propos de KUMO",
       description: "Chez KUMO, découvrez une cuisine japonaise raffinée, commandée directement depuis votre tablette. Laissez-vous tenter par une large sélection de plats, préparés à la commande par notre équipe.",
       steps: ["Choisissez sur tablette", "Commandez vos plats", "Savourez", "Recommencez"],
-      imageAlt: "L’allée centrale et les alcôves dorées du restaurant KUMO à Waterloo",
+      imageAlt: "La façade du restaurant KUMO à Waterloo, avec son enseigne et son emblème",
     },
     menuSection: {
       title: "Notre carte",
@@ -101,11 +99,6 @@ export const translations = {
       wait: "Entre deux commandes",
       adultWaitNote: "Adultes : 15 min. le dimanche midi et les jours fériés à midi ; 20 min. le soir. La formule du soir s’applique toute la journée le dimanche et les jours fériés.",
       exclusions: "Toutes les formules sont hors boissons et desserts.",
-      childrenTitle: "Menu enfants",
-      ageUnit: "ans",
-      childrenOrders: "commandes par enfant",
-      childrenDishes: "plats maximum par commande",
-      childrenWaitNote: "Entre deux commandes : 15 min. à midi du lundi au samedi ; 20 min. le soir, le dimanche et les jours fériés, y compris à midi.",
       steps: [
         {
           title: "Choisissez votre formule",
@@ -134,11 +127,13 @@ export const translations = {
       title: "Formules & tarifs",
       description: "Le prix et le fonctionnement de votre formule, selon le jour et le repas. Choisissez sur tablette, commandez et savourez.",
       orders: "Commandes max.", dishes: "Plats max. par commande", wait: "Entre deux commandes",
-      weekendWait: "Adultes : 15 min. le dimanche midi et les jours fériés à midi ; 20 min. le soir.",
+      weekendWait: "15 min. le dimanche midi et les jours fériés à midi ; 20 min. le soir.",
       sundayLunch: "Dimanche midi",
       adult: "Adultes",
       children: "Menu enfants",
       ageUnit: "ans",
+      childrenOrders: "commandes",
+      childrenDishes: "plats par commande",
       perPerson: "par personne",
       formulas: {
         weekdayLunch: {
@@ -207,14 +202,13 @@ export const translations = {
       title: brandName,
       description: "A cloud of flavours in the heart of Waterloo. Sushi, teppanyaki and discoveries to share.",
       primary: "Book a table",
-      imageAlt: "The KUMO restaurant facade in Waterloo, with its sign and blue emblem",
     },
     story: {
       eyebrow: "The concept",
       title: "About KUMO",
       description: "At KUMO, discover refined Japanese cuisine, ordered directly from your tablet. Explore a wide selection of dishes, prepared to order by our team.",
       steps: ["Choose on the tablet", "Order your dishes", "Enjoy", "Repeat"],
-      imageAlt: "The central aisle and golden alcoves at KUMO restaurant in Waterloo",
+      imageAlt: "The facade of KUMO restaurant in Waterloo, with its sign and emblem",
     },
     menuSection: {
       title: "Our menu",
@@ -240,11 +234,6 @@ export const translations = {
       wait: "Between orders",
       adultWaitNote: "Adults: 15 min. at Sunday and public-holiday lunch; 20 min. in the evening. The evening formula applies all day on Sundays and public holidays.",
       exclusions: "Drinks and desserts are not included in any formula.",
-      childrenTitle: "Children’s menu",
-      ageUnit: "years",
-      childrenOrders: "orders per child",
-      childrenDishes: "dishes maximum per order",
-      childrenWaitNote: "Between orders: 15 min. at Monday–Saturday lunch; 20 min. in the evening and all day on Sundays and public holidays, including lunch.",
       steps: [
         {
           title: "Choose your formula",
@@ -273,11 +262,13 @@ export const translations = {
       title: "How it works & pricing",
       description: "Your price and ordering rules, together for each day and meal. Choose on the tablet, order and enjoy.",
       orders: "Orders max.", dishes: "Dishes max. per order", wait: "Between orders",
-      weekendWait: "Adults: 15 min. at Sunday and public-holiday lunch; 20 min. in the evening.",
+      weekendWait: "15 min. at Sunday and public-holiday lunch; 20 min. in the evening.",
       sundayLunch: "Sunday lunch",
       adult: "Adults",
       children: "Children’s menu",
       ageUnit: "years",
+      childrenOrders: "orders",
+      childrenDishes: "dishes per order",
       perPerson: "per person",
       formulas: {
         weekdayLunch: {
@@ -346,14 +337,13 @@ export const translations = {
       title: brandName,
       description: "Een wolk van smaken in het hart van Waterloo. Sushi, teppanyaki en nieuwe smaken om samen te ontdekken.",
       primary: "Reserveren",
-      imageAlt: "De gevel van restaurant KUMO in Waterloo, met het uithangbord en het blauwe embleem",
     },
     story: {
       eyebrow: "Het concept",
       title: "Over KUMO",
       description: "Ontdek bij KUMO een verfijnde Japanse keuken en bestel rechtstreeks via uw tablet. Laat u verleiden door een ruime keuze aan gerechten, op bestelling bereid door ons team.",
       steps: ["Kies op de tablet", "Bestel uw gerechten", "Geniet", "Begin opnieuw"],
-      imageAlt: "De centrale gang en gouden nissen van restaurant KUMO in Waterloo",
+      imageAlt: "De gevel van restaurant KUMO in Waterloo, met het uithangbord en het embleem",
     },
     menuSection: {
       title: "Onze kaart",
@@ -379,11 +369,6 @@ export const translations = {
       wait: "Tussen twee bestellingen",
       adultWaitNote: "Volwassenen: 15 min. tijdens de lunch op zondag en feestdagen; 20 min. ’s avonds. Op zondag en feestdagen geldt de avondformule de hele dag.",
       exclusions: "Dranken en desserts zijn bij geen enkele formule inbegrepen.",
-      childrenTitle: "Kindermenu",
-      ageUnit: "jaar",
-      childrenOrders: "bestellingen per kind",
-      childrenDishes: "gerechten maximaal per bestelling",
-      childrenWaitNote: "Tussen bestellingen: 15 min. tijdens de lunch van maandag tot zaterdag; 20 min. ’s avonds en de hele dag op zondag en feestdagen, ook tijdens de lunch.",
       steps: [
         {
           title: "Kies uw formule",
@@ -412,11 +397,13 @@ export const translations = {
       title: "Formules & prijzen",
       description: "Uw prijs en bestelregels samen, voor elke dag en maaltijd. Kies op de tablet, bestel en geniet.",
       orders: "Bestellingen max.", dishes: "Gerechten max. per bestelling", wait: "Tussen bestellingen",
-      weekendWait: "Volwassenen: 15 min. tijdens de lunch op zondag en feestdagen; 20 min. ’s avonds.",
+      weekendWait: "15 min. tijdens de lunch op zondag en feestdagen; 20 min. ’s avonds.",
       sundayLunch: "Zondaglunch",
       adult: "Volwassenen",
       children: "Kindermenu",
       ageUnit: "jaar",
+      childrenOrders: "bestellingen",
+      childrenDishes: "gerechten per bestelling",
       perPerson: "per persoon",
       formulas: {
         weekdayLunch: {

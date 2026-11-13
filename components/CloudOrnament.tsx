@@ -1,10 +1,14 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import defaultCloud from "@/public/ornaments/kumo-cloud-hero-detailed.webp";
 
 /** A decorative background watermark; never announced or interactive. */
-export function CloudOrnament({ className = "" }: { className?: string }) {
+export function CloudOrnament({ className = "", image = defaultCloud }: {
+  className?: string;
+  image?: StaticImageData;
+}) {
   return (
     <div aria-hidden="true" className={`cloud-ornament ${className}`}>
-      <Image alt="" className="h-auto w-full" height={400} sizes="(min-width: 1477px) 1152px, (min-width: 768px) 78vw, 150vw" src="/ornaments/kumo-cloud.webp" width={1200} />
+      <Image alt="" className="h-auto w-full" sizes="(min-width: 768px) min(72vw, 66rem), 150vw" src={image} />
     </div>
   );
 }

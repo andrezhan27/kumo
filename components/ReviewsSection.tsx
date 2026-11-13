@@ -60,9 +60,9 @@ export function ReviewsSection() {
                       {Array.from({ length: review.rating }, (_, star) => <Star aria-hidden="true" className="h-3.5 w-3.5 fill-current" key={star} />)}
                     </div>
                     <figure className="mt-4 flex flex-1 flex-col">
-                      <blockquote className="font-serif text-[1.0625rem] leading-[1.45] whitespace-pre-line md:text-lg">“{review.excerpt[language]}”</blockquote>
+                      <blockquote className="text-[1.0625rem] leading-[1.45] whitespace-pre-line md:text-lg">“{review.excerpt[language]}”</blockquote>
                       <figcaption className="mt-auto flex items-center gap-2.5 pt-5">
-                        <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-surface-strong font-serif text-base font-semibold text-gold">{Array.from(review.author)[0].toUpperCase()}</span>
+                        <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-surface-strong text-base font-semibold text-gold">{Array.from(review.author)[0].toUpperCase()}</span>
                         <span className="min-w-0">
                           <span className="block text-[0.8125rem] font-semibold">{review.author}</span>
                           <span className="mt-0.5 block text-[0.6875rem] leading-4 text-ink-muted">Google · {review.originalLanguage === language ? t.reviews.excerpt : t.reviews.translatedExcerpt}</span>

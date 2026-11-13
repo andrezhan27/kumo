@@ -143,10 +143,11 @@ for (const [route, pageHtml] of pages) {
     assert.ok(pageHtml.includes('href="https://www.instagram.com/kumowaterloo/"'));
     assert.ok(plainText(pageHtml).includes({ fr: "Fermé le mardi, sauf les jours fériés", en: "Closed on Tuesdays, except public holidays", nl: "Gesloten op dinsdag, behalve op feestdagen" }[language]));
     const childrenLabel = { fr: "Menu enfants", en: "Children’s menu", nl: "Kindermenu" }[language];
-    assert.ok(plainText(combinedHtml).includes(childrenLabel));
-    assert.ok(plainText(combinedHtml).includes("3–10"));
-    assert.ok(plainText(combinedHtml).includes({ fr: "2 commandes par enfant", en: "2 orders per child", nl: "2 bestellingen per kind" }[language]));
-    assert.ok(plainText(combinedHtml).includes({ fr: "4 plats maximum par commande", en: "4 dishes maximum per order", nl: "4 gerechten maximaal per bestelling" }[language]));
+    const childrenSummary = {
+      fr: "3–10 ans · 2 commandes · 4 plats par commande",
+      en: "3–10 years · 2 orders · 4 dishes per order",
+      nl: "3–10 jaar · 2 bestellingen · 4 gerechten per bestelling",
+    }[language];
     for (const [formula, adult, child] of [["weekdayLunch", 31, 15.5], ["saturdayLunch", 36, 18], ["weekdayDinner", 45, 22.5], ["weekendHolidays", 55, 27.5]]) {
       const card = combinedHtml.match(new RegExp(`<article[^>]*aria-labelledby="price-${formula}"[^>]*>([\\s\\S]*?)<\\/article>`))[1];
       const priceMarkup = [...card.matchAll(/<dl\b[^>]*data-prices="true"[^>]*>([\s\S]*?)<\/dl>/g)].map(match => match[1]).join("");
@@ -158,10 +159,9 @@ for (const [route, pageHtml] of pages) {
       assert.deepEqual([...adultRules.matchAll(/<dd\b[^>]*>([\s\S]*?)<\/dd>/g)].map(cell => plainText(cell[1])),
         ["3", lunch ? "4" : "5", lunch ? "15 min" : formula === "weekendHolidays" ? "20 min*" : "20 min"], `${route}: incorrect ordering rules for ${formula}`);
       const childRules = plainText(card.slice(card.lastIndexOf('data-prices="true"')));
-      assert.ok(childRules.includes("2"));
-      assert.ok(childRules.includes({ fr: "4 plats maximum par commande", en: "4 dishes maximum per order", nl: "4 gerechten maximaal per bestelling" }[language]));
-      assert.ok(childRules.includes(`${lunch ? 15 : 20} min`));
-      if (formula === "weekendHolidays") assert.ok(plainText(card).includes({ fr: "15 min. le dimanche midi", en: "15 min. at Sunday", nl: "15 min. tijdens de lunch op zondag" }[language]));
+      assert.ok(childRules.includes(childrenSummary));
+      assert.doesNotMatch(childRules, /\b(?:15|20) min\b/);
+      if (formula === "weekendHolidays") assert.ok(plainText(card).includes({ fr: "* 15 min. le dimanche midi", en: "* 15 min. at Sunday", nl: "* 15 min. tijdens de lunch op zondag" }[language]));
     }
     assert.ok(plainText(pageHtml).includes({ fr: "Boissons et desserts non inclus.", en: "Drinks and desserts are not included.", nl: "Dranken en desserts zijn niet inbegrepen." }[language]));
     assert.ok(pageHtml.includes({ en: "Asian restaurant in Waterloo, Belgium", fr: "Restaurant asiatique à Waterloo", nl: "Aziatisch restaurant in Waterloo, België" }[language]));

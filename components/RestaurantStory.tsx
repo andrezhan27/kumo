@@ -29,7 +29,7 @@ export function RestaurantStory() {
           </ol>
         </div>
         <div className="story-photo relative aspect-[4/3] overflow-hidden rounded-lg bg-surface-strong">
-          <Image alt={t.story.imageAlt} className="object-cover" fill sizes="(min-width: 1600px) 672px, (min-width: 768px) 44vw, 92vw" src="/space/space-06.webp" />
+          <Image alt={t.story.imageAlt} className="object-cover" fill sizes="(min-width: 1600px) 672px, (min-width: 768px) 44vw, 92vw" src="/hero/kumo-hero-desktop.webp" />
         </div>
       </div>
     </section>

@@ -29,7 +29,7 @@ Replaces the previous six gallery photos. Files are copied without re-encoding.
 | public/space/space-06.webp | Symmetrical Futuristic Restaurant Interior.webp |
 | public/space/space-07.webp | Symmetrical Luxury Sushi Booth.webp |
 
-- Active responsive hero: owner-supplied `public/hero/kumo-hero-mobile.webp` and `public/hero/kumo-hero-desktop.webp` (27 October 2026).
+- Former responsive hero: owner-supplied `public/hero/kumo-hero-mobile.webp` and `public/hero/kumo-hero-desktop.webp` (27 October 2026). The desktop photo now appears in the Concept section.
 
 ## Additional food photos — 2 November 2026
 
@@ -52,10 +52,22 @@ The original library contained 183 images in `比利时图库/厨房` and `比�
 
 ## Gold cloud ornament — 6 November 2026
 
-- Asset: `public/ornaments/kumo-cloud.webp`, 1200 × 400px, transparent WebP, about 107 KiB.
+- Original asset: `public/ornaments/kumo-cloud.webp`, 1200 × 400px, transparent WebP, about 107 KiB.
+- Default ornament: `public/ornaments/kumo-cloud-hero-detailed.webp`, 2172 × 724px transparent WebP. It appears in the upper-left and lower-right hero and in the other sections that use the shared cloud ornament. The built-in image generator used the original ornament and a close-up of its engraving as references.
+
+  > Precisely redraw the reference ornament for the KUMO restaurant hero at the highest available native resolution. The reference is the ORIGINAL intricate Japanese gold cloud, and fidelity to its interior pattern is the priority. Match the elongated 3:1 composition, irregular overlapping lobes, layered scallops of varying size, and tiny curled wisps. Preserve the dense engraving: give EACH major lobe six to nine closely spaced, distinctly visible nested hairline gold arcs, and retain delicate parallel ribbing even in the little lower scallops. Use thin champagne-gold lines over smooth antique bronze and ochre shading, with a slightly stronger rim that never overpowers the fine interior arcs. The result should resemble a finely engraved print with smooth ink and crisp edges. Remove only the random speckles, pixelation and rough foil surface, retaining the elaborate interior ornamentation and tonal variation. Avoid broad empty panels, thick cartoon outlines, bevels, glow, and text. One full cloud cluster filling the width with narrow clear margins, isolated on genuinely transparent alpha. Use a wide 3:1 canvas, ideally at least 2400 pixels wide.
+
+- Alternate hero trial: `public/ornaments/kumo-cloud-companion.webp`, 2172 × 724px transparent WebP. The built-in image generator used the default artwork as the style reference.
+
+  > Generate a new companion Japanese cloud ornament for the lower-right corner of the KUMO restaurant website hero. Use the reference only for the engraved drawing style, warm antique gold and bronze palette, thin champagne highlights, texture, and line density. Create a clearly different silhouette: a shallow, elongated drifting cloud with two staggered low banks of unequal size, a shallow saddle between them, and three long parallel curling wind trails reaching toward the left. Place the larger bank toward the right, leaving a taper on the inward-facing left. Use broad, overlapping scallops with at least five to eight crisp nested interior arcs inside each major lobe, including fine ribbing in the smaller lower curls. Give the surface restrained shading and minimal grain. Make the profile low and flowing, with long wisps, instead of the tall single peaked mound in the style reference. One ornament, fully contained, slim margins, wide 3:1 canvas, highest native resolution available, genuinely transparent background and negative space, no text or shadow.
+
+- Earlier hero trial: `public/ornaments/kumo-cloud-hero.webp`, 2172 × 724px transparent WebP. The built-in image generator used the original cloud as a silhouette reference and redrew it with fewer contours, smooth gold shading and no foil grain.
+
+  > Create a transparent high-resolution website ornament based on the reference cloud silhouette for KUMO. One wide, shallow cluster of traditional Japanese overlapping cloud scallops with a few graceful curled wisps at either end, matching the reference's asymmetric silhouette and roughly 3:1 canvas. Redraw it as clean gold linework with fewer, evenly spaced contours and understated smooth shading. Crisp continuous warm-gold strokes, deep muted ochre secondary lines, transparent negative space and a genuinely transparent background. Smooth solid color, no grain, foil texture, speckles, distress, blur, glow, bevel, black matte, text or other objects. Use the highest native resolution available, ideally at least 2400 pixels wide. Fill most of the width, leave a slim transparent margin around every edge, and keep the entire cluster within frame.
+
 - Generated with the built-in imagegen tool using the owner’s attached `codex-clipboard-5272d232-1af4-4120-8508-fd49330cb44b.png` as the style reference. Optimized to WebP with alpha preserved. This is reference-inspired artwork, not a crop from the photographed menu.
-- Used sparingly across the site: six oversized background watermarks on the home page (About, menu preview, pricing, space, contacts and footer) and two on the full menu (header background and footer). The external reservation embed retains its full-height layout. Decorative images have empty alternative text, are hidden from assistive technology, ignore pointer events, and do not animate. The same local image is reused and lazily loaded.
-- `components/CloudOrnament.tsx` owns the image markup; `app/globals.css` controls placement, 10–14% opacity and responsive sizes (78vw up to 1152px on desktop, 150vw on mobile). Clouds are absolutely positioned, clipped to their sections and layered below the content, so they occupy no layout space. The brochure-sampled pricing colors remain intact.
+- Decorative clouds appear in the hero, About, menu preview, pricing, space, contacts, the full menu header and the shared footer. They are lazily loaded and hidden from assistive technology.
+- `components/CloudOrnament.tsx` owns the image markup. `app/globals.css` positions the ornaments behind the content and controls their opacity and responsive sizes.
 
 Final generation prompt (built-in tool, transparent background enabled):
 

@@ -11,8 +11,8 @@
   --color-night: #1c1b1b;
   --color-line: #655b50;
 
-  --font-display: var(--font-manrope);
-  --font-body: var(--font-manrope);
+  --font-display: var(--font-montserrat);
+  --font-body: var(--font-montserrat);
 
   --spacing-edge: clamp(1.5rem, 4vw, 5rem);
   --spacing-section: clamp(5rem, 12vw, 10rem);
@@ -37,7 +37,7 @@ body {
   overflow-x: hidden;
   background: var(--color-background);
   color: var(--color-ink);
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
   text-rendering: geometricPrecision;
 }
 
@@ -108,11 +108,21 @@ img {
 .cloud-ornament {
   position: absolute;
   z-index: 0;
-  width: clamp(36rem, 78vw, 72rem);
+  width: min(72vw, 66rem);
   opacity: 0.14;
   pointer-events: none;
   user-select: none;
   filter: saturate(0.55);
+}
+
+.hero {
+  background-image: radial-gradient(ellipse at 50% 45%, #292420, #161515 85%);
+}
+
+.hero-title {
+  padding-inline-start: 0.22em;
+  font-weight: 400;
+  letter-spacing: 0.22em;
 }
 
 .cloud-ornament--about {
@@ -130,32 +140,27 @@ img {
 .cloud-ornament--menu-preview {
   top: 0;
   left: -24%;
-  opacity: 0.11;
 }
 
 .cloud-ornament--space {
   top: 1rem;
   right: -24%;
-  opacity: 0.13;
 }
 
 .cloud-ornament--contact {
   top: -1rem;
   left: -22%;
-  opacity: 0.11;
   transform: scaleX(-1);
 }
 
 .cloud-ornament--menu-page {
   top: 4rem;
   right: -20%;
-  opacity: 0.12;
 }
 
 .cloud-ornament--footer {
   right: -12%;
   bottom: -2rem;
-  opacity: 0.1;
 }
 
 .brand-eyebrow {
@@ -186,7 +191,6 @@ img {
 @media (max-width: 767px) {
   .cloud-ornament {
     width: 150vw;
-    opacity: 0.11;
   }
 
   .cloud-ornament--about,
@@ -213,13 +217,22 @@ img {
   }
 }
 
+.cloud-ornament--hero-top {
+  top: clamp(4.5rem, 14svh, 10rem);
+  left: -21%;
+}
+
+.cloud-ornament--hero-bottom {
+  right: -12%;
+  bottom: 0;
+}
+
 /* Keep the embedded street map legible within the charcoal contact section. */
 .location-map {
   filter: grayscale(1) invert(0.9) contrast(0.9);
 }
 
 .label-caps {
-  font-family: var(--font-manrope), system-ui, sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -228,7 +241,6 @@ img {
 }
 
 .display-heading {
-  font-family: var(--font-manrope), system-ui, sans-serif;
   font-weight: 500;
   letter-spacing: -0.055em;
 }
@@ -442,8 +454,7 @@ footer :focus-visible {
   margin-inline: auto;
 }
 
-.menu-serif {
-  font-family: var(--font-bodoni), Georgia, serif;
+.menu-heading {
   font-weight: 400;
   letter-spacing: -0.045em;
 }

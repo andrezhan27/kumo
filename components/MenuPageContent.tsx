@@ -59,7 +59,7 @@ export function MenuPageContent() {
         <CloudOrnament className="cloud-ornament--menu-page" />
         <div className="menu-shell">
           <div className="menu-title-row">
-            <h1 className="menu-serif menu-title">{copy.title}</h1>
+            <h1 className="menu-heading menu-title">{copy.title}</h1>
             <Link className="menu-home-link" href={localizeHref("/")}>
               <ArrowLeft aria-hidden="true" size={16} strokeWidth={1.5} />
               <span className="md:hidden">{copy.home}</span>
@@ -93,7 +93,7 @@ export function MenuPageContent() {
                 <div className="menu-section-header">
                   <div className="min-w-0">
                     <p aria-hidden="true" className="label-caps menu-section-number">{String(categoryIndex + 1).padStart(2, "0")} / MENU</p>
-                    <h2 className="menu-serif menu-category-title" id={`${category.id}-title`} tabIndex={-1}>{category.title[language]}</h2>
+                    <h2 className="menu-heading menu-category-title" id={`${category.id}-title`} tabIndex={-1}>{category.title[language]}</h2>
                     <p className="menu-category-description">{category.description[language]}</p>
                   </div>
                   <a className="menu-back-to-categories" href="#menu-categories" onClick={event => followCategory(event, "menu-categories", true)}>
