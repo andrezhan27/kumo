@@ -23,7 +23,7 @@ export function PricingSection() {
   }).format(value);
 
   return (
-    <section aria-labelledby="pricing-heading" className="cloud-accent-section section-warm bg-background py-16 text-ink md:py-20" id="pricing">
+    <section aria-labelledby="pricing-heading" className="cloud-accent-section bg-background py-16 text-ink md:py-20" id="pricing">
       <CloudOrnament className="cloud-ornament--pricing" />
       <div className="section-shell max-w-5xl">
         <p className="brand-eyebrow label-caps text-gold">{t.howItWorks.eyebrow}</p>

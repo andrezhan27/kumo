@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SiteDocument } from "@/components/SiteDocument";
 import { restaurantSchema } from "@/lib/seo";
 
-export const viewport: Viewport = { themeColor: "#1c1b1b" };
+export const viewport: Viewport = { themeColor: "#000000" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

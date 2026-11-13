@@ -12,7 +12,7 @@ export function MenuCarousel() {
   const viewportRef = useContinuousScroll();
 
   return (
-    <section className="cloud-accent-section section-charcoal bg-background py-section" id="menu-section">
+    <section className="cloud-accent-section bg-background py-section" id="menu-section">
       <CloudOrnament className="cloud-ornament--menu-preview" />
       <div className="section-shell overflow-hidden">
         <div className="mx-auto grid max-w-3xl justify-items-center gap-6 text-center">

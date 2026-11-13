@@ -9,8 +9,9 @@ import { MagneticButton } from "@/components/MagneticButton";
 import { useLanguage } from "@/components/LanguageProvider";
 import { brandName, reservationHref } from "@/lib/content";
 
-export function Navbar() {
+export function Navbar({ hideAtTop = false }: { hideAtTop?: boolean }) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const headerRef = useRef<HTMLElement>(null);
   const { t, localizeHref } = useLanguage();
@@ -20,6 +21,22 @@ export function Navbar() {
     { label: t.nav.space, href: localizeHref("/#space") },
     { label: t.nav.contact, href: localizeHref("/#booking") },
   ];
+
+  useEffect(() => {
+    if (!hideAtTop) return;
+
+    const updateScroll = () => {
+      const pastTop = window.scrollY > 0;
+      setScrolled(pastTop);
+      if (!pastTop) setOpen(false);
+    };
+    const frame = requestAnimationFrame(updateScroll);
+    window.addEventListener("scroll", updateScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateScroll);
+    };
+  }, [hideAtTop]);
 
   useEffect(() => {
     if (!open) return;
@@ -47,9 +64,9 @@ export function Navbar() {
     <>
       <a className="skip-link" href="#main-content">{t.skip}</a>
       <div aria-hidden="true" className={`fixed inset-x-0 top-16 bottom-0 z-40 touch-none bg-night/25 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${open ? "opacity-100" : "pointer-events-none opacity-0"}`} />
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-line/35 bg-background text-ink" ref={headerRef}>
+      <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-line/35 bg-background text-ink" data-at-top={hideAtTop && !scrolled && !open} ref={headerRef}>
         <nav aria-label={t.nav.label} className="section-shell relative flex h-16 items-center justify-between gap-3">
-          <Link aria-label={`${brandName} — ${t.nav.home}`} className="flex shrink-0 items-center gap-2.5 text-lg font-semibold tracking-[0.13em] text-gold" href={localizeHref("/#home")} onClick={() => setOpen(false)}>
+          <Link aria-label={`${brandName} — ${t.nav.home}`} className="flex shrink-0 items-center gap-2.5 text-lg font-normal tracking-[0.13em] text-gold" href={localizeHref("/#home")} onClick={() => setOpen(false)}>
             <Image alt="" aria-hidden src="/kumo-logo-gold.jpg" width={44} height={44} className="h-11 w-11 rounded-full object-cover brightness-125 mix-blend-lighten" />
             {brandName}
           </Link>

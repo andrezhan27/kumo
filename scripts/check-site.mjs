@@ -13,7 +13,8 @@ assert.equal(response.headers.get("referrer-policy"), "strict-origin-when-cross-
 assert.equal(response.headers.get("x-frame-options"), "SAMEORIGIN");
 const html = await response.text();
 assert.match(html, /<html[^>]+lang="fr"/, "Default document language must be French");
-assert.match(html, /<h1[^>]*>KUMO<\/h1>/, "Home page must identify KUMO");
+const homeHeading = /<h1[^>]*>\s*<img\b[^>]*\balt="KUMO"[^>]*>\s*<\/h1>/;
+assert.match(html, homeHeading, "Home page must identify KUMO");
 assert.doesNotMatch(html, /Sushi King|sushiking|Faro|Almancil|livroreclamacoes/);
 const embeds = [...html.matchAll(/<iframe\b[^>]*>/g)].map(match => match[0]);
 assert.equal(embeds.length, 1, "The contact section must contain one map embed");
@@ -101,7 +102,7 @@ for (const [route, pageHtml] of pages) {
   assert.doesNotMatch(pageHtml, /<meta name="robots" content="[^"]*noindex/);
   const expectedTitle = isReservation
     ? new RegExp(`<h1[^>]*>${{ en: "Book a table", fr: "Réserver", nl: "Reserveren" }[language]}<\\/h1>`)
-    : isMenu ? /<h1[^>]*>Menu<\/h1>/ : /<h1[^>]*>KUMO<\/h1>/;
+    : isMenu ? /<h1[^>]*>Menu<\/h1>/ : homeHeading;
   assert.match(pageHtml, expectedTitle, `${route} must render its localized heading on the server`);
   if (isReservation) {
     assert.match(pageHtml, /<iframe[^>]*src="https:\/\/reserve\.intelis\.pt\/kumo"/);

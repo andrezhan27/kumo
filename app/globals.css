@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #1c1b1b;
-  --color-surface: #2c2926;
-  --color-surface-strong: #39342f;
+  --color-background: #000;
+  --color-surface: #000;
+  --color-surface-strong: #000;
   --color-ink: #f5eee5;
   --color-ink-muted: #c2b8ad;
   --color-gold: #dca959;
   --color-gold-deep: #dca959;
-  --color-night: #1c1b1b;
+  --color-night: #000;
   --color-line: #655b50;
 
   --font-display: var(--font-montserrat);
@@ -68,19 +68,6 @@ img {
   margin-inline: auto;
 }
 
-/* Warm charcoal tones distinguish sections while keeping the whole site dark. */
-.section-charcoal {
-  --color-background: #232120;
-  --color-surface: #302c28;
-  --color-surface-strong: #3c3630;
-}
-
-.section-warm {
-  --color-background: #292622;
-  --color-surface: #332e28;
-  --color-surface-strong: #40382f;
-}
-
 /* The brochure's light pricing cards use dark type and subtle warm dividers. */
 .pricing-card {
   --color-ink: #302b24;
@@ -108,58 +95,48 @@ img {
 .cloud-ornament {
   position: absolute;
   z-index: 0;
-  width: min(72vw, 66rem);
+  width: min(48vw, 44rem);
   opacity: 0.14;
   pointer-events: none;
   user-select: none;
   filter: saturate(0.55);
 }
 
-.hero {
-  background-image: radial-gradient(ellipse at 50% 45%, #292420, #161515 85%);
-}
-
-.hero-title {
-  padding-inline-start: 0.22em;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-}
-
 .cloud-ornament--about {
   top: 1rem;
-  left: -18%;
+  left: -10%;
   transform: rotate(-7deg);
 }
 
 .cloud-ornament--pricing {
   top: -2rem;
-  right: -20%;
+  right: -12%;
   transform: scaleX(-1);
 }
 
 .cloud-ornament--menu-preview {
   top: 0;
-  left: -24%;
+  left: -14%;
 }
 
 .cloud-ornament--space {
   top: 1rem;
-  right: -24%;
+  right: -14%;
 }
 
 .cloud-ornament--contact {
   top: -1rem;
-  left: -22%;
+  left: -13%;
   transform: scaleX(-1);
 }
 
 .cloud-ornament--menu-page {
   top: 4rem;
-  right: -20%;
+  right: -12%;
 }
 
 .cloud-ornament--footer {
-  right: -12%;
+  right: -7%;
   bottom: -2rem;
 }
 
@@ -190,44 +167,156 @@ img {
 
 @media (max-width: 767px) {
   .cloud-ornament {
-    width: 150vw;
+    width: 82vw;
   }
 
   .cloud-ornament--about,
   .cloud-ornament--menu-preview,
   .cloud-ornament--contact {
     top: 1rem;
-    left: -65%;
+    left: -24%;
   }
 
   .cloud-ornament--pricing,
   .cloud-ornament--space {
     top: 0;
-    right: -65%;
+    right: -24%;
   }
 
   .cloud-ornament--menu-page {
     top: 5rem;
-    right: -60%;
+    right: -20%;
   }
 
   .cloud-ornament--footer {
-    right: -60%;
+    right: -20%;
     bottom: 0;
   }
 }
 
-.cloud-ornament--hero-top {
-  top: clamp(4.5rem, 14svh, 10rem);
-  left: -21%;
+.hero-shell {
+  display: grid;
+  align-items: center;
+  padding-block: 2rem clamp(6rem, 16svh, 10rem);
 }
 
-.cloud-ornament--hero-bottom {
-  right: -12%;
-  bottom: 0;
+.hero-logo {
+  width: min(49vw, 30svh, 16rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 25%;
+  clip-path: circle(45.5% at 51% 50%);
 }
 
-/* Keep the embedded street map legible within the charcoal contact section. */
+.hero-tagline,
+.hero-action {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.hero-tagline {
+  padding-inline-start: 0.26em;
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
+  letter-spacing: 0.26em;
+}
+
+.hero-action {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(220 169 89 / 46%);
+  border-radius: 0.25rem;
+  padding-inline: 0.875rem;
+  color: var(--color-ink);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.hero-action:hover {
+  border-color: var(--color-gold);
+  background-color: rgb(220 169 89 / 9%);
+}
+
+.hero-clouds {
+  position: absolute;
+  inset: 4rem 0 0;
+  opacity: 0.58;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-cloud {
+  position: absolute;
+  width: var(--cloud-width);
+  height: auto;
+}
+
+.hero-cloud--left {
+  --cloud-width: min(27vw, 35rem, 39svh);
+  bottom: calc(2rem + 19%);
+  left: -4%;
+}
+
+.hero-cloud--right {
+  --cloud-width: min(27vw, 34rem, 40svh);
+  bottom: calc(2rem + 24%);
+  right: -2%;
+  scale: -1 1;
+}
+
+.hero-cloud--center {
+  --cloud-width: min(42vw, 49rem, 68svh);
+  bottom: calc(2rem + 5%);
+  left: 27%;
+}
+
+.hero-cloud--lower-left {
+  --cloud-width: min(31vw, 37rem, 44svh);
+  bottom: 2rem;
+  left: 1%;
+  scale: -1 1;
+}
+
+.hero-cloud--lower-right {
+  --cloud-width: min(29vw, 36rem, 42svh);
+  bottom: calc(2rem + 1%);
+  right: 1%;
+}
+
+@media (max-width: 767px) {
+  .hero-cloud--left {
+    --cloud-width: 44vw;
+    bottom: calc(2rem + 17%);
+    left: -8%;
+  }
+
+  .hero-cloud--right {
+    --cloud-width: 44vw;
+    bottom: calc(2rem + 24%);
+    right: -7%;
+  }
+
+  .hero-cloud--center {
+    --cloud-width: 72vw;
+    bottom: calc(2rem + 5%);
+    left: 13%;
+  }
+
+  .hero-cloud--lower-left {
+    --cloud-width: 43vw;
+    left: -5%;
+  }
+
+  .hero-cloud--lower-right {
+    --cloud-width: 39vw;
+    right: -4%;
+  }
+}
+
+/* Keep the embedded street map legible within the black contact section. */
 .location-map {
   filter: grayscale(1) invert(0.9) contrast(0.9);
 }
@@ -238,7 +327,7 @@ img {
   }
 
   @supports (animation-timeline: view()) and (animation-range: entry 0% entry 100%) {
-    .hero .cloud-ornament {
+    .hero-clouds {
       animation: hero-cloud-drift linear both;
       animation-timeline: scroll(root block);
       animation-range: 0px 85svh;
@@ -410,6 +499,16 @@ footer :focus-visible {
 }
 
 .skip-link:focus { transform: translateY(0); }
+
+.site-header {
+  transition: opacity 220ms ease, translate 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-header[data-at-top="true"]:not(:has(:focus-visible)) {
+  opacity: 0;
+  pointer-events: none;
+  translate: 0 -0.5rem;
+}
 
 .mobile-navigation {
   display: grid;

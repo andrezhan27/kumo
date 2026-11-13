@@ -63,9 +63,8 @@ export const translations = {
     languageLabel: "Choisir la langue",
     skip: "Aller au contenu",
     hero: {
-      eyebrow: "Cuisine asiatique · Waterloo",
       title: brandName,
-      description: "Un nuage de saveurs, au cœur de Waterloo. Sushis, teppanyaki et découvertes à partager.",
+      description: "Un nuage de saveurs",
       primary: "Réserver",
     },
     story: {
@@ -198,10 +197,9 @@ export const translations = {
     languageLabel: "Choose language",
     skip: "Skip to content",
     hero: {
-      eyebrow: "Asian cuisine · Waterloo",
       title: brandName,
-      description: "A cloud of flavours in the heart of Waterloo. Sushi, teppanyaki and discoveries to share.",
-      primary: "Book a table",
+      description: "A cloud of flavors",
+      primary: "Reserve",
     },
     story: {
       eyebrow: "The concept",
@@ -333,9 +331,8 @@ export const translations = {
     languageLabel: "Taal kiezen",
     skip: "Naar de inhoud",
     hero: {
-      eyebrow: "Aziatische keuken · Waterloo",
       title: brandName,
-      description: "Een wolk van smaken in het hart van Waterloo. Sushi, teppanyaki en nieuwe smaken om samen te ontdekken.",
+      description: "Een wolk van smaken",
       primary: "Reserveren",
     },
     story: {

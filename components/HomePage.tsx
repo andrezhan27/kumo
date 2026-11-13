@@ -12,7 +12,7 @@ import { RestaurantStory } from "@/components/RestaurantStory";
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Navbar hideAtTop />
       <main id="main-content">
         <Hero />
         <RestaurantStory />

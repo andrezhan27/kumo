@@ -22,7 +22,7 @@ export function ReviewsSection() {
   const trackRef = useContinuousScroll(16);
 
   return (
-    <section aria-labelledby="reviews-heading" className="section-warm overflow-hidden bg-background py-6 text-ink md:py-10" id="reviews">
+    <section aria-labelledby="reviews-heading" className="overflow-hidden bg-background py-6 text-ink md:py-10" id="reviews">
       <h2 className="sr-only" id="reviews-heading">{t.reviews.title}</h2>
       <p className="sr-only" id="reviews-description">{t.reviews.description}</p>
 

@@ -17,7 +17,7 @@ export function BookTable() {
     { href: restaurantInfo.instagramHref, icon: Instagram, label: t.booking.socialLabel, value: restaurantInfo.instagram },
   ];
   return (
-    <section className="cloud-accent-section section-charcoal bg-background py-section" id="booking">
+    <section className="cloud-accent-section bg-background py-section" id="booking">
       <CloudOrnament className="cloud-ornament--contact" />
       <div className="section-shell">
         <h2 className="display-heading text-5xl leading-none text-gold md:text-7xl">{t.booking.title}</h2>
