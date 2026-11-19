@@ -1,6 +1,6 @@
 export const brandName = "KUMO";
 export const reservationSlug = "kumo";
-export const reservationHref = "tel:+3227676398";
+export const reservationHref = "https://6b8c5f74-a119-46bd-acf0-ad8df6b7dfcc.pipedrive.email/c/24mv8lrzn4/jkq18nqojy/l24mqjmjy7/0?redirectUrl=https%3A%2F%2Fkumo.reservation.barestho.com%2F&hash=YospyoO1DNh7-k7BLkGo7_ZPiUCLrR9f98ymlmWEFUE";
 export const diningSlogan = ["I don't do buffet.", "I do", "KUMO."] as const;
 
 // Formulas and prices from the owner-supplied brochures (6 November 2026).

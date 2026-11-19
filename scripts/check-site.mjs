@@ -4,6 +4,7 @@ const menuCategories = JSON.parse(await readFile(new URL("../lib/menu-data.json"
 const dishes = menuCategories.flatMap(category => category.dishes);
 
 const origin = process.env.CHECK_SITE_URL || "http://127.0.0.1:3000";
+const reservationUrl = "https://6b8c5f74-a119-46bd-acf0-ad8df6b7dfcc.pipedrive.email/c/24mv8lrzn4/jkq18nqojy/l24mqjmjy7/0?redirectUrl=https%3A%2F%2Fkumo.reservation.barestho.com%2F&hash=YospyoO1DNh7-k7BLkGo7_ZPiUCLrR9f98ymlmWEFUE";
 const fetchWithTimeout = (url, options = {}) => fetch(url, { ...options, signal: AbortSignal.timeout(15_000) });
 const response = await fetchWithTimeout(origin);
 assert.equal(response.status, 200, "Home page must return 200");
@@ -35,7 +36,6 @@ for (const href of links) {
   }
 }
 assert.ok(links.includes("tel:+3227676398"), "KUMO’s phone must remain available");
-assert.ok(links.filter(href => href === "tel:+3227676398").length >= 5, "Reservation CTAs and the dining slogan must call KUMO");
 assert.ok(links.includes("https://maps.app.goo.gl/2EeE3jBLwH5xgsZS9"));
 
 const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)[1]);
@@ -81,6 +81,10 @@ for (const [route, pageHtml] of pages) {
   const prefix = language === "fr" ? "" : `/${language}`;
   const isReservation = route.endsWith("/reservation");
   const isMenu = route.endsWith("/menu");
+  const pageLinks = [...pageHtml.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(match => match[1].replaceAll("&amp;", "&"));
+  const expectedBookingLinks = isReservation ? 2 : isMenu ? 3 : 5;
+  assert.equal(pageLinks.filter(href => href === reservationUrl).length, expectedBookingLinks, `${route}: all booking CTAs must use the full reservation URL`);
+  assert.equal(pageLinks.filter(href => href === "tel:+3227676398").length, isReservation ? 0 : 2, `${route}: phone links must match the contact information`);
   const frenchPath = isReservation ? "/reservation" : isMenu ? "/menu" : "/";
   const englishPath = isReservation ? "/en/reservation" : isMenu ? "/en/menu" : "/en";
   const dutchPath = isReservation ? "/nl/reservation" : isMenu ? "/nl/menu" : "/nl";
@@ -114,7 +118,6 @@ for (const [route, pageHtml] of pages) {
     assert.equal([...pageHtml.matchAll(/class="menu-category-section"/g)].length, 18);
     assert.match(pageHtml, /<select[^>]*id="menu-category"/);
     assert.ok(pageHtml.includes(`href="${prefix || "/"}"`), "Back link must retain the language");
-    assert.ok([...pageHtml.matchAll(/<a\b[^>]*href="tel:\+3227676398"/g)].length >= 2, "Menu booking and contact links must call KUMO");
     assert.doesNotMatch(pageHtml, /menu-new-badge|View full menu|View prices|Complete menu/);
     const dishCards = [...pageHtml.matchAll(/<figure class="menu-dish-card">([\s\S]*?)<\/figure>/g)].map(match => match[1]);
     assert.equal(dishCards.length, dishes.length);
@@ -172,15 +175,12 @@ for (const [route, pageHtml] of pages) {
     assert.match(pageHtml, /<address\b/);
     const pageIds = [...pageHtml.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
     assert.equal(new Set(pageIds).size, pageIds.length);
-    const pageLinks = [...pageHtml.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(match => match[1]);
     for (const href of pageLinks) {
-      const link = new URL(href.replaceAll("&amp;", "&"), new URL(route, origin));
+      const link = new URL(href, new URL(route, origin));
       if (link.origin !== new URL(origin).origin || !link.hash) continue;
       assert.equal(link.pathname, route, "Section links must retain the page language");
       assert.ok(pageIds.includes(link.hash.slice(1)), `Broken localized anchor: ${href}`);
     }
-    assert.ok(pageLinks.filter(href => href === "tel:+3227676398").length >= 5);
-    assert.ok(!pageLinks.includes(`${prefix}/reservation`), "Home booking CTAs must use the phone number");
   }
 }
 
