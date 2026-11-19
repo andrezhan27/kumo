@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 const menuCategories = JSON.parse(await readFile(new URL("../lib/menu-data.json", import.meta.url), "utf8"));
+const categoryIds = menuCategories.map(category => category.id);
 const dishes = menuCategories.flatMap(category => category.dishes);
 
 const origin = process.env.CHECK_SITE_URL || "http://127.0.0.1:3000";
@@ -115,8 +116,10 @@ for (const [route, pageHtml] of pages) {
       assert.ok(pageHtml.includes(`href="${path}"`), "Language dropdown must link to every equivalent reservation page");
     }
   } else if (isMenu) {
-    assert.equal([...pageHtml.matchAll(/class="menu-category-section"/g)].length, 18);
-    assert.match(pageHtml, /<select[^>]*id="menu-category"/);
+    assert.deepEqual([...pageHtml.matchAll(/class="menu-category-section" id="([^"]+)"/g)].map(match => match[1]), categoryIds);
+    const categoryPicker = pageHtml.match(/<select[^>]*id="menu-category"[^>]*>([\s\S]*?)<\/select>/)[1];
+    assert.deepEqual([...categoryPicker.matchAll(/<option value="([^"]+)"/g)].map(match => match[1]), categoryIds);
+    assert.deepEqual([...pageHtml.matchAll(/<a\b[^>]*href="#([^"]+)"/g)].map(match => match[1]).filter(id => categoryIds.includes(id)), categoryIds);
     assert.ok(pageHtml.includes(`href="${prefix || "/"}"`), "Back link must retain the language");
     assert.doesNotMatch(pageHtml, /menu-new-badge|View full menu|View prices|Complete menu/);
     const dishCards = [...pageHtml.matchAll(/<figure class="menu-dish-card">([\s\S]*?)<\/figure>/g)].map(match => match[1]);
@@ -127,7 +130,7 @@ for (const [route, pageHtml] of pages) {
     assert.equal(new Set(menuIds).size, menuIds.length);
     for (const category of menuCategories) {
       assert.ok(menuIds.includes(category.id));
-      assert.ok(pageHtml.includes(`href="#${category.id}"`));
+      if (category.previousId) assert.ok(menuIds.includes(category.previousId));
       for (const dish of category.dishes) {
         const escapedName = dish.name[language].replaceAll("&", "&amp;").replaceAll("'", "&#x27;").replaceAll('"', "&quot;");
         assert.ok(pageHtml.includes(escapedName), `${route} missing caption: ${dish.id}`);
@@ -237,4 +240,4 @@ for (let offset = 0; offset < dishes.length; offset += 12) {
     assert.ok((await image.arrayBuffer()).byteLength > 0);
   }));
 }
-console.log(`PASS: all ${dishes.length} menu images, 18 categories, localized captions, fragments, lazy loading, booking and telephone links.`);
+console.log(`PASS: all ${dishes.length} menu images, ${menuCategories.length} categories, localized captions, fragments, lazy loading, booking and telephone links.`);

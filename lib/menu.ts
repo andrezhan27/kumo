@@ -13,6 +13,7 @@ export type MenuDish = {
 };
 export type MenuCategory = {
   id: string;
+  previousId?: string;
   title: LocalizedText;
   description: LocalizedText;
   dishes: MenuDish[];
@@ -21,9 +22,8 @@ export type MenuCategory = {
 export const menuCategories: MenuCategory[] = data;
 
 const categoryGroups = [
-  { id: "starters", title: { fr: "Pour commencer", en: "To start", nl: "Om te beginnen" }, categories: ["starters", "sushi-starters", "carpaccio"] },
-  { id: "sushi", title: { fr: "Sushi & sashimi", en: "Sushi & sashimi", nl: "Sushi & sashimi" }, categories: ["sashimi", "nigiri", "hosomaki", "uramaki", "temaki", "bigne", "chirashi-tartare", "specialities"] },
-  { id: "kitchen", title: { fr: "Côté cuisine", en: "From the kitchen", nl: "Uit de keuken" }, categories: ["steamed", "fried", "teppanyaki", "wok", "noodles", "rice"] },
+  { id: "sushi", title: { fr: "Sushi & sashimi", en: "Sushi & sashimi", nl: "Sushi & sashimi" }, categories: ["sushi-starters", "carpaccio", "bigne", "tartare", "nigiri", "hosomaki", "uramaki", "sashimi", "specialities"] },
+  { id: "kitchen", title: { fr: "Côté cuisine", en: "From the kitchen", nl: "Uit de keuken" }, categories: ["noodles", "wok", "teppanyaki", "steamed", "starters", "fried"] },
   { id: "finish", title: { fr: "Pour finir", en: "To finish", nl: "Tot slot" }, categories: ["drinks"] },
 ];
 

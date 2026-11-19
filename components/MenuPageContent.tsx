@@ -157,6 +157,7 @@ export function MenuPageContent() {
             <div className="menu-sections">
               {menuCategories.map((category, categoryIndex) => (
                 <section aria-labelledby={`${category.id}-title`} className="menu-category-section" id={category.id} key={category.id}>
+                  {category.previousId && <span aria-hidden="true" className="menu-category-anchor" id={category.previousId} />}
                   <div className="menu-section-header">
                     <p aria-hidden="true" className="label-caps menu-section-number">{String(categoryIndex + 1).padStart(2, "0")} / MENU</p>
                     <h2 className="menu-heading menu-category-title" id={`${category.id}-title`} tabIndex={-1}>{category.title[language]}</h2>

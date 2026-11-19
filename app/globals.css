@@ -664,7 +664,8 @@ footer :focus-visible {
 .menu-select-wrap svg { position: absolute; top: 50%; right: 1rem; transform: translateY(-50%); color: var(--color-gold); pointer-events: none; }
 
 .menu-sections { min-width: 0; margin-top: 2rem; }
-.menu-category-section { scroll-margin-top: 4.5rem; }
+.menu-category-section { position: relative; scroll-margin-top: 4.5rem; }
+.menu-category-anchor { position: absolute; inset-block-start: 0; scroll-margin-top: inherit; }
 .menu-category-section + .menu-category-section {
   margin-top: clamp(3rem, 6vw, 5rem);
   border-top: 1px solid color-mix(in srgb, var(--color-line) 45%, transparent);
