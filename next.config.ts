@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Preserve the standalone branded 404 for unmatched routes.
-  experimental: { globalNotFound: true },
+  experimental: { globalNotFound: true, agentUpgrade: "security" },
   poweredByHeader: false,
   images: { minimumCacheTTL: 86400 },
   async headers() {
