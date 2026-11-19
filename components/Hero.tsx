@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useLanguage } from "@/components/LanguageProvider";
-import { reservationHref } from "@/lib/content";
+import { heroTagline, reservationHref } from "@/lib/content";
 import logo from "@/public/kumo-logo-gold.jpg";
 import cloud from "@/public/ornaments/kumo-cloud-hero-detailed.webp";
 
@@ -29,7 +29,7 @@ export function Hero() {
           <h1>
             <Image alt={t.hero.title} className="hero-logo mx-auto" fetchPriority="high" loading="eager" sizes="min(49vw, 30svh, 16rem)" src={logo} />
           </h1>
-          <p className="hero-tagline mt-6 text-ink sm:mt-8">{t.hero.description}</p>
+          <p className="hero-tagline mt-6 text-ink sm:mt-8" lang="en">{heroTagline}</p>
           <a className="hero-action mt-5 md:mt-6" href={reservationHref}>{t.hero.primary}</a>
         </div>
       </div>

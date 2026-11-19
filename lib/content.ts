@@ -1,4 +1,5 @@
 export const brandName = "KUMO";
+export const heroTagline = "A cloud of flavors";
 export const reservationSlug = "kumo";
 export const reservationHref = "https://6b8c5f74-a119-46bd-acf0-ad8df6b7dfcc.pipedrive.email/c/24mv8lrzn4/jkq18nqojy/l24mqjmjy7/0?redirectUrl=https%3A%2F%2Fkumo.reservation.barestho.com%2F&hash=YospyoO1DNh7-k7BLkGo7_ZPiUCLrR9f98ymlmWEFUE";
 export const diningSlogan = ["I don't do buffet.", "I do", "KUMO."] as const;
@@ -64,7 +65,6 @@ export const translations = {
     skip: "Aller au contenu",
     hero: {
       title: brandName,
-      description: "Un nuage de saveurs",
       primary: "Réserver",
     },
     story: {
@@ -198,7 +198,6 @@ export const translations = {
     skip: "Skip to content",
     hero: {
       title: brandName,
-      description: "A cloud of flavors",
       primary: "Reserve",
     },
     story: {
@@ -332,7 +331,6 @@ export const translations = {
     skip: "Naar de inhoud",
     hero: {
       title: brandName,
-      description: "Een wolk van smaken",
       primary: "Reserveren",
     },
     story: {

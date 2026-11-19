@@ -135,6 +135,9 @@ for (const [route, pageHtml] of pages) {
     }
     for (const path of [frenchPath, englishPath, dutchPath]) assert.ok(pageHtml.includes(`href="${path}"`));
   } else {
+    assert.match(pageHtml, /<p class="hero-tagline [^"]*" lang="en">A cloud of flavors<\/p>/);
+    const heroAction = pageHtml.match(/<a class="hero-action [^"]*"[^>]*>([^<]+)<\/a>/)?.[1];
+    assert.equal(heroAction, { fr: "Réserver", en: "Reserve", nl: "Reserveren" }[language]);
     const combinedHtml = pageHtml.match(/<section[^>]*id="pricing"[^>]*>([\s\S]*?)<\/section>/)[1];
     assert.ok(combinedHtml.includes('id="how-it-works"'), "Ordering guidance and pricing must share one section");
     assert.doesNotMatch(pageHtml, /<section[^>]*id="how-it-works"/);
