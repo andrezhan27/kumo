@@ -20,10 +20,26 @@ export type MenuCategory = {
 
 export const menuCategories: MenuCategory[] = data;
 
+const categoryGroups = [
+  { id: "starters", title: { fr: "Pour commencer", en: "To start", nl: "Om te beginnen" }, categories: ["starters", "sushi-starters", "carpaccio"] },
+  { id: "sushi", title: { fr: "Sushi & sashimi", en: "Sushi & sashimi", nl: "Sushi & sashimi" }, categories: ["sashimi", "nigiri", "hosomaki", "uramaki", "temaki", "bigne", "chirashi-tartare", "specialities"] },
+  { id: "kitchen", title: { fr: "Côté cuisine", en: "From the kitchen", nl: "Uit de keuken" }, categories: ["steamed", "fried", "teppanyaki", "wok", "noodles", "rice"] },
+  { id: "finish", title: { fr: "Pour finir", en: "To finish", nl: "Tot slot" }, categories: ["drinks"] },
+];
+
+export const menuCategoryGroups = categoryGroups.map(group => ({
+  ...group,
+  categories: menuCategories.filter(category => group.categories.includes(category.id)),
+}));
+
+export function menuGroupFor(categoryId: string) {
+  return menuCategoryGroups.find(group => group.categories.some(category => category.id === categoryId))?.id;
+}
+
 export const menuCopy = {
   fr: {
     title: "Menu", home: "Accueil", back: "Retour à l’accueil",
-    explore: "Explorer la carte", choose: "Choisir une catégorie", categories: "Catégories",
+    explore: "Explorer la carte",
     new: "Nouveau", book: "Réserver une table", phone: "Téléphoner",
     note: "Pour toute information sur les allergènes et la disponibilité des plats, veuillez vous adresser à notre équipe.",
     metadataTitle: "Menu | KUMO Waterloo",
@@ -31,7 +47,7 @@ export const menuCopy = {
   },
   en: {
     title: "Menu", home: "Home", back: "Back to home",
-    explore: "Explore the menu", choose: "Choose a category", categories: "Categories",
+    explore: "Explore the menu",
     new: "New", book: "Book a table", phone: "Call us",
     note: "Please ask our restaurant team about allergens and dish availability.",
     metadataTitle: "Menu | KUMO Waterloo",
@@ -39,7 +55,7 @@ export const menuCopy = {
   },
   nl: {
     title: "Menu", home: "Home", back: "Terug naar home",
-    explore: "Ontdek de menukaart", choose: "Kies een categorie", categories: "Categorieën",
+    explore: "Ontdek de menukaart",
     new: "Nieuw", book: "Reserveer een tafel", phone: "Bel ons",
     note: "Vraag ons restaurantteam naar allergenen en de beschikbaarheid van gerechten.",
     metadataTitle: "Menu | KUMO Waterloo",
